@@ -15,7 +15,7 @@
       --surface: #F7F3EA;
       --surface-soft: #EEF3EF;
       --border: #D7DDD9;
-      --accent: #B56F3D;
+      --accent: #A35F32;
     }
 
     * { box-sizing: border-box; }
@@ -67,7 +67,7 @@
 
     .inner {
       position: relative;
-      min-height: 273mm;
+      min-height: 271mm;
       display: flex;
       flex-direction: column;
     }
@@ -219,10 +219,24 @@
       body { background: white; }
       .review-banner { display: none; }
       .sheet {
+        height: 297mm;
+        min-height: 297mm;
         margin: 0;
         box-shadow: none;
         page-break-after: avoid;
       }
+      .inner {
+        height: 271mm;
+        min-height: 271mm;
+      }
+      .kicker { margin-bottom: 7mm; }
+      .hero { margin-bottom: 5mm; }
+      .body { margin-bottom: 6mm; }
+      .examples { margin-bottom: 7mm; }
+      .qr-block { margin-bottom: 6mm; }
+      .promise { margin-bottom: 6mm; padding-top: 5mm; }
+      .notes { margin-bottom: 5mm; padding: 3mm 5mm; }
+      .close p { margin: 0; }
       @page { size: A4; margin: 0; }
     }
   </style>
