@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ひとこと掲示 Card Wall V1 Correction 1</title>
+<title>ひとこと掲示 Card Wall V1 Correction 2</title>
 <style>
 :root{--green:#214f3f;--ink:#202522;--muted:#5f675f;--paper:#fbf8ef;--cork:#c8a77d;--yellow:#e8d65a;}
 *{box-sizing:border-box} html,body{margin:0;padding:0}
@@ -14,7 +14,7 @@ body{background:#e8ebe7;color:var(--ink);font-family:"Hiragino Kaku Gothic ProN"
 .board{width:100%;height:100%;padding:6mm 6.5mm 5.5mm;position:relative;overflow:hidden;border:2.2mm solid #a9845f;background:radial-gradient(circle at 15% 22%,rgba(91,63,37,.11) 0 .55mm,transparent .72mm),radial-gradient(circle at 72% 65%,rgba(255,255,255,.12) 0 .7mm,transparent .9mm),radial-gradient(circle at 45% 82%,rgba(91,63,37,.08) 0 .45mm,transparent .6mm),linear-gradient(135deg,rgba(255,255,255,.07),rgba(71,44,22,.05)),var(--cork);background-size:11mm 9mm,14mm 12mm,8mm 10mm,auto,auto}
 .board:after{content:"";position:absolute;inset:1.6mm;border:.3mm solid rgba(78,52,30,.18);pointer-events:none}
 .kicker{position:absolute;left:8mm;top:5.4mm;z-index:3;margin:0;padding:1mm 2.4mm;background:rgba(251,248,239,.9);color:var(--green);font-size:9.5px;font-weight:700;letter-spacing:.08em;transform:rotate(-.8deg)}
-.hero{display:grid;grid-template-columns:minmax(0,1fr) 38mm;gap:4.5mm;align-items:stretch;margin-top:3.5mm;margin-bottom:3.3mm;min-height:43mm}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 40mm;gap:4.5mm;align-items:stretch;margin-top:3.5mm;margin-bottom:3.3mm;min-height:43mm}
 .hero-paper,.side-note,.action-paper,.caution-strip{position:relative;background:var(--paper);box-shadow:0 1.7mm 3.5mm rgba(72,45,23,.18)}
 .hero-paper{padding:7mm 6.5mm 4mm;transform:rotate(-.45deg)}
 .hero-paper:before,.side-note:before,.action-paper:before{content:"";position:absolute;left:50%;top:-2mm;width:15mm;height:4mm;transform:translateX(-50%) rotate(-1deg);background:rgba(209,218,195,.72)}
@@ -22,47 +22,47 @@ h1{margin:0;color:var(--green);font-size:37px;line-height:1.12;letter-spacing:.0
 .headline-line{position:relative;display:inline-block;padding-bottom:1.2mm}
 .headline-line:after{content:"";position:absolute;left:.8mm;right:-1mm;bottom:0;height:1.7mm;border-radius:2mm;background:rgba(232,214,90,.83);transform:rotate(-.7deg);z-index:-1}
 .lead{margin:2.6mm 0 0;font-size:15.8px;font-weight:700;line-height:1.45}
-.side-note{align-self:center;padding:6mm 4.2mm 4mm;min-height:34mm;transform:rotate(1.7deg);background:#f8f1df;font-size:11.3px;line-height:1.65;color:#39413c}
-.side-note strong{display:block;margin-bottom:1.5mm;color:var(--green);font-size:12.3px}
+.side-note{align-self:center;padding:6mm 4.2mm 4mm;min-height:34mm;transform:rotate(1.7deg);background:#f8f1df;font-size:11.3px;line-height:1.65;color:#39413c;word-break:keep-all;overflow-wrap:break-word}
+.side-note strong{display:block;margin-bottom:1.5mm;color:var(--green);font-size:12px;white-space:nowrap;letter-spacing:-.01em}
 .pairs{height:139mm;margin-bottom:3.2mm;display:flex;flex-direction:column;justify-content:space-between}
-.pair{height:32.2mm;display:flex;align-items:center;gap:1.5mm}
+.pair{height:32.2mm;display:flex;align-items:flex-start;gap:1.5mm}
 .pair:nth-child(1){margin-left:1.5mm;width:96%;transform:rotate(-.2deg)}
 .pair:nth-child(2){margin-left:7mm;width:92%;transform:rotate(.35deg)}
 .pair:nth-child(3){margin-left:2mm;width:95%;transform:rotate(-.3deg)}
 .pair:nth-child(4){margin-left:8mm;width:90%;transform:rotate(.25deg)}
 .pair .note{flex:0 0 43%}.pair .arrow{flex:0 0 8%}.pair .reply{flex:1}
-.arrow{display:flex;align-items:center;justify-content:center;color:var(--green);font-size:27px;font-family:Georgia,serif;transform:rotate(-5deg)}
+.arrow{display:flex;align-items:center;justify-content:center;align-self:center;color:var(--green);font-size:27px;font-family:Georgia,serif;transform:rotate(-5deg)}
 .card{height:100%;position:relative;padding:7mm 4.6mm 3.6mm;display:flex;align-items:center;background:var(--paper);box-shadow:0 1.4mm 2.8mm rgba(72,45,23,.18);border:.22mm solid rgba(91,76,54,.12)}
 .card:before{content:"";position:absolute;width:4.4mm;height:4.4mm;border-radius:50%;left:50%;top:1.5mm;transform:translateX(-50%);background:#8a725a;box-shadow:inset 0 .5mm .8mm rgba(255,255,255,.35),0 .6mm .8mm rgba(74,44,22,.22)}
-.pair:nth-child(1) .note{transform:rotate(-1.15deg);background:#fbf7ed}.pair:nth-child(1) .reply{transform:rotate(.7deg);background:#f4f7ef}
-.pair:nth-child(2) .note{transform:rotate(.9deg);background:#f2eadc}.pair:nth-child(2) .reply{transform:rotate(-.75deg);background:#fbf8ef}
-.pair:nth-child(3) .note{transform:rotate(-.8deg);background:#eef2ee}.pair:nth-child(3) .reply{transform:rotate(1deg);background:#f6efe8}
-.pair:nth-child(4) .note{transform:rotate(.8deg);background:#f8f4e7}.pair:nth-child(4) .reply{transform:rotate(-.85deg);background:#f1f4eb}
+.pair:nth-child(1) .note{transform:rotate(-1.15deg);background:#fbf7ed}.pair:nth-child(1) .reply{transform:rotate(.7deg) translateY(1.5mm);background:#f4f7ef}
+.pair:nth-child(2) .note{transform:rotate(.9deg);background:#f2eadc}.pair:nth-child(2) .reply{transform:rotate(-.75deg) translateY(2.3mm);background:#fbf8ef}
+.pair:nth-child(3) .note{transform:rotate(-.8deg);background:#eef2ee}.pair:nth-child(3) .reply{transform:rotate(1deg) translateY(1.2mm);background:#f6efe8}
+.pair:nth-child(4) .note{transform:rotate(.8deg);background:#f8f4e7}.pair:nth-child(4) .reply{transform:rotate(-.85deg) translateY(2mm);background:#f1f4eb}
 .label{position:absolute;left:3.8mm;top:2mm;display:inline-block;padding:.65mm 1.8mm .75mm;border-radius:.5mm;background:var(--green);color:#fff;font-size:9px;font-weight:700;letter-spacing:.05em;line-height:1}
-.card p{margin:0;width:100%;font-size:13.3px;line-height:1.55;font-weight:600;letter-spacing:.005em}.reply p{font-weight:500}
-.action-paper{display:flex;align-items:center;gap:5.5mm;padding:4.5mm 5.5mm;min-height:39mm;background:#fbf8ef;transform:rotate(-.15deg)}
-.action-main{flex:1;display:flex;flex-direction:column;justify-content:center;min-width:0}.action-title{margin:0;color:var(--green);font-size:22px;line-height:1.2;font-weight:800}.action-title span{position:relative;display:inline-block;z-index:0}.action-title span:after{content:"";position:absolute;left:0;right:-1mm;bottom:-.3mm;height:1.4mm;border-radius:2mm;background:rgba(232,214,90,.83);z-index:-1;transform:rotate(-.8deg)}
-.flow{margin:2mm 0 0;font-size:13.5px;font-weight:700;line-height:1.45}.micro{margin:1.5mm 0 0;color:var(--muted);font-size:11px;line-height:1.5}.qr-wrap{flex:0 0 35mm;display:flex;align-items:center;justify-content:center;background:#fff;padding:2.5mm;border:.3mm solid rgba(33,79,63,.12)}.qr-wrap img{width:29mm;height:29mm;display:block}
-.caution-strip{margin-top:2.5mm;padding:2.1mm 4mm;background:rgba(251,248,239,.95);font-size:8.7px;line-height:1.45;color:#4e5650;transform:rotate(.12deg)}
+.card p{margin:0;width:100%;font-size:13.3px;line-height:1.55;font-weight:600;letter-spacing:.005em;word-break:keep-all;overflow-wrap:break-word}.reply p{font-weight:500}
+.action-paper{display:flex;align-items:center;gap:5.5mm;padding:4.5mm 5.5mm;min-height:39mm;background:#f8f6ef;transform:rotate(-.15deg)}
+.action-main{flex:1;display:flex;flex-direction:column;justify-content:center;min-width:0}.action-title{margin:0;color:var(--green);font-size:21.5px;line-height:1.2;font-weight:800;word-break:keep-all;letter-spacing:-.01em}.action-title span{position:relative;display:inline-block;z-index:0;white-space:nowrap}.action-title span:after{content:"";position:absolute;left:0;right:-1mm;bottom:-.3mm;height:1.4mm;border-radius:2mm;background:rgba(232,214,90,.83);z-index:-1;transform:rotate(-.8deg)}
+.flow{margin:2mm 0 0;font-size:13.2px;font-weight:700;line-height:1.42;word-break:keep-all;overflow-wrap:break-word;letter-spacing:-.015em}.flow span{display:inline-block}.micro{margin:1.5mm 0 0;color:var(--muted);font-size:10.8px;line-height:1.48;word-break:keep-all;overflow-wrap:break-word;letter-spacing:-.01em}.micro span{display:inline-block}.qr-wrap{flex:0 0 35mm;display:flex;align-items:center;justify-content:center;background:#fff;padding:2.5mm;border:.3mm dashed rgba(33,79,63,.18)}.qr-wrap img{width:29mm;height:29mm;display:block}
+.caution-strip{margin-top:2.5mm;padding:2.1mm 4mm;background:rgba(248,246,239,.96);font-size:8.7px;line-height:1.45;color:#4e5650;transform:rotate(.12deg)}
 .caution-strip strong{color:#333a35}.bottom-line{position:absolute;right:8mm;bottom:4.8mm;margin:0;color:rgba(33,79,63,.9);font-size:8.5px;font-weight:700}
 @media print{body{background:#fff}.review-banner{display:none}.sheet{margin:0;box-shadow:none;page-break-after:avoid}@page{size:A4;margin:0}}
 </style>
 </head>
 <body>
-<p class="review-banner"><strong>Card Wall V1 / Correction-1 / Human Visual Acceptance前。</strong> 実際の掲示感を強めつつ、ひとこと→返しの関係は維持した候補です。</p>
-<main class="sheet"><section class="board">
+<p class="review-banner"><strong>Card Wall V1 / Correction-2 / Human Visual Acceptance前。</strong> カードのずれ・返信の時間差・CTA文字組を調整した候補です。</p>
+<main class="sheet" aria-label="ひとこと掲示 Card Wall V1 Correction-2"><section class="board">
 <p class="kicker">広報部会（仮）の小さな試行</p>
 <header class="hero">
 <div class="hero-paper"><h1><span class="headline-line">日常を、言葉に。</span></h1><p class="lead">気になったことを、ひとことだけ。</p></div>
 <aside class="side-note"><strong>正解は、ありません。</strong>気になったことを、<br>そのままで。</aside>
 </header>
 <section class="pairs" aria-label="ひとこととひとこと返しの例">
-<div class="pair"><article class="card note"><span class="label">ひとこと</span><p>今日は、いつもの声かけに<br>少し間があった。</p></article><div class="arrow">→</div><article class="card reply"><span class="label">ひとこと返し</span><p>その「間」、<br>ちょっと気になりますね。</p></article></div>
-<div class="pair"><article class="card note"><span class="label">ひとこと</span><p>言葉はなかったけど、<br>何度もこちらを見ていた。</p></article><div class="arrow">→</div><article class="card reply"><span class="label">ひとこと返し</span><p>見ていた先に、<br>何かあったのかもしれません。</p></article></div>
-<div class="pair"><article class="card note"><span class="label">ひとこと</span><p>声をかける順番を変えたら、<br>少し表情が違った。</p></article><div class="arrow">→</div><article class="card reply"><span class="label">ひとこと返し</span><p>順番にも、<br>何かありそうですね。</p></article></div>
-<div class="pair"><article class="card note"><span class="label">ひとこと</span><p>自販機の前で、<br>しばらく立ち止まっていた。</p></article><div class="arrow">→</div><article class="card reply"><span class="label">ひとこと返し</span><p>何を見ていたんでしょうね。</p></article></div>
+<div class="pair"><article class="card note"><span class="label">ひとこと</span><p>今日は、いつもの声かけに<br>少し間があった。</p></article><div class="arrow" aria-hidden="true">→</div><article class="card reply"><span class="label">ひとこと返し</span><p>その「間」、<br>ちょっと気になりますね。</p></article></div>
+<div class="pair"><article class="card note"><span class="label">ひとこと</span><p>言葉はなかったけど、<br>何度もこちらを見ていた。</p></article><div class="arrow" aria-hidden="true">→</div><article class="card reply"><span class="label">ひとこと返し</span><p>見ていた先に、<br>何かあったのかもしれません。</p></article></div>
+<div class="pair"><article class="card note"><span class="label">ひとこと</span><p>声をかける順番を変えたら、<br>少し表情が違った。</p></article><div class="arrow" aria-hidden="true">→</div><article class="card reply"><span class="label">ひとこと返し</span><p>順番にも、<br>何かありそうですね。</p></article></div>
+<div class="pair"><article class="card note"><span class="label">ひとこと</span><p>自販機の前で、<br>しばらく立ち止まっていた。</p></article><div class="arrow" aria-hidden="true">→</div><article class="card reply"><span class="label">ひとこと返し</span><p>何を見ていたんでしょうね。</p></article></div>
 </section>
-<section class="action-paper"><div class="action-main"><h2 class="action-title"><span>QRからどうぞ</span></h2><p class="flow">ひとことを書く → ひとこと返しを見る</p><p class="micro">30秒くらい。文章にしなくても大丈夫です。思いついたときだけでOK。</p></div><div class="qr-wrap"><img src="../hitokoto-poster-v3/assets/qr.png" alt="QRコード"></div></section>
+<section class="action-paper" aria-label="投稿への案内"><div class="action-main"><h2 class="action-title"><span>QRからどうぞ</span></h2><p class="flow"><span>ひとことを書く</span> → <span>ひとこと返しを見る</span></p><p class="micro"><span>30秒くらい。</span> <span>文章にしなくても大丈夫です。</span> <span>思いついたときだけでOK。</span></p></div><div class="qr-wrap"><img src="../hitokoto-poster-v3/assets/qr.png" alt="ひとことの固定入口QRコード"></div></section>
 <div class="caution-strip"><strong>書いたひとことが、そのまま広報に使われることはありません。</strong> 必要なものだけ広報部会で少し先を考えます。氏名など個人がわかる情報は書かないでください。事故・虐待・苦情・職場の相談などは、いつもの相談・報告ルートへ。</div>
 <p class="bottom-line">広報部会（仮）</p>
 </section></main>
