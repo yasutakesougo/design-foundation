@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ひとこと掲示 V3 検討用ドラフト</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #234E3F;
+      --text: #1F2421;
+      --muted: #5F6863;
+      --surface: #F7F3EA;
+      --surface-soft: #EEF3EF;
+      --border: #D7DDD9;
+      --accent: #B56F3D;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #e7ebe8;
+      color: var(--text);
+      font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+    }
+
+    .review-banner {
+      max-width: 210mm;
+      margin: 16px auto 12px;
+      padding: 12px 16px;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .review-banner strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 32px;
+      background:
+        radial-gradient(1200px 800px at 20% 0%, rgba(255,255,255,.55), transparent 55%),
+        var(--surface);
+      color: var(--text);
+      padding: 14mm 16mm 12mm;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(31, 36, 33, 0.12);
+    }
+
+    .sheet::before {
+      content: "";
+      position: absolute;
+      inset: 8mm;
+      border: 1px solid rgba(35, 78, 63, 0.18);
+      pointer-events: none;
+    }
+
+    .inner {
+      position: relative;
+      min-height: 273mm;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kicker {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin: 0 0 10mm;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 46mm;
+      gap: 8mm;
+      align-items: end;
+      margin-bottom: 7mm;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--primary);
+      letter-spacing: 0.04em;
+    }
+
+    .lead {
+      margin: 4mm 0 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .scene {
+      width: 46mm;
+      height: 58mm;
+      object-fit: cover;
+      object-position: 55% 20%;
+      border-radius: 2px;
+      opacity: 0.95;
+    }
+
+    .body {
+      margin: 0 0 8mm;
+      font-size: 13.5px;
+      line-height: 1.8;
+      max-width: 42em;
+    }
+
+    h2 {
+      margin: 0 0 3mm;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .examples {
+      margin: 0 0 10mm;
+      padding: 0;
+      list-style: none;
+    }
+
+    .examples li {
+      position: relative;
+      padding: 2.2mm 0 2.2mm 7mm;
+      font-size: 13.5px;
+      line-height: 1.7;
+    }
+
+    .examples li::before {
+      content: "・";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    .qr-block {
+      margin: 0 auto 8mm;
+      width: 78mm;
+      text-align: center;
+    }
+
+    .qr-block img {
+      width: 58mm;
+      height: 58mm;
+      background: var(--surface);
+      display: block;
+      margin: 0 auto 4mm;
+    }
+
+    .cta {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.02em;
+    }
+
+    .cta-note {
+      margin: 2mm 0 0;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .promise {
+      margin: 0 0 8mm;
+      padding-top: 6mm;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .promise p { margin: 0 0 2mm; }
+    .promise p:last-child { margin: 0; color: var(--muted); }
+
+    .notes {
+      margin: 0 0 8mm;
+      padding: 4mm 5mm;
+      background: var(--surface-soft);
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .notes p { margin: 0 0 2mm; }
+    .notes p:last-child { margin: 0; }
+
+    .close {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8mm;
+    }
+
+    .ok {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .sign {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    @media print {
+      body { background: white; }
+      .review-banner { display: none; }
+      .sheet {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: avoid;
+      }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <p class="review-banner">
+    <strong>検討用ドラフト／本印刷しない。</strong>
+    2026年12月の第2回までは正式掲示しない。印刷QRの固定先は設定済みだが、DeployとReal Trial Startが未承認のため本採用はHOLD。
+  </p>
+
+  <article class="sheet" aria-label="ひとこと掲示 V3">
+    <div class="inner">
+      <p class="kicker">広報部会（仮）の小さな試行</p>
+
+      <header class="hero">
+        <div>
+          <h1>日常を、言葉に。</h1>
+          <p class="lead">気になったことを、ひとことだけ。</p>
+        </div>
+        <img class="scene" src="assets/scene.jpg" alt="日常の中で、ふと立ち止まり何かを見ている人">
+      </header>
+
+      <p class="body">そのときは流れてしまう小さな気づきを、いったん置いておく場所です。</p>
+
+      <h2>たとえば</h2>
+      <ul class="examples">
+        <li>「今日は、いつもの声かけに少し間があった」</li>
+        <li>「言葉はなかったけど、何度もこちらを見ていた」</li>
+        <li>「声をかける順番を変えたら、少し表情が違った」</li>
+      </ul>
+
+      <div class="qr-block">
+        <img src="assets/qr.png" alt="ひとことの入口のQRコード">
+        <p class="cta">ひとことを書く → ひとこと返しを見る</p>
+        <p class="cta-note">30秒くらい。文章にしなくても大丈夫です。</p>
+      </div>
+
+      <div class="promise">
+        <p>書いたひとことが、そのまま広報に使われることはありません。</p>
+        <p>必要なものだけ、広報部会で少し先を考えます。</p>
+      </div>
+
+      <div class="notes">
+        <p>氏名など、個人がわかる情報は書かないでください。</p>
+        <p>事故・虐待・苦情・職場の相談などは、いつもの相談・報告ルートへ。</p>
+      </div>
+
+      <div class="close">
+        <p class="ok">思いついたときだけでOK。</p>
+        <p class="sign">広報部会（仮）</p>
+      </div>
+    </div>
+  </article>
+</body>
+</html>
