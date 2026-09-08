@@ -13,6 +13,8 @@
 - `review/`: Human Reviewを補助する確認基準。
 - `references/`: 採用・不採用事例と外部参照の記録。
 
+方向性案は `references/directions/`、Human Visual Acceptance前のドラフトは `references/in-progress/` に置きます。初案を Pattern / Prompt / Foundation へ自動昇格しません。
+
 ## 共通Foundationと個別Style Guideの境界
 
 Design Foundationは、複数案件で再利用できる判断だけを扱います。
