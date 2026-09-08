@@ -3,54 +3,66 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ひとこと掲示 Card Wall V1 Correction 2</title>
+<title>ひとこと掲示 Card Wall V1 Correction 3</title>
 <style>
-:root{--green:#214f3f;--ink:#202522;--muted:#5f675f;--paper:#fbf8ef;--cork:#c8a77d;--yellow:#e8d65a;}
+:root{--green:#214f3f;--ink:#202522;--muted:#5f675f;--paper:#fbf8ef;--cork:#b98a5f;--yellow:#e8d65a;}
 *{box-sizing:border-box} html,body{margin:0;padding:0}
 body{background:#e8ebe7;color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",Meiryo,sans-serif}
 .review-banner{width:210mm;margin:12px auto;padding:10px 14px;background:#fff;border:1px solid #d6ddd8;font-size:12px;line-height:1.55;color:var(--muted)}
 .review-banner strong{color:#8a4f31}
-.sheet{width:210mm;height:297mm;margin:0 auto 28px;padding:7mm;overflow:hidden;background:#f5f0e6;box-shadow:0 14px 40px rgba(31,36,33,.18)}
-.board{width:100%;height:100%;padding:6mm 6.5mm 5.5mm;position:relative;overflow:hidden;border:2.2mm solid #a9845f;background:radial-gradient(circle at 15% 22%,rgba(91,63,37,.11) 0 .55mm,transparent .72mm),radial-gradient(circle at 72% 65%,rgba(255,255,255,.12) 0 .7mm,transparent .9mm),radial-gradient(circle at 45% 82%,rgba(91,63,37,.08) 0 .45mm,transparent .6mm),linear-gradient(135deg,rgba(255,255,255,.07),rgba(71,44,22,.05)),var(--cork);background-size:11mm 9mm,14mm 12mm,8mm 10mm,auto,auto}
-.board:after{content:"";position:absolute;inset:1.6mm;border:.3mm solid rgba(78,52,30,.18);pointer-events:none}
-.kicker{position:absolute;left:8mm;top:5.4mm;z-index:3;margin:0;padding:1mm 2.4mm;background:rgba(251,248,239,.9);color:var(--green);font-size:9.5px;font-weight:700;letter-spacing:.08em;transform:rotate(-.8deg)}
+.sheet{width:210mm;height:297mm;margin:0 auto 28px;padding:7mm;overflow:hidden;background:#f4efe5;box-shadow:0 14px 40px rgba(31,36,33,.18)}
+.board{width:100%;height:100%;padding:6mm 6.5mm 5.5mm;position:relative;overflow:hidden;border:2.2mm solid #9f7754;background-color:var(--cork);background-image:radial-gradient(ellipse at 18% 20%,rgba(78,49,28,.15) 0 .45mm,transparent .62mm),radial-gradient(ellipse at 61% 37%,rgba(255,241,214,.16) 0 .5mm,transparent .72mm),radial-gradient(ellipse at 83% 76%,rgba(90,58,34,.12) 0 .38mm,transparent .55mm),radial-gradient(ellipse at 37% 84%,rgba(246,214,176,.13) 0 .55mm,transparent .78mm),repeating-linear-gradient(17deg,rgba(75,47,28,.028) 0 .22mm,transparent .22mm 1.9mm),repeating-linear-gradient(103deg,rgba(255,246,224,.025) 0 .18mm,transparent .18mm 2.4mm),linear-gradient(128deg,rgba(255,237,204,.08),rgba(91,56,31,.06));background-size:8mm 7mm,11mm 9mm,7mm 8mm,13mm 11mm,auto,auto,auto;box-shadow:inset 0 0 9mm rgba(91,56,31,.14)}
+.board:after{content:"";position:absolute;inset:1.6mm;border:.3mm solid rgba(78,52,30,.18);box-shadow:inset 0 0 4mm rgba(255,244,220,.08);pointer-events:none}
+.kicker{position:absolute;left:8mm;top:5.4mm;z-index:4;margin:0;padding:1mm 2.4mm;background:rgba(252,248,237,.94);color:var(--green);font-size:9.5px;font-weight:700;letter-spacing:.08em;transform:rotate(-.8deg);box-shadow:0 .8mm 1.4mm rgba(69,43,25,.12)}
 .hero{display:grid;grid-template-columns:minmax(0,1fr) 40mm;gap:4.5mm;align-items:stretch;margin-top:3.5mm;margin-bottom:3.3mm;min-height:43mm}
-.hero-paper,.side-note,.action-paper,.caution-strip{position:relative;background:var(--paper);box-shadow:0 1.7mm 3.5mm rgba(72,45,23,.18)}
-.hero-paper{padding:7mm 6.5mm 4mm;transform:rotate(-.45deg)}
-.hero-paper:before,.side-note:before,.action-paper:before{content:"";position:absolute;left:50%;top:-2mm;width:15mm;height:4mm;transform:translateX(-50%) rotate(-1deg);background:rgba(209,218,195,.72)}
+.hero-paper,.side-note,.action-paper,.caution-strip{position:relative;background:var(--paper);box-shadow:0 1.7mm 3.5mm rgba(72,45,23,.18),0 .35mm .55mm rgba(72,45,23,.08)}
+.hero-paper{padding:7mm 6.5mm 4mm;transform:rotate(-.45deg);background-image:linear-gradient(96deg,rgba(92,70,45,.025),transparent 19%,rgba(255,255,255,.25) 42%,transparent 68%),repeating-linear-gradient(0deg,rgba(94,78,58,.018) 0 .18mm,transparent .18mm 1.7mm)}
+.hero-paper:before,.side-note:before,.action-paper:before{content:"";position:absolute;left:50%;top:-2mm;width:15mm;height:4mm;transform:translateX(-50%) rotate(-1deg);background:linear-gradient(90deg,rgba(199,206,185,.5),rgba(224,227,210,.76),rgba(194,203,179,.48));box-shadow:0 .3mm .55mm rgba(65,50,33,.12)}
 h1{margin:0;color:var(--green);font-size:37px;line-height:1.12;letter-spacing:.03em;font-weight:800}
 .headline-line{position:relative;display:inline-block;padding-bottom:1.2mm}
-.headline-line:after{content:"";position:absolute;left:.8mm;right:-1mm;bottom:0;height:1.7mm;border-radius:2mm;background:rgba(232,214,90,.83);transform:rotate(-.7deg);z-index:-1}
+.headline-line:after{content:"";position:absolute;left:.8mm;right:-1mm;bottom:0;height:1.7mm;border-radius:2mm;background:rgba(232,214,90,.78);transform:rotate(-.7deg);z-index:-1}
 .lead{margin:2.6mm 0 0;font-size:15.8px;font-weight:700;line-height:1.45}
-.side-note{align-self:center;padding:6mm 4.2mm 4mm;min-height:34mm;transform:rotate(1.7deg);background:#f8f1df;font-size:11.3px;line-height:1.65;color:#39413c;word-break:keep-all;overflow-wrap:break-word}
+.side-note{align-self:center;padding:6mm 4.2mm 4mm;min-height:34mm;transform:rotate(1.7deg);background-color:#f8f1df;background-image:repeating-linear-gradient(0deg,rgba(90,73,53,.018) 0 .16mm,transparent .16mm 1.8mm);font-size:11.3px;line-height:1.65;color:#39413c;word-break:keep-all;overflow-wrap:break-word}
 .side-note strong{display:block;margin-bottom:1.5mm;color:var(--green);font-size:12px;white-space:nowrap;letter-spacing:-.01em}
 .pairs{height:139mm;margin-bottom:3.2mm;display:flex;flex-direction:column;justify-content:space-between}
 .pair{height:32.2mm;display:flex;align-items:flex-start;gap:1.5mm}
-.pair:nth-child(1){margin-left:1.5mm;width:96%;transform:rotate(-.2deg)}
-.pair:nth-child(2){margin-left:7mm;width:92%;transform:rotate(.35deg)}
-.pair:nth-child(3){margin-left:2mm;width:95%;transform:rotate(-.3deg)}
-.pair:nth-child(4){margin-left:8mm;width:90%;transform:rotate(.25deg)}
+.pair:nth-child(1){margin-left:1.5mm;width:96%;transform:rotate(-.18deg)}
+.pair:nth-child(2){margin-left:7mm;width:92%;transform:rotate(.32deg)}
+.pair:nth-child(3){margin-left:2mm;width:95%;transform:rotate(-.26deg)}
+.pair:nth-child(4){margin-left:8mm;width:90%;transform:rotate(.22deg)}
 .pair .note{flex:0 0 43%}.pair .arrow{flex:0 0 8%}.pair .reply{flex:1}
-.arrow{display:flex;align-items:center;justify-content:center;align-self:center;color:var(--green);font-size:27px;font-family:Georgia,serif;transform:rotate(-5deg)}
-.card{height:100%;position:relative;padding:7mm 4.6mm 3.6mm;display:flex;align-items:center;background:var(--paper);box-shadow:0 1.4mm 2.8mm rgba(72,45,23,.18);border:.22mm solid rgba(91,76,54,.12)}
-.card:before{content:"";position:absolute;width:4.4mm;height:4.4mm;border-radius:50%;left:50%;top:1.5mm;transform:translateX(-50%);background:#8a725a;box-shadow:inset 0 .5mm .8mm rgba(255,255,255,.35),0 .6mm .8mm rgba(74,44,22,.22)}
-.pair:nth-child(1) .note{transform:rotate(-1.15deg);background:#fbf7ed}.pair:nth-child(1) .reply{transform:rotate(.7deg) translateY(1.5mm);background:#f4f7ef}
-.pair:nth-child(2) .note{transform:rotate(.9deg);background:#f2eadc}.pair:nth-child(2) .reply{transform:rotate(-.75deg) translateY(2.3mm);background:#fbf8ef}
-.pair:nth-child(3) .note{transform:rotate(-.8deg);background:#eef2ee}.pair:nth-child(3) .reply{transform:rotate(1deg) translateY(1.2mm);background:#f6efe8}
-.pair:nth-child(4) .note{transform:rotate(.8deg);background:#f8f4e7}.pair:nth-child(4) .reply{transform:rotate(-.85deg) translateY(2mm);background:#f1f4eb}
-.label{position:absolute;left:3.8mm;top:2mm;display:inline-block;padding:.65mm 1.8mm .75mm;border-radius:.5mm;background:var(--green);color:#fff;font-size:9px;font-weight:700;letter-spacing:.05em;line-height:1}
-.card p{margin:0;width:100%;font-size:13.3px;line-height:1.55;font-weight:600;letter-spacing:.005em;word-break:keep-all;overflow-wrap:break-word}.reply p{font-weight:500}
-.action-paper{display:flex;align-items:center;gap:5mm;padding:4.5mm 5.5mm;min-height:39mm;background:#f8f6ef;transform:rotate(-.15deg)}
-.action-main{flex:1;display:flex;flex-direction:column;justify-content:center;min-width:0}.action-title{margin:0;color:var(--green);font-size:21.5px;line-height:1.2;font-weight:800;letter-spacing:-.01em}.action-title span{position:relative;display:inline-block;z-index:0;white-space:nowrap}.action-title span:after{content:"";position:absolute;left:0;right:-1mm;bottom:-.3mm;height:1.4mm;border-radius:2mm;background:rgba(232,214,90,.83);z-index:-1;transform:rotate(-.8deg)}
-.flow{margin:2mm 0 0;font-size:12.6px;font-weight:700;line-height:1.42;letter-spacing:-.02em;white-space:nowrap}.micro{margin:1.4mm 0 0;color:var(--muted);font-size:10.4px;line-height:1.45;letter-spacing:-.01em}.qr-wrap{flex:0 0 33mm;display:flex;align-items:center;justify-content:center;background:#fff;padding:2mm;border:.3mm dashed rgba(33,79,63,.18)}.qr-wrap img{width:28.5mm;height:28.5mm;display:block}
-.caution-strip{margin-top:2.5mm;padding:2.1mm 4mm;background:rgba(248,246,239,.96);font-size:8.7px;line-height:1.45;color:#4e5650;transform:rotate(.12deg)}
-.caution-strip strong{color:#333a35}.bottom-line{position:absolute;right:8mm;bottom:4.8mm;margin:0;color:rgba(33,79,63,.9);font-size:8.5px;font-weight:700}
+.arrow{display:flex;align-items:center;justify-content:center;align-self:center;color:#2c604e;font-size:28px;font-family:"Segoe Print","Bradley Hand","Comic Sans MS",Georgia,cursive;font-weight:700;transform:rotate(-7deg);text-shadow:.2mm .3mm 0 rgba(255,255,255,.23)}
+.card{height:100%;position:relative;padding:7mm 4.6mm 3.6mm;display:flex;align-items:center;background-color:var(--paper);border:.18mm solid rgba(87,69,48,.13);box-shadow:0 1.5mm 2.9mm rgba(72,45,23,.18),0 .35mm .75mm rgba(72,45,23,.1)}
+.card:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:repeating-linear-gradient(7deg,rgba(87,70,49,.014) 0 .16mm,transparent .16mm 1.65mm),linear-gradient(95deg,transparent 0 16%,rgba(255,255,255,.16) 36%,transparent 55%);mix-blend-mode:multiply;opacity:.8}
+.pair:nth-child(1) .note{transform:rotate(-1.2deg);background-color:#fbf6e9}.pair:nth-child(1) .reply{transform:rotate(.68deg) translateY(5px);background-color:#eef3e9}
+.pair:nth-child(2) .note{transform:rotate(.92deg);background-color:#f2eadb;background-image:repeating-linear-gradient(0deg,rgba(76,108,88,.055) 0 .18mm,transparent .18mm 4.7mm),repeating-linear-gradient(90deg,rgba(76,108,88,.045) 0 .18mm,transparent .18mm 4.7mm)}.pair:nth-child(2) .reply{transform:rotate(-.76deg) translateY(10px);background-color:#fbf8ef}
+.pair:nth-child(3) .note{transform:rotate(-.82deg);background-color:#edf1eb;box-shadow:0 2.1mm 3.6mm rgba(65,40,23,.22),0 .45mm .8mm rgba(65,40,23,.11)}.pair:nth-child(3) .reply{transform:rotate(1deg) translateY(7px);background-color:#f6eee5}
+.pair:nth-child(4) .note{transform:rotate(.82deg);background-color:#f8f3e5}.pair:nth-child(4) .reply{transform:rotate(-.86deg) translateY(12px);background-color:#edf2e8}
+.label{position:absolute;left:3.8mm;top:2mm;z-index:3;display:inline-block;padding:.65mm 1.8mm .75mm;border-radius:.5mm;background:var(--green);color:#fff;font-size:9px;font-weight:700;letter-spacing:.05em;line-height:1}
+.card p{position:relative;z-index:2;margin:0;width:100%;font-size:13.3px;line-height:1.55;font-weight:600;letter-spacing:.005em;word-break:keep-all;overflow-wrap:break-word}.reply p{font-weight:500}
+/* Pair 1: push pin on note, short tape on reply */
+.pair:nth-child(1) .note:before{content:"";position:absolute;z-index:4;width:4.1mm;height:4.1mm;border-radius:50%;left:49%;top:1.35mm;transform:translateX(-50%);background:radial-gradient(circle at 35% 30%,#d9c5a6 0 .65mm,#8b6b50 .8mm 2.2mm,#71543f 2.35mm);box-shadow:0 .65mm .9mm rgba(66,42,27,.28)}
+.pair:nth-child(1) .reply:before{content:"";position:absolute;z-index:4;left:48%;top:-2mm;width:16mm;height:4.1mm;transform:translateX(-50%) rotate(2deg);background:linear-gradient(90deg,rgba(207,214,191,.4),rgba(225,228,209,.76),rgba(204,213,188,.44));box-shadow:0 .25mm .5mm rgba(72,53,36,.12)}
+/* Pair 2: masking tape on note, push pin on reply */
+.pair:nth-child(2) .note:before{content:"";position:absolute;z-index:4;left:7mm;top:-2.1mm;width:17mm;height:4.2mm;transform:rotate(-4deg);background:linear-gradient(90deg,rgba(216,207,181,.45),rgba(232,225,201,.78),rgba(211,202,177,.48));box-shadow:0 .3mm .55mm rgba(72,53,36,.11)}
+.pair:nth-child(2) .reply:before{content:"";position:absolute;z-index:4;width:4mm;height:4mm;border-radius:50%;right:8mm;top:1.4mm;background:radial-gradient(circle at 34% 28%,#d8cab5 0 .6mm,#7f6d5d .76mm 2.15mm,#635244 2.3mm);box-shadow:0 .65mm .85mm rgba(66,42,27,.25)}
+/* Pair 3: pin + lifted shadow on note, tape on reply */
+.pair:nth-child(3) .note:before{content:"";position:absolute;z-index:4;width:4.2mm;height:4.2mm;border-radius:50%;left:52%;top:1.25mm;transform:translateX(-50%);background:radial-gradient(circle at 34% 28%,#d3c29f 0 .65mm,#876d49 .82mm 2.25mm,#6e573b 2.4mm);box-shadow:0 .7mm 1mm rgba(66,42,27,.3)}
+.pair:nth-child(3) .reply:before{content:"";position:absolute;z-index:4;right:8mm;top:-2.05mm;width:14mm;height:4.1mm;transform:rotate(5deg);background:linear-gradient(90deg,rgba(199,211,192,.42),rgba(218,225,211,.74),rgba(197,210,190,.44));box-shadow:0 .25mm .5mm rgba(72,53,36,.12)}
+/* Pair 4: one-sided tape on note, small pin on reply */
+.pair:nth-child(4) .note:before{content:"";position:absolute;z-index:4;left:-2mm;top:8mm;width:4.2mm;height:14mm;transform:rotate(2deg);background:linear-gradient(180deg,rgba(216,209,188,.46),rgba(235,228,207,.76),rgba(213,205,184,.45));box-shadow:.25mm .15mm .5mm rgba(72,53,36,.11)}
+.pair:nth-child(4) .reply:before{content:"";position:absolute;z-index:4;width:3.8mm;height:3.8mm;border-radius:50%;left:52%;top:1.45mm;transform:translateX(-50%);background:radial-gradient(circle at 34% 28%,#d6c9b6 0 .58mm,#817061 .74mm 2mm,#67584c 2.15mm);box-shadow:0 .6mm .8mm rgba(66,42,27,.24)}
+.action-paper{display:flex;align-items:center;gap:5.5mm;padding:4.6mm 5.8mm;min-height:39mm;background-color:#f8f6ef;background-image:repeating-linear-gradient(0deg,rgba(91,73,52,.015) 0 .16mm,transparent .16mm 1.8mm);transform:rotate(-.12deg)}
+.action-main{flex:1;display:flex;flex-direction:column;justify-content:center;min-width:0}.action-title{margin:0;color:var(--green);font-size:21.5px;line-height:1.2;font-weight:800;letter-spacing:-.01em}.action-title span{position:relative;display:inline-block;z-index:0;white-space:nowrap}.action-title span:after{content:"";position:absolute;left:0;right:-1mm;bottom:-.3mm;height:1.35mm;border-radius:2mm;background:rgba(232,214,90,.78);z-index:-1;transform:rotate(-.8deg)}
+.flow{margin:2mm 0 0;font-size:12.6px;font-weight:700;line-height:1.42;letter-spacing:-.02em;white-space:nowrap}.micro{margin:1.5mm 0 0;color:var(--muted);font-size:10.4px;line-height:1.52;letter-spacing:-.01em}.qr-wrap{flex:0 0 33.5mm;display:flex;align-items:center;justify-content:center;background:#fff;padding:2.4mm;border:.3mm solid rgba(33,79,63,.12);box-shadow:0 .4mm .8mm rgba(72,45,23,.06)}.qr-wrap img{width:28.5mm;height:28.5mm;display:block}
+.caution-strip{margin-top:2.7mm;padding:2.35mm 4.2mm 2.45mm;background:rgba(250,248,242,.97);font-size:8.7px;line-height:1.55;color:#4e5650;transform:rotate(.08deg)}
+.caution-strip strong{color:#333a35}.bottom-line{position:absolute;right:8mm;bottom:3.2mm;margin:0;color:rgba(33,79,63,.9);font-size:8.5px;font-weight:700}
 @media print{body{background:#fff}.review-banner{display:none}.sheet{margin:0;box-shadow:none;page-break-after:avoid}@page{size:A4;margin:0}}
 </style>
 </head>
 <body>
-<p class="review-banner"><strong>Card Wall V1 / Correction-2 / Human Visual Acceptance前。</strong> カードのずれ・返信の時間差・CTA文字組を調整した候補です。</p>
-<main class="sheet" aria-label="ひとこと掲示 Card Wall V1 Correction-2"><section class="board">
+<p class="review-banner"><strong>Card Wall V1 / Correction-3 / Human Visual Acceptance前。</strong> コルク・紙・留め方・返信の時間差をCSS-onlyでリアル寄りにした候補です。</p>
+<main class="sheet" aria-label="ひとこと掲示 Card Wall V1 Correction-3"><section class="board">
 <p class="kicker">広報部会（仮）の小さな試行</p>
 <header class="hero">
 <div class="hero-paper"><h1><span class="headline-line">日常を、言葉に。</span></h1><p class="lead">気になったことを、ひとことだけ。</p></div>
