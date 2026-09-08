@@ -1,84 +1,84 @@
-# CANVA-OUTPUT-PILOT-V1
+# CANVA-OUTPUT-PILOT-V1 (Definition Correction-1 / Scope Rebaseline)
 
-## 目的
+Target PR: `#15`
+HEAD: `547a9dad9a252bebc676e016c3174a18e3a7d041`
+Status: `Definition Correction-1 Candidate Freeze Pending`
 
-CanvaをDesign Foundationの正本にせず、チラシ・ポスターの制作実装先として使えるかを最小実案件で検証します。
+---
 
-## 前提
+## 1. 目的 & 再定義（Rebaseline）
 
-基準の正本は既存のDesign Foundationに置きます。
+HTML-first による V3.5 / V3.6 のポスター表現は「Web UIをA4に並べた見た目」となってしまい、Human Visual Review で不採用となりました。
+今後は **ChatGPT生成案を Primary Visual Reference（主要な視覚参考基準）** とし、**Canva-first で「一枚の完成された掲示ポスター」として構成**する検証へ切り替えます。
 
-Canva固有のルールは、検証段階ではFoundationへ追加しません。
+---
 
-現在の比較対象は `references/in-progress/hitokoto-poster-v3/` です。
+## 2. 責務構造 (Authority & Reference Split)
 
-## Scope IN
+| 役割 | 対象・ツール | 保持・管理内容 |
+|---|---|---|
+| **Content Authority + Guardrails** | **GitHub** | **内容の正本＋制約基準**<br>・コピー・本文文章<br>・3つの観察例<br>・安全文言・注記<br>・QR固定宛先 (`https://hitokoto-kaeshi-preview.web.app/poster`)<br>・Foundation / アクセシビリティガードレール |
+| **Primary Visual Reference** | **ChatGPT生成案** | **主要視覚参考基準（※正本ではない）**<br>・構図・手描き感・視線誘導の全体イメージ<br>・紙面の一体感・空気感の参考資料 |
+| **Visual Production Surface** | **Canva** | **視覚制作・レイアウトの場**<br>・実際のデザイン制作・グラフィックレイアウト<br>・タイポグラフィ、イラスト・吹き出しの配置<br>・PDF / PNG プレビュー出力 |
 
-- Canvaを制作・編集・PDF / PNG出力の実装先として評価する。
-- `patterns/flyer.md`、既存Foundations、`review/visual-review.md` を判断基準として使う。
-- 最初の対象は「ひとこと返し」A4制作物1件に限定する。
-- Canva版では、Content Lock後の文言と必須情報を勝手に変更しない。
-- Canva版と既存V3を並べてVisual Reviewする。
-- Human Visual Acceptanceを通過した場合だけ、Accepted Reference候補として扱う。
+---
 
-## Scope OUT / HOLD
+## 3. Visual Reference 指針 (ChatGPT案の採用とリファイン)
 
-- Figma / Canva同期。
-- Canva固有ルールのFoundation化。
-- `canva/` ディレクトリ新設。
-- 複数のBrand Templateを先に作ること。
-- Autofillや自動差し込み。
-- Canva版の自動採用。
-- Print / Post。
-- Deploy / Real Trial。
-- Pattern / Prompt / Foundation promotion。
+### KEEP from Reference (引き継ぐ要素)
+- 強い見出しタイトルと手描き感
+- 控えめな黄色の一本線アクセント
+- リズムのある吹き出し形状
+- 中央 QR 行動導線
+- 人物・植物・背景紙面が一体化したトーン＆マナー
 
-## 実行順
+### REFINE (リファイン・引き算要件)
+- **URL削除:** 長い URL は削除し **QR 一本化**
+- **植物量:** 植物のあしらいをすっきり減らす
+- **人物表現:** 案内係の可愛いお姉さんではなく、大人っぽく自然な「日常の観察者」へ寄せる
+- **装飾削減:** ChatGPT 案から装飾を **約 30% 引き算** し、静かさを保つ
+- **内容の準拠:** 安全文言や文言は GitHub 正本に厳密に従う
+
+> **基本原則:** 「V3.5 を装飾する」のではなく、「ChatGPT Reference を約 30% リファインする」。
+
+---
+
+## 4. 新実行順 (NEW GATE ORDER)
 
 ```text
-Current V3 exact-state readback
+1. Content Authority readback (GitHub 正本文言の確認)
 ↓
-Human Visual Acceptance for current V3 candidate
+2. Canva-first Visual Direction Lock (デザイン方向性ロック)
 ↓
-Physical A4 / QR validation
+3. Canva Implementation Pilot (Canva 上での実制作試行)
 ↓
-Canva implementation pilot
+4. Canva A4 preview (A4 プレビュー出力)
 ↓
-Side-by-side Visual Review
+5. Human Visual Review (目視評価)
 ↓
-Human Visual Acceptance for Canva output
+6. Human Visual Acceptance (視覚承認)
 ↓
-Reuse decision
+7. Physical A4 / real-device QR validation (実寸A4・実機QR検証)
 ↓
-Brand Template consideration
+8. Print / Post decision (印刷・掲示判定)
+↓
+9. Reuse decision (再利用判定)
 ```
 
-## Canva版で固定するもの
+---
 
-- 用紙サイズはA4縦とする。
-- 最初に見る場所を一つにする。
-- 主見出しの周囲に余白を確保する。
-- QRコードを他の情報から分離する。
-- イラストは本文やQR導線を圧迫しない。
-- 情報量を増やすために装飾を追加しない。
+## 5. PR #14 の扱い
 
-## 比較時に確認するもの
+- Merge candidate としては **HOLD** とします。
+- HTML-first 失敗例 / Comparison Evidence として保持し、Canva output が Accepted になるまでは close しません。
 
-1. 情報階層が既存V3より崩れていないか。
-2. 余白と情報量のバランスが維持されているか。
-3. QR導線が弱くなっていないか。
-4. イラストが主役になっていないか。
-5. 印刷時にA4一枚へ収まるか。
-6. Canvaで職員が文字、写真、QRを差し替えやすいか。
+---
 
-## 再利用判定
+## 6. Current HOLD Items
 
-Canva版が一度Acceptedになっただけでは、Brand Templateへ昇格させません。
-
-同じ構造を複数回使い、差し替え中心で運用できることを確認してから別ゲートで判断します。
-
-## 次のHuman Gate
-
-`CANVA-OUTPUT-PILOT-V1 Human Definition / Scope Lock GO`
-
-この文書は、Canva生成、印刷、掲示、Deploy、Pattern / Prompt / Foundation promotionを承認しません。
+- Canva Implementation Pilot (**未承認・開始しない**)
+- Human Visual Acceptance (**未承認**)
+- Physical A4 / real-device QR validation (**未承認**)
+- Print / Post (**HOLD**)
+- Deploy / Real Trial (**HOLD**)
+- Promotion (**HOLD**)
