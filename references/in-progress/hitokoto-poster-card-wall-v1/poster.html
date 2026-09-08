@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ひとこと掲示 Card Wall V1</title>
+  <style>
+    :root {
+      --green: #214f3f;
+      --green-soft: #dfe9e1;
+      --ink: #202522;
+      --muted: #5f675f;
+      --paper: #fbf8ef;
+      --paper-2: #f4eee1;
+      --paper-3: #eef2e9;
+      --paper-4: #f3ede7;
+      --cork: #c8a77d;
+      --cork-dark: #aa855d;
+      --yellow: #e8d65a;
+      --line: rgba(33, 79, 63, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #e8ebe7;
+      color: var(--ink);
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", Meiryo, sans-serif;
+    }
+
+    .review-banner {
+      width: 210mm;
+      margin: 12px auto;
+      padding: 10px 14px;
+      background: #fff;
+      border: 1px solid #d6ddd8;
+      font-size: 12px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .review-banner strong {
+      color: #8a4f31;
+    }
+
+    .sheet {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto 28px;
+      padding: 7mm;
+      overflow: hidden;
+      background: #f5f0e6;
+      box-shadow: 0 14px 40px rgba(31, 36, 33, 0.18);
+    }
+
+    .board {
+      width: 100%;
+      height: 100%;
+      padding: 6.5mm 7mm 6mm;
+      position: relative;
+      overflow: hidden;
+      border: 2.4mm solid #a9845f;
+      background:
+        radial-gradient(circle at 15% 22%, rgba(91, 63, 37, 0.11) 0 0.6mm, transparent 0.75mm),
+        radial-gradient(circle at 72% 65%, rgba(255, 255, 255, 0.12) 0 0.7mm, transparent 0.9mm),
+        radial-gradient(circle at 45% 82%, rgba(91, 63, 37, 0.08) 0 0.45mm, transparent 0.6mm),
+        linear-gradient(135deg, rgba(255,255,255,0.08), rgba(71,44,22,0.05)),
+        var(--cork);
+      background-size: 11mm 9mm, 14mm 12mm, 8mm 10mm, auto, auto;
+    }
+
+    .board::after {
+      content: "";
+      position: absolute;
+      inset: 1.7mm;
+      border: 0.3mm solid rgba(78, 52, 30, 0.18);
+      pointer-events: none;
+    }
+
+    .kicker {
+      position: absolute;
+      left: 9mm;
+      top: 6mm;
+      z-index: 2;
+      margin: 0;
+      padding: 1.2mm 2.5mm;
+      background: rgba(251, 248, 239, 0.88);
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      transform: rotate(-0.5deg);
+    }
+
+    .hero {
+      min-height: 46mm;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 40mm;
+      gap: 5mm;
+      align-items: stretch;
+      margin-top: 4mm;
+      margin-bottom: 4mm;
+    }
+
+    .hero-paper,
+    .side-note {
+      position: relative;
+      background: var(--paper);
+      box-shadow: 0 2mm 4mm rgba(72, 45, 23, 0.18);
+    }
+
+    .hero-paper {
+      padding: 7.5mm 7mm 4.5mm;
+      transform: rotate(-0.35deg);
+    }
+
+    .hero-paper::before,
+    .side-note::before,
+    .action-paper::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -2.2mm;
+      width: 16mm;
+      height: 4.4mm;
+      transform: translateX(-50%) rotate(-1deg);
+      background: rgba(209, 218, 195, 0.72);
+      border-left: 0.2mm solid rgba(77, 91, 68, 0.12);
+      border-right: 0.2mm solid rgba(77, 91, 68, 0.12);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--green);
+      font-size: 39px;
+      line-height: 1.12;
+      letter-spacing: 0.035em;
+      font-weight: 800;
+    }
+
+    .headline-line {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 1.4mm;
+    }
+
+    .headline-line::after {
+      content: "";
+      position: absolute;
+      left: 1mm;
+      right: -1mm;
+      bottom: 0;
+      height: 1.8mm;
+      border-radius: 2mm;
+      background: rgba(232, 214, 90, 0.83);
+      transform: rotate(-0.5deg);
+      z-index: -1;
+    }
+
+    .lead {
+      margin: 3mm 0 0;
+      font-size: 16.5px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .side-note {
+      align-self: center;
+      padding: 7mm 4.5mm 4.5mm;
+      min-height: 37mm;
+      transform: rotate(1.3deg);
+      background: #f8f1df;
+      font-size: 12px;
+      line-height: 1.7;
+      color: #39413c;
+    }
+
+    .side-note strong {
+      display: block;
+      margin-bottom: 1.6mm;
+      color: var(--green);
+      font-size: 13px;
+    }
+
+    .pairs {
+      display: grid;
+      grid-template-rows: repeat(4, minmax(0, 1fr));
+      gap: 3mm;
+      height: 143mm;
+      margin-bottom: 4.5mm;
+    }
+
+    .pair {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 13mm minmax(0, 1.08fr);
+      gap: 2.2mm;
+      align-items: center;
+    }
+
+    .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-size: 29px;
+      font-family: Georgia, serif;
+      transform: translateY(-0.5mm);
+    }
+
+    .card {
+      height: 100%;
+      min-height: 31mm;
+      position: relative;
+      padding: 7.2mm 5mm 4mm;
+      display: flex;
+      align-items: center;
+      background: var(--paper);
+      box-shadow: 0 1.6mm 3mm rgba(72, 45, 23, 0.18);
+      border: 0.25mm solid rgba(91, 76, 54, 0.12);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 4.6mm;
+      height: 4.6mm;
+      border-radius: 50%;
+      left: 50%;
+      top: 1.8mm;
+      transform: translateX(-50%);
+      background: #8a725a;
+      box-shadow: inset 0 0.5mm 0.8mm rgba(255,255,255,0.35), 0 0.7mm 1mm rgba(74,44,22,0.22);
+    }
+
+    .pair:nth-child(1) .note { transform: rotate(-0.7deg); background: #fbf7ed; }
+    .pair:nth-child(1) .reply { transform: rotate(0.55deg); background: #f4f7ef; }
+    .pair:nth-child(2) .note { transform: rotate(0.45deg); background: #f2eadc; }
+    .pair:nth-child(2) .reply { transform: rotate(-0.35deg); background: #fbf8ef; }
+    .pair:nth-child(3) .note { transform: rotate(-0.4deg); background: #eef2ee; }
+    .pair:nth-child(3) .reply { transform: rotate(0.65deg); background: #f6efe8; }
+    .pair:nth-child(4) .note { transform: rotate(0.4deg); background: #f8f4e7; }
+    .pair:nth-child(4) .reply { transform: rotate(-0.5deg); background: #f1f4eb; }
+
+    .label {
+      position: absolute;
+      left: 4mm;
+      top: 2.3mm;
+      display: inline-block;
+      padding: 0.7mm 2mm 0.8mm;
+      border-radius: 0.5mm;
+      background: var(--green);
+      color: #fff;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+
+    .card p {
+      margin: 0;
+      width: 100%;
+      font-size: 14px;
+      line-height: 1.58;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .reply p {
+      font-weight: 500;
+    }
+
+    .action-paper {
+      min-height: 55mm;
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 37mm;
+      gap: 6mm;
+      padding: 6mm 6mm 4.6mm;
+      background: var(--paper);
+      box-shadow: 0 2mm 4mm rgba(72, 45, 23, 0.18);
+      transform: rotate(0.15deg);
+    }
+
+    .action-main {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .action-title {
+      margin: 0;
+      color: var(--green);
+      font-size: 24px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .action-title span {
+      position: relative;
+      display: inline-block;
+      z-index: 0;
+    }
+
+    .action-title span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: -1mm;
+      bottom: -0.4mm;
+      height: 1.5mm;
+      border-radius: 2mm;
+      background: rgba(232, 214, 90, 0.83);
+      z-index: -1;
+      transform: rotate(-0.8deg);
+    }
+
+    .flow {
+      margin: 2.5mm 0 0;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .micro {
+      margin: 1.8mm 0 0;
+      color: var(--muted);
+      font-size: 11.5px;
+      line-height: 1.5;
+    }
+
+    .reassure {
+      margin-top: auto;
+      padding-top: 2.4mm;
+      border-top: 0.25mm solid var(--line);
+      font-size: 9.7px;
+      line-height: 1.55;
+      color: #4e5650;
+    }
+
+    .reassure strong {
+      color: #333a35;
+    }
+
+    .qr-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.4mm;
+      background: rgba(255,255,255,0.66);
+      padding: 3mm;
+      border: 0.3mm solid rgba(33, 79, 63, 0.12);
+    }
+
+    .qr-wrap img {
+      width: 30mm;
+      height: 30mm;
+      display: block;
+      background: #fff;
+    }
+
+    .qr-note {
+      margin: 0;
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--green);
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    .bottom-line {
+      position: absolute;
+      right: 8.5mm;
+      bottom: 5.2mm;
+      margin: 0;
+      color: rgba(33, 79, 63, 0.9);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .review-banner {
+        display: none;
+      }
+
+      .sheet {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: avoid;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <p class="review-banner">
+    <strong>Card Wall V1 / Human Visual Acceptance前。</strong>
+    Direction Cの実装候補です。
+    本印刷・正式掲示・Deploy・Real Trialには使用しません。
+  </p>
+
+  <main class="sheet" aria-label="ひとこと掲示 Card Wall V1">
+    <section class="board">
+      <p class="kicker">広報部会（仮）の小さな試行</p>
+
+      <header class="hero">
+        <div class="hero-paper">
+          <h1><span class="headline-line">日常を、言葉に。</span></h1>
+          <p class="lead">気になったことを、ひとことだけ。</p>
+        </div>
+
+        <aside class="side-note">
+          <strong>正解は、ありません。</strong>
+          気になったことを、<br>
+          そのままで。
+        </aside>
+      </header>
+
+      <section class="pairs" aria-label="ひとこととひとこと返しの例">
+        <div class="pair">
+          <article class="card note">
+            <span class="label">ひとこと</span>
+            <p>今日は、いつもの声かけに<br>少し間があった。</p>
+          </article>
+          <div class="arrow" aria-hidden="true">→</div>
+          <article class="card reply">
+            <span class="label">ひとこと返し</span>
+            <p>その「間」、<br>ちょっと気になりますね。</p>
+          </article>
+        </div>
+
+        <div class="pair">
+          <article class="card note">
+            <span class="label">ひとこと</span>
+            <p>言葉はなかったけど、<br>何度もこちらを見ていた。</p>
+          </article>
+          <div class="arrow" aria-hidden="true">→</div>
+          <article class="card reply">
+            <span class="label">ひとこと返し</span>
+            <p>見ていた先に、<br>何かあったのかもしれません。</p>
+          </article>
+        </div>
+
+        <div class="pair">
+          <article class="card note">
+            <span class="label">ひとこと</span>
+            <p>声をかける順番を変えたら、<br>少し表情が違った。</p>
+          </article>
+          <div class="arrow" aria-hidden="true">→</div>
+          <article class="card reply">
+            <span class="label">ひとこと返し</span>
+            <p>順番にも、<br>何かありそうですね。</p>
+          </article>
+        </div>
+
+        <div class="pair">
+          <article class="card note">
+            <span class="label">ひとこと</span>
+            <p>自販機の前で、<br>しばらく立ち止まっていた。</p>
+          </article>
+          <div class="arrow" aria-hidden="true">→</div>
+          <article class="card reply">
+            <span class="label">ひとこと返し</span>
+            <p>何を見ていたんでしょうね。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="action-paper" aria-label="投稿への案内">
+        <div class="action-main">
+          <h2 class="action-title"><span>QRからどうぞ</span></h2>
+          <p class="flow">ひとことを書く → ひとこと返しを見る</p>
+          <p class="micro">30秒くらい。文章にしなくても大丈夫です。思いついたときだけでOK。</p>
+          <div class="reassure">
+            <strong>書いたひとことが、そのまま広報に使われることはありません。</strong><br>
+            必要なものだけ、広報部会で少し先を考えます。<br>
+            氏名など個人がわかる情報は書かないでください。事故・虐待・苦情・職場の相談などは、いつもの相談・報告ルートへ。
+          </div>
+        </div>
+
+        <div class="qr-wrap">
+          <img src="../hitokoto-poster-v3/assets/qr.png" alt="ひとことの固定入口QRコード">
+          <p class="qr-note">ひとことの入口</p>
+        </div>
+      </section>
+
+      <p class="bottom-line">広報部会（仮）</p>
+    </section>
+  </main>
+</body>
+</html>
