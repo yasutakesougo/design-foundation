@@ -2,9 +2,9 @@
 
 判定: PASS WITH CORRECTION（Human Visual Acceptance前）
 
-PR #7 Human Ready: HOLD
+PR #7 Human Ready: GO。チラシの Human Visual Acceptance とは別ゲート。Scope Review PASS 後に GO する。
 
-Foundationへの昇格: HOLD。Scope Correction-1 で案件ドラフトと方向性だけ残し、共通基盤への早すぎる昇格を戻した。
+Foundationへの昇格: HOLD。案件ドラフトと方向性だけ残し、共通基盤へは昇格しない。
 
 ## Accessibility Baseline
 
