@@ -22,9 +22,20 @@ Human Visual Acceptanceを通過した制作物のうち、今後の判断に再
 
 - 
 
+### Design DNA（必要な場合のみ）
+
+- Information hierarchy:
+- Composition / information structure:
+- Typography role:
+- Color anchor:
+- Spacing / rhythm:
+- Illustration role:
+
 ### 再利用しない案件固有要素
 
 - 
 ```
 
-一案件だけの偶然の表現を、共通原則へ自動昇格させません。
+Design DNAは必須の巨大schemaにしません。次の制作で判断を再現するために必要な範囲だけ記録します。
+
+一案件だけの偶然の表現や、一度Acceptedになっただけの表現を、共通原則へ自動昇格させません。
