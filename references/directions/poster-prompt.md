@@ -1,6 +1,10 @@
-# Poster Prompt V1
+# Poster Prompt（候補）
 
-以下を掲示制作時の共通指示として使います。
+- Status: 候補。Prompt V1ではない
+- Source: ひとこと掲示 V3
+- Date: 2026-09-08
+
+Human Visual Acceptance、実寸印刷確認、実試行で少なくとも一度成立するまで `prompts/` へ昇格しません。
 
 ```text
 目的と対象者を最初に確認し、最重要メッセージを一つに絞ってください。

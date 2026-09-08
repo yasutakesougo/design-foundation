@@ -7,6 +7,8 @@
 
 このフォルダは完成物の正本ではありません。掲示候補の本文固定と、印刷前の見た目確認用ドラフトです。
 
+掲示の構成ルールは `references/directions/poster-pattern.md` に候補として残します。`patterns/` へは、Human Visual Acceptance → 実寸印刷確認 → 実試行で少なくとも一度成立するまで昇格しません。
+
 ## 印刷QR
 
 固定入口: `https://hitokoto-kaeshi-preview.web.app/poster`

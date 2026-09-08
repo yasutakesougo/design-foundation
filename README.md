@@ -7,13 +7,13 @@
 ## V1の対象
 
 - `foundations/`: 複数制作物で共通利用する原則。
-- `patterns/`: 媒体別の再利用パターン。チラシは `flyer.md`、掲示は `poster.md`。
-- `references/directions/`: 正式採用前の方向性案。Foundationへはまだ昇格しません。
-- `references/in-progress/`: Human Visual Acceptance前の案件ドラフト。本印刷の正本ではありません。
+- `patterns/`: 媒体別の再利用パターン。
 - `skills/`: 構想探索など、必要時だけ使う制作手順。
 - `prompts/`: 制作時に再利用する指示テンプレート。
 - `review/`: Human Reviewを補助する確認基準。
 - `references/`: 採用・不採用事例と外部参照の記録。
+
+方向性案は `references/directions/`、Human Visual Acceptance前のドラフトは `references/in-progress/` に置きます。初案を Pattern / Prompt / Foundation へ自動昇格しません。
 
 ## 共通Foundationと個別Style Guideの境界
 

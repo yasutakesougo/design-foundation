@@ -4,7 +4,7 @@
 - Medium: サイト、掲示、案内の補助人物
 - Date: 2026-09-08
 
-案件固有の名称や詳細設定は、再利用性が確認されるまでFoundationへ昇格しません。
+「案内役より観察者」「固定人物は世界観をつなぐ」は、この方向性案に留めます。`foundations/illustration.md` と `prompts/illustration.md` へはまだ昇格しません。
 
 ## 現在の方向性
 

@@ -2,6 +2,10 @@
 
 判定: PASS WITH CORRECTION（Human Visual Acceptance前）
 
+PR #7 Human Ready: HOLD
+
+Foundationへの昇格: HOLD。Scope Correction-1 で案件ドラフトと方向性だけ残し、共通基盤への早すぎる昇格を戻した。
+
 ## Accessibility Baseline
 
 - 本文は13px前後を下回らない。注意書きも12px。
@@ -22,3 +26,4 @@
 - 人物イラストの採用可否。方向性案であり、名称決定ではない。
 - 実寸印刷での本文サイズとQR読取。
 - DeployとReal Trial Startが未承認のため、本印刷しない。
+- Poster Pattern と観察者ルールは、上記が成立するまで Foundation / Pattern / Prompt へ昇格しない。

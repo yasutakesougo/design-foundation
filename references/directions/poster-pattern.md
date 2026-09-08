@@ -1,4 +1,10 @@
-# Poster Pattern V1（掲示）
+# Poster Pattern（候補）
+
+- Status: 候補。Pattern V1ではない
+- Source: ひとこと掲示 V3
+- Date: 2026-09-08
+
+Human Visual Acceptance、実寸印刷確認、実試行で少なくとも一度成立するまで `patterns/` へ昇格しません。
 
 ## 対象
 
