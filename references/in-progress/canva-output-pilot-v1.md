@@ -1,8 +1,8 @@
-# CANVA-OUTPUT-PILOT-V1 (Definition Correction-1 / Scope Rebaseline)
+# CANVA-OUTPUT-PILOT-V1 (Definition Correction-2 / Scope Rebaseline)
 
 Target PR: `#15`
-HEAD: `547a9dad9a252bebc676e016c3174a18e3a7d041`
-Status: `Definition Correction-1 Candidate Freeze Pending`
+Baseline before Correction-1: `547a9dad9a252bebc676e016c3174a18e3a7d041`
+Correction State: `Current PR HEAD`
 
 ---
 
@@ -74,9 +74,10 @@ HTML-first による V3.5 / V3.6 のポスター表現は「Web UIをA4に並べ
 
 ---
 
-## 6. Current HOLD Items
+## 6. Current HOLD & Lock Status
 
-- Canva Implementation Pilot (**未承認・開始しない**)
+- Human Definition / Scope Lock (**REBIND REQUIRED**)
+- Canva Implementation Pilot (**NOT AUTHORIZED / 未承認**)
 - Human Visual Acceptance (**未承認**)
 - Physical A4 / real-device QR validation (**未承認**)
 - Print / Post (**HOLD**)
