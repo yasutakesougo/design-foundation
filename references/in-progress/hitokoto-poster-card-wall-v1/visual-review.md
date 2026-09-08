@@ -29,7 +29,7 @@ Correction-1へのフィードバックを受け、生活感と文字組をさ�
 
 - `ひとこと返し` 側をPairごとに約1.2〜2.3mm下げ、あとから返しが貼られたような時間差を出す
 - Pairごとの横位置・幅・カード角度のばらつきは維持する
-- `word-break: keep-all` と文節単位の `inline-block` をCTAへ入れ、不自然な途中改行を減らす
+- CTAは文節の途中で割れないよう、1行固定と明示改行を組み合わせる
 - `正解は、ありません。` は1行で見せる
 - CTAの文字サイズ・字間をわずかに抑え、カード群より主張しすぎないようにする
 - QR枠は弱い破線へ変更し、行動導線としては維持しつつカード群との競合を減らす
@@ -95,10 +95,11 @@ Correction-1へのフィードバックを受け、生活感と文字組をさ�
 ## Accessibility / print checks before Ready
 
 - [x] A4縦 `210mm × 297mm` のprint CSSを維持している
-- [x] Correction-1のローカルprint-to-PDFは1ページ
-- [x] Correction-1のレンダーでクリッピングは見られない
+- [x] Correction-2のローカルprint-to-PDFは1ページ
+- [x] Correction-2のPDF page sizeはA4 `595.276 × 841.89 pt`
+- [x] Correction-2のレンダーでクリッピングは見られない
+- [x] CTAの `QRからどうぞ` と行動文に不自然な途中改行は見られない
 - [x] QR周囲に独立した余白がある
-- [ ] Correction-2のprint-to-PDF / clipping再確認
 - [ ] カード本文の実寸A4可読性は未確認
 - [ ] 実機QR確認は未実施
 
@@ -114,7 +115,7 @@ Correction-1へのフィードバックを受け、生活感と文字組をさ�
 ## Current gate
 
 - Human Direction Selection: C / CONFIRMED
-- Implementation: Correction-2 APPLIED
+- Implementation: Correction-2 APPLIED + local A4 render verified
 - Human Ready: HOLD
 - Human Visual Acceptance: NOT DONE
 - Physical A4 / real-device QR: NOT DONE
