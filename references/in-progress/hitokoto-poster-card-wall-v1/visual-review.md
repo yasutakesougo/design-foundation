@@ -127,6 +127,7 @@ CTA は strong card / boxed UI にしません。
 - long URL は掲示面に載せない
 - QR 周囲は白地の quiet zone を確保
 - QR quiet zone 内へ decoration を入れない
+- `QRからどうぞ` は1行固定
 
 ### Footer / caution
 
@@ -138,22 +139,81 @@ Correction-3 より caution readability を優先します。
 - fit 問題を文字縮小で解決しない
 - `広報部会（仮）` を明確に読める状態で残す
 
+## Verification evidence
+
+### Scope / content integrity
+
+Correction-3 Exact HEAD `9a32701e06b2468f6dcd9484ca53f5b707b6a122` から Correction-4 実装で変更した repository paths は次の2件だけです。
+
+- `references/in-progress/hitokoto-poster-card-wall-v1/poster.html`
+- `references/in-progress/hitokoto-poster-card-wall-v1/visual-review.md`
+
+`content.md` blob remains:
+
+`6e9e6fa168976ed0f28882b783ae986d826ba1e5`
+
+QR asset blob remains:
+
+`a68d1f558c96c4eecb6a7e81cb1e74c5c8cf0a52`
+
+Static HTML inspection:
+
+- required authoritative poster strings: PASS
+- four `.pair` groups: PASS / 4
+- person illustration placements: PASS / 2
+- repository QR reference unchanged: PASS
+- long URL absent from poster surface: PASS
+- full cork token absent: PASS
+- wooden frame token absent: PASS
+- remote font import absent: PASS
+
+### A4 fixed-layout render
+
+Local A4 verification renderer: WeasyPrint + rendered PNG inspection.
+
+Same-size local placeholder was used only for the QR image pixels because repository binary download is not available in the local renderer sandbox. The HTML QR reference and repository QR blob were separately verified unchanged.
+
+Result:
+
+- page count: **1**
+- page size: **A4 / 595.276 × 841.89 pt**
+- clipping observed: **none**
+- fragmentation observed: **none**
+- visible overflow observed: **none**
+- title first-glance visibility: **PASS**
+- four pair mappings: **PASS**
+- CTA hierarchy: **PASS**
+- `QRからどうぞ` line stability after refinement: **PASS**
+- caution/footer visible and uncompressed: **PASS**
+- figures remain outside main reading path: **PASS**
+
+### Chromium browser renderer
+
+A browser verification attempt was made with the available local Chromium binary.
+
+The Chromium process does not complete even for a minimal local HTML file in this execution environment and repeatedly stalls on the environment runtime/DBus layer.
+
+Therefore:
+
+- browser visual verification for Correction-4: **BLOCKED BY EXECUTION ENVIRONMENT**
+- this is not recorded as a design PASS or FAIL
+- A4 fixed-layout evidence above remains valid but does not silently substitute for the locked browser verification requirement
+
 ## Accessibility / print conditions
 
-Human Ready 前に次を確認します。
-
-- [ ] A4 portrait 1 page
-- [ ] clipping none
-- [ ] fragmentation none
-- [ ] overflow none
-- [ ] title immediately visible
-- [ ] all 4 pair mappings unambiguous
-- [ ] card text readable at A4
-- [ ] CTA readable but secondary
-- [ ] caution realistically readable at A4
-- [ ] QR quiet zone preserved
-- [ ] no awkward Japanese line breaks
-- [ ] remote font absence does not break layout
+- [x] A4 portrait 1 page in fixed-layout renderer
+- [x] clipping none observed
+- [x] fragmentation none observed
+- [x] overflow none observed
+- [x] title immediately visible
+- [x] all 4 pair mappings unambiguous
+- [x] card text visible/readable in A4 render
+- [x] CTA readable but secondary
+- [x] caution visible and not compressed in A4 render
+- [x] QR quiet zone preserved in layout
+- [x] no awkward Japanese line break observed in A4 render
+- [x] no remote font dependency
+- [ ] Chromium/browser verification — BLOCKED BY EXECUTION ENVIRONMENT
 
 Physical Validation では別途、実寸A4可読性と real-device QR read を確認します。
 
@@ -185,8 +245,10 @@ Correction-4 で変更可能なのは次だけです。
 - Fresh Independent Definition / Scope Review: **PASS**
 - Human Definition / Scope Lock: **GO / CONSUMED / LOCKED**
 - Human Implementation Start: **GO / CONSUMED**
-- Correction-4 implementation: **APPLIED / VERIFICATION PENDING**
-- Human Ready: **HOLD**
+- Correction-4 implementation: **APPLIED**
+- A4 fixed-layout verification: **PASS**
+- Chromium/browser verification: **BLOCKED BY EXECUTION ENVIRONMENT**
+- Human Ready: **HOLD — browser evidence not complete**
 - Human Visual Acceptance: **NOT DONE**
 - Physical A4 / real-device QR: **NOT DONE**
 - Merge: **HOLD**
