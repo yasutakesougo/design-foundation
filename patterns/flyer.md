@@ -44,7 +44,9 @@ QRコードは他の情報から分離し、周囲の余白を確保します。
 ## 制作フロー
 
 ```text
-Content Lock
+Human Definition / Scope Lock
+↓
+Content Structure / Content Lock
 ↓
 Concept Sketch（比較が必要な場合）
 ↓
@@ -60,5 +62,19 @@ Correction
 ↓
 Human Visual Acceptance
 ↓
-Final
+Output Route Selection
+↓
+Preflight
+↓
+Human Output GO
+↓
+Print / Publish
 ```
+
+`Human Visual Acceptance` と `Human Output GO` は別ゲートです。
+
+見た目が承認されても、QR、仕上がりサイズ、印刷条件、誤字などの出力確認が終わるまでは印刷または公開しません。
+
+チラシやポスターでは、編集可能性を残したい場合はCanva等を経由し、直接PDFで成立する場合は不要なツールを増やしません。
+
+出力前の確認には `review/output-preflight.md` を使います。
