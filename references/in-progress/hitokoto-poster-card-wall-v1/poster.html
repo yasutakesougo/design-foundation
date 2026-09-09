@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ひとこと掲示 Card Wall V1 Correction 4</title>
+<title>ひとこと掲示 Card Wall V1 Correction 5</title>
 <style>
 :root{
   --green:#214f3f;
@@ -11,13 +11,13 @@
   --ink:#202522;
   --muted:#59635d;
   --paper:#fffdf7;
-  --paper-green:#f3f7f1;
-  --paper-blue:#f1f6f7;
-  --yellow:#e7d768;
-  --mint:#dfeee5;
-  --blue:#e6f0f2;
-  --coral:#f2ded5;
-  --line:#d8dfd9;
+  --paper-green:#eef5ef;
+  --paper-blue:#edf4f6;
+  --yellow:#e3cf4f;
+  --mint:#d9eadf;
+  --blue:#dfecef;
+  --coral:#efd7cc;
+  --line:#cfd9d2;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -26,56 +26,60 @@ body{background:#edf0ed;color:var(--ink);font-family:"Hiragino Kaku Gothic ProN"
 .review-banner strong{color:var(--green)}
 .sheet{width:210mm;height:297mm;margin:0 auto 28px;background:#fbfaf5;box-shadow:0 14px 40px rgba(31,36,33,.14);overflow:hidden}
 .poster{width:100%;height:100%;position:relative;overflow:hidden;padding:10mm 11mm 8mm;background:linear-gradient(180deg,#fffdf8 0%,#faf9f4 100%)}
-.poster:before{content:"";position:absolute;right:-19mm;top:22mm;width:54mm;height:54mm;border-radius:46% 54% 62% 38%;background:rgba(223,238,229,.72);transform:rotate(18deg)}
-.poster:after{content:"";position:absolute;left:-23mm;bottom:50mm;width:60mm;height:45mm;border-radius:55% 45% 42% 58%;background:rgba(230,240,242,.7);transform:rotate(-12deg)}
-.kicker{position:relative;z-index:3;margin:0 0 3mm;color:var(--green);font-size:10px;font-weight:700;letter-spacing:.08em}
-.hero{position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,1fr) 39mm;gap:8mm;align-items:center;min-height:38mm;margin-bottom:5mm}
+.poster:before{content:"";position:absolute;right:-18mm;top:20mm;width:56mm;height:56mm;border-radius:46% 54% 62% 38%;background:rgba(217,234,223,.84);transform:rotate(18deg)}
+.poster:after{content:"";position:absolute;left:-22mm;bottom:48mm;width:62mm;height:46mm;border-radius:55% 45% 42% 58%;background:rgba(223,236,239,.78);transform:rotate(-12deg)}
+.kicker{position:relative;z-index:3;margin:0 0 2.6mm;color:var(--green);font-size:10px;font-weight:700;letter-spacing:.08em}
+.hero{position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,1fr) 37mm;gap:8mm;align-items:center;min-height:39mm;margin-bottom:5mm}
 .hero-main{min-width:0}
-h1{margin:0;color:var(--green);font-size:38px;line-height:1.08;letter-spacing:.03em;font-weight:800}
-.headline-line{position:relative;display:inline-block;padding-bottom:1.2mm;z-index:0}
-.headline-line:after{content:"";position:absolute;left:.8mm;right:-1.5mm;bottom:.2mm;height:1.7mm;border-radius:2mm;background:rgba(231,215,104,.78);transform:rotate(-.8deg);z-index:-1}
-.lead{margin:3mm 0 0;font-size:16px;font-weight:700;line-height:1.45}
-.side-note{position:relative;min-height:29mm;padding:6mm 4.4mm 4mm;background:var(--paper);border:.2mm solid rgba(33,79,63,.08);box-shadow:0 1.2mm 2.5mm rgba(43,55,48,.09);transform:rotate(1.1deg);font-size:11.5px;line-height:1.65;color:#3d4741}
-.side-note:before{content:"";position:absolute;left:50%;top:-1.7mm;width:14mm;height:3.6mm;transform:translateX(-50%) rotate(-2deg);background:rgba(225,222,192,.72)}
-.side-note strong{display:block;margin-bottom:1.2mm;color:var(--green);font-size:12.2px;white-space:nowrap}
+h1{margin:0;color:var(--green);font-size:42px;line-height:1.04;letter-spacing:.025em;font-weight:800}
+.headline-line{position:relative;display:inline-block;padding-bottom:1.35mm;z-index:0}
+.headline-line:after{content:"";position:absolute;left:.4mm;right:-2.4mm;bottom:.05mm;height:2.25mm;border-radius:2mm;background:rgba(227,207,79,.86);transform:rotate(-1deg);z-index:-1}
+.lead{margin:3.2mm 0 0;font-size:16px;font-weight:700;line-height:1.45}
+.side-note{position:relative;min-height:27mm;padding:5.6mm 4.1mm 3.8mm;background:var(--paper);border:.2mm solid rgba(33,79,63,.08);box-shadow:0 1mm 2.2mm rgba(43,55,48,.075);transform:rotate(1.25deg);font-size:10.8px;line-height:1.62;color:#465049}
+.side-note:before{content:"";position:absolute;left:50%;top:-1.6mm;width:13mm;height:3.4mm;transform:translateX(-50%) rotate(-2deg);background:rgba(225,222,192,.70)}
+.side-note strong{display:block;margin-bottom:1.1mm;color:var(--green);font-size:11.5px;white-space:nowrap}
 .pairs{position:relative;z-index:3;height:137mm;display:flex;flex-direction:column;justify-content:space-between;margin-bottom:5mm}
 .pair{height:32mm;display:flex;align-items:flex-start;gap:2mm;position:relative}
-.pair:nth-child(1){width:95%;margin-left:2mm}.pair:nth-child(2){width:92%;margin-left:8mm}.pair:nth-child(3){width:95%;margin-left:1mm}.pair:nth-child(4){width:91%;margin-left:9mm}
+.pair:nth-child(1){width:96%;margin-left:.8mm}.pair:nth-child(2){width:91%;margin-left:9mm}.pair:nth-child(3){width:95%;margin-left:2mm}.pair:nth-child(4){width:93%;margin-left:7mm}
 .pair .note{flex:0 0 42%}.pair .arrow{flex:0 0 8%}.pair .reply{flex:1}
-.arrow{display:flex;align-items:center;justify-content:center;align-self:center;color:var(--green);font-size:27px;font-family:"Segoe Print","Bradley Hand",Georgia,cursive;font-weight:700;transform:rotate(-6deg)}
-.card{height:100%;position:relative;padding:7mm 4.8mm 3.6mm;display:flex;align-items:center;background-color:var(--paper);border:.18mm solid rgba(59,74,65,.10);box-shadow:0 1.15mm 2.5mm rgba(45,58,50,.10),0 .25mm .65mm rgba(45,58,50,.06)}
-.card:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:repeating-linear-gradient(8deg,rgba(79,88,80,.012) 0 .14mm,transparent .14mm 1.75mm),linear-gradient(100deg,transparent 0 18%,rgba(255,255,255,.26) 38%,transparent 60%);opacity:.75}
-.pair:nth-child(1) .note{transform:rotate(-.55deg);background-color:#fffdf6}.pair:nth-child(1) .reply{transform:rotate(.42deg) translateY(4px);background-color:var(--paper-green)}
-.pair:nth-child(2) .note{transform:rotate(.46deg);background-color:var(--paper-blue)}.pair:nth-child(2) .reply{transform:rotate(-.5deg) translateY(7px);background-color:#fffdf8}
-.pair:nth-child(3) .note{transform:rotate(-.4deg);background-color:var(--paper-green)}.pair:nth-child(3) .reply{transform:rotate(.52deg) translateY(5px);background-color:#fffaf4}
-.pair:nth-child(4) .note{transform:rotate(.5deg);background-color:#fffdf7}.pair:nth-child(4) .reply{transform:rotate(-.44deg) translateY(8px);background-color:var(--paper-blue)}
+.arrow{display:flex;align-items:center;justify-content:center;align-self:center;color:var(--green);font-size:28px;font-family:"Segoe Print","Bradley Hand",Georgia,cursive;font-weight:700;transform:rotate(-6deg)}
+.card{height:100%;position:relative;padding:7mm 4.8mm 3.6mm;display:flex;align-items:center;background-color:var(--paper);border:.18mm solid rgba(59,74,65,.10);box-shadow:0 1.25mm 2.8mm rgba(45,58,50,.115),0 .25mm .65mm rgba(45,58,50,.06)}
+.card:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:repeating-linear-gradient(8deg,rgba(79,88,80,.014) 0 .14mm,transparent .14mm 1.75mm),linear-gradient(100deg,transparent 0 18%,rgba(255,255,255,.28) 38%,transparent 60%);opacity:.8}
+.pair:nth-child(1) .note{transform:rotate(-.72deg);background-color:#fffaf0;box-shadow:0 1.5mm 3.2mm rgba(45,58,50,.13),0 .3mm .7mm rgba(45,58,50,.06)}
+.pair:nth-child(1) .reply{transform:rotate(.48deg) translateY(5px);background-color:#edf5ef}
+.pair:nth-child(2) .note{transform:rotate(.58deg);background-color:#edf5f7}
+.pair:nth-child(2) .reply{transform:rotate(-.66deg) translateY(8px);background-color:#fffdf8;box-shadow:0 1.45mm 3mm rgba(45,58,50,.125),0 .3mm .7mm rgba(45,58,50,.06)}
+.pair:nth-child(3) .note{transform:rotate(-.5deg);background-color:#eef5ef}
+.pair:nth-child(3) .reply{transform:rotate(.68deg) translateY(4px);background-color:#fff7ef;box-shadow:0 1.45mm 3mm rgba(45,58,50,.12),0 .3mm .7mm rgba(45,58,50,.06)}
+.pair:nth-child(4) .note{transform:rotate(.62deg);background-color:#fffdf5}
+.pair:nth-child(4) .reply{transform:rotate(-.56deg) translateY(7px);background-color:#edf4f6}
 .label{position:absolute;left:3.8mm;top:2mm;z-index:3;display:inline-block;padding:.7mm 1.9mm .78mm;border-radius:.45mm;background:var(--green);color:#fff;font-size:9.2px;font-weight:700;letter-spacing:.05em;line-height:1}
 .card p{position:relative;z-index:2;margin:0;width:100%;font-size:13.4px;line-height:1.56;font-weight:600;letter-spacing:.005em;word-break:keep-all;overflow-wrap:break-word}.reply p{font-weight:500}
 /* Four restrained attachment details total */
-.pair:nth-child(1) .note:before{content:"";position:absolute;z-index:4;left:48%;top:-1.7mm;width:15mm;height:3.8mm;transform:translateX(-50%) rotate(-2deg);background:rgba(225,222,192,.72);box-shadow:0 .2mm .45mm rgba(68,67,53,.08)}
+.pair:nth-child(1) .note:before{content:"";position:absolute;z-index:4;left:48%;top:-1.7mm;width:15mm;height:3.8mm;transform:translateX(-50%) rotate(-2deg);background:rgba(225,218,181,.8);box-shadow:0 .2mm .45mm rgba(68,67,53,.08)}
 .pair:nth-child(2) .reply:before{content:"";position:absolute;z-index:4;width:3.4mm;height:3.4mm;border-radius:50%;right:8mm;top:1.5mm;background:radial-gradient(circle at 34% 28%,#d7d1bb 0 .5mm,#6d7d70 .68mm 1.85mm,#58665c 2mm);box-shadow:0 .45mm .65mm rgba(54,65,58,.18)}
-.pair:nth-child(3) .note:before{content:"";position:absolute;z-index:4;right:7mm;top:-1.7mm;width:13mm;height:3.6mm;transform:rotate(3deg);background:rgba(207,224,216,.72);box-shadow:0 .2mm .45mm rgba(68,67,53,.08)}
+.pair:nth-child(3) .note:before{content:"";position:absolute;z-index:4;right:7mm;top:-1.7mm;width:13mm;height:3.6mm;transform:rotate(3deg);background:rgba(199,222,211,.82);box-shadow:0 .2mm .45mm rgba(68,67,53,.08)}
 .pair:nth-child(4) .reply:before{content:"";position:absolute;z-index:4;width:3.3mm;height:3.3mm;border-radius:50%;left:52%;top:1.45mm;transform:translateX(-50%);background:radial-gradient(circle at 34% 28%,#e1d39d 0 .5mm,#8a7950 .68mm 1.8mm,#6f6245 1.95mm);box-shadow:0 .45mm .65mm rgba(54,65,58,.18)}
-.figure{position:absolute;z-index:2;color:var(--green);opacity:.78;pointer-events:none}
+.figure{position:absolute;z-index:2;color:var(--green);opacity:.86;pointer-events:none}
 .figure svg{display:block;width:100%;height:auto;overflow:visible}
-.figure-one{right:1.8mm;top:52mm;width:18mm;transform:rotate(2deg)}
-.figure-two{left:1mm;top:166mm;width:11mm;transform:rotate(-2deg)}
+.figure-one{right:1mm;top:50mm;width:22mm;transform:rotate(2deg)}
+.figure-two{left:.8mm;top:165mm;width:12.5mm;transform:rotate(-2deg);opacity:.72}
 .figure path,.figure circle,.figure line{vector-effect:non-scaling-stroke}
-.dot-cluster{position:absolute;z-index:1;right:9mm;top:120mm;width:16mm;height:22mm;background-image:radial-gradient(circle,rgba(33,79,63,.17) 0 .55mm,transparent .65mm);background-size:4mm 4mm;transform:rotate(4deg)}
-.accent-coral{position:absolute;z-index:1;right:-6mm;bottom:28mm;width:30mm;height:24mm;border-radius:50%;background:rgba(242,222,213,.58)}
-.action{position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,1fr) 34mm;gap:7mm;align-items:center;min-height:36mm;padding:4.5mm 2mm 4mm;border-top:.35mm solid var(--line);border-bottom:.35mm solid var(--line)}
-.action-main{min-width:0;padding-left:1mm}.action-title{margin:0;color:var(--green);font-size:21px;line-height:1.18;font-weight:800;letter-spacing:-.01em;white-space:nowrap}.action-title span{position:relative;display:inline-block;z-index:0;white-space:nowrap}.action-title span:after{content:"";position:absolute;left:0;right:-1mm;bottom:-.4mm;height:1.3mm;border-radius:2mm;background:rgba(231,215,104,.76);z-index:-1;transform:rotate(-.7deg)}
-.flow{margin:2mm 0 0;font-size:12.6px;font-weight:700;line-height:1.45;white-space:nowrap}.micro{margin:1.5mm 0 0;color:var(--muted);font-size:10.8px;line-height:1.5}
-.qr-wrap{display:flex;align-items:center;justify-content:center;background:#fff;padding:3mm;min-width:34mm;min-height:34mm}
-.qr-wrap img{width:28mm;height:28mm;display:block}
+.dot-cluster{position:absolute;z-index:1;right:8mm;top:119mm;width:17mm;height:23mm;background-image:radial-gradient(circle,rgba(33,79,63,.23) 0 .6mm,transparent .7mm);background-size:4mm 4mm;transform:rotate(4deg)}
+.accent-coral{position:absolute;z-index:1;right:-6mm;bottom:27mm;width:34mm;height:25mm;border-radius:50%;background:rgba(239,215,204,.7)}
+.action{position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,1fr) 36mm;gap:7mm;align-items:center;min-height:38mm;padding:5mm 4mm 4.5mm;background:linear-gradient(90deg,rgba(217,234,223,.66) 0%,rgba(255,253,247,.72) 72%,rgba(255,253,247,.88) 100%);border-top:.38mm solid var(--line);border-bottom:.38mm solid var(--line)}
+.action-main{min-width:0;padding-left:.5mm}.action-title{margin:0;color:var(--green);font-size:22px;line-height:1.18;font-weight:800;letter-spacing:-.01em;white-space:nowrap}.action-title span{position:relative;display:inline-block;z-index:0;white-space:nowrap}.action-title span:after{content:"";position:absolute;left:0;right:-1.5mm;bottom:-.45mm;height:1.55mm;border-radius:2mm;background:rgba(227,207,79,.82);z-index:-1;transform:rotate(-.8deg)}
+.flow{margin:2mm 0 0;font-size:12.8px;font-weight:700;line-height:1.45;white-space:nowrap}.micro{margin:1.5mm 0 0;color:var(--muted);font-size:10.8px;line-height:1.5}
+.qr-wrap{display:flex;align-items:center;justify-content:center;background:#fff;padding:3mm;min-width:36mm;min-height:36mm;box-shadow:0 .7mm 1.6mm rgba(45,58,50,.08)}
+.qr-wrap img{width:30mm;height:30mm;display:block}
 .footer{position:relative;z-index:3;margin-top:4mm;padding:0 1mm;color:#444e48;font-size:10.35px;line-height:1.6}
 .footer p{margin:0 0 1.5mm}.footer .reassurance{font-weight:700;color:#303934}.footer .department{margin-top:2mm;text-align:right;color:var(--green);font-size:10.4px;font-weight:700}
 @media print{body{background:#fff}.review-banner{display:none}.sheet{margin:0;box-shadow:none;page-break-after:avoid}@page{size:A4;margin:0}}
 </style>
 </head>
 <body>
-<p class="review-banner"><strong>Card Wall V1 / Correction-4 / Human Visual Acceptance前。</strong> Direction B refined：明るい紙面、軽い紙質感、補助的な線画人物、開いたCTAの実装候補です。</p>
-<main class="sheet" aria-label="ひとこと掲示 Card Wall V1 Correction-4">
+<p class="review-banner"><strong>Card Wall V1 / Correction-5 / Human Visual Acceptance前。</strong> Direction Bを維持し、タイトル・カードリズム・人物・CTAの視覚的な強弱と温度感だけを調整した候補です。</p>
+<main class="sheet" aria-label="ひとこと掲示 Card Wall V1 Correction-5">
 <section class="poster">
 <div class="dot-cluster" aria-hidden="true"></div><div class="accent-coral" aria-hidden="true"></div>
 <div class="figure figure-one" aria-hidden="true"><svg viewBox="0 0 80 120" fill="none" stroke="currentColor" stroke-width="2"><circle cx="43" cy="19" r="10"/><path d="M42 30c-12 1-18 12-18 25v29m17-53c12 2 18 13 18 27v24M24 54l-10 22m45-18 10 18M25 84l-7 27m24-27 2 27m15-29 7 29"/><path d="M18 70h15v11H18z"/><line x1="21" y1="74" x2="30" y2="74"/></svg></div>
