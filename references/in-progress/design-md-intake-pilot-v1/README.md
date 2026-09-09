@@ -93,6 +93,6 @@ Pilotが成功しても、生成された `DESIGN.md` 自体をFoundationへ昇�
 
 - Human Definition / Scope Lock: GO / CONSUMED / LOCKED
 - Human Implementation Start: GO / CONSUMED / AUTHORIZED
-- Pilot implementation: IN PROGRESS
+- Pilot implementation: IMPLEMENTED / FRESH REVIEW REQUIRED
 - Human Ready: HOLD
 - Merge / Promotion: HOLD
