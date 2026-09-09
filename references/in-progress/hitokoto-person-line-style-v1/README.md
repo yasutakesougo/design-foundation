@@ -127,12 +127,17 @@ SVG化後に `review-checklist.md` で確認します。
 ## Gate
 
 ```text
-Definition / Scope             = LOCKED
-Human Implementation Start     = GO / CONSUMED
-Pilot implementation           = IN PROGRESS
-Human Ready                    = HOLD
-Human Visual Acceptance        = HOLD
-Remaining 7 SVGs               = HOLD
-Notion canonicalization        = HOLD
-Merge / Promotion              = HOLD
+Definition / Scope                          = LOCKED
+Human Implementation Start                = GO / CONSUMED
+Semantic Gesture Correction Definition      = GO / CONSUMED / LOCKED
+Semantic Gesture Correction Impl Start      = GO / CONSUMED
+Fresh Correction Implementation Review      = PASS
+Pilot implementation                        = IN PROGRESS
+Human Ready                                 = READY FOR HUMAN DECISION
+Human Visual Acceptance                     = HOLD
+Remaining 7 SVGs                            = HOLD
+Notion canonicalization                     = HOLD
+Merge / Promotion                           = HOLD
 ```
+
+Human Visual Acceptance 判定用の比較画像は `reviews/` を参照します。
