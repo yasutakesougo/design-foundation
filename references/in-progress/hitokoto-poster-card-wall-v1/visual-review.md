@@ -60,11 +60,11 @@ Authority file:
 
 `production-microcopy.md`
 
-Canva insertion of these five phrases requires:
+Canva insertion of these five phrases is authorized after:
 
-`CARD-WALL-V1 Correction-8 Content Microcopy Human Implementation Start GO`
+`CARD-WALL-V1 Correction-8 Content Microcopy Human Implementation Start GO — e754b905e25e84c7913e7ec0b48ec629811c3982`
 
-Current state: **NOT DONE / REQUIRED**
+Current state: **GO / CONSUMED** at exact HEAD `e754b905e25e84c7913e7ec0b48ec629811c3982`
 
 ## Canva production instruction
 
@@ -84,7 +84,7 @@ Selected visual qualities to reproduce on Design `DAHUqyhsx2s`:
 
 ## Required deliverables before Human Ready
 
-1. Content Microcopy Human Implementation Start GO consumed
+1. Content Microcopy Human Implementation Start GO consumed — **DONE** at `e754b905e25e84c7913e7ec0b48ec629811c3982`
 2. Canva editable candidate updated to selected direction + locked microcopy
 3. locked copy and authoritative QR preserved
 4. fresh A4 review PNG
@@ -106,18 +106,21 @@ Selected visual qualities to reproduce on Design `DAHUqyhsx2s`:
 9. 全体が温かく、大人向けで、適度な密度か。
 10. 余計な吹き出し文言がないか。
 
-## Exact implementation scope for this documentation step
+## Exact implementation scope for this gate-consumption step
 
-This documentation step records:
+This step records consumption of:
 
-- Canva完成版実装仕様書
-- Canva実装担当向け1ページ版チェックリスト
-- Human-locked production microcopy authority
-- Correction-8 review / gate status
+`CARD-WALL-V1 Correction-8 Content Microcopy Human Implementation Start GO — e754b905e25e84c7913e7ec0b48ec629811c3982`
+
+Now authorized:
+
+- Canva insertion of the five Human-locked microcopy phrases
+- transfer of the selected visual direction onto Design `DAHUqyhsx2s`
+- fresh A4 PNG / PDF export preparation
 
 This step does **not**:
 
-- mutate Canva Design `DAHUqyhsx2s` from this environment
+- claim that Canva Design `DAHUqyhsx2s` has already been mutated
 - change `content.md`
 - redesign `poster.html`
 - claim fresh PNG/PDF export verification
@@ -136,8 +139,8 @@ This step does **not**:
 - Canva実装チェックリスト: **RECORDED**
 - Content Microcopy Definition / Scope: **GO / CONSUMED / LOCKED**
 - Content Microcopy Independent Review: **PASS**
-- Content Microcopy Human Implementation Start: **NOT DONE / REQUIRED**
-- Canva transfer to selected direction + microcopy: **PENDING**
+- Content Microcopy Human Implementation Start: **GO / CONSUMED** at `e754b905e25e84c7913e7ec0b48ec629811c3982`
+- Canva transfer to selected direction + microcopy: **AUTHORIZED / IN PROGRESS**
 - Fresh A4 PNG / PDF export: **REQUIRED / NOT DONE**
 - Correction-8 Human Ready: **NOT DONE / HOLD**
 - Human Visual Acceptance: **NOT DONE / HOLD**

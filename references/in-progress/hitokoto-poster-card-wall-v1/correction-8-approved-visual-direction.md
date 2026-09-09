@@ -112,8 +112,8 @@ This record means:
 - visual direction selected: **YES**
 - production target clarified: **YES**
 - Canva完成版実装仕様書: **RECORDED**
-- Content Microcopy Human Implementation Start: **NOT DONE / REQUIRED**
-- Canva transfer / fresh PNG+PDF: **PENDING**
+- Content Microcopy Human Implementation Start: **GO / CONSUMED** at `e754b905e25e84c7913e7ec0b48ec629811c3982`
+- Canva transfer / fresh PNG+PDF: **AUTHORIZED / IN PROGRESS**
 - Human Ready: **NOT CONSUMED**
 - Human Visual Acceptance: **NOT CONSUMED**
 - physical A4 check: **NOT DONE**

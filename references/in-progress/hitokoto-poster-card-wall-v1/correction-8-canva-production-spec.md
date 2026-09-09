@@ -136,7 +136,7 @@ Canva へのマイクロコピー挿入は、次が消費されるまで開始�
 
 `CARD-WALL-V1 Correction-8 Content Microcopy Human Implementation Start GO`
 
-現時点: **NOT DONE / REQUIRED**
+現時点: **GO / CONSUMED** at exact HEAD `e754b905e25e84c7913e7ec0b48ec629811c3982`
 
 ## レイアウト構成
 

@@ -4,12 +4,12 @@ Design ID: `DAHUqyhsx2s` | PR #24 | A4縦1ページ
 
 ## 開始前ゲート
 
-- [ ] Correction-8 Human Implementation Start: GO / CONSUMED
-- [ ] Content Microcopy Human Definition / Scope Lock: GO / CONSUMED / LOCKED
-- [ ] Content Microcopy Human Implementation Start: GO / CONSUMED
-- [ ] `content.md` blob = `6e9e6fa168976ed0f28882b783ae986d826ba1e5`
-- [ ] QR blob = `a68d1f558c96c4eecb6a7e81cb1e74c5c8cf0a52`
-- [ ] QR destination = `https://hitokoto-kaeshi-preview.web.app/poster`
+- [x] Correction-8 Human Implementation Start: GO / CONSUMED
+- [x] Content Microcopy Human Definition / Scope Lock: GO / CONSUMED / LOCKED
+- [x] Content Microcopy Human Implementation Start: GO / CONSUMED (`e754b905e25e84c7913e7ec0b48ec629811c3982`)
+- [x] `content.md` blob = `6e9e6fa168976ed0f28882b783ae986d826ba1e5`
+- [x] QR blob = `a68d1f558c96c4eecb6a7e81cb1e74c5c8cf0a52`
+- [x] QR destination = `https://hitokoto-kaeshi-preview.web.app/poster`
 
 ## 固定本文（一字一句）
 
