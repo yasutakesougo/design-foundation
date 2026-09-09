@@ -77,6 +77,8 @@ max path         = 45
 
 10動作の生成指示は `behavior-prompts.md` にまとめます。
 
+初回3動作の読解は、髪型や服装の差ではなく、ポーズ、手、小物、頭部方向、視線方向で成立させます。
+
 ## Pilot SVG
 
 初回は次の3点だけを実装します。
@@ -88,6 +90,15 @@ examples/person-looking.svg
 ```
 
 この3点で線幅、顔情報量、手、小物、視線、縮小時の判別性を確認します。
+
+受け入れ条件は次です。
+
+```text
+AC-1 通常サイズで、ラベルなしでも「メモ / 考える / 眺める」の3役割を区別できる
+AC-2 64px相当でも、各人物について主要ジェスチャーが最低1つ識別できる
+AC-3 髪型・服装の違いを主な識別根拠にしない。ポーズ、手、小物、頭部方向、視線方向で意味を成立させる
+AC-4 既存のLine Style Foundationを維持する。線色、線幅、丸い線端、余白量、顔の簡潔さを大きく変更しない
+```
 
 残り7点はHuman Visual Review後の別判断です。
 
@@ -116,12 +127,20 @@ SVG化後に `review-checklist.md` で確認します。
 ## Gate
 
 ```text
-Definition / Scope             = LOCKED
-Human Implementation Start     = GO / CONSUMED
-Pilot implementation           = IN PROGRESS
-Human Ready                    = HOLD
-Human Visual Acceptance        = HOLD
-Remaining 7 SVGs               = HOLD
-Notion canonicalization        = HOLD
-Merge / Promotion              = HOLD
+Definition / Scope                             = LOCKED
+Human Implementation Start                     = GO / CONSUMED
+Semantic Gesture Correction Definition         = GO / CONSUMED / LOCKED
+Semantic Gesture Correction Impl Start         = GO / CONSUMED
+Fresh Correction Implementation Review         = PASS
+Human Visual Acceptance (Correction-1)         = HOLD / CONSUMED
+Semantic Gesture Correction-2                  = IMPLEMENTED
+Fresh Correction-2 Implementation Review       = READY
+Human Visual Acceptance (Correction-2)         = HOLD
+Remaining 7 SVGs                               = HOLD
+Notion canonicalization                        = HOLD
+Merge / Promotion                              = HOLD
 ```
+
+Correction-1 の Human Visual Acceptance は HOLD / CONSUMED です。  
+次は Correction-2 の3パイロットSVG比較画像を見て再判定します。  
+比較画像は `reviews/correction2_gesture_comparison_normal_and_64px.png` を参照します。

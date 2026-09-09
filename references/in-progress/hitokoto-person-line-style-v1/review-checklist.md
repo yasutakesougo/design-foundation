@@ -78,9 +78,15 @@
 
 ```text
 [ ] 64px程度でも動作差が読めるか
+[ ] 通常サイズでラベルなしでも「メモ / 考える / 眺める」を区別できるか
+[ ] 64px相当でも各人物の主要ジェスチャーが最低1つ識別できるか
 [ ] note-takingはメモ動作が読めるか
+[ ] note-takingは紙、斜めペン、書く手の少なくとも1つが明確に読めるか
 [ ] thinkingは手・視線で考える状態が読めるか
+[ ] thinkingは顎または頬に触れる手と前腕が読めるか
 [ ] lookingは横向きの視線で眺める状態が読めるか
+[ ] lookingは横向き頭部と横視線が読めるか
+[ ] 髪型・服装ではなく、ポーズ、手、小物、頭部方向、視線方向で意味が成立しているか
 [ ] 電球 / 疑問符 / 感嘆符 / 時計などの説明記号に頼っていないか
 ```
 
@@ -99,6 +105,7 @@
 [ ] 肩・服の簡略化レベルが揃っているか
 [ ] 表情の温度が揃っているか
 [ ] 余白量が極端に違わないか
+[ ] 線色、線幅、丸い線端、余白量、顔の簡潔さを大きく変えずにLine Style Foundationを維持しているか
 [ ] 3点とも同じ制作者のシリーズに見えるか
 ```
 
@@ -145,9 +152,12 @@
 Human Visual Review前は次を維持します。
 
 ```text
-Human Ready               = HOLD until fresh implementation review
-Human Visual Acceptance   = HOLD
-Remaining 7 SVGs          = HOLD
-Notion concise mirror     = HOLD
-Merge / Promotion         = HOLD
+Fresh Correction Implementation Review         = PASS
+Human Visual Acceptance (Correction-1)         = HOLD / CONSUMED
+Semantic Gesture Correction-2                  = IMPLEMENTED
+Fresh Correction-2 Implementation Review       = READY
+Human Visual Acceptance (Correction-2)         = HOLD
+Remaining 7 SVGs                               = HOLD
+Notion concise mirror                          = HOLD
+Merge / Promotion                              = HOLD
 ```
