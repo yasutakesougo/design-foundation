@@ -10,10 +10,12 @@
 - `patterns/`: 媒体別の再利用パターン。
 - `skills/`: 構想探索など、必要時だけ使う制作手順。
 - `prompts/`: 制作時に再利用する指示テンプレート。
-- `review/`: Human Reviewを補助する確認基準。
+- `review/`: Human Reviewと出力前確認を補助する確認基準。
 - `references/`: 採用・不採用事例と外部参照の記録。
 
-方向性案は `references/directions/`、Human Visual Acceptance前のドラフトは `references/in-progress/` に置きます。初案を Pattern / Prompt / Foundation へ自動昇格しません。
+方向性案は `references/directions/`、Human Visual Acceptance前のドラフトは `references/in-progress/` に置きます。
+
+初案を Pattern / Prompt / Foundation へ自動昇格しません。
 
 ## 共通Foundationと個別Style Guideの境界
 
@@ -26,7 +28,9 @@ Design Foundationは、複数案件で再利用できる判断だけを扱いま
 ## 基本フロー
 
 ```text
-Content Lock
+Human Definition / Scope Lock
+↓
+Content Structure / Content Lock
 ↓
 Concept Exploration / Concept Sketch（必要時のみ）
 ↓
@@ -42,7 +46,13 @@ Correction
 ↓
 Human Visual Acceptance
 ↓
-Final
+Output Route Selection
+↓
+Preflight（印刷・公開する場合）
+↓
+Human Output GO
+↓
+Print / Publish
 ↓
 Accepted Reference
 ```
@@ -51,7 +61,50 @@ Accepted Reference
 
 Concept Sketchは完成物ではなく、方向性を比較するための探索物です。
 
-最終的なデザイン採否は自動化せず、`Human Visual Acceptance` を最終判断とします。
+最終的なデザイン採否は自動化せず、`Human Visual Acceptance` で決めます。
+
+`Human Visual Acceptance` は見た目と情報設計の採否です。
+
+`Human Output GO` は、QR、サイズ、塗り足し、解像度、誤字などの出力条件を確認した後に、印刷または公開してよいかを決める別ゲートです。
+
+## Output Route Selection
+
+制作物の種類に応じて、最終出力の経路を選びます。
+
+```text
+普通のPDF資料
+Agent → Direct PDF
+
+チラシ・ポスター・軽い広報物
+Agent → Canva → PDF
+
+冊子・ページ物・精密な印刷調整
+Agent → Affinity等のページレイアウトツール → PDF
+```
+
+Canvaやページレイアウトツールを制作の起点にはしません。
+
+内容整理、初稿、レビュー、修正方針はエージェント側で先に固めます。
+
+人が直接触る編集ツールは、最終調整と出力制御の面として使います。
+
+印刷または公開前の確認には `review/output-preflight.md` を使います。
+
+## 人に説明すると
+
+最初に人が「何を、誰に、どの形で伝えるか」を決めます。
+
+次にエージェントが文章とレイアウトを整理し、完成品に近い初稿を作ります。
+
+人は初稿を見て、読みやすさ、雰囲気、伝わり方を確認します。
+
+修正するときは、直す範囲を絞ってエージェントへ戻します。
+
+見た目が決まった後で、Canva、Affinity等、または直接PDFの経路を選びます。
+
+最後にQRや印刷条件を確認し、人が `Human Output GO` を出してから印刷または公開します。
+
+つまり、AIに全部を任せるのではなく、AIを主な制作担当にして、人は目的、採否、最終出力を受け持ちます。
 
 ## V1で扱わないもの
 
