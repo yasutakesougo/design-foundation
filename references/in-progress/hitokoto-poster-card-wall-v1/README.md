@@ -1,94 +1,130 @@
 # ひとこと掲示 Card Wall V1
 
 - Medium: A4縦 掲示
-- Status: Final visual direction selected / deterministic reproduction refinement in progress
-- Issue: #23 `HITOKOTO-POSTER-CARD-WALL-V1` / #39 Correction-8 / #41 Content Microcopy Gate / #45 Correction-9a
+- Active direction: **V3 入口特化ポスター**
+- Definition: Issue #59
+- Fresh Review: Issue #60 / Correction-1後 PASS
 - PR: #24
 - Date: 2026-09-09
+- Human Definition / Scope Lock: GO / CONSUMED / LOCKED
+- Human Implementation Start: GO / CONSUMED
 - Human Visual Acceptance: HOLD
-- Physical A4 / real-device QR: HOLD
+- V3 Physical A4 / fresh real-device QR: REQUIRED / HOLD
 - Print / Post: HOLD
-- Deploy / Real Trial: HOLD
+- Deploy / LIVE WRITE / Real Trial: separate gates / HOLD
 
-このフォルダは、「日常を、言葉に。」を核とした職員向けの参加型ミニ実験ポスターを扱います。
+このフォルダは、「日常を、言葉に。」を核とした職員向けの参加入口ポスターを扱います。
 
-目的は、気づきの大切さを啓発することではありません。
+V3の目的は、A「ひとこと循環」の仕組みを詳しく説明することではありません。
 
-日常の中で少し気になったことを、完成した意見にする前に、30秒程度でひとこと置いてみられる入口をつくることを目的とします。
+**何を書けばよいかがわかり、QRを読めること**を優先します。
 
-既存 `hitokoto-poster-v3` は変更しません。
-
-## Authority split
-
-- GitHub = 本文 / QR / Scope / 証跡 / Human Gate の正本
-- `DESIGN.md` = 現在のHuman-selected visual directionを再現するためのvisual design authority
-- `production-microcopy.md` = active production copy subset authority
-- Canva / deterministic SVG / PNG / PDF = 見た目を実装・確認する制作面
-- HTML `poster.html` = Correction-7までの構造参考。最終印刷制作面ではない
-
-`DESIGN.md` は本文、補助コピー、QR、Human Gateを上書きしません。
-
-## Current visual direction
-
-採用方向は次です。
-
-- 「啓発物」ではなく「小さな参加募集」
-- 生成りの紙面 + 深緑 + 淡い緑 + 黄色
-- 手描き感のあるタイトル + 黄色brush
-- 3つの異なる紙メモで「このくらいのひとことでよい」を見せる
-- 紙、テープ、クリップ、影にごく小さい素材差を持たせる
-- 完全な機械整列を避け、固定的なcontrolled imperfectionを使う
-- 人物はadult editorial flat illustrationとし、説明の主役にはしない
-- 上部人物とCTA人物の肌色、線、簡略化レベルを同一シリーズとして統一する
-- CTAを行動の主役とし、QRコードは明確な入口として扱う
-- 補助マイクロコピーと装飾は主役にしない
-
-詳細:
-
-- `DESIGN.md`
-- `correction-8-approved-visual-direction.md`
-- `correction-8-canva-production-spec.md`
-- `correction-8-canva-checklist.md`
-
-## Information hierarchy
+## V3 information hierarchy
 
 ```text
 日常を、言葉に。
 ↓
-気になったことを、ひとことだけ。
+具体例3件
 ↓
-ひとこと → ひとこと返し × 3
-↓
-QRからどうぞ
+大きなQR
 ↓
 ひとことを書く → ひとこと返しを見る
 ↓
 最低限の安心・注意
 ```
 
+V3掲示面では、3件の返し例を並べません。
+
+返しそのものはQR先の体験として残します。
+
+## Authority split
+
+- GitHub = 本文 / QR / Scope / 証跡 / Human Gate の正本
+- `content.md` = V3 broader content / operational boundary authority
+- `production-microcopy.md` = V3 active production surface copy authority
+- `DESIGN.md` = V3 visual design authority
+- `poster.html` = V3 deterministic A4 implementation candidate
+- Canva / SVG / PNG / PDF = 後続の見た目確認・制作面。別Gate
+
+Correction-8 / Correction-9aの文書は履歴証拠として保持します。
+
+V3はそれらを削除せず、V3 production surfaceについて新しいauthorityを定義します。
+
+## Current visual direction
+
+- 「説明」ではなく「参加入口」
+- 白〜生成り + 深緑 + 黄〜オレンジ少量
+- titleは第一焦点
+- example notes exactly 3
+- reply examples 0
+- QRは紙面中央付近の主要行動対象
+- illustration exactly 1 scene
+- adult editorial flat illustration
+- controlled imperfection
+- Web UI / SaaS card gridにしない
+- 広報ネタ募集 / 改善提案BOXに見せない
+- AI / system / A→B→C→Dを前面に出さない
+- safetyは読めるが紙面を支配しない
+
 ## QR
 
-既存V3の固定入口assetを参照します。
+Repository asset:
 
 `../hitokoto-poster-v3/assets/qr.png`
 
-固定入口は `https://hitokoto-kaeshi-preview.web.app/poster` です。
+Fixed destination:
 
-画像生成物のQRは参照用であり、本番に流用しません。
+`https://hitokoto-kaeshi-preview.web.app/poster`
 
-## Files
+期限付きFirebase Preview Channel URLは印刷QRへ使いません。
 
-- `DESIGN.md`: 現在のvisual design authority。Concept / Typography / Color / Paper / Object / Character / Accessibilityを定義
-- `content.md`: broader source copy authority
-- `production-microcopy.md`: active production subset authority
-- `poster.html`: Correction-7構造参考
-- `visual-review.md`: Human Visual Review / Gate状態
-- `correction-8-approved-visual-direction.md`: 選定ビジュアル方向の履歴
-- `correction-8-canva-production-spec.md`: Canva完成版実装仕様書
-- `correction-8-canva-checklist.md`: 実装担当向け1ページ版チェックリスト
+## Physical QR boundary
+
+過去Canva candidateのPhysical QR Validation PASSは履歴証拠のみです。
+
+V3 final production candidateにはfreshなPhysical QR Validationが必要です。
+
+```text
+actual intended final paper size / print settings
+→ physical device scan
+→ canonical /poster PASS
+→ Preview Channel redirect 0
+```
+
+## Timing boundary
+
+明示的なHuman superseding decisionがない限り、**2026年12月の第2回広報部会までは正式導入しません。**
+
+準備・実装・レビュー・別GateのCloud readiness作業は可能です。
+
+ただし少なくとも次は第2回前に自動承認しません。
+
+- Human Print / Post GO
+- Human Real Trial Start GO
+- Actual Staff Pilot Start
+
+## Current files
+
+- `content.md`: V3 content / operational boundary authority
+- `production-microcopy.md`: V3 exact production copy authority
+- `DESIGN.md`: V3 visual authority
+- `poster.html`: V3 deterministic implementation candidate
+- `visual-review.md`: historical visual review record; V3 HVAはまだ未実施
+- `correction-8-approved-visual-direction.md`: historical evidence
+- `correction-8-canva-production-spec.md`: historical implementation spec
+- `correction-8-canva-checklist.md`: historical checklist
 
 ## HOLD
 
-この候補を `accepted/`、`patterns/`、`prompts/`、`foundations/` へ昇格しません。
+V3 implementation candidateができても、次は自動承認しません。
 
-Human Visual Acceptanceと後続Gateを通るまで、本印刷・正式掲示には使いません。
+- Canva final save
+- Human Visual Acceptance
+- Physical A4 / fresh QR validation
+- CLOUD-TRIAL activation
+- LIVE WRITE
+- Merge
+- Print / Post
+- Real Trial Start
+- Actual Staff Pilot
+- `accepted/` / `patterns/` / `prompts/` / `foundations/` promotion
