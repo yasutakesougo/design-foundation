@@ -11,11 +11,13 @@
 - `skills/`: 構想探索など、必要時だけ使う制作手順。
 - `prompts/`: 制作時に再利用する指示テンプレート。
 - `review/`: Human Reviewと出力前確認を補助する確認基準。
-- `references/`: 採用・不採用事例と外部参照の記録。
+- `references/`: 外部参照や制作結果から、再利用できる判断を抽出して記録する場所。
 
 方向性案は `references/directions/`、Human Visual Acceptance前のドラフトは `references/in-progress/` に置きます。
 
-初案を Pattern / Prompt / Foundation へ自動昇格しません。
+外部参考を使う場合は `references/reference-intake-template.md` で、再利用する原則とコピーしない固有表現を分離します。
+
+初案や外部参考を Pattern / Prompt / Foundation へ自動昇格しません。
 
 ## 共通Foundationと個別Style Guideの境界
 
@@ -31,6 +33,8 @@ Design Foundationは、複数案件で再利用できる判断だけを扱いま
 Human Definition / Scope Lock
 ↓
 Content Structure / Content Lock
+↓
+Reference Intake（外部参考を使う場合のみ）
 ↓
 Concept Exploration / Concept Sketch（必要時のみ）
 ↓
@@ -58,6 +62,12 @@ Accepted Reference
 ```
 
 文章とデザインは同時に大きく変更しません。
+
+Reference Intakeでは、参考作品をそのまま再現せず、レイアウト、文字、色、素材などへ分解します。
+
+そのうえで、再利用する設計原則を `Borrow`、作品固有でコピーしない表現を `Do Not Copy` として分離します。
+
+参考を分析しただけでは共通Foundationへ昇格させません。
 
 Concept Sketchは完成物ではなく、方向性を比較するための探索物です。
 
@@ -93,6 +103,8 @@ Canvaやページレイアウトツールを制作の起点にはしません。
 ## 人に説明すると
 
 最初に人が「何を、誰に、どの形で伝えるか」を決めます。
+
+外部のチラシやWebを参考にする場合は、好きな作品をそのまま真似せず、「余白が広い」「色数が少ない」などの要素に分けます。
 
 次にエージェントが文章とレイアウトを整理し、完成品に近い初稿を作ります。
 
