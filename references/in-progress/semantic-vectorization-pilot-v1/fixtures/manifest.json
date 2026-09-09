@@ -1,0 +1,35 @@
+{
+  "pilot": "SEMANTIC-VECTORIZATION-PILOT-V1",
+  "source": {
+    "repository": "yasutakesougo/design-foundation",
+    "pull_request": 71,
+    "head_sha": "4acdefca152dd3f4fd1c69424b3f4f79f9b78004"
+  },
+  "render": {
+    "viewBox": "0 0 512 512",
+    "sizes": [512, 64]
+  },
+  "fixtures": [
+    {
+      "id": "note-taking",
+      "file": "source-svg/person-note-taking.svg",
+      "source_blob_sha": "9edda32fc6b96ca5226ba7f3922b30a2cd52c526",
+      "semantic_label": "WRITE",
+      "required_cues": ["paper", "pen", "writing-hand", "pen-hand-paper-interaction"]
+    },
+    {
+      "id": "thinking",
+      "file": "source-svg/person-thinking.svg",
+      "source_blob_sha": "8700cc1ccf679f7e4f43dcc93a0f222a088af1e9",
+      "semantic_label": "THINK",
+      "required_cues": ["hand-to-face", "visible-forearm", "arm-face-relationship"]
+    },
+    {
+      "id": "looking",
+      "file": "source-svg/person-looking.svg",
+      "source_blob_sha": "918f9ea48cbb2778d2f3dd8ba1051158ee1fd52b",
+      "semantic_label": "LOOK",
+      "required_cues": ["head-direction", "lateral-gaze", "face-direction", "shoulder-direction"]
+    }
+  ]
+}
