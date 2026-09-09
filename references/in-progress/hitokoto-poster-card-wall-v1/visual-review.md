@@ -2,19 +2,19 @@
 
 ## Current review target
 
-`CARD-WALL-V1 Correction-7 — Scene Illustration / Typography / Rhythm Density Refinement` の Human Visual Review 対象です。
+`CARD-WALL-V1 Correction-8 — Canva Production / Scene Composition Refinement`
 
-Baseline exact HEAD:
+Canva Design ID:
 
-`1caf22d5ea74b70ffc4f12e619d43b637d4bc03e`
+`DAHUqyhsx2s`
 
-Human feedback translated into this correction:
+Correction-8 baseline exact HEAD:
 
-- 人物が未完成なピクトグラムのように見える
-- 画面がまださっぱりしすぎる
-- フォントの大きさと間の取り方にもう一段リズムが必要
+`bfe6084a55a3d20cc3e9f740adbeb2b1c2cf57ae`
 
-Correction-7 は、**場面イラスト・文字サイズ階層・余白リズム**だけを調整します。
+Current exact HEAD at this review-record update is recorded by commit after this file lands.
+
+Correction-7 remains the structural / historical HTML baseline only. Correction-8 production surface is Canva.
 
 ## Content authority — HARD LOCK
 
@@ -42,141 +42,104 @@ The following remain unchanged:
 - `気になったことを、ひとことだけ。`
 - `正解は、ありません。`
 - all four `ひとこと → ひとこと返し` pairs
-- CTA wording
+- CTA wording already in `content.md`
 - reassurance / caution wording
 - `広報部会（仮）`
 
-## Correction-7 implementation
+## Content Microcopy Gate
 
-### Scene illustration refinement
+Human-locked supportive microcopy (Issue #41 / #42 PASS / Lock GO):
 
-Correction-6 の抽象的な線画人物を、意味が読める3場面へ置き換えました。
+1. `こんなことも書いていいんだ！`
+2. `小さな気づきが、よりよい日常をつくる。`
+3. `いつもの風景の中に気づきがあるかも。`
+4. `こんな見方もあるんだな…`
+5. `なるほど！そんなふうに見ていたんだ！`
 
-1. 上部左: メモを手にした大人
-2. 右中段: 掲示カードへ身体を寄せて読む大人
-3. CTA左: 2人が1枚のメモを一緒に見る場面
+Authority file:
 
-各場面は、視線・手・持ち物・姿勢を読み取れるようにし、髪・服・紙に淡い面色を加えています。
+`production-microcopy.md`
 
-- adult / workplace tone
-- no real-person likeness
-- no disability stereotype
-- no mascot / chibi treatment
-- illustration remains subordinate to title / exchanges / CTA
+Canva insertion of these five phrases requires:
 
-### Decorative density cleanup
+`CARD-WALL-V1 Correction-8 Content Microcopy Human Implementation Start GO`
 
-- Correction-6 の複数ドット群・放射アクセント・単独植物を削減
-- 装飾の埋め草を減らし、3つの意味のある場面を視覚アンカーに変更
-- 補助アクセントは小さなdot clusterと2本の曲線アクセントのみ
+Current state: **NOT DONE / REQUIRED**
 
-### Typography hierarchy
+## Canva production instruction
 
-- title: `46px → 50px`（約8.7%増）
-- lead: `17px → 17.6px`
-- card body: `13.4px → 14.25px`（約6.3%増）
-- card label: `9.6px → 10.2px`
-- CTA title: `22.5px → 23px`
-- caution / footer size: **縮小なし / 9.9px維持**
-- remote web font: **none**
+Implementation instruction recorded:
 
-### Spacing rhythm
+- `correction-8-canva-production-spec.md`
+- `correction-8-canva-checklist.md`
+- `correction-8-approved-visual-direction.md`
 
-Correction-6 の均一な縦間隔を、次の3段階へ整理しました。
+Selected visual qualities to reproduce on Design `DAHUqyhsx2s`:
 
-1. hero → exchanges: 広めの間を確保 (`margin-bottom: 5mm`)
-2. exchange field: 4組を `gap: 2mm` のcompact rhythmへ
-3. exchanges → CTA: `5.5mm` の明確なsection break
+- hand-drawn title with strong yellow marker
+- slightly irregular posted cards + masking tape + hand-drawn green arrows
+- scene-readable adult people (not unfinished pictograms)
+- warm CTA + calm pale-green footer
+- supportive microcopy kept secondary
 
-4組は一つのまとまりとして見えつつ、CTAとは明確に分かれる構成です。
+## Required deliverables before Human Ready
 
-### CTA composition
-
-- CTAの強さはCorrection-6を維持
-- 左に2人の場面イラストを組み込み、`書く → 見る` の人の気配を補助
-- CTA本文とQRの可読性は維持
-- QR display size: `31mm` 維持
-- quiet zone維持
-
-## Static verification
-
-- required authoritative strings: **PASS**
-- four `.pair` groups: **PASS / 4**
-- repository QR reference unchanged: **PASS**
-- long URL absent from poster surface: **PASS**
-- new speech-bubble copy: **none**
-- remote font import: **none**
-- title / CTA / caution strings: **PASS**
-- illustration scenes: **3**
-
-## A4 fixed-layout verification
-
-Renderer: `WeasyPrint + rendered PNG inspection`
-
-Result:
-
-- page count: **1**
-- page size: **A4 / 595.276 × 841.89 pt**
-- clipping observed: **none**
-- fragmentation observed: **none**
-- visible overflow observed: **none**
-- title first-glance hierarchy: **PASS**
-- four pair mappings: **PASS**
-- larger card text readability: **PASS**
-- scene illustrations avoid primary reading path: **PASS**
-- CTA discovery / hierarchy: **PASS**
-- caution/footer readability: **PASS**
-- QR quiet zone in layout: **PASS**
-- awkward Japanese line break: **none observed**
-
-No fresh Chromium PASS is claimed for Correction-7. Browser evidence remains supplementary under Issue #31 when the execution environment blocks it.
+1. Content Microcopy Human Implementation Start GO consumed
+2. Canva editable candidate updated to selected direction + locked microcopy
+3. locked copy and authoritative QR preserved
+4. fresh A4 review PNG
+5. fresh A4 print-review PDF
+6. text / mapping / footer / QR quiet-zone verification
+7. real-device QR test (later physical gate)
+8. physical A4 readability check (later physical gate)
 
 ## Human visual questions
 
 1. 人物が未完成ピクトではなく、意味のある小場面に見えるか。
-2. 視線・手・持ち物の関係がA4サイズでも読めるか。
-3. 人の気配が増えた一方、幼くなっていないか。
-4. `日常を、言葉に。` が第一焦点として十分強いか。
-5. 4組の文字が以前より読みやすく、主役として見えるか。
-6. 4組の段間がつながりを生み、詰まりすぎていないか。
-7. title / exchange field / CTA の間に明確なリズムがあるか。
-8. さっぱりしすぎる印象が改善したか。
-9. CTAが引き続き見つけやすいか。
-10. 装飾過多 / 子ども向け / AIポスターっぽい方向へ振れていないか。
+2. `日常を、言葉に。` が第一焦点として十分強いか。
+3. 4組が掲示カードとして読め、対応が一目でわかるか。
+4. 手描きのライブ感が幼さや文化祭感に振れていないか。
+5. マイクロコピー5件が補助に留まり、啓発スローガン化していないか。
+6. CTAが発見しやすいか。
+7. QRが鮮明で quiet zone があるか。
+8. フッター注意書きが読めるか。
+9. 全体が温かく、大人向けで、適度な密度か。
+10. 余計な吹き出し文言がないか。
 
-## Physical Validation
+## Exact implementation scope for this documentation step
 
-Still separate and not consumed:
+This documentation step records:
 
-- real A4 physical readability
-- real-device QR scan
-- destination readback
+- Canva完成版実装仕様書
+- Canva実装担当向け1ページ版チェックリスト
+- Human-locked production microcopy authority
+- Correction-8 review / gate status
 
-## Exact implementation scope
+This step does **not**:
 
-Correction-7 changes are limited to:
-
-- `references/in-progress/hitokoto-poster-card-wall-v1/poster.html`
-- `references/in-progress/hitokoto-poster-card-wall-v1/visual-review.md`
-
-The following remain unchanged / out of scope:
-
-- `content.md`
-- `hitokoto-poster-v3/assets/qr.png`
-- Accepted / Pattern / Prompt / Foundation content
-- Print / Post / Deploy / Real Trial
+- mutate Canva Design `DAHUqyhsx2s` from this environment
+- change `content.md`
+- redesign `poster.html`
+- claim fresh PNG/PDF export verification
+- consume Human Ready / HVA / Merge / Print / Post
 
 ## Gate state
 
-- Correction-6: **SUPERSEDED CANDIDATE / historical evidence only**
-- Correction-7 Definition / Scope: **GO / CONSUMED / LOCKED**
+- Correction-7: **SUPERSEDED CANDIDATE / historical evidence only**
+- Correction-8 Definition / Scope: **GO / CONSUMED / LOCKED**
 - Independent Definition / Scope Review: **PASS**
+- Human Definition / Scope Lock: **GO / CONSUMED / LOCKED**
 - Human Implementation Start: **GO / CONSUMED**
-- Correction-7 implementation: **APPLIED**
-- Static scope/content verification: **PASS**
-- A4 fixed-layout verification: **PASS**
-- Browser verification: **SUPPLEMENTARY / NO FRESH PASS CLAIMED**
-- Correction-7 Human Ready: **REQUIRED / NOT YET CONSUMED**
-- Human Visual Acceptance: **NOT DONE**
+- Canva editable candidate: **ESTABLISHED / SAVED** (`DAHUqyhsx2s`)
+- User-selected visual direction: **RECORDED**
+- Canva完成版実装仕様書: **RECORDED**
+- Canva実装チェックリスト: **RECORDED**
+- Content Microcopy Definition / Scope: **GO / CONSUMED / LOCKED**
+- Content Microcopy Independent Review: **PASS**
+- Content Microcopy Human Implementation Start: **NOT DONE / REQUIRED**
+- Canva transfer to selected direction + microcopy: **PENDING**
+- Fresh A4 PNG / PDF export: **REQUIRED / NOT DONE**
+- Correction-8 Human Ready: **NOT DONE / HOLD**
+- Human Visual Acceptance: **NOT DONE / HOLD**
 - Physical A4 / real-device QR: **NOT DONE**
 - Merge / Print / Post / Deploy / Promotion: **HOLD**

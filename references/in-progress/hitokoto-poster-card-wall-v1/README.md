@@ -1,9 +1,11 @@
-# ひとこと掲示 Card Wall V1（Direction C）
+# ひとこと掲示 Card Wall V1（Correction-8 / Canva production）
 
 - Medium: A4縦 掲示
-- Status: Human Direction C selected / implementation draft
-- Issue: #23 `HITOKOTO-POSTER-CARD-WALL-V1`
-- Date: 2026-09-08
+- Status: Correction-8 Canva production / scene composition refinement
+- Issue: #23 `HITOKOTO-POSTER-CARD-WALL-V1` / #39 Correction-8 / #41 Content Microcopy Gate
+- PR: #24
+- Canva Design ID: `DAHUqyhsx2s`
+- Date: 2026-09-09
 - Human Ready: HOLD
 - Human Visual Acceptance: NOT DONE
 - Print / Post: HOLD
@@ -17,16 +19,27 @@
 
 既存 `hitokoto-poster-v3` は変更しません。
 
-## Visual direction
+## Authority split
 
-- 実際の掲示板に紙が貼られているようなコルクボード感
-- 左を「ひとこと」、右を「ひとこと返し」として4組配置
-- 各組を緑の矢印で結ぶ
-- 少しだけ傾き、紙色、テープ、ピンを変える
-- にぎやかさは残すが、幼い寄せ書きにはしない
-- 深い緑 + 生成りを中心にする
-- 黄は見出し下線などの小さなアクセントだけにする
-- 人物イラストは使わない
+- GitHub = 本文 / QR / Scope / 証跡 / Human Gate の正本
+- Canva = 見た目を仕上げる制作面（Design `DAHUqyhsx2s`）
+- HTML `poster.html` = Correction-7までの構造参考。Correction-8の最終印刷制作面ではない
+
+## Current visual direction
+
+採用方向は次です。
+
+- 手描き感のあるタイトル + 黄色マーカー
+- 少し不揃いな掲示カード / マスキングテープ / 手描き緑矢印
+- 場面が読めるシンプルな大人の人物
+- 温かいCTA / 淡い緑のフッター
+- 補助マイクロコピーは主役にしない
+
+詳細:
+
+- `correction-8-approved-visual-direction.md`
+- `correction-8-canva-production-spec.md`
+- `correction-8-canva-checklist.md`
 
 ## Information hierarchy
 
@@ -42,6 +55,7 @@ QRからどうぞ
 ひとことを書く → ひとこと返しを見る
 ↓
 最低限の安心・注意
+（補助マイクロコピーは常に最後）
 ```
 
 ## QR
@@ -52,13 +66,17 @@ QRからどうぞ
 
 固定入口は `https://hitokoto-kaeshi-preview.web.app/poster` です。
 
-stable Hostingの状態、実機QR、Print / Post、Real Trialは別Gateです。
+画像生成物のQRは参照用であり、本番に流用しません。
 
 ## Files
 
-- `content.md`: この候補で使用する掲示面コピー
-- `poster.html`: A4縦のVisual Draft
-- `visual-review.md`: Human Visual Review用の確認観点
+- `content.md`: 固定本文（変更禁止）
+- `production-microcopy.md`: Human-locked 補助マイクロコピー5件
+- `poster.html`: Correction-7構造参考（HTML再設計はしない）
+- `visual-review.md`: Human Visual Review / Gate状態
+- `correction-8-approved-visual-direction.md`: 選定ビジュアル方向
+- `correction-8-canva-production-spec.md`: Canva完成版実装仕様書
+- `correction-8-canva-checklist.md`: 実装担当向け1ページ版チェックリスト
 
 ## HOLD
 

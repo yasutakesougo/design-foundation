@@ -99,12 +99,21 @@ The final production candidate should reproduce the selected atmosphere using ed
 - readable caution/footer text
 - sufficient QR quiet zone
 
+Detailed Canva implementation instruction:
+
+- `correction-8-canva-production-spec.md`
+- `correction-8-canva-checklist.md`
+- `production-microcopy.md`
+
 ## Gate state
 
 This record means:
 
 - visual direction selected: **YES**
 - production target clarified: **YES**
+- Canva完成版実装仕様書: **RECORDED**
+- Content Microcopy Human Implementation Start: **NOT DONE / REQUIRED**
+- Canva transfer / fresh PNG+PDF: **PENDING**
 - Human Ready: **NOT CONSUMED**
 - Human Visual Acceptance: **NOT CONSUMED**
 - physical A4 check: **NOT DONE**
