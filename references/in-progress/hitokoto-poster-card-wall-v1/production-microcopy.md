@@ -1,70 +1,151 @@
-# CARD-WALL-V1 Correction-8 — Production Microcopy Authority
+# CARD-WALL-V1 — Production Copy / Microcopy Authority
 
-Status: **HUMAN-LOCKED / IMPLEMENTATION START GO / CONSUMED**
+Status: **CORRECTION-9a HUMAN-LOCKED / IMPLEMENTATION START GO / CONSUMED**
 
 Date: 2026-09-09
 
-## Authority chain
+## Active authority chain
 
-- Definition: Issue #41 `CARD-WALL-V1 Correction-8 — Content Microcopy Gate`
-- Independent Review: Issue #42 — **PASS**
-- Human Definition / Scope Lock: **GO / CONSUMED / LOCKED** at exact HEAD `e42c4692c941be865a764c90bf1b3fe8562d6d13`
-- Human Implementation Start: **GO / CONSUMED** at exact HEAD `e754b905e25e84c7913e7ec0b48ec629811c3982`
+- Correction-9a Definition: Issue #45 `CARD-WALL-V1 Correction-9a — Action Hierarchy / Content Simplification`
+- Independent Review: Issue #47 — **PASS / no blocking findings**
+- Human Definition / Scope Lock: **GO / CONSUMED / LOCKED** at exact HEAD `1543886e05c8e23e7cec5b93a90875f015d6c5c6`
+- Human Implementation Start: **GO / CONSUMED** at exact HEAD `1543886e05c8e23e7cec5b93a90875f015d6c5c6`
 
 Authorized command consumed:
 
-`CARD-WALL-V1 Correction-8 Content Microcopy Human Implementation Start GO — e754b905e25e84c7913e7ec0b48ec629811c3982`
+`CARD-WALL-V1 Correction-9a Human Implementation Start GO — 1543886e05c8e23e7cec5b93a90875f015d6c5c6`
 
-Canva insertion of the five locked phrases on Design `DAHUqyhsx2s` is now authorized within Correction-8 scope.
+Correction-9a intentionally narrows the production surface for Master v2. Broader source copy may remain in `content.md`; this file is the active production subset authority for the poster surface.
 
-## Locked supportive microcopy
+## Production hierarchy for Master v2
 
-These five phrases are Human-locked for Correction-8 Canva production. Use them exactly.
+1. `日常を、言葉に。`
+2. `QRからどうぞ`
+3. `ひとこと → ひとこと返し` examples
+4. supporting explanation
+5. caution / operational notes
+
+Target principle:
+
+`骨格は維持し、約20%静かにする。`
+
+## Production example subset
+
+Use exactly three example pairs on Master v2.
+
+### Pair 1
+
+`今日は、いつもの声かけに少し間があった。`
+
+→
+
+`その「間」、ちょっと気になりますね。`
+
+### Pair 2
+
+`言葉はなかったけど、何度もこちらを見ていた。`
+
+→
+
+`見ていた先に、何かあったのかもしれません。`
+
+### Pair 3
+
+`声をかける順番を変えたら、少し表情が違った。`
+
+→
+
+`順番にも、何かありそうですね。`
+
+Pair 4 remains in broader source authority / history but is omitted from Master v2 production composition.
+
+Use one section-level heading:
+
+`ひとこと → ひとこと返し`
+
+Do not repeat `ひとこと` / `ひとこと返し` labels on every pair. If orientation still needs help, they may appear only on the first pair.
+
+## Production supportive microcopy subset
+
+### Strong supportive cues — use exactly
 
 1. `こんなことも書いていいんだ！`
-2. `小さな気づきが、よりよい日常をつくる。`
-3. `いつもの風景の中に気づきがあるかも。`
-4. `こんな見方もあるんだな…`
-5. `なるほど！そんなふうに見ていたんだ！`
+2. `なるほど！そんなふうに見ていたんだ！`
 
-## Placement
+### Optional weak side note
 
-| Phrase | Placement |
-| --- | --- |
-| こんなことも書いていいんだ！ | upper-left near memo-holding person |
-| 小さな気づきが、よりよい日常をつくる。 | upper-right / card-area side-note |
-| いつもの風景の中に気づきがあるかも。 | left-middle margin |
-| こんな見方もあるんだな… | right-middle near considering person |
-| なるほど！そんなふうに見ていたんだ！ | lower-left near two-person CTA scene |
+`いつもの風景の中に気づきがあるかも。`
 
-## Role
+Use only if spacing/rhythm benefits. It must remain visually weak and is not required.
 
-Supportive only. Must remain secondary to:
+### Omit from Master v2 production surface
 
-1. title
-2. four `ひとこと → ひとこと返し` pairs
-3. CTA
-4. caution / footer
+- `小さな気づきが、よりよい日常をつくる。`
+- `こんな見方もあるんだな…`
 
-Do not let any phrase become a campaign slogan. Keep `小さな気づきが、よりよい日常をつくる。` especially visually weak.
+These phrases remain historical Human-locked microcopy from Correction-8 but are not active production copy for Master v2.
 
-## Next authorized production action
+## Upper reassurance
 
-Canva Design `DAHUqyhsx2s` may now receive:
+Use one independent reassurance message:
 
-1. selected visual-direction transfer
-2. exact insertion of the five locked microcopy phrases
-3. fresh A4 PNG / PDF export
+`正解は、ありません。`
 
-Do not claim Human Ready until export verification is recorded on GitHub.
+Do not give `気になったことを、そのままで。` a separate visual-message slot on Master v2.
 
-This file does **not** authorize changes to `content.md`, the four exchange pairs, CTA wording already locked there, caution text, `広報部会（仮）`, or the authoritative QR asset / destination.
+## CTA copy for Master v2
 
-Primary locked copy remains:
+Use exactly:
+
+- `QRからどうぞ`
+- `ひとことを書く → ひとこと返しを見る`
+- `30秒くらい。`
+- `文章じゃなくても大丈夫です。`
+
+Omit from the production CTA:
+
+`思いついたときだけでOK。`
+
+## Footer production hierarchy
+
+Primary reassurance layer:
+
+`書いたひとことが、そのまま広報に使われることはありません。`
+
+`必要なものだけ、広報部会で少し先を考えます。`
+
+Secondary safety / routing layer, smaller but readable:
+
+`氏名など、個人がわかる情報は書かないでください。`
+
+`事故・虐待・苦情・職場の相談などは、いつもの相談・報告ルートへ。`
+
+## Visual constraints paired with this production subset
+
+- two person scenes only: upper-left single person + lower CTA two-person scene
+- remove right-middle person scene
+- reduce masking tape roughly by half
+- reduce arrow size / weight
+- enlarge QR approximately 20–30% from Master v1
+- move CTA upward
+- card text remains visually stronger than arrows
+- decorative density reduced
+
+## Broader authority retained
+
+Primary broader content remains:
 
 `content.md` blob `6e9e6fa168976ed0f28882b783ae986d826ba1e5`
 
-QR remains:
+Authoritative QR remains:
 
 blob `a68d1f558c96c4eecb6a7e81cb1e74c5c8cf0a52`  
 destination `https://hitokoto-kaeshi-preview.web.app/poster`
+
+Correction-9a does not authorize new examples, new microcopy, QR destination changes, Print / Post / Deploy / Real Trial, or Pattern / Prompt / Foundation promotion.
+
+## Historical Correction-8 microcopy authority
+
+Correction-8 previously Human-locked five supportive phrases and authorized their use at exact HEAD `e754b905e25e84c7913e7ec0b48ec629811c3982`.
+
+Correction-9a supersedes that five-item **production surface requirement** only. It does not erase the historical authority record; it defines the active reduced subset for Master v2.
