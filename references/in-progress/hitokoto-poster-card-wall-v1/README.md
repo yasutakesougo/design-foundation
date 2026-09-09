@@ -1,42 +1,51 @@
-# ひとこと掲示 Card Wall V1（Correction-8 / Canva production）
+# ひとこと掲示 Card Wall V1
 
 - Medium: A4縦 掲示
-- Status: Correction-8 Canva production / scene composition refinement
-- Issue: #23 `HITOKOTO-POSTER-CARD-WALL-V1` / #39 Correction-8 / #41 Content Microcopy Gate
+- Status: Final visual direction selected / deterministic reproduction refinement in progress
+- Issue: #23 `HITOKOTO-POSTER-CARD-WALL-V1` / #39 Correction-8 / #41 Content Microcopy Gate / #45 Correction-9a
 - PR: #24
-- Canva Design ID: `DAHUqyhsx2s`
 - Date: 2026-09-09
-- Human Ready: HOLD
-- Human Visual Acceptance: NOT DONE
+- Human Visual Acceptance: HOLD
+- Physical A4 / real-device QR: HOLD
 - Print / Post: HOLD
 - Deploy / Real Trial: HOLD
 
-このフォルダは、大学生協の「ひとことカード」のような掲示感をDesign DNAとして参照した独立候補です。
+このフォルダは、「日常を、言葉に。」を核とした職員向けの参加型ミニ実験ポスターを扱います。
 
-実物の固有フォーマット、ロゴ、カード様式は複製しません。
+目的は、気づきの大切さを啓発することではありません。
 
-この候補では、カードの数そのものより、**「ひとこと → ひとこと返し」**の往復が一目で分かることを優先します。
+日常の中で少し気になったことを、完成した意見にする前に、30秒程度でひとこと置いてみられる入口をつくることを目的とします。
 
 既存 `hitokoto-poster-v3` は変更しません。
 
 ## Authority split
 
 - GitHub = 本文 / QR / Scope / 証跡 / Human Gate の正本
-- Canva = 見た目を仕上げる制作面（Design `DAHUqyhsx2s`）
-- HTML `poster.html` = Correction-7までの構造参考。Correction-8の最終印刷制作面ではない
+- `DESIGN.md` = 現在のHuman-selected visual directionを再現するためのvisual design authority
+- `production-microcopy.md` = active production copy subset authority
+- Canva / deterministic SVG / PNG / PDF = 見た目を実装・確認する制作面
+- HTML `poster.html` = Correction-7までの構造参考。最終印刷制作面ではない
+
+`DESIGN.md` は本文、補助コピー、QR、Human Gateを上書きしません。
 
 ## Current visual direction
 
 採用方向は次です。
 
-- 手描き感のあるタイトル + 黄色マーカー
-- 少し不揃いな掲示カード / マスキングテープ / 手描き緑矢印
-- 場面が読めるシンプルな大人の人物
-- 温かいCTA / 淡い緑のフッター
-- 補助マイクロコピーは主役にしない
+- 「啓発物」ではなく「小さな参加募集」
+- 生成りの紙面 + 深緑 + 淡い緑 + 黄色
+- 手描き感のあるタイトル + 黄色brush
+- 3つの異なる紙メモで「このくらいのひとことでよい」を見せる
+- 紙、テープ、クリップ、影にごく小さい素材差を持たせる
+- 完全な機械整列を避け、固定的なcontrolled imperfectionを使う
+- 人物はadult editorial flat illustrationとし、説明の主役にはしない
+- 上部人物とCTA人物の肌色、線、簡略化レベルを同一シリーズとして統一する
+- CTAを行動の主役とし、QRコードは明確な入口として扱う
+- 補助マイクロコピーと装飾は主役にしない
 
 詳細:
 
+- `DESIGN.md`
 - `correction-8-approved-visual-direction.md`
 - `correction-8-canva-production-spec.md`
 - `correction-8-canva-checklist.md`
@@ -48,14 +57,13 @@
 ↓
 気になったことを、ひとことだけ。
 ↓
-ひとこと → ひとこと返し × 4
+ひとこと → ひとこと返し × 3
 ↓
 QRからどうぞ
 ↓
 ひとことを書く → ひとこと返しを見る
 ↓
 最低限の安心・注意
-（補助マイクロコピーは常に最後）
 ```
 
 ## QR
@@ -70,11 +78,12 @@ QRからどうぞ
 
 ## Files
 
-- `content.md`: 固定本文（変更禁止）
-- `production-microcopy.md`: Human-locked 補助マイクロコピー5件
-- `poster.html`: Correction-7構造参考（HTML再設計はしない）
+- `DESIGN.md`: 現在のvisual design authority。Concept / Typography / Color / Paper / Object / Character / Accessibilityを定義
+- `content.md`: broader source copy authority
+- `production-microcopy.md`: active production subset authority
+- `poster.html`: Correction-7構造参考
 - `visual-review.md`: Human Visual Review / Gate状態
-- `correction-8-approved-visual-direction.md`: 選定ビジュアル方向
+- `correction-8-approved-visual-direction.md`: 選定ビジュアル方向の履歴
 - `correction-8-canva-production-spec.md`: Canva完成版実装仕様書
 - `correction-8-canva-checklist.md`: 実装担当向け1ページ版チェックリスト
 
