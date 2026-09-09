@@ -1,252 +1,197 @@
 # Card Wall V1｜Human Visual Review
 
-## Review target
+## Current review target
 
-Direction C｜リアル・雑さ重視。
+`CARD-WALL-V1 Correction-4` の Human Visual Review 対象です。
 
-大学生協の「ひとことカード」のように、掲示された複数の紙を眺める感覚を参照します。
+Human-selected direction は **Direction B / light handmade + realistic paper texture** です。
 
-評価する中心は、**「ひとこと → ひとこと返し」の関係が一目で伝わるか**です。
+Correction-3 の Human Visual Acceptance は Exact HEAD `9a32701e06b2468f6dcd9484ca53f5b707b6a122` に対する historical evidence のみであり、Correction-4 には継承しません。
 
-## Correction-1
+評価の中心は、次の順序が崩れていないことです。
 
-初回プレビューでは、関係性は明確でしたが、4組が均等な2列グリッドに見え、実際の掲示板としては少し整いすぎていました。
+1. `日常を、言葉に。`
+2. 4組の `ひとこと → ひとこと返し`
+3. CTA + real QR
+4. reassurance / caution
+5. supporting illustration / decoration
 
-Correction-1では次を調整しました。
+## Content authority
 
-- 各Pairの横位置と幅を少しずつ変え、完全な整列を崩す
-- カードごとの傾きを少し強める
-- `ひとこと → ひとこと返し` の左右関係と矢印は維持する
-- CTAの説明量を減らし、左に行動文、右にQRを置く
-- 安心・注意はCTA本体から分離した細い紙片にまとめる
-- 人物や追加イラストは入れない
+`content.md` は Correction-4 でも正本です。
 
-Correction-1は、**雑さを足しても往復の読みやすさを失わない**ことを狙った調整です。
+Correction-4 実装では `content.md` を変更しません。
 
-## Correction-2
+掲示面の必要文言は HTML text として維持します。
 
-Correction-1へのフィードバックを受け、生活感と文字組をさらに調整しました。
+生成ビジュアルに含まれていた追加の吹き出し文、説明文、AI生成QR・文字は production copy として採用しません。
 
-- `ひとこと返し` 側をPairごとに約1.2〜2.3mm下げ、あとから返しが貼られたような時間差を出す
-- Pairごとの横位置・幅・カード角度のばらつきは維持する
-- CTAは文節の途中で割れないよう、1行固定と明示改行を組み合わせる
-- `正解は、ありません。` は1行で見せる
-- CTAの文字サイズ・字間をわずかに抑え、カード群より主張しすぎないようにする
-- QR枠は弱い破線へ変更し、行動導線としては維持しつつカード群との競合を減らす
+QR asset / destination も変更しません。
 
-### 記名表現について
+固定 destination:
 
-実在の氏名に見える署名を混ぜる案は採用していません。
+`https://hitokoto-kaeshi-preview.web.app/poster`
 
-掲示面では `氏名など個人がわかる情報は書かないでください` と案内しているため、例示カードへ記名を入れると入力ルールと矛盾するためです。
+Repository QR reference:
 
-生活感は、署名ではなく位置・角度・紙色・返信側の段差で表現します。
+`../hitokoto-poster-v3/assets/qr.png`
 
-## Correction-3
+## Correction-1〜3 の位置づけ
 
-Correction-3では、情報構造とコピーを固定したまま、「デザインされたカードUI」より「実際のコルクボードに少しずつ紙が貼られた状態」へ一段寄せました。
+Correction-1〜2 は、カードの整列を崩しながら左右の往復を維持する方向を確認した履歴です。
 
-### Texture treatment
+Correction-3 は、コルク、木枠、紙、留め方を強く物理表現へ寄せた候補でした。
 
-実装は **CSS-only** です。
+Correction-3 は browser / print-to-PDF 上では成立していましたが、Physical Validation review 中に Human が visual result を却下しました。
 
-candidate-local assetは追加していません。
+そのため Correction-4 は、往復構造と内容 authority を残しつつ、全面コルク・木枠・重い茶色・過剰な material simulation を廃止します。
 
-コルク面は、暖かい茶系を基調に複数の `radial-gradient`、弱い `repeating-linear-gradient`、内側の陰影を重ねています。
+## Correction-4 implementation
 
-粒状感と濃淡は文字やカードより前に出ない強さへ抑えています。
+### Page / background
 
-紙は生成りを中心に、薄いグリーン、黄み、低コントラストの方眼を混在させています。
+- A4 portrait `210mm × 297mm` を維持
+- bright warm off-white / pale neutral base
+- full cork background を削除
+- wooden frame を削除
+- large dark field を使用しない
+- pale mint / pale blue / pale coral の低優先度 background accents のみ使用
 
-紙ごとに回転、影、紙色、留め方を少し変えています。
+### Primary palette
 
-外部texture URL、第三者写真、大学生協の実物カード画像、ロゴ、固有装飾は使用していません。
+- deep green を title / labels / arrows / CTA emphasis の主色に使用
+- cards は off-white / very pale green / very pale blue
+- yellow は title / CTA の marker treatment に限定
+- orange / coral は背景の低優先度 accent に限定
 
-### Pin / tape treatment
+### Title
 
-留め方はPairごとに変えています。
+- `日常を、言葉に。` を first-glance focal point として維持
+- title 周囲の余白を拡大
+- `正解は、ありません。` は独立した小さな paper note として維持
+- side note は title より強くしない
 
-- Pair 1: note = push pin / reply = short masking tape
-- Pair 2: note = masking tape / reply = push pin
-- Pair 3: note = push pin + slightly lifted shadow / reply = masking tape
-- Pair 4: note = one-sided tape / reply = small push pin
+### Four exchanges
 
-push pinとtapeはCSSの疑似要素だけで描画しています。
+4組はすべて explicit left-to-right pair のままです。
 
-### Reply Y offsets
+`ひとこと → ひとこと返し`
 
-`ひとこと返し` 側だけを次の量だけ下げています。
+- pair mapping を変更しない
+- reply 側だけを少し下げ、あとから返しが加わった時間差を残す
+- rotation / offset は小さくする
+- paper texture は軽くする
+- shadow は Correction-3 より弱くする
+- cards は高コントラストを維持する
 
-- Pair 1: `5px`
-- Pair 2: `10px`
-- Pair 3: `7px`
-- Pair 4: `12px`
+### Tape / pins
 
-左右の対応関係と中央の矢印は維持しています。
+留め具は全カードへ付けません。
 
-### CTA
+Correction-4 では main card field 全体で4箇所だけです。
 
-CTAは一枚の紙として維持し、カード群より強くならないようにしています。
+- Pair 1 note: short tape
+- Pair 2 reply: small pin
+- Pair 3 note: short tape
+- Pair 4 reply: small pin
 
-`QRからどうぞ`、`ひとことを書く → ひとこと返しを見る`、補足文の優先順位は変更していません。
+装飾が文字と競合する場合は、装飾を先に削除します。
 
-QR周囲は白地と独立余白を維持しています。
+### Person illustrations
 
-注意文は縮小せず、line-heightと上下余白をわずかに増やしています。
+人物線画は2箇所です。
 
-`広報部会（仮）` は下端との距離を確保し、注意文との圧迫感を減らしています。
-
-### Font fallback
-
-remote fontは使用していません。
-
-日本語本文は既存の安全なfallback chainを維持しています。
-
-```text
-"Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", Meiryo, sans-serif
-```
-
-矢印だけにローカルのhandwritten系fallbackを使い、本文レイアウトはその有無に依存しません。
-
-readabilityをhandwriting characterより優先しています。
-
-### Browser / print renderer
-
-Browser renderingを最終Human Visual Review用surfaceとします。
-
-BrowserとChromium print-to-PDFの両方で、カード配置、reply段差、紙色、tape/pin、主要なshadowとtextureは維持されました。
-
-print rendererでは細かなshadowと粒状感がbrowser screenshotより少し均されて見えますが、情報階層やpair mappingへ影響する差は確認していません。
-
-ローカル検証環境ではrepositoryのbinary QR assetを直接mountできないため、browser screenshot / print-to-PDFのレイアウト確認時だけ、同じdestinationから生成した同寸法のローカルQRをdata URIとして差し込みました。
-
-repository側のQR asset参照とblobは変更しておらず、実機QR確認は後続Physical Validationのままです。
-
-## First-glance check
-
-- [x] 最初に `日常を、言葉に。` が見える
-- [x] 次に複数のカードへ視線が移る
-- [x] 左の `ひとこと` と右の `ひとこと返し` がセットだと分かる
-- [x] 矢印が各Pairの関係を補助している
-- [x] QRがカード群の次の行動として見える
-
-## Tone check
-
-- [x] コルク面が単色・平坦に見えない
-- [x] 紙色・影・留め方に小さな差があり、同一UI部品の反復に見えにくい
-- [x] 返し側の段差があり、あとから応答が添えられた関係を示している
-- [x] texture / pin / tapeが本文より前へ出ていない
-- [x] 雑貨屋・文化祭・かわいい寄せ書き方向へ寄せていない
-- [x] 人物・キャラクター・追加装飾を主役にしていない
-- [ ] Human Visual Acceptanceは未実施
-
-## Reply check
-
-見るポイントは、返しが説明、評価、正解、本人の意味の確定に見えないことです。
-
-少し続きを考えたくなる余白が残っているかを確認します。
-
-違和感があれば、どのPairのどの言葉が気になるかをそのまま記録します。
-
-### Pair 1
-
-`今日は、いつもの声かけに少し間があった。`
-
-→ `その「間」、ちょっと気になりますね。`
-
-### Pair 2
-
-`言葉はなかったけど、何度もこちらを見ていた。`
-
-→ `見ていた先に、何かあったのかもしれません。`
-
-### Pair 3
-
-`声をかける順番を変えたら、少し表情が違った。`
-
-→ `順番にも、何かありそうですね。`
-
-### Pair 4
-
-`自販機の前で、しばらく立ち止まっていた。`
-
-→ `何を見ていたんでしょうね。`
-
-## Correction-3 verification evidence
-
-### Scope / content integrity
-
-- Starting HEAD: `f645902386b48add3cb4e636af452732147cc21b`
-- `content.md` before blob: `6e9e6fa168976ed0f28882b783ae986d826ba1e5`
-- `content.md` after blob: `6e9e6fa168976ed0f28882b783ae986d826ba1e5`
-- `content.md`: **byte-for-byte unchanged**
-- Added candidate-local assets: none
-
-### QR integrity
-
-- QR reference remains `../hitokoto-poster-v3/assets/qr.png`
-- QR asset blob remains `a68d1f558c96c4eecb6a7e81cb1e74c5c8cf0a52`
-- QR destination remains `https://hitokoto-kaeshi-preview.web.app/poster`
-- Real-device QR validation: NOT DONE
-
-### Browser visual verification
-
-- Cork is not visually flat: PASS
-- Paper has physical variation: PASS
-- Four exchanges remain traceable: PASS
-- Reply time offsets remain readable: PASS
-- Texture remains subordinate: PASS
-- Adult / calm tone maintained: PASS
-- CTA remains secondary to card exchange: PASS
-- Unnatural Japanese mid-word wrapping observed: none
-
-Browser Visual Review: **PASS**
-
-### A4 print-to-PDF
-
-- Renderer: Chromium / Skia PDF
-- Page count: **1**
-- Page size: A4, approximately `595 × 842 pt`
-- clipping: **none observed**
-- fragmentation: **none observed**
-- overflow: **none observed**
-- missing text: **none observed**
-- QR quiet-zone layout: maintained
-
-A4 print-to-PDF: **PASS**
-
-## Accessibility / print checks before Ready
-
-- [x] A4縦 `210mm × 297mm` のprint CSSを維持している
-- [x] Correction-3のprint-to-PDFは1ページ
-- [x] Correction-3のPDF page sizeはA4 `595 × 842 pt` 相当
-- [x] Correction-3のレンダーでクリッピングは見られない
-- [x] CTAの `QRからどうぞ` と行動文に不自然な途中改行は見られない
-- [x] QR周囲に独立した余白がある
-- [ ] カード本文の実寸A4可読性はPhysical Validationで確認する
-- [ ] 実機QR確認は未実施
-
-## Scope check
-
-- [x] Correction-3の変更対象は `poster.html` と `visual-review.md` のみ
-- [x] `content.md` は未変更
-- [x] `hitokoto-poster-v3/*` は未変更
-- [x] `accepted/*` は未変更
-- [x] `patterns/*` は未変更
-- [x] `prompts/*` は未変更
-- [x] `foundations/*` は未変更
-- [x] `review/*` は未変更
-
-## Current gate
-
-- Human Direction Selection: C / CONFIRMED
-- Correction-3 Human Definition / Scope Lock: SATISFIED
-- Correction-3 Human Implementation Start: CONSUMED / APPLIED
-- Implementation: Correction-3 APPLIED + browser / local A4 render verified
-- Human Ready: NOT CONSUMED / HOLD
-- Human Visual Acceptance: NOT DONE
-- Physical A4 / real-device QR: NOT DONE
-- Merge: HOLD
-- Print / Post: HOLD
-- Deploy / Real Trial: HOLD
-- Accepted Reference / Pattern / Prompt / Foundation promotion: HOLD
+- page edge に限定
+- central reading path の外側
+- deep-green line art
+- adult / workplace tone
+- 観察する、メモを見る、やりとりする程度の場面
+- disability / welfare stereotype を使わない
+- mascot / kawaii / chibi treatment を使わない
+- real-person likeness を使わない
+
+人物線画は `poster.html` 内の original inline SVG です。
+
+外部 proprietary illustration は使用していません。
+
+人物線画を除いても情報構造は成立します。
+
+### CTA / QR
+
+CTA は strong card / boxed UI にしません。
+
+- thin divider + whitespace で本文から分離
+- action text は左
+- real repository QR は右
+- CTA は title + exchanges より subordinate
+- long URL は掲示面に載せない
+- QR 周囲は白地の quiet zone を確保
+- QR quiet zone 内へ decoration を入れない
+
+### Footer / caution
+
+Correction-3 より caution readability を優先します。
+
+- caution を薄い細帯へ圧縮しない
+- authoritative caution text を維持
+- line-height を確保
+- fit 問題を文字縮小で解決しない
+- `広報部会（仮）` を明確に読める状態で残す
+
+## Accessibility / print conditions
+
+Human Ready 前に次を確認します。
+
+- [ ] A4 portrait 1 page
+- [ ] clipping none
+- [ ] fragmentation none
+- [ ] overflow none
+- [ ] title immediately visible
+- [ ] all 4 pair mappings unambiguous
+- [ ] card text readable at A4
+- [ ] CTA readable but secondary
+- [ ] caution realistically readable at A4
+- [ ] QR quiet zone preserved
+- [ ] no awkward Japanese line breaks
+- [ ] remote font absence does not break layout
+
+Physical Validation では別途、実寸A4可読性と real-device QR read を確認します。
+
+## Exact implementation scope
+
+Correction-4 で変更可能なのは次だけです。
+
+- `references/in-progress/hitokoto-poster-card-wall-v1/poster.html`
+- `references/in-progress/hitokoto-poster-card-wall-v1/visual-review.md`
+- optional candidate-local `assets/*` only if required
+
+今回、candidate-local asset は追加していません。
+
+次は変更しません。
+
+- `content.md`
+- `hitokoto-poster-v3/*`
+- `accepted/*`
+- `patterns/*`
+- `prompts/*`
+- `foundations/*`
+- `review/*`
+- shared asset library / reusable style layer
+
+## Gate state
+
+- Correction-4 Human Direction Selection: **B / CONFIRMED**
+- Direction B refined visual: **ACCEPTED AS DIRECTION ONLY**
+- Fresh Independent Definition / Scope Review: **PASS**
+- Human Definition / Scope Lock: **GO / CONSUMED / LOCKED**
+- Human Implementation Start: **GO / CONSUMED**
+- Correction-4 implementation: **APPLIED / VERIFICATION PENDING**
+- Human Ready: **HOLD**
+- Human Visual Acceptance: **NOT DONE**
+- Physical A4 / real-device QR: **NOT DONE**
+- Merge: **HOLD**
+- Print / Post: **HOLD**
+- Deploy / Real Trial: **HOLD**
+- Accepted / Pattern / Prompt / Foundation promotion: **HOLD**
+
+Implementation Start は Merge / Print / Post / Deploy / Real Trial / Promotion を許可しません。
