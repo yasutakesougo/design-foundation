@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 794 1123">
   <rect width="794" height="1123" fill="#F6F2E8"/>
 
-  <g font-family="Noto Sans JP, Hiragino Sans, Yu Gothic, sans-serif">
+  <g font-family="Noto Sans CJK JP, Noto Sans JP, Hiragino Sans, Yu Gothic, sans-serif">
     <text x="82" y="112" font-size="18" font-weight="600" fill="#5A6C65">広報部会</text>
     <text x="82" y="176" font-size="42" font-weight="700" fill="#234B3E">障害福祉の日常を、</text>
     <text x="82" y="228" font-size="42" font-weight="700" fill="#234B3E">社会に翻訳する。</text>
@@ -11,7 +11,7 @@
     <text x="84" y="352" font-size="19" fill="#24352F">すでにある日常の見方を拾う。</text>
   </g>
 
-  <g font-family="Noto Sans JP, Hiragino Sans, Yu Gothic, sans-serif" fill="#234B3E">
+  <g font-family="Noto Sans CJK JP, Noto Sans JP, Hiragino Sans, Yu Gothic, sans-serif" fill="#234B3E">
     <g transform="rotate(-1.6 262 500)">
       <rect x="92" y="431" width="356" height="118" rx="3" fill="#FFFDF7" stroke="#DED7C7"/>
       <path d="M112 454 L162 448" stroke="#E2C45A" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
@@ -39,11 +39,11 @@
     <rect x="552" y="884" width="57" height="38" rx="2" fill="#FFFDF7"/>
   </g>
 
-  <g font-family="Noto Sans JP, Hiragino Sans, Yu Gothic, sans-serif" fill="#24352F">
+  <g font-family="Noto Sans CJK JP, Noto Sans JP, Hiragino Sans, Yu Gothic, sans-serif" fill="#24352F">
     <text x="82" y="969" font-size="22" font-weight="700">必要なものだけ、少し先を考える。</text>
     <text x="82" y="1005" font-size="21">何もしないことも判断です。</text>
     <path d="M81 1031 C205 1026, 330 1036, 452 1029" fill="none" stroke="#E2C45A" stroke-width="5" stroke-linecap="round" opacity="0.75"/>
   </g>
 
-  <text x="82" y="1080" font-family="Noto Sans JP, Hiragino Sans, Yu Gothic, sans-serif" font-size="14" fill="#65736E">比較用 Draft B｜Human brief + Foundation + normalized candidate</text>
+  <text x="82" y="1080" font-family="Noto Sans CJK JP, Noto Sans JP, Hiragino Sans, Yu Gothic, sans-serif" font-size="14" fill="#65736E">比較用 Draft B｜Human brief + Foundation + normalized candidate</text>
 </svg>
