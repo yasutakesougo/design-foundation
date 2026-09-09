@@ -2,29 +2,26 @@
 
 ## Current review target
 
-`CARD-WALL-V1 Correction-5 — Visual Hierarchy / Warmth Refinement` の Human Visual Review 対象です。
+`CARD-WALL-V1 Correction-6 — Illustrated Warmth / Participation Emphasis` の Human Visual Review 対象です。
 
 Baseline exact HEAD:
 
-`0e795a15e5d4dc8d44bad24999cc9009655c8122`
+`7258ead4c311d24c19b7f90b42f41f25b7f2cea9`
 
-Human feedback:
+Human-selected direction:
 
-> 方向性は良いけど、メリハリが無いデザインで素っ気ない印象
+- warmer / more approachable
+- handwritten / illustrated liveliness
+- lower psychological barrier to writing
+- lived-in `ひとこと → ひとこと返し` feeling
+- natural gaze guidance
+- stronger CTA discovery
 
-Correction-5 は Direction B を維持し、**視覚的な強弱と温度感だけ**を調整します。
-
-評価順序は次のままです。
-
-1. `日常を、言葉に。`
-2. 4組の `ひとこと → ひとこと返し`
-3. CTA + real QR
-4. reassurance / caution
-5. supporting illustration / decoration
+The supplied illustrated reference is **Design DNA / visual-direction evidence only**. Reference-only speech-bubble copy and generated QR pixels are not production content.
 
 ## Content authority — HARD LOCK
 
-`content.md` は正本のままです。
+`content.md` remains authoritative and unchanged.
 
 Content blob:
 
@@ -42,43 +39,56 @@ Fixed destination:
 
 `https://hitokoto-kaeshi-preview.web.app/poster`
 
-4組の例、CTA文言、reassurance / caution、`広報部会（仮）` は変更していません。
+The following remain unchanged:
 
-## Correction-5 implementation
+- `日常を、言葉に。`
+- `気になったことを、ひとことだけ。`
+- `正解は、ありません。`
+- all four `ひとこと → ひとこと返し` pairs
+- CTA wording
+- reassurance / caution wording
+- `広報部会（仮）`
 
-### Title hierarchy
+## Correction-6 implementation
 
-- title size: `38px → 42px`
-- title markerを少し太く・強く調整
-- side note `正解は、ありません。` は少し小さくして従属関係を明確化
+### Illustrated warmth
 
-### Exchange-card rhythm
+- three original inline line-art human placements plus one plant line-art accent
+- scenes suggest noticing / thinking / responding without adding copy
+- adult / workplace tone
+- no mascot, chibi, real-person likeness, or disability stereotype
+- illustration remains outside the primary reading hierarchy
 
-- 4組の意味上の優先順位は変更しない
-- pair幅 / 左位置を少しずつ変え、均一感を弱める
-- paper tone / shadow / rotation / reply offsetを小さく変化させる
-- text size / 4組の内容は変更しない
+### Handwritten / handmade energy
 
-### Relational warmth / people
+- stronger yellow marker treatment for title and CTA
+- restrained hand-drawn accent strokes / dots / pale blobs
+- card rotations and offsets increased modestly from Correction-5
+- four tape-like attachment details use pale coral / blue / mint / yellow
+- no full cork, wooden frame, or scrapbook treatment
 
-- 人物線画は2箇所のまま
-- 右上人物を `18mm → 22mm` に拡大し、存在感を少し上げる
-- 左下人物は補助的なまま
-- mascot / kawaii / chibi / stereotype は使用しない
+### Exchange-board liveliness
 
-### CTA emphasis
+- all four left-to-right mappings remain explicit
+- semantic priority remains equal across the four examples
+- card positions / paper tones / rotations vary more than Correction-5
+- arrows remain central and unambiguous
 
-- strong boxed card UIには戻さない
-- pale mint系の薄い帯を追加
-- `QRからどうぞ` を少し強くする
-- QR display size: `28mm → 30mm`
-- white quiet zoneを維持
+### Participation-focused CTA
 
-### Accent contrast
+- CTA receives a warmer yellow-to-pale-mint field
+- `QRからどうぞ` gets stronger marker emphasis
+- QR display increases modestly to `31mm`
+- white QR quiet zone remains clear
+- CTA remains subordinate to title + exchange field
 
-- yellow / mint / pale blue / coralを少しだけ強める
-- decorative categoriesは追加しない
-- full cork / wooden frameは使用しない
+### Color / hierarchy
+
+- deep green remains the anchor
+- pale mint / blue / coral / warm yellow accents are more visible than Correction-5
+- title remains first-glance focal point
+- four exchanges remain the main body
+- CTA is clearly discoverable without overtaking the exchanges
 
 ## Static verification
 
@@ -86,14 +96,13 @@ Fixed destination:
 - four `.pair` groups: **PASS / 4**
 - repository QR reference unchanged: **PASS**
 - long URL absent from poster surface: **PASS**
-- remote font dependency: **none**
+- reference-only speech-bubble copy absent: **PASS**
+- remote font import: **none**
 - title / CTA / caution strings: **PASS**
 
 ## A4 fixed-layout verification
 
 Renderer: `WeasyPrint + rendered PNG inspection`
-
-Local renderer uses a same-destination / same-layout-size QR image only for render pixels. Repository QR reference and QR blob are separately verified unchanged.
 
 Result:
 
@@ -109,8 +118,20 @@ Result:
 - caution/footer readability: **PASS**
 - QR quiet zone in layout: **PASS**
 - awkward Japanese line break: **none observed**
+- illustration does not obscure copy: **PASS**
 
-No fresh Chromium PASS is claimed for Correction-5. Browser evidence remains supplementary under Issue #31 when the execution environment blocks it.
+No fresh Chromium PASS is claimed for Correction-6. Browser evidence remains supplementary under Issue #31 when the execution environment blocks it.
+
+## Human visual questions
+
+1. Correction-5より温かく、参加しやすく見えるか。
+2. `きれいすぎて書きにくい` 感が下がったか。
+3. 4組がシステムUIではなく、やりとりの掲示に見えるか。
+4. 人物や手描きアクセントが視線誘導として自然か。
+5. CTAが見つけやすく、押しつけがましくないか。
+6. 大人向け / 職場向けの範囲に留まっているか。
+7. 賑やかでも情報が読みやすいか。
+8. 幼い / 装飾過多 / AIポスターっぽい方向へ振れていないか。
 
 ## Physical Validation
 
@@ -122,7 +143,7 @@ Still separate and not consumed:
 
 ## Exact implementation scope
 
-Correction-5 changes are limited to:
+Correction-6 changes are limited to:
 
 - `references/in-progress/hitokoto-poster-card-wall-v1/poster.html`
 - `references/in-progress/hitokoto-poster-card-wall-v1/visual-review.md`
@@ -136,15 +157,15 @@ The following remain unchanged / out of scope:
 
 ## Gate state
 
-- Correction-5 Definition / Scope: **GO / CONSUMED / LOCKED**
+- Correction-5: **SUPERSEDED CANDIDATE / historical evidence only**
+- Correction-6 Definition / Scope: **GO / CONSUMED / LOCKED**
 - Independent Definition / Scope Review: **PASS**
 - Human Implementation Start: **GO / CONSUMED**
-- Correction-5 implementation: **APPLIED**
+- Correction-6 implementation: **APPLIED**
 - Static scope/content verification: **PASS**
 - A4 fixed-layout verification: **PASS**
 - Browser verification: **SUPPLEMENTARY / NO FRESH PASS CLAIMED**
-- Fresh Implementation / Scope Review: **PASS; authoritative final exact HEAD is recorded in Issue #33 read-only comment**
-- Correction-5 Human Ready: **REQUIRED / NEXT HUMAN GATE**
+- Correction-6 Human Ready: **REQUIRED / NOT YET CONSUMED**
 - Human Visual Acceptance: **NOT DONE**
 - Physical A4 / real-device QR: **NOT DONE**
 - Merge / Print / Post / Deploy / Promotion: **HOLD**
