@@ -25,12 +25,24 @@ Design Foundationは、複数案件で再利用できる判断だけを扱いま
 
 案件固有の判断は、再利用性が確認されるまでFoundationへ昇格させません。
 
+## DESIGN.md candidate intake
+
+外部サービスやAIが生成した `DESIGN.md` は、必要な案件だけでHuman Direction Selection前のcandidateとして利用できます。
+
+candidateはFoundationより下位に置き、`review/design-md-intake.md` で衝突を確認します。
+
+外部candidateをCanonical Design Guide、Accessibility PASS evidence、Human Gateの代替として扱いません。
+
 ## 基本フロー
 
 ```text
 Human Definition / Scope Lock
 ↓
 Content Structure / Content Lock
+↓
+Foundation readback
+↓
+DESIGN.md candidate generation / intake（必要時のみ）
 ↓
 Concept Exploration / Concept Sketch（必要時のみ）
 ↓
@@ -60,6 +72,8 @@ Accepted Reference
 文章とデザインは同時に大きく変更しません。
 
 Concept Sketchは完成物ではなく、方向性を比較するための探索物です。
+
+DESIGN.md candidate intakeは任意工程です。
 
 最終的なデザイン採否は自動化せず、`Human Visual Acceptance` で決めます。
 
@@ -93,6 +107,10 @@ Canvaやページレイアウトツールを制作の起点にはしません。
 ## 人に説明すると
 
 最初に人が「何を、誰に、どの形で伝えるか」を決めます。
+
+必要なら、曖昧なデザインイメージを外部サービスやAIで `DESIGN.md` candidateへ整理します。
+
+candidateは既存Foundationと照合し、人が採用する方向を決めます。
 
 次にエージェントが文章とレイアウトを整理し、完成品に近い初稿を作ります。
 
