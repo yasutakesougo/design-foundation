@@ -1,317 +1,238 @@
-# CARD-WALL-V1 — DESIGN.md
+# CARD-WALL-V1 — V3 DESIGN.md
 
-Status: **IN-PROGRESS DESIGN AUTHORITY / PR #24**
+Status: **V3 HUMAN-LOCKED / IMPLEMENTATION START GO / CONSUMED / PR #24**
 
 Date: 2026-09-09
 
-この文書は、`CARD-WALL-V1` の現在のHuman-selected visual directionを、再現可能なデザイン判断として固定するための仕様です。
+この文書は、V3「入口特化ポスター」のvisual design authorityです。
 
-本文・補助コピー・QR・Human Gateの正本は、それぞれ既存のauthority文書を優先します。
+本文・QR・Human Gateは、それぞれ`content.md`、`production-microcopy.md`、Issue #59のHuman-locked authorityを優先します。
 
-この文書はコピーauthorityを上書きしません。
+## 1. Purpose
 
-## 1. Concept & Rationale
+V3は、A「ひとこと循環」の**入口だけを伝えるA4縦ポスター**です。
 
-「日常を、言葉に。」を核とした、職員向けの参加型ミニ実験を知らせるA4縦ポスターです。
+目的は、活動の仕組みを詳しく説明することではありません。
 
-目的は、気づきの大切さを啓発することではありません。
+職員が「この程度の小さな気づきなら書けそう」と理解し、QRを読めることを最優先にします。
 
-日常の中で少し気になったことを、完成した意見にする前に、30秒程度でひとこと置いてみられる入口をつくることを目的とします。
-
-視線の流れは、次の順序を基本とします。
+視線の順序を次に固定します。
 
 ```text
-タイトル
-→ 書けるひとことの例
-→ ひとこと返し
-→ CTA / QR
-→ 安心情報・運用上の注意
+日常を、言葉に。
+→ 具体例3件
+→ 大きなQR
+→ ひとことを書く → ひとこと返しを見る
+→ 最低限の安心・注意
 ```
 
-「ひとこと循環」は正式導入前の「小さな試行」です。
+掲示面では返し例を並べません。
 
-そのため、制度、研修、啓発キャンペーンのような公式感は避けます。
+返しはQR先の体験として残します。
 
-全体は、生成りの紙面、深緑、淡い緑、黄色を基調とします。
+## 2. Visual tone
 
-破いたメモ、テープ、クリップ、わずかな配置のズレなどを使い、整いすぎない紙ものの手触りを加えます。
-
-ただし、手作り感を目的に装飾を増やしません。
-
-目標とする印象は、「気づきを大切にしましょう」ではなく、「このくらいの一言なら、自分も試せそう」です。
-
-## 2. Design Principles
-
-- 整っているが、無機質にはしない。
-- 温かいが、幼くはしない。
-- 静かだが、参加の入口は明確にする。
-- 人の手触りは残すが、雑にはしない。
-- 啓発物ではなく、小さな参加募集として設計する。
-- Web UIのような完全な均一性を避ける。
-- AIっぽさを消すために装飾を増やさない。
-- `controlled imperfection` を使い、読みやすさを壊さない範囲で2〜5%程度の不均一さを許容する。
+- A4縦。
+- 白〜生成り背景。
+- 深い緑を主色。
+- 黄〜オレンジは少量のaccentのみ。
+- 温かいが幼くしない。
+- 静かだが、QRへの入口は明確にする。
+- Web UI / SaaS card gridの均一感を避ける。
+- 手作り感はcontrolled imperfectionで出し、装飾量では作らない。
+- 文化祭ポスターや啓発ポスターのようにしない。
+- 広報ネタ募集・改善提案BOXに見せない。
+- AI生成物らしさを消すための装飾追加をしない。
 
 ```text
-Clean but not sterile.
-Warm but not childish.
-Quiet but inviting.
-Human but not messy.
-Participation notice, not educational campaign.
+Quiet participation entrance.
+Warm, adult, editorial.
+Less explanation, more permission to notice.
 ```
 
-## 3. Typography
+## 3. Information density
 
-見出しには、親しみがありながらA4掲示で十分な視認性を持つ丸みのある書体を使用します。
+V2までの紙面より明確に減らします。
 
-本文は可読性を最優先し、`Noto Sans JP` を使用します。
+目安として、V2の本文量のおよそ半分以下をproduction surfaceの上限とします。
 
-手作り感はフォント自体を崩すことで作らず、黄色の筆跡、紙素材、微妙な位置差などで表現します。
+V3で許可する主要情報は次だけです。
 
-| 用途 | フォントファミリー | ウェイト | CSS変数名 |
-| --- | --- | --- | --- |
-| 主要見出し | Zen Maru Gothic | Bold | `--font-family-heading` |
-| 本文・安全情報 | Noto Sans JP | Regular / Medium | `--font-family-body` |
+- header / title / lead
+- short explanation 1文
+- examples exactly 3
+- CTA / QR
+- reassurance 2文
+- safety / routing 2文
+- closing
+
+次は掲示面へ載せません。
+
+- reply examples
+- A→B→C→D
+- AI説明
+- system説明
+- 投稿フォーム説明
+- 長い運用説明
+- 詳細なtrial specification
+- 未確定の匿名性、閲覧範囲、保存期間
+
+## 4. Typography
+
+主要見出しは親しみのある丸みを持たせてもよいですが、本文の可読性を優先します。
+
+推奨:
 
 ```css
 :root {
-  --font-family-heading: 'Zen Maru Gothic', sans-serif;
-  --font-family-body: 'Noto Sans JP', sans-serif;
-
-  --font-size-xxl: 3.5rem;
-  --font-size-xl: 2.25rem;
-  --font-size-l: 1.5rem;
-  --font-size-m: 1rem;
-  --font-size-s: 0.875rem;
-
-  --line-height-heading: 1.3;
-  --line-height-body: 1.7;
-
-  --letter-spacing-heading: 0.05em;
-  --letter-spacing-body: 0.02em;
+  --font-family-heading: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif;
+  --font-family-body: 'Noto Sans JP', 'Yu Gothic', sans-serif;
 }
 ```
 
-フォントサイズの数値だけを最終authorityにはしません。
+A4実寸での視認性を最終判断にします。
 
-A4実寸での視認性を最終判断に使います。
+タイトルは第一焦点。
 
-## 4. Color System
+例文は50〜80cm程度から「内容の種類」が読めるサイズを目標にします。
 
-色名より、Human-selected visual directionとの整合を優先します。
+安全文言は小さくしても判読可能なサイズを維持します。
 
-主色は藍色ではなく深緑です。
+## 5. Color
 
-淡い緑、生成り、黄色、少量のピーチ・ベージュを補助色として使用します。
+推奨token:
 
 ```css
 :root {
   --color-primary: #164A42;
   --color-primary-soft: #5E8C78;
-
   --color-background: #F6F2E8;
-  --color-surface-mint: #DDEDE2;
-  --color-paper-cream: #F4EBDD;
-
+  --color-paper: #FFFDF7;
+  --color-mint: #DDEDE2;
   --color-accent-yellow: #F2C94C;
   --color-accent-peach: #D7A38C;
-
   --color-line: #174A42;
-
   --color-skin-base: #F1D2B6;
-  --color-skin-shadow: #E5BEA2;
 }
 ```
 
-`--color-primary` と `--color-background` のコントラスト比は約 `8.98:1` です。
+黄・オレンジは文字色の主役にしません。
 
-`--color-primary-soft` と `--color-background` のコントラスト比は約 `3.42:1` です。
+重要本文は十分なcontrastを持つdeep greenを使います。
 
-`--color-primary-soft` は通常サイズの重要本文には使いません。
+## 6. Example notes
 
-黄色やピーチは文字色ではなく、強調面、筆跡、補助装飾として使用します。
+3件の例は、同一UIカードではなく、少し異なる紙メモとして見せます。
 
-## 5. CTA
+- exactly 3 notes
+- 破いた紙 / 方眼紙 / テープ留め紙など、素材差は小さく
+- 角度差は固定的に2〜4度以内を目安
+- 影は弱く
+- テープやクリップは必要な箇所だけ
+- reply card / reply arrowは置かない
 
-下部CTA領域を、ポスター上の行動の主役とします。
+3件の内容差が視覚的にも混ざらないよう、適度な段差と余白を作ります。
 
-QRコード単体を主役にはしません。
+## 7. QR / CTA
 
-CTAは、active production copy authorityで許可された文言とQRを組み合わせて成立させます。
+V3ではQRを紙面中央付近の主要行動対象にします。
 
-QRコードは十分なquiet zoneを確保します。
+タイトルの次に目立つ情報群はexamplesで、その直後にQRへ着地させます。
 
-QRコード自体にはtexture、opacity、filter、decorative overlayを重ねません。
+QR単体を広告的に巨大化するのではなく、次のCTAと一つの行動ブロックとして成立させます。
 
-CTAはWeb UIのボタン群には見せず、紙面上の参加案内として表現します。
-
-## 6. Paper & Object System
-
-「ひとこと」の例は、同一のカードUIではなく、異なる紙メモとして表現します。
-
-代表例は次のとおりです。
-
-- 破いた生成り紙
-- 薄い方眼紙
-- テープ留めした紙
-
-紙ごとに形、角度、位置、影をわずかに変えます。
-
-完全に均一なカード列にはしません。
-
-### 6.1 Paper
-
-- torn edgeは完全な周期パターンにしない。
-- 紙にはごく弱い固定grainを使用してよい。
-- 紙ごとにごく小さい影差を持たせる。
-- 影はWeb UIのbox-shadowのように強くしない。
-- 文字が紙端へ接近しすぎないよう、内側余白を優先する。
-
-### 6.2 Tape
-
-- 単色矩形だけで表現しない。
-- ごく弱い透過を持たせる。
-- テープごとに角度を変える。
-- 紙との接地感を優先する。
-- 素材感を出すために装飾を増やしすぎない。
-
-### 6.3 Clip
-
-- 通常のペーパークリップとして認識できる単純な形状にする。
-- 紙の上辺に部分的に重ね、実際に紙を留めているように見せる。
-- 紙から浮いた装飾アイコンのように見せない。
-- 金属表現は最小限にする。
-- 紙の縮尺に対してクリップを大きくしすぎない。
-
-## 7. Character System
-
-人物はポスターの主役ではありません。
-
-「誰かが実際に少し試している」という人の気配を補助するために使用します。
-
-方向性は、adult editorial flat illustrationとします。
-
-### 7.1 Basic
-
-- 成人として自然な頭身にする。
-- マスコット化しない。
-- アニメ調、3D、写真風にはしない。
-- pure blackではなく深緑系の線を使う。
-- 線幅を完全均一にしない。
-- 強い陰影や光沢を使わない。
-- 「福祉らしさ」を人物記号で表現しない。
-- 人物は説明のための模範例ではなく、参加している人の気配として扱う。
-
-### 7.2 Skin
-
-全人物で共通の肌色tokenを使用します。
-
-```css
-:root {
-  --color-skin-base: #F1D2B6;
-  --color-skin-shadow: #E5BEA2;
-}
+```text
+QRからどうぞ
+ひとことを書く → ひとこと返しを見る
+30秒くらい。文章にしなくても大丈夫です。
 ```
 
-顔、耳、首、手には同じbase skin colorを使用します。
+QRはWeb UI card風の囲みではなく、紙面上の静かな参加入口として扱います。
 
-上部人物とCTA人物で別の肌色を使いません。
+- 十分なquiet zoneを確保する。
+- texture / opacity / filter / decorative overlayをQRへ重ねない。
+- canonical QR assetを使う。
+- Preview Channel URLを使わない。
 
-背景の緑に引っ張られて灰色や緑に見える表現を避けます。
+Authoritative destination:
 
-### 7.3 Face
+`https://hitokoto-kaeshi-preview.web.app/poster`
 
-- 目、鼻、口は最小限にする。
-- 全員を同じ笑顔にしない。
-- 過剰な喜びや驚きを描かない。
-- 「日常の中で少し考えている」程度の表情を基本とする。
-- 完全な左右対称を避ける。
+## 8. Illustration — exactly one scene
 
-### 7.4 Consistency
+V3の人物イラストは**1場面だけ**です。
 
-人物を同じ顔にする必要はありません。
+場面テーマ:
 
-ただし、次の作画文法は統一します。
+`現場の日常の中で、一瞬立ち止まって気づきをメモしようとしている成人職員`
 
-- 肌色
-- 線の色
-- 線幅
-- 顔の簡略化レベル
-- 頭身
-- 手の描き方
-- 色温度
+目的は説明ではなく、人の気配を少しだけ添えることです。
 
-目標は「同じ人物」ではなく、「同じイラストレーターのシリーズ」です。
+- adult editorial flat illustration
+- 成人として自然な頭身
+- mascot / chibi / anime / 3D / photo風を避ける
+- pure blackではなくdeep green系の線
+- 表情は「少し気になった」程度
+- 大げさな笑顔・驚き・感情線を避ける
+- 福祉を人物記号で表現しない
+- QRより視覚的に弱くする
+- 2場面目、3場面目を足さない
 
-## 8. Anti-AI Visual Rules
+## 9. Controlled imperfection
 
-次の表現を避けます。
+- 完全中央揃えを避ける。
+- 例メモに小さな角度差を持たせる。
+- brush / markerは1〜2箇所まで。
+- runtime randomは使わない。
+- 位置差は再現可能な固定値にする。
+- 植物・付箋・テープ・線画を空き埋め目的で増やさない。
 
-- 全人物が同じ微笑み
-- 同じ顔パーツの反復
-- 過度に滑らかなベクター曲線
-- すべてが完全に中央揃え
-- 同型カードの連続
-- 黄色い感情線の過剰反復
-- 植物、テープ、付箋などの目的のない装飾追加
-- stock illustration的な説明ポーズ
-- 「人間味」を出すためだけの過剰な手描き加工
+## 10. Reassurance / safety
 
-AIっぽさを減らす場合は、要素を追加するより、規則性を少し崩します。
+安心・注意は紙面下部にまとめます。
 
-## 9. Spacing & Controlled Imperfection
+Primary reassurance:
 
-A4縦の限られたスペースでは、情報階層を優先して余白を設計します。
+- `書いたひとことが、そのまま広報に使われることはありません。`
+- `必要なものだけ、広報部会で少し先を考えます。`
 
-完全な機械整列は避けますが、読みやすさを崩すランダム配置もしません。
+Secondary safety:
 
-```css
-:root {
-  --spacing-xxl: 4rem;
-  --spacing-xl: 2.5rem;
-  --spacing-l: 1.5rem;
-  --spacing-m: 1rem;
-  --spacing-s: 0.5rem;
-  --spacing-xs: 0.25rem;
+- `氏名など、個人がわかる情報は書かないでください。`
+- `事故・虐待・苦情・職場の相談などは、いつもの相談・報告ルートへ。`
 
-  --border-radius-soft: 0.5rem;
-  --border-width-thin: 1px;
+安全文言は読めることを優先しますが、紙面の主役にはしません。
 
-  --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+## 11. Print / Physical QR
+
+A4実寸で確認します。
+
+過去Canva candidateのPhysical QR PASSはV3へ継承しません。
+
+V3 final production candidateについてfreshに次を確認します。
+
+```text
+actual intended final paper size / print settings
+physical device scan
+canonical /poster PASS
+Preview Channel redirect 0
 ```
 
-`controlled imperfection` は固定値で再現可能にします。
+PDFをfinal candidateに使う場合は、日本語フォント埋込とPDF render後のQR decodeも確認します。
 
-runtime randomや実行ごとに変わるnoiseは使用しません。
+## 12. Authority boundaries
 
-## 10. Accessibility & Print Rules
+この文書とV3 implementation candidateは、次のGateを通過させません。
 
-色のみに意味を持たせません。
+- Human Visual Acceptance
+- Canva final save
+- Physical A4 / fresh QR validation
+- CLOUD-TRIAL activation
+- LIVE WRITE
+- Merge
+- Print / Post
+- Real Trial Start
+- Actual Staff Pilot
+- Pattern / Prompt / Foundation promotion
 
-通常サイズの重要本文には、十分なコントラストを持つ`--color-primary`を使用します。
-
-注意喚起の補助色だけで重要情報を表現しません。
-
-A4普通紙で実寸確認します。
-
-中央例文は50〜80cm程度から読めることを確認します。
-
-安全上必要な注意文はA4実寸で判読できることを確認します。
-
-PDFでは日本語フォント埋込を確認します。
-
-QRコードはPDFレンダー後にもdecodeできることを確認します。
-
-QRコードにはキャプションを併記します。
-
-## 11. Authority Boundaries
-
-この文書はvisual design authorityです。
-
-本文とactive production subsetは、`content.md` と `production-microcopy.md` の現在のauthorityを優先します。
-
-QR destinationは既存のauthoritative QR assetを優先します。
-
-Human Visual Acceptance、Physical A4、real-device QR、Merge、Print、Post、DeployのGateをこの文書だけで通過させません。
-
-Human-selected referenceとdeterministic reproductionに差がある場合は、差を隠さず具体的に記録します。
+2026年12月の第2回広報部会までは、明示的なHuman superseding decisionがない限り正式導入しません。
