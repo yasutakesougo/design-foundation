@@ -292,7 +292,8 @@ Verification Gate Correction does not authorize changes to:
 - A4 fixed-layout verification: **PASS**
 - Chromium/browser verification: **SUPPLEMENTARY / ENVIRONMENT BLOCKED — neither PASS nor FAIL**
 - Required pre-Human-Ready verification contract: **PASS / 14 of 14**
-- Human Ready: **HOLD — fresh implementation/scope readback required**
+- Fresh Implementation / Scope Review: **PASS — exact HEAD `d623334ffff21ff00a3c527dc4dfca90716c9556`**
+- Human Ready: **REQUIRED / NEXT HUMAN GATE**
 - Human Visual Acceptance: **NOT DONE**
 - Physical A4 / real-device QR: **NOT DONE**
 - Merge: **HOLD**
