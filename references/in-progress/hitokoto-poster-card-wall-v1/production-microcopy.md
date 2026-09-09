@@ -1,151 +1,144 @@
-# CARD-WALL-V1 — Production Copy / Microcopy Authority
+# CARD-WALL-V1 — V3 Production Copy / Microcopy Authority
 
-Status: **CORRECTION-9a HUMAN-LOCKED / IMPLEMENTATION START GO / CONSUMED**
+Status: **V3 HUMAN-LOCKED / IMPLEMENTATION START GO / CONSUMED**
 
 Date: 2026-09-09
 
 ## Active authority chain
 
-- Correction-9a Definition: Issue #45 `CARD-WALL-V1 Correction-9a — Action Hierarchy / Content Simplification`
-- Independent Review: Issue #47 — **PASS / no blocking findings**
-- Human Definition / Scope Lock: **GO / CONSUMED / LOCKED** at exact HEAD `1543886e05c8e23e7cec5b93a90875f015d6c5c6`
-- Human Implementation Start: **GO / CONSUMED** at exact HEAD `1543886e05c8e23e7cec5b93a90875f015d6c5c6`
+- V3 Definition: Issue #59
+- Correction-1: Physical QR Gate
+- Fresh Definition Re-Review: PASS
+- Human Definition / Scope Lock: **GO / CONSUMED / LOCKED**
+- Human Implementation Start: **GO / CONSUMED**
 
-Authorized command consumed:
+V3は、Correction-9aのproduction surface requirementをV3 poster candidateについてのみsupersedeする。
 
-`CARD-WALL-V1 Correction-9a Human Implementation Start GO — 1543886e05c8e23e7cec5b93a90875f015d6c5c6`
+Correction-9a以前の履歴証拠は削除しない。
 
-Correction-9a intentionally narrows the production surface for Master v2. Broader source copy may remain in `content.md`; this file is the active production subset authority for the poster surface.
-
-## Production hierarchy for Master v2
+## V3 production hierarchy
 
 1. `日常を、言葉に。`
-2. `QRからどうぞ`
-3. `ひとこと → ひとこと返し` examples
-4. supporting explanation
-5. caution / operational notes
+2. 具体例3件
+3. 大きなQR
+4. `ひとことを書く → ひとこと返しを見る`
+5. 最低限の安心・注意
 
-Target principle:
+V3は「説明」ではなく「参加入口」を優先する。
 
-`骨格は維持し、約20%静かにする。`
+## Exact surface copy
 
-## Production example subset
+### Header
 
-Use exactly three example pairs on Master v2.
+`広報部会（仮）の小さな試行`
 
-### Pair 1
+### Title
 
-`今日は、いつもの声かけに少し間があった。`
+`日常を、言葉に。`
 
-→
+### Lead
 
-`その「間」、ちょっと気になりますね。`
+`気になったことを、ひとことだけ。`
 
-### Pair 2
+### Short explanation
 
-`言葉はなかったけど、何度もこちらを見ていた。`
+`そのときは流れてしまう小さな気づきを、いったん置いておく場所です。`
 
-→
+### Examples — exactly 3
 
-`見ていた先に、何かあったのかもしれません。`
+1. `今日は、いつもの声かけに少し間があった`
+2. `言葉はなかったけど、何度もこちらを見ていた`
+3. `声をかける順番を変えたら、少し表情が違った`
 
-### Pair 3
+掲示面には上記3件への返し例を置かない。
 
-`声をかける順番を変えたら、少し表情が違った。`
+`ひとこと返し`はQR先の体験として残す。
 
-→
-
-`順番にも、何かありそうですね。`
-
-Pair 4 remains in broader source authority / history but is omitted from Master v2 production composition.
-
-Use one section-level heading:
-
-`ひとこと → ひとこと返し`
-
-Do not repeat `ひとこと` / `ひとこと返し` labels on every pair. If orientation still needs help, they may appear only on the first pair.
-
-## Production supportive microcopy subset
-
-### Strong supportive cues — use exactly
-
-1. `こんなことも書いていいんだ！`
-2. `なるほど！そんなふうに見ていたんだ！`
-
-### Optional weak side note
-
-`いつもの風景の中に気づきがあるかも。`
-
-Use only if spacing/rhythm benefits. It must remain visually weak and is not required.
-
-### Omit from Master v2 production surface
-
-- `小さな気づきが、よりよい日常をつくる。`
-- `こんな見方もあるんだな…`
-
-These phrases remain historical Human-locked microcopy from Correction-8 but are not active production copy for Master v2.
-
-## Upper reassurance
-
-Use one independent reassurance message:
-
-`正解は、ありません。`
-
-Do not give `気になったことを、そのままで。` a separate visual-message slot on Master v2.
-
-## CTA copy for Master v2
-
-Use exactly:
+### CTA
 
 - `QRからどうぞ`
 - `ひとことを書く → ひとこと返しを見る`
-- `30秒くらい。`
-- `文章じゃなくても大丈夫です。`
+- `30秒くらい。文章にしなくても大丈夫です。`
 
-Omit from the production CTA:
+### Reassurance
 
-`思いついたときだけでOK。`
+- `書いたひとことが、そのまま広報に使われることはありません。`
+- `必要なものだけ、広報部会で少し先を考えます。`
 
-## Footer production hierarchy
+### Safety / routing
 
-Primary reassurance layer:
+- `氏名など、個人がわかる情報は書かないでください。`
+- `事故・虐待・苦情・職場の相談などは、いつもの相談・報告ルートへ。`
 
-`書いたひとことが、そのまま広報に使われることはありません。`
+### Closing
 
-`必要なものだけ、広報部会で少し先を考えます。`
+- `思いついたときだけでOK。`
+- `広報部会（仮）`
 
-Secondary safety / routing layer, smaller but readable:
+## Omit from V3 production surface
 
-`氏名など、個人がわかる情報は書かないでください。`
+次はV3掲示面へ出さない。
 
-`事故・虐待・苦情・職場の相談などは、いつもの相談・報告ルートへ。`
+- 3件の返し例
+- `ひとこと → ひとこと返し` の往復説明セクション
+- `こんなことも書いていいんだ！`
+- `なるほど！そんなふうに見ていたんだ！`
+- `いつもの風景の中に気づきがあるかも。`
+- `正解は、ありません。`
+- `気になったことを、そのままで。`
+- A→B→C→D説明
+- AI機能訴求
+- system説明
+- 投稿フォーム説明
+- 長い運用説明
+- 匿名性・閲覧範囲・保存期間の未確定な約束
 
-## Visual constraints paired with this production subset
+## Visual-copy constraints
 
-- two person scenes only: upper-left single person + lower CTA two-person scene
-- remove right-middle person scene
-- reduce masking tape roughly by half
-- reduce arrow size / weight
-- enlarge QR approximately 20–30% from Master v1
-- move CTA upward
-- card text remains visually stronger than arrows
-- decorative density reduced
+- examplesはexactly 3。
+- reply examplesは0。
+- illustrationはexactly 1 scene。
+- QRは紙面中央付近の主要行動対象。
+- safetyは読めるが紙面を支配しない。
+- `AI` / `システム` / `投稿フォーム` を前面に出さない。
+- 広報ネタ募集・改善提案募集に見せない。
+- 子ども向けの語調や装飾にしない。
 
-## Broader authority retained
+## QR authority
 
-Primary broader content remains:
+Repository QR asset:
 
-`content.md` blob `6e9e6fa168976ed0f28882b783ae986d826ba1e5`
+`../hitokoto-poster-v3/assets/qr.png`
 
-Authoritative QR remains:
+Authoritative destination:
 
-blob `a68d1f558c96c4eecb6a7e81cb1e74c5c8cf0a52`  
-destination `https://hitokoto-kaeshi-preview.web.app/poster`
+`https://hitokoto-kaeshi-preview.web.app/poster`
 
-Correction-9a does not authorize new examples, new microcopy, QR destination changes, Print / Post / Deploy / Real Trial, or Pattern / Prompt / Foundation promotion.
+Preview Channel URLは印刷QRへ使わない。
 
-## Historical Correction-8 microcopy authority
+## Physical QR requirement
 
-Correction-8 previously Human-locked five supportive phrases and authorized their use at exact HEAD `e754b905e25e84c7913e7ec0b48ec629811c3982`.
+過去candidateのPhysical QR PASSはV3へ継承しない。
 
-Correction-9a supersedes that five-item **production surface requirement** only. It does not erase the historical authority record; it defines the active reduced subset for Master v2.
+V3 final candidateでは、実際に掲示する最終用紙サイズ / final print settingsでfresh Physical QR Validationを実施する。
+
+Required evidence:
+
+- physical device scan
+- canonical `/poster` PASS
+- Preview Channel redirect 0
+
+## Gate boundary
+
+このauthority更新は次を承認しない。
+
+- Human Visual Acceptance
+- Canva final save
+- Physical A4 / fresh QR validation
+- CLOUD-TRIAL activation
+- LIVE WRITE
+- Merge
+- Print / Post
+- Real Trial Start
+- Actual Staff Pilot
+- Pattern / Prompt / Foundation promotion
