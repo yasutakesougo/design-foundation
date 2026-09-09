@@ -143,7 +143,7 @@ The following remain unchanged / out of scope:
 - Static scope/content verification: **PASS**
 - A4 fixed-layout verification: **PASS**
 - Browser verification: **SUPPLEMENTARY / NO FRESH PASS CLAIMED**
-- Fresh Implementation / Scope Review: **PASS at exact HEAD `0f1908575faba477cb285185fcc328c6c0596911`**
+- Fresh Implementation / Scope Review: **PASS; authoritative final exact HEAD is recorded in Issue #33 read-only comment**
 - Correction-5 Human Ready: **REQUIRED / NEXT HUMAN GATE**
 - Human Visual Acceptance: **NOT DONE**
 - Physical A4 / real-device QR: **NOT DONE**
