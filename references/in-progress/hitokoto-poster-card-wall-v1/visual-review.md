@@ -26,8 +26,6 @@ Correction-5 は Direction B を維持し、**視覚的な強弱と温度感だ�
 
 `content.md` は正本のままです。
 
-Correction-5 では本文を変更していません。
-
 Content blob:
 
 `6e9e6fa168976ed0f28882b783ae986d826ba1e5`
@@ -53,14 +51,12 @@ Fixed destination:
 - title size: `38px → 42px`
 - title markerを少し太く・強く調整
 - side note `正解は、ありません。` は少し小さくして従属関係を明確化
-- title周辺の余白は維持
 
 ### Exchange-card rhythm
 
 - 4組の意味上の優先順位は変更しない
 - pair幅 / 左位置を少しずつ変え、均一感を弱める
-- paper toneを少し強める
-- shadow / rotation / reply offsetを小さく変化させる
+- paper tone / shadow / rotation / reply offsetを小さく変化させる
 - text size / 4組の内容は変更しない
 
 ### Relational warmth / people
@@ -77,7 +73,6 @@ Fixed destination:
 - `QRからどうぞ` を少し強くする
 - QR display size: `28mm → 30mm`
 - white quiet zoneを維持
-- title + exchangesより subordinate を維持
 
 ### Accent contrast
 
@@ -96,9 +91,7 @@ Fixed destination:
 
 ## A4 fixed-layout verification
 
-Renderer:
-
-`WeasyPrint + rendered PNG inspection`
+Renderer: `WeasyPrint + rendered PNG inspection`
 
 Local renderer uses a same-destination / same-layout-size QR image only for render pixels. Repository QR reference and QR blob are separately verified unchanged.
 
@@ -117,19 +110,7 @@ Result:
 - QR quiet zone in layout: **PASS**
 - awkward Japanese line break: **none observed**
 
-WeasyPrint does not reproduce every browser-only visual effect such as CSS `box-shadow` identically. This A4 evidence is used for fit / hierarchy / clipping verification, not as fabricated browser evidence.
-
-## Browser verification
-
-No fresh Chromium PASS is claimed for Correction-5.
-
-The available execution environment previously blocked local Chromium rendering at runtime / local-content policy level.
-
-Under Verification Gate Correction Issue #31:
-
-- browser evidence remains supplementary when environment-blocked
-- environment BLOCK must not be rewritten as PASS
-- A4 fixed-layout evidence remains the required pre-Human-Ready layout evidence for this print artifact
+No fresh Chromium PASS is claimed for Correction-5. Browser evidence remains supplementary under Issue #31 when the execution environment blocks it.
 
 ## Physical Validation
 
@@ -162,12 +143,8 @@ The following remain unchanged / out of scope:
 - Static scope/content verification: **PASS**
 - A4 fixed-layout verification: **PASS**
 - Browser verification: **SUPPLEMENTARY / NO FRESH PASS CLAIMED**
+- Fresh Implementation / Scope Review: **PASS at exact HEAD `0f1908575faba477cb285185fcc328c6c0596911`**
 - Correction-5 Human Ready: **REQUIRED / NEXT HUMAN GATE**
 - Human Visual Acceptance: **NOT DONE**
 - Physical A4 / real-device QR: **NOT DONE**
-- Merge: **HOLD**
-- Print / Post: **HOLD**
-- Deploy / Real Trial: **HOLD**
-- Accepted / Pattern / Prompt / Foundation promotion: **HOLD**
-
-Implementation Start does not authorize Human Ready, Human Visual Acceptance, Merge, Print/Post, Deploy/Real Trial, or promotion.
+- Merge / Print / Post / Deploy / Promotion: **HOLD**
