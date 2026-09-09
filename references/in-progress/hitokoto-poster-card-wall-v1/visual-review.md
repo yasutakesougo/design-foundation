@@ -140,7 +140,7 @@ This step does **not**:
 - Content Microcopy Definition / Scope: **GO / CONSUMED / LOCKED**
 - Content Microcopy Independent Review: **PASS**
 - Content Microcopy Human Implementation Start: **GO / CONSUMED** at `e754b905e25e84c7913e7ec0b48ec629811c3982`
-- Canva transfer to selected direction + microcopy: **AUTHORIZED / IN PROGRESS**
+- Canva transfer to selected direction + microcopy: **AUTHORIZED / BLOCKED IN THIS AGENT ENV** (Canva returns Cloudflare 403; no authenticated Canva session available)
 - Fresh A4 PNG / PDF export: **REQUIRED / NOT DONE**
 - Correction-8 Human Ready: **NOT DONE / HOLD**
 - Human Visual Acceptance: **NOT DONE / HOLD**
