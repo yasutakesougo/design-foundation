@@ -143,10 +143,12 @@ Correction-3 より caution readability を優先します。
 
 ### Scope / content integrity
 
-Correction-3 Exact HEAD `9a32701e06b2468f6dcd9484ca53f5b707b6a122` から Correction-4 実装で変更した repository paths は次の2件だけです。
+Correction-3 Exact HEAD `9a32701e06b2468f6dcd9484ca53f5b707b6a122` から Correction-4 visual implementation で変更した repository paths は次の2件だけです。
 
 - `references/in-progress/hitokoto-poster-card-wall-v1/poster.html`
 - `references/in-progress/hitokoto-poster-card-wall-v1/visual-review.md`
+
+Verification Gate Correction では `poster.html` を変更しません。
 
 `content.md` blob remains:
 
@@ -182,22 +184,55 @@ Result:
 - visible overflow observed: **none**
 - title first-glance visibility: **PASS**
 - four pair mappings: **PASS**
+- card text readability in A4 render: **PASS**
 - CTA hierarchy: **PASS**
 - `QRからどうぞ` line stability after refinement: **PASS**
 - caution/footer visible and uncompressed: **PASS**
+- QR quiet zone preserved in layout: **PASS**
+- awkward Japanese line break observed: **none**
+- remote-font dependency: **none**
 - figures remain outside main reading path: **PASS**
 
 ### Chromium browser renderer
 
 A browser verification attempt was made with the available local Chromium binary.
 
-The Chromium process does not complete even for a minimal local HTML file in this execution environment and repeatedly stalls on the environment runtime/DBus layer.
+The Chromium process does not complete even for a minimal local HTML file in this execution environment and repeatedly stalls or is blocked at the environment runtime / local-content policy layer.
 
 Therefore:
 
 - browser visual verification for Correction-4: **BLOCKED BY EXECUTION ENVIRONMENT**
 - this is not recorded as a design PASS or FAIL
-- A4 fixed-layout evidence above remains valid but does not silently substitute for the locked browser verification requirement
+- browser BLOCK is not rewritten as PASS
+- under Verification Gate Correction Issue #31, browser rendering is supplementary when the failure is independently attributable to execution/runtime policy rather than poster rendering
+- A4 fixed-layout evidence remains the required pre-Human-Ready layout evidence for this print artifact
+
+### Verification Gate Correction contract
+
+Issue #31 replaces the renderer-specific Human Ready blocker with output-oriented requirements for the actual A4 poster artifact.
+
+Required before Human Ready:
+
+1. A4 portrait output is exactly one page.
+2. No clipping is observed.
+3. No fragmentation is observed.
+4. No visible overflow is observed.
+5. `日常を、言葉に。` remains immediately identifiable as the first-glance focal point.
+6. All four `ひとこと → ひとこと返し` mappings are unambiguous.
+7. Card text is readable in the A4 render.
+8. CTA is readable and remains subordinate to title + exchange cards.
+9. Reassurance / caution / `広報部会（仮）` remain visible and are not compressed into unreadable copy.
+10. QR layout preserves a white quiet zone with no decorative intrusion.
+11. No awkward Japanese line break is observed in the A4 render.
+12. The layout has no remote-font dependency that could materially break the printed output.
+13. Repository QR reference and QR blob remain unchanged.
+14. `content.md` remains unchanged.
+
+Current evidence satisfies all 14 required pre-Human-Ready items.
+
+Chromium/browser visual verification remains supplementary when available.
+
+Physical A4 readability and real-device QR scanning remain separate later gates and are not consumed by this correction.
 
 ## Accessibility / print conditions
 
@@ -213,22 +248,26 @@ Therefore:
 - [x] QR quiet zone preserved in layout
 - [x] no awkward Japanese line break observed in A4 render
 - [x] no remote font dependency
-- [ ] Chromium/browser verification — BLOCKED BY EXECUTION ENVIRONMENT
+- [ ] Chromium/browser verification — SUPPLEMENTARY / currently ENVIRONMENT BLOCKED
 
-Physical Validation では別途、実寸A4可読性と real-device QR read を確認します。
+Physical Validation では別途、実寸A4可読性と real-device QR read / destination readback を確認します。
 
 ## Exact implementation scope
 
-Correction-4 で変更可能なのは次だけです。
+Correction-4 visual implementation scope was:
 
 - `references/in-progress/hitokoto-poster-card-wall-v1/poster.html`
 - `references/in-progress/hitokoto-poster-card-wall-v1/visual-review.md`
 - optional candidate-local `assets/*` only if required
 
-今回、candidate-local asset は追加していません。
+Verification Gate Correction Issue #31 implementation scope is narrower:
 
-次は変更しません。
+- `references/in-progress/hitokoto-poster-card-wall-v1/visual-review.md`
+- PR #24 verification/gate metadata if needed
 
+Verification Gate Correction does not authorize changes to:
+
+- `poster.html`
 - `content.md`
 - `hitokoto-poster-v3/*`
 - `accepted/*`
@@ -242,13 +281,18 @@ Correction-4 で変更可能なのは次だけです。
 
 - Correction-4 Human Direction Selection: **B / CONFIRMED**
 - Direction B refined visual: **ACCEPTED AS DIRECTION ONLY**
-- Fresh Independent Definition / Scope Review: **PASS**
-- Human Definition / Scope Lock: **GO / CONSUMED / LOCKED**
-- Human Implementation Start: **GO / CONSUMED**
-- Correction-4 implementation: **APPLIED**
+- Correction-4 Fresh Independent Definition / Scope Review: **PASS**
+- Correction-4 Human Definition / Scope Lock: **GO / CONSUMED / LOCKED**
+- Correction-4 Human Implementation Start: **GO / CONSUMED**
+- Correction-4 visual implementation: **APPLIED**
+- Verification Gate Correction Definition / Scope: **GO / CONSUMED / RE-LOCKED**
+- Verification Gate Correction Independent Definition / Scope Review: **PASS**
+- Verification Gate Correction Human Implementation Start: **GO / CONSUMED**
+- Verification metadata implementation: **APPLIED**
 - A4 fixed-layout verification: **PASS**
-- Chromium/browser verification: **BLOCKED BY EXECUTION ENVIRONMENT**
-- Human Ready: **HOLD — browser evidence not complete**
+- Chromium/browser verification: **SUPPLEMENTARY / ENVIRONMENT BLOCKED — neither PASS nor FAIL**
+- Required pre-Human-Ready verification contract: **PASS / 14 of 14**
+- Human Ready: **HOLD — fresh implementation/scope readback required**
 - Human Visual Acceptance: **NOT DONE**
 - Physical A4 / real-device QR: **NOT DONE**
 - Merge: **HOLD**
@@ -256,4 +300,4 @@ Correction-4 で変更可能なのは次だけです。
 - Deploy / Real Trial: **HOLD**
 - Accepted / Pattern / Prompt / Foundation promotion: **HOLD**
 
-Implementation Start は Merge / Print / Post / Deploy / Real Trial / Promotion を許可しません。
+Implementation Start は Human Ready / Human Visual Acceptance / Merge / Print / Post / Deploy / Real Trial / Promotion を許可しません。
