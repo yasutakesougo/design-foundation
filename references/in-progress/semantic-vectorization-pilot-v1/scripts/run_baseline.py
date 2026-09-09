@@ -327,12 +327,17 @@ def main() -> int:
         report["fixtures"].append(fixture_report)
 
     all_entries = [entry for fixture in report["fixtures"] for entry in fixture["backends"]]
-    report["status"] = "INCOMPLETE" if any(entry.get("execution") == "SKIP" for entry in all_entries) else "EVIDENCE_READY"
+    if any(entry.get("execution") == "FAIL" for entry in all_entries):
+        report["status"] = "FAILED"
+    elif any(entry.get("execution") == "SKIP" for entry in all_entries):
+        report["status"] = "INCOMPLETE"
+    else:
+        report["status"] = "EVIDENCE_READY"
     report["human_gate"] = "Semantic Gesture Check and Human Visual Acceptance remain required"
     report_path = args.workdir / "report.json"
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0
+    return 1 if report["status"] == "FAILED" else 0
 
 
 if __name__ == "__main__":
