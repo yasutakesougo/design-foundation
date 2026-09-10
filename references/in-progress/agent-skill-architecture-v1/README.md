@@ -16,16 +16,11 @@
 
 Human Gateはこの3分類の外に置きます。
 
-Human GateのGOは、人間の明示入力だけをauthorityとします。
+Human authorityとmutation boundaryの規範は `invocation-model.md` の `Always-visible guardrails` を正本とします。
 
-## 常時維持する境界
+runtimeへ統合する場合は、この規範をbranch-specific Referenceの奥へ置かず、対象エージェントが常時読めるtop-level instruction layerへ露出します。
 
-次の不変条件は、branch-specificなReferenceの奥へ移しません。
-
-- Skill / AgentはHuman GOを生成・推定・代理消費しない。
-- Model-invoked disciplineはHuman Gateを遷移させない。
-- write / merge / publish / print / deploy / promotionは、対応するauthorityが明示されている場合だけ実行する。
-- runtime activationとFoundation / Pattern / Prompt / ReviewへのPromotionは、architecture文書の完成とは別Gateで扱う。
+このV1ではruntime統合を行いません。
 
 ## 文書構成
 
