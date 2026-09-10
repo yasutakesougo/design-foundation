@@ -16,21 +16,24 @@ Fresh Implementation Review (1.60x) = PASS
 ## Gate status for this package
 
 ```text
+Over-emphasis HOLD = CLEARED (mid-point candidates @ 0362b17)
+  THINK/LOOK = 1.30x pre — OK
+  WRITE      = 1.20x pre — OK (extra pullback justified)
+HVA PASS = NOT DECLARED
+ACTIVE / materialize / merge = HOLD
 HVA Evidence Completion = READY
-Human Visual Acceptance = HOLD / CORRECTION guidance received
-Human Visual Acceptance PASS = NOT DECLARED
-Accepted SVG Materialization = HOLD
-Merge / Promotion = HOLD
 Deploy / Print / Publish = HOLD
 ACTIVE source mutation = NONE
 Agent visual substitution for HVA = PROHIBITED
 ```
 
-## HOLD reason (Human)
+## Prior Over-emphasis HOLD (cleared on mid)
 
 ```text
 Over-emphasis at @64 (WRITE severe, LOOK moderate); eye weight exceeds facial stroke hierarchy. Reduce scale toward mid-point between pre and current corrected.
 ```
+
+Cleared against mid-point candidates `0362b17` / package `98374f6` after Human review: hierarchy break no longer holds at THINK/LOOK 1.30x and WRITE 1.20x.
 
 ## Remediation applied in this revision (candidate only)
 

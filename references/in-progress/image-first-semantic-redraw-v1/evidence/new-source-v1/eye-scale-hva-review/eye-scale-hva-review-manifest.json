@@ -28,5 +28,11 @@
       "corrected_sha256": "12fd790ec61f76e53811656a744f34522dff28515bc93648a6115bc60c1d86c7",
       "revision": "midpoint-from-pre (THINK/LOOK 1.30x, WRITE 1.20x)"
     }
+  },
+  "over_emphasis_hold": "CLEARED",
+  "remaining_evidence": {
+    "mid_vs_old_corrected_proof": true,
+    "think_pre_mid_diff_512": true,
+    "source_of_truth_note": true
   }
 }
