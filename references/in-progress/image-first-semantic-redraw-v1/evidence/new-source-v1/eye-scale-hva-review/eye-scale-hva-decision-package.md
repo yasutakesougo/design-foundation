@@ -24,15 +24,24 @@ Remaining gates @ f0ed280          = CLOSED
      (not HVA evidence commit)
 
 Over-emphasis HOLD                 = CLEARED (prior)
-HVA PASS                           = DECLARED
-  candidate                        = 0362b17
+HVA PASS                           = DECLARED / CONSUMED
+  HVA authority                    = 0362b17
+  Evidence                         = f0ed280
+  HVA record                       = b75f096
   scales                           = THINK/LOOK 1.30x · WRITE 1.20x
-  evidence                         = f0ed280
+  Candidate SVG identities         = UNCHANGED
 
-ACTIVE / materialize / merge       = HOLD until ACTIVE pins 0362b17
+Authorized by this gate            = HVA PASS determination only
+ACTIVE adoption                    = HOLD
+Accepted SVG Materialization       = HOLD
+Merge / Promotion                  = HOLD
 Deploy / Print / Publish           = HOLD
 ACTIVE source mutation             = NONE
 Agent visual substitution for HVA  = PROHIBITED
+
+Next gate = Accepted SVG Materialization
+  — requires separate explicit Human approval
+  — do not auto-advance from HVA PASS
 ```
 
 ## Prior Over-emphasis HOLD (cleared on mid)
@@ -100,7 +109,7 @@ eye-scale-lr-parity.json   # prior 1.60x measurement retained for audit
 ## HVA decision
 
 ```text
-HVA PASS = DECLARED
+HVA PASS = DECLARED / CONSUMED
 candidate = 0362b1720649288db8bb4072bb9fefdba48e5363
 evidence  = f0ed28024b8a08512e45dc1dcc2ceefbe1740ad5
 scales    = THINK/LOOK 1.30x pre · WRITE 1.20x pre
