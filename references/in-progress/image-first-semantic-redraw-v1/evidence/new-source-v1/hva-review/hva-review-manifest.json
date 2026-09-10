@@ -1,0 +1,30 @@
+{
+  "schema": "IMAGE-FIRST-SEMANTIC-REDRAW-V1/new-source-hva-review/v1",
+  "authorized_candidate_head": "fe037894ffad4eeb1e79dd6442214923afe8f3d5",
+  "pr": 129,
+  "hva_start_go": "GO / CONSUMED",
+  "hva_declaration": "NOT DECLARED / AWAITING HUMAN DECISION",
+  "candidates": {
+    "THINK": {
+      "path": "candidates/new-source-v1/person-thinking.svg",
+      "sha256": "01b5efbcdf7c4ba723074d87ed6ac9a15918f1ed9663c0774c88cec30d5f3de7"
+    },
+    "LOOK": {
+      "path": "candidates/new-source-v1/person-looking.svg",
+      "sha256": "e3e68536b2122dbe35f18d15a93ad46f2c45150969ebca6a4d6522b0a5f7a5bb"
+    },
+    "WRITE": {
+      "path": "candidates/new-source-v1/person-note-taking.svg",
+      "sha256": "1a14ae867e2861f4684b85456f282246a68520c2c4834479cfdfe8cbe49e4e0c"
+    }
+  },
+  "decision_points": [
+    "semantic gesture readability for THINK / LOOK / WRITE",
+    "source fidelity",
+    "line/curve smoothness",
+    "long-contour continuity",
+    "endpoint / stroke consistency",
+    "practical 64px appearance",
+    "whole-character acceptance"
+  ]
+}
