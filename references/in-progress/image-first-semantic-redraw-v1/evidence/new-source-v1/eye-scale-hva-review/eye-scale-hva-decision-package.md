@@ -89,30 +89,33 @@ eye-scale-midpoint-revision.json
 eye-scale-lr-parity.json   # prior 1.60x measurement retained for audit
 ```
 
-## Human decision points (fresh HVA, still required)
+## Human decision points (fresh HVA)
 
-1. @64: eyes remain visible without becoming facial protagonists?
-2. WRITE no longer overpowers face hierarchy?
-3. LOOK weight aligned with THINK?
-4. Gesture contracts intact?
-5. Whole-character acceptance of these mid-point candidate identities?
+1. @64: eyes remain visible without becoming facial protagonists? — accepted on mid
+2. WRITE no longer overpowers face hierarchy? — accepted on mid (1.20x)
+3. LOOK weight aligned with THINK? — accepted on mid (1.30x)
+4. Gesture contracts intact? — accepted
+5. Whole-character acceptance of these mid-point candidate identities? — accepted
 
-## Decision options
+## HVA decision
 
 ```text
-PASS / GO  — accept these exact mid-point candidate SVG identities
-CORRECTION — do not accept; state the visual concern
+HVA PASS = DECLARED
+candidate = 0362b1720649288db8bb4072bb9fefdba48e5363
+evidence  = f0ed28024b8a08512e45dc1dcc2ceefbe1740ad5
+scales    = THINK/LOOK 1.30x pre · WRITE 1.20x pre
 ```
 
-## Explicitly NOT authorized
+Record: `eye-scale-hva-pass-declaration.json`.
+
+## Explicitly NOT authorized by HVA PASS alone
 
 ```text
-Accepted SVG Materialization
+Accepted SVG Materialization  — HOLD until ACTIVE pins 0362b17
 existing HITOKOTO mutation
 historical HVA / SVG SHA inheritance
-ACTIVE archive mutation
+ACTIVE archive mutation       — HOLD until explicit ACTIVE pin
 backend selection change
-Merge / Promotion
+Merge / Promotion             — HOLD until ACTIVE pins 0362b17
 Deploy / Print / Publish
-automatic / inferred Fresh HVA PASS
 ```
