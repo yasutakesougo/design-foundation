@@ -19,6 +19,10 @@
 
 初案や外部参考を Pattern / Prompt / Foundation へ自動昇格しません。
 
+Agent Skill Architectureの未昇格候補は `references/in-progress/agent-skill-architecture-v1/` に置きます。
+
+この候補はSkill runtimeへ自動適用せず、Human GateやPromotionを変更しません。
+
 ## 共通Foundationと個別Style Guideの境界
 
 Design Foundationは、複数案件で再利用できる判断だけを扱います。
