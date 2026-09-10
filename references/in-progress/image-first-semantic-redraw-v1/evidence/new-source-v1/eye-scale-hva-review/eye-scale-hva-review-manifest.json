@@ -26,5 +26,17 @@
     }
   },
   "review_package": "READY FOR HUMAN VISUAL ACCEPTANCE",
-  "agent_visual_substitution": "PROHIBITED"
+  "agent_visual_substitution": "PROHIBITED",
+  "hva_evidence_completion": "READY",
+  "active_source_mutation": "NONE",
+  "candidate_svg_bytes_unchanged_vs_implementation_head": true,
+  "implementation_candidate_head": "2eba5b1d4258e342e3c0f4547cda9d602291a1ea",
+  "required_completion": {
+    "look_pre_corrected_diff": true,
+    "write_pre_corrected_diff": true,
+    "explicit_64_pre_vs_corrected_all_roles": true,
+    "svg_bytes_unchanged_rationale_documented": true,
+    "lr_eye_scale_parity_verified": true
+  },
+  "lr_parity_overall_pass": true
 }
