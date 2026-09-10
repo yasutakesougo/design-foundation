@@ -1,65 +1,97 @@
-# Visual Review（ドラフト）
+# Visual Review（V3.5候補）
 
-判定: PASS WITH CORRECTION（Human Visual Acceptance前）
+判定: PASS WITH CORRECTION（新しいHuman Visual Acceptance前）
 
-PR #7 Human Ready: GO。チラシの Human Visual Acceptance とは別ゲート。Scope Review PASS 後に GO する。
+V3 VISUAL-CORRECTION-2: Implementation中。旧Issue #10のHuman Visual Acceptanceは `main@f87212b7b42553270b80ca767d16d35642effd96` に対する履歴であり、このV3.5候補には継承しない。
 
-Foundationへの昇格: HOLD。案件ドラフトと方向性だけ残し、共通基盤へは昇格しない。
+Foundationへの昇格: HOLD。案件ドラフトとDirectionの範囲に留め、Pattern / Prompt / Foundationへは昇格しない。
+
+## Correction-2の狙い
+
+3枚目の「日常の小さな気づきを拾う」内容を正本として維持し、比較案で得られた整理感だけを取り入れる。
+
+- `日常を、言葉に。` を最初に見る場所にする。
+- `気になったことを、ひとことだけ。` と3つの観察例を維持する。
+- QRを中央の独立した行動入口にする。
+- 「周りの人にも知ってほしいこと」「こんな活動をしている」「こんな工夫をしている」へは戻さない。
+- 人物は説明・案内・返答をする人ではなく、静かな観察者として弱く添える。
 
 ## Accessibility Baseline
 
-- 本文は13px前後を下回らない。注意書きも12px。
-- 主色 `#234E3F` と生成り背景のコントラストは見出し用途として確認済み。
-- QRは中央に分離し、クワイエットゾーンあり。
-- 必要情報は画像内文字だけに閉じ込めていない。
+- 本文は13px前後、注意書きは12pxを維持する。
+- 主色 `#234E3F` と生成り背景を継続する。
+- QRは `58mm × 58mm` を維持し、白い独立フィールドでクワイエットゾーンを確保する。
+- 必要情報は画像内文字だけに閉じ込めない。
+- 印刷用のために本文・注意書きを縮小していない。
 
-## 5項目
+## V3 VISUAL-CORRECTION-2 実装確認
 
-1. 最初に見る場所は「日常を、言葉に。」。QRは中央の行動入口。
-2. V3本文は短い。運用説明・手順図・詳細安全説明は載せていない。
-3. イラストは1場面。観察者として右上に添え、QRより強くしない。
-4. 色はFoundationの深い緑と生成り。手書き感は紙と水彩で出している。
-5. CuteGuideCharacter と OperationalPromiseOnPrint は避ける。未確定の匿名・保存日数は書いていない。
+Baseline: `main@f87212b7b42553270b80ca767d16d35642effd96`
 
-## V3 POST-MERGE-CORRECTION-1 技術検証
+変更対象は次の3ファイルだけ。
 
-Baseline: `main@6790d260d71d897efa3f6a25e5019ba388159151`
+- `poster.html`
+- `assets/scene.jpg`
+- `visual-review.md`
 
-Correction scopeは `poster.html` とこの `visual-review.md` の2ファイルだけ。本文、QR asset / destination、scene asset、Direction / Pattern / Foundation は変更しない。
+### 1. 上部
 
-### A4 one-page
+- `広報部会（仮）の小さな試行` の下に強い黒線を置かない。
+- タイトルを中央に独立させ、最初の視線を `日常を、言葉に。` に固定する。
+- 装飾を増やさず、余白で階層を作る。
 
-- Headless Chromium: `Chromium 144.0.7559.96`
+### 2. 観察例
+
+- Content Lockの3例をそのまま維持する。
+- 3例を一つの静かなパネルにまとめ、読み順を整理する。
+- PR・活動紹介・改善提案募集に見えるコピーへ差し替えない。
+
+### 3. QR
+
+- `QRからどうぞ` → QR → `ひとことを書く → ひとこと返しを見る` の順に整理する。
+- QR周辺に強い外枠を置かない。
+- 白い独立フィールドに置き、貼り付けたような見え方を避ける。
+- `assets/qr.png` と固定destinationは変更しない。
+
+### 4. Observer figure
+
+- 名札・ストラップなし。
+- 専門職制服・案内ポーズなし。
+- 小さなメモとペン程度に留める。
+- 正面から誘導せず、少し考えながら書き留める姿勢。
+- タイトルとQRより明確に小さく・弱く扱う。
+
+## Local print evidence
+
+- renderer: **WeasyPrint 68.0**
 - print-to-PDF: **1 page**
-- PDF page size: **594.96 × 841.92 pt (A4)**
-- 印刷時 `.sheet`: `297mm`
-- 印刷時 `.inner`: `271mm`
-- DOM fit check: `.inner scrollHeight <= clientHeight` / `.sheet scrollHeight <= clientHeight`
-- clipping / fragmentation: ローカルHeadless検証では確認されず
-- 本文フォントサイズ、注意書きサイズ、QR `58mm × 58mm` は縮小していない
+- page size: **595.276 × 841.89 pt (A4)**
+- raster readback: **1 page / clipping・fragmentationは目視で確認されず**
+- QR: 中央の独立フィールド、`58mm × 58mm` を維持
+- 本文 / 注意書き: 縮小なし
+- Chromium CLIはこの実行環境でDBus関連待ちにより終了せず、今回の技術証拠には採用していない。実寸印刷と実機QR読取は後続Human/Physical Gateで確認する。
 
-### HOLD banner contrast
+## Non-change evidence
 
-- emphasis color: `#A35F32`
-- background: `#FFFFFF`
-- contrast ratio: **約 4.95:1**
-- `foundations/accessibility.md` の通常デジタル文字目標 `4.5:1` 以上を満たす
-- banner wordingは変更していない
+Correction-2はbase treeから3パスだけを置き換える。
 
-### Non-change evidence
+- `content.md` baseline blob SHA: `e3796e9956adbdcee155130878cae3aac69baa0d` — unchanged
+- `assets/qr.png` baseline blob SHA: `a68d1f558c96c4eecb6a7e81cb1e74c5c8cf0a52` — unchanged
+- QR fixed destination: `https://hitokoto-kaeshi-preview.web.app/poster` — unchanged
+- `references/directions/*` — unchanged
+- `patterns/*` / `prompts/*` / `foundations/*` — unchanged
 
-- `content.md` blob SHA: `e3796e9956adbdcee155130878cae3aac69baa0d`（baselineと同一）
-- `assets/qr.png` blob SHA: `a68d1f558c96c4eecb6a7e81cb1e74c5c8cf0a52`（baselineと同一）
-- `assets/scene.jpg` blob SHA: `a28efee74983c05ff496e29c0eec87e6ac5280c8`（baselineと同一）
+## Gate State
 
-## 残っているHuman / Physical確認
-
-- 人物イラストの採用可否。方向性案であり、名称決定ではない。
-- **Human Visual Acceptance: NOT DONE**
-- **実寸印刷での本文サイズ確認: NOT DONE**
-- **物理A4印刷からの実機QR読取: NOT DONE**
-- Deploy / Real Trial Start: HOLD
+- Human Definition / Scope Lock: GO / CONSUMED
+- Human Implementation Start: GO / CONSUMED
+- Implementation: candidate prepared
+- Fresh Implementation / Scope Review: REQUIRED
+- Human Ready: NOT DONE
+- Human Visual Acceptance for V3.5: NOT DONE
+- Physical A4 / real-device QR validation: NOT DONE
 - Print / Post: HOLD
+- Deploy / Real Trial Start: HOLD
 - Poster Pattern / Prompt / Foundation Promotion: HOLD
 
-Correction-1の技術検証PASSだけでは、Human Visual Acceptance、本印刷、正式掲示、Deploy、Real Trial Start、Pattern昇格を許可しない。
+技術確認PASSだけでは、Human Ready、Human Visual Acceptance、本印刷、正式掲示、Deploy、Real Trial Start、Pattern昇格を許可しない。
