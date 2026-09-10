@@ -32,11 +32,13 @@ Human-invoked orchestratorはHuman Gateではありません。
 | 候補 | 発火条件 | 参照する正本 | 到達点 |
 |---|---|---|---|
 | accessibility review | 制作物のアクセシビリティ確認が必要 | `foundations/accessibility.md` | 確認結果を残す |
-| output preflight check | 印刷または公開前 | `review/output-preflight.md` | preflight結果を残す |
+| output preflight check | `Human Visual Acceptance = GO / CONSUMED` の後で、印刷または公開preflightを準備するとき | `review/output-preflight.md` | preflight結果を残す |
 | typography role check | 文字の役割・書体判断が必要 | `foundations/typography.md` | 適用結果を残す |
 | color foundation check | 配色判断が必要 | `foundations/colors.md` | 適用結果を残す |
 | reference-intake discipline | 外部参考を分析する | `references/reference-intake-template.md` | Borrow / Do Not Copyを分離する |
 | agent-document writing discipline | Agent向けSkill / pointer / instructionを書く | `context-pointer-rules.md` と `invocation-model.md` | 文書がcheckableな構造になる |
+
+`Human Visual Acceptance` 未消費のdraftでは、output preflightの再利用可能なPASSを作りません。
 
 Model-invoked disciplineはHuman Gateを遷移させません。
 
