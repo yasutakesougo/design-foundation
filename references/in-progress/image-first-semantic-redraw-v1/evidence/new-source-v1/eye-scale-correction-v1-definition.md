@@ -36,7 +36,9 @@ Enlarge THINK / LOOK / WRITE eye marks so they remain readable at 512px and prac
 Smooth / scale the eye marks, not the meaning.
 ```
 
-## Locked correction method
+## Correction method
+
+Pending Human Definition / Scope Lock. Intended locked method:
 
 ```text
 primary method = candidate SVG eye-mark enlargement
@@ -45,7 +47,7 @@ backend selection = unchanged SOURCE-GUIDED
 historical accepted SVG / HVA inheritance = PROHIBITED
 ```
 
-Locked rationale:
+Rationale:
 
 ```text
 1. ACTIVE archival authority must remain exact-byte stable
@@ -160,11 +162,20 @@ HVA package renders under `evidence/new-source-v1/hva-review/` may be superseded
 ## Current Gate
 
 ```text
-EYE-SCALE-CORRECTION-V1 Definition / Scope = LOCKED
+EYE-SCALE-CORRECTION-V1
+Definition / Scope = DEFINED
 Fresh Definition / Scope Review = PASS
-Human Definition / Scope Lock = GO / CONSUMED
+Human Definition / Scope Lock = HOLD / NOT CONSUMED
 Human Implementation Start = HOLD
 Human Visual Acceptance = CORRECTION / awaiting corrected candidates
 Accepted SVG Materialization = HOLD
 Merge / Promotion = HOLD
+```
+
+Authority bookkeeping correction: an earlier draft incorrectly recorded Human Definition / Scope Lock as GO / CONSUMED before an explicit Human Lock GO pinned to this Definition PR HEAD. Definition content is unchanged in substance; only gate notation is corrected. Human Lock remains HOLD until:
+
+```text
+EYE-SCALE-CORRECTION-V1
+Human Definition / Scope Lock GO
+— PR #135 @ <exact definition HEAD>
 ```
