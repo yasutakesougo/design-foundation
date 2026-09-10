@@ -16,15 +16,23 @@ Fresh Implementation Review (1.60x) = PASS
 ## Gate status for this package
 
 ```text
-Over-emphasis HOLD = CLEARED (mid-point candidates @ 0362b17)
-  THINK/LOOK = 1.30x pre — OK
-  WRITE      = 1.20x pre — OK (extra pullback justified)
-HVA PASS = NOT DECLARED
-ACTIVE / materialize / merge = HOLD
-HVA Evidence Completion = READY
-Deploy / Print / Publish = HOLD
-ACTIVE source mutation = NONE
-Agent visual substitution for HVA = PROHIBITED
+Remaining gates @ f0ed280          = CLOSED
+  1. mid vs old-1.60x pullback     = PASS
+  2. THINK pre|mid|diff @512       = PASS
+  3. SVG SoT note                  = PASS
+     SoT = pinned candidate commit candidates/.../*.svg git tree
+     (not HVA evidence commit)
+
+Over-emphasis HOLD                 = CLEARED (prior)
+HVA PASS                           = DECLARED
+  candidate                        = 0362b17
+  scales                           = THINK/LOOK 1.30x · WRITE 1.20x
+  evidence                         = f0ed280
+
+ACTIVE / materialize / merge       = HOLD until ACTIVE pins 0362b17
+Deploy / Print / Publish           = HOLD
+ACTIVE source mutation             = NONE
+Agent visual substitution for HVA  = PROHIBITED
 ```
 
 ## Prior Over-emphasis HOLD (cleared on mid)
@@ -49,7 +57,7 @@ ACTIVE archive = unchanged
 
 Exact machine record: `eye-scale-midpoint-revision.json`.
 
-This revision creates **new candidate identities**. It does not declare Fresh HVA PASS.
+Human Visual Acceptance for these mid-point identities is **DECLARED** below. ACTIVE / materialize / merge remain separate and HOLD.
 
 ## Why earlier HVA evidence commits left 1.60x SVG bytes unchanged
 

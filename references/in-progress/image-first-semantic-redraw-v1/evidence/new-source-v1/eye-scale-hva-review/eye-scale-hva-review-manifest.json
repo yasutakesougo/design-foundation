@@ -5,9 +5,9 @@
   "previous_1_60_candidate_head": "2eba5b1d4258e342e3c0f4547cda9d602291a1ea",
   "revision": "midpoint eye-scale reduction after HVA HOLD",
   "hold_reason": "Over-emphasis at @64 (WRITE severe, LOOK moderate); eye weight exceeds facial stroke hierarchy. Reduce scale toward mid-point between pre and current corrected.",
-  "hva_declaration": "NOT DECLARED / HOLD",
-  "accepted_svg_materialization": "HOLD",
-  "merge_promotion": "HOLD",
+  "hva_declaration": "DECLARED",
+  "accepted_svg_materialization": "HOLD until ACTIVE pins 0362b17",
+  "merge_promotion": "HOLD until ACTIVE pins 0362b17",
   "active_source_mutation": "NONE",
   "roles": {
     "THINK": {
@@ -34,5 +34,13 @@
     "mid_vs_old_corrected_proof": true,
     "think_pre_mid_diff_512": true,
     "source_of_truth_note": true
+  },
+  "remaining_gates_at_f0ed280": "CLOSED",
+  "hva_pass_candidate_commit": "0362b1720649288db8bb4072bb9fefdba48e5363",
+  "hva_pass_evidence_commit": "f0ed28024b8a08512e45dc1dcc2ceefbe1740ad5",
+  "scales": {
+    "THINK": "1.30x pre",
+    "LOOK": "1.30x pre",
+    "WRITE": "1.20x pre"
   }
 }
