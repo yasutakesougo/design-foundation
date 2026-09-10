@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300">
+  <style>
+    .p{fill:none;stroke:#222;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+    .t{font:22px sans-serif;fill:#222}
+    .s{font:16px sans-serif;fill:#555}
+  </style>
+  <text class="t" x="85" y="30">BEFORE</text>
+  <text class="t" x="380" y="30">NAIVE</text>
+  <text class="t" x="690" y="30">SKILL</text>
+
+  <g transform="translate(20,50)">
+    <g transform="translate(20,0)"><g><g id="layer1">
+      <circle class="p" cx="100" cy="70" r="38"/>
+      <path class="p" d="M62 150 L100 120"/><path class="p" d="M100 120 L138 150"/>
+      <rect class="p" x="55" y="150" width="90" height="55" rx="5"/>
+    </g></g></g>
+    <text class="s" x="32" y="230">nested + fragmented</text>
+  </g>
+
+  <g transform="translate(315,50)">
+    <path class="p" d="M62 70a38 38 0 1 0 76 0a38 38 0 1 0-76 0 M62 150L100 120L138 150 M55 150h90v55H55z"/>
+    <text class="s" x="25" y="230">single giant path</text>
+  </g>
+
+  <g transform="translate(620,50)">
+    <g id="symbol-head"><circle class="p" cx="100" cy="70" r="38"/></g>
+    <g id="symbol-connector"><path class="p" d="M62 150 L100 120 L138 150"/></g>
+    <g id="symbol-base"><rect class="p" x="55" y="150" width="90" height="55" rx="5"/></g>
+    <text class="s" x="20" y="230">semantic groups, same render</text>
+  </g>
+</svg>
