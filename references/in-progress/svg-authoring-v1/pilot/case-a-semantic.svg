@@ -32,7 +32,6 @@
     <rect class="p" x="145" y="165" width="105" height="62" rx="4"/>
     <path class="p" d="M165 145 L205 162"/>
     <path class="p" d="M202 160 L232 176"/>
-    <circle cx="232" cy="176" r="4" fill="#222"/>
     <text class="s" x="22" y="250">only hand + pen relation changes</text>
   </g>
 </svg>
