@@ -6,7 +6,8 @@
 Definition / Scope          = LOCKED / CONSUMED
 Fresh Definition Review     = PASS / CONSUMED
 Human Implementation Start  = GO / CONSUMED
-Implementation              = IN PROGRESS
+Implementation              = IMPLEMENTED
+Fresh Implementation Review = REQUIRED
 Human Ready                 = HOLD
 Pilot execution             = HOLD
 Merge / Promotion           = HOLD
@@ -109,6 +110,6 @@ Merge / Promotion
 
 ## 次のGate
 
-実装後はFresh Implementation / Scope Reviewを行います。
+Fresh Implementation / Scope Reviewを行います。
 
 そのReviewがPASSしてもHuman Readyは自動消費しません。
