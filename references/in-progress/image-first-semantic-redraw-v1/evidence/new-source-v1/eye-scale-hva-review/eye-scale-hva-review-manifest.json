@@ -1,0 +1,30 @@
+{
+  "schema": "IMAGE-FIRST-SEMANTIC-REDRAW-V1/eye-scale-hva-review/v1",
+  "implementation_pr": 142,
+  "implementation_head": "2eba5b1d4258e342e3c0f4547cda9d602291a1ea",
+  "authorized_pre_correction_head": "fe037894ffad4eeb1e79dd6442214923afe8f3d5",
+  "definition_pr": 135,
+  "definition_head": "1e3591ca9c10eea6187192b5dc2cec87f785d1ac",
+  "hva_declaration": "NOT DECLARED / HOLD",
+  "accepted_svg_materialization": "HOLD",
+  "merge_promotion": "HOLD",
+  "roles": {
+    "THINK": {
+      "file": "candidates/new-source-v1/person-thinking.svg",
+      "pre_sha256": "01b5efbcdf7c4ba723074d87ed6ac9a15918f1ed9663c0774c88cec30d5f3de7",
+      "corrected_sha256": "33903356bc359c13d2f3198698423c71b59835b06cd1bdb9486fa1ba00c573a2"
+    },
+    "LOOK": {
+      "file": "candidates/new-source-v1/person-looking.svg",
+      "pre_sha256": "e3e68536b2122dbe35f18d15a93ad46f2c45150969ebca6a4d6522b0a5f7a5bb",
+      "corrected_sha256": "3f242afe74bc84c6a5c224487231dd1f7adeba7f456421ceecedfa0e89a8ffde"
+    },
+    "WRITE": {
+      "file": "candidates/new-source-v1/person-note-taking.svg",
+      "pre_sha256": "1a14ae867e2861f4684b85456f282246a68520c2c4834479cfdfe8cbe49e4e0c",
+      "corrected_sha256": "30c0d1f397cfb7e00e0de21e52c3bdc96d0837d67d44efcf7215deae80d19530"
+    }
+  },
+  "review_package": "READY FOR HUMAN VISUAL ACCEPTANCE",
+  "agent_visual_substitution": "PROHIBITED"
+}
