@@ -35,6 +35,8 @@ runtimeへ統合する場合は、この規範をbranch-specific Referenceの奥
 
 参照した主な考え方は、invocation ownership、context pointer、progressive disclosure、single source of truth、completion criteria、handoff by reference、tracer-bullet work decompositionです。
 
+参照元の固定commit、verified blob、Borrow / Do Not Copy、再レビュー条件は `../../external/mattpocock-skills.md` を正本とします。
+
 外部Skillのファイル、設定、runtime semanticsはローカル正本にしません。
 
 外部Skillのインストール、自動同期、runtime dependency化も行いません。
@@ -45,16 +47,15 @@ runtimeへ統合する場合は、この規範をbranch-specific Referenceの奥
 - Independent Definition / Scope Review: Issue #131 = PASS。
 - Implementation baseline: `main@1abc391be2f526065b7e537901772481fe0595a2`。
 
-## 現在の状態
+## Gate状態の確認
 
-```text
-Definition / Scope Lock = GO / CONSUMED
-Implementation Start    = GO / CONSUMED
-Architecture candidate  = IMPLEMENTED ON BRANCH
-Runtime activation      = HOLD
-Human Ready             = HOLD
-Human Merge             = HOLD
-Promotion               = HOLD
-```
+このREADMEは、Human Ready / Human Merge等の可変なlive gate stateを保存しません。
 
-この候補をmergeしても、Skill runtimeへの適用やFoundationへのPromotionは自動では行いません。
+現在のauthorityとgate stateは次をfresh readして確認します。
+
+- Definition / authority: Issue #130 / Review #131。
+- Post-Ready Correction-1: Issue #139 / Review #140。
+- implementation / current gate state: PR #134 とその最新comments / reviews。
+- gate actionの直前にPRのexact HEADを再取得し、過去のSHAやこの文書の記述からcurrent stateを推定しない。
+
+この候補は未昇格であり、mergeされてもSkill runtimeへの適用やFoundationへのPromotionは自動では行いません。
