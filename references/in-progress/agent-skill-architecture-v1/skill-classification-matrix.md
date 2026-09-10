@@ -31,12 +31,12 @@ Human-invoked orchestratorはHuman Gateではありません。
 
 | 候補 | 発火条件 | 参照する正本 | 到達点 |
 |---|---|---|---|
-| accessibility review | 制作物のアクセシビリティ確認が必要 | 該当するFoundation / Review | 確認結果を残す |
+| accessibility review | 制作物のアクセシビリティ確認が必要 | `foundations/accessibility.md` | 確認結果を残す |
 | output preflight check | 印刷または公開前 | `review/output-preflight.md` | preflight結果を残す |
-| typography role check | 文字の役割・書体判断が必要 | typography関連Foundation | 適用結果を残す |
-| color foundation check | 配色判断が必要 | color関連Foundation | 適用結果を残す |
-| reference-intake discipline | 外部参考を分析する | Reference Intake正本 | Borrow / Do Not Copyを分離する |
-| agent-document writing discipline | Agent向けSkill / pointer / instructionを書く | 本Architectureのpointer / completion criteria規則 | 文書がcheckableな構造になる |
+| typography role check | 文字の役割・書体判断が必要 | `foundations/typography.md` | 適用結果を残す |
+| color foundation check | 配色判断が必要 | `foundations/colors.md` | 適用結果を残す |
+| reference-intake discipline | 外部参考を分析する | `references/reference-intake-template.md` | Borrow / Do Not Copyを分離する |
+| agent-document writing discipline | Agent向けSkill / pointer / instructionを書く | `context-pointer-rules.md` と `invocation-model.md` | 文書がcheckableな構造になる |
 
 Model-invoked disciplineはHuman Gateを遷移させません。
 
@@ -49,7 +49,7 @@ Model-invoked disciplineはHuman Gateを遷移させません。
 | Review checklists | 該当レビューを行うとき | 正本 |
 | Accepted references | 採用済み判断を参照するとき | 正本 |
 | External reference intake records | 外部参考の採否理由を確認するとき | ローカル判断の正本 |
-| Gate vocabulary / authority rules | Agentが工程やmutation可否を判断するとき | always-visible契約から到達する正本候補 |
+| Gate vocabulary / authority rules | Agentが工程やmutation可否を判断するとき | `invocation-model.md` のalways-visible契約を正本候補とする |
 
 ## 分類時の禁止事項
 
