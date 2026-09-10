@@ -38,12 +38,15 @@ Accepted SVG Materialization           = COMPLETE (namespaced assets/accepted/ne
   paths                                = assets/accepted/new-source-v1/person-*.svg
 ACTIVE archive source mutation         = NONE
 ACTIVE adoption / pin beyond SoT note  = HOLD
-Merge / Promotion                      = GO / CONSUMED (stacked base merge in progress)
+Merge / Promotion                      = GO / CONSUMED / COMPLETE
+  PR #142                              = MERGED
+  merge commit / stacked base tip      = 6c0070f83a40e5b7251f979c3fa29a3506077b51
+  authorized PR head at merge          = 32fc19e
 Deploy / Print / Publish               = HOLD
 Agent visual substitution for HVA      = PROHIBITED
 
-Human Merge / Promotion GO = GO / CONSUMED
-Next after stacked merge = Deploy / Print / Publish and/or main promotion
+Human Merge / Promotion GO = GO / CONSUMED / COMPLETE
+Next = Deploy / Print / Publish and/or main promotion
   — remain HOLD unless separately authorized
 ```
 
