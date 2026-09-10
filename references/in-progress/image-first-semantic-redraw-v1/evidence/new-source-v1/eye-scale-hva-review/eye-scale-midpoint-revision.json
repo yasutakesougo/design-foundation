@@ -1,0 +1,102 @@
+{
+  "hold_reason": "Over-emphasis at @64 (WRITE severe, LOOK moderate); eye weight exceeds facial stroke hierarchy. Reduce scale toward mid-point between pre and current corrected.",
+  "method": "re-derive eye marks from pre geometry at reduced scale; THINK/LOOK=1.30x, WRITE=1.20x",
+  "roles": {
+    "person-thinking.svg": {
+      "target_scale_from_pre": 1.3,
+      "eyes": [
+        {
+          "pre": "M 269.44 211.45 L 270.14 214.98",
+          "previous_corrected_1_60": "M 269.23 210.39 L 270.35 216.04",
+          "new_corrected": "M 269.34 210.92 L 270.25 215.51",
+          "pre_span": 3.598736,
+          "prev_span": 5.759939,
+          "new_span": 4.679338,
+          "new_ratio_vs_pre": 1.300273,
+          "new_vs_prev_ratio": 0.812394
+        },
+        {
+          "pre": "M 341.57 201.55 L 342.28 206.5",
+          "previous_corrected_1_60": "M 341.36 200.07 L 342.49 207.99",
+          "new_corrected": "M 341.46 200.81 L 342.39 207.24",
+          "pre_span": 5.00066,
+          "prev_span": 8.000206,
+          "new_span": 6.496907,
+          "new_ratio_vs_pre": 1.29921,
+          "new_vs_prev_ratio": 0.812092
+        }
+      ],
+      "sha256": "01f5d64396eb7c9569ad430f1b4ed0a96d03b0a428bf0531535e93bd2f3ad8cc",
+      "lr_parity": {
+        "a": 1.300273,
+        "b": 1.29921,
+        "rel_diff": 0.000818,
+        "pass": true
+      }
+    },
+    "person-looking.svg": {
+      "target_scale_from_pre": 1.3,
+      "eyes": [
+        {
+          "pre": "M 254.59 195.18 L 257.41 200.84",
+          "previous_corrected_1_60": "M 253.74 193.48 L 258.26 202.54",
+          "new_corrected": "M 254.17 194.33 L 257.83 201.69",
+          "pre_span": 6.323607,
+          "prev_span": 10.12492,
+          "new_span": 8.219805,
+          "new_ratio_vs_pre": 1.29986,
+          "new_vs_prev_ratio": 0.811839
+        },
+        {
+          "pre": "M 311.87 173.26 C 312.85 176.35 313.93 178.86 315.4 181.75",
+          "previous_corrected_1_60": "M 310.81 170.71 C 312.38 175.66 314.11 179.67 316.46 184.30",
+          "new_corrected": "M 311.38 171.97 C 312.65 175.99 314.06 179.25 315.97 183.01",
+          "pre_span": 9.194618,
+          "prev_span": 14.717697,
+          "new_span": 11.956157,
+          "new_ratio_vs_pre": 1.300343,
+          "new_vs_prev_ratio": 0.812366
+        }
+      ],
+      "sha256": "a96844e2bdf822a6e6b257c6c19b2424d7a55a92f8482d3902b32e87e4685e96",
+      "lr_parity": {
+        "a": 1.29986,
+        "b": 1.300343,
+        "rel_diff": 0.000372,
+        "pass": true
+      }
+    },
+    "person-note-taking.svg": {
+      "target_scale_from_pre": 1.2,
+      "eyes": [
+        {
+          "pre": "M 144.27 204.38 L 144.27 211.45",
+          "previous_corrected_1_60": "M 144.27 202.26 L 144.27 213.57",
+          "new_corrected": "M 144.27 203.67 L 144.27 212.16",
+          "pre_span": 7.07,
+          "prev_span": 11.31,
+          "new_span": 8.49,
+          "new_ratio_vs_pre": 1.200849,
+          "new_vs_prev_ratio": 0.750663
+        },
+        {
+          "pre": "M 208.62 193.77 L 210.03 198.72",
+          "previous_corrected_1_60": "M 208.20 192.29 L 210.45 200.21",
+          "new_corrected": "M 208.48 193.28 L 210.17 199.22",
+          "pre_span": 5.146902,
+          "prev_span": 8.233401,
+          "new_span": 6.175735,
+          "new_ratio_vs_pre": 1.199894,
+          "new_vs_prev_ratio": 0.750083
+        }
+      ],
+      "sha256": "12fd790ec61f76e53811656a744f34522dff28515bc93648a6115bc60c1d86c7",
+      "lr_parity": {
+        "a": 1.200849,
+        "b": 1.199894,
+        "rel_diff": 0.000796,
+        "pass": true
+      }
+    }
+  }
+}
