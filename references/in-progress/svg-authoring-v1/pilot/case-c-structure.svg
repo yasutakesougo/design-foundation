@@ -9,7 +9,7 @@
   <text class="t" x="690" y="30">SKILL</text>
 
   <g transform="translate(20,50)">
-    <g transform="translate(20,0)"><g><g id="layer1">
+    <g transform="translate(0,0)"><g><g id="layer1">
       <circle class="p" cx="100" cy="70" r="38"/>
       <path class="p" d="M62 150 L100 120"/><path class="p" d="M100 120 L138 150"/>
       <rect class="p" x="55" y="150" width="90" height="55" rx="5"/>
