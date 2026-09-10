@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """IMAGE-FIRST monoline raster -> normalized SVG centerline.
 
-Modes: polyline (PR #88 baseline), bezier-fit, spline-bezier.
+Modes: polyline, bezier-fit, spline-bezier, scale-aware-spline, curvature-aware-spline.
 Local deps only: Pillow, NumPy, scikit-image.
 """
 from __future__ import annotations
@@ -147,6 +147,127 @@ def spline_beziers(points,eps,passes,weight,tension):
         out.append(Cubic(p0,p0+h0,p3-h1,p3))
     return out
 
+
+def resample_uniform(points, step=1.0):
+    """Arc-length resample a traced topology span without moving endpoints."""
+    a=np.asarray(points,float)
+    if len(a)<2:return a
+    d=np.linalg.norm(np.diff(a,axis=0),axis=1); arc=np.r_[0.0,np.cumsum(d)]; total=float(arc[-1])
+    if total<=1e-9:return a[[0,-1]]
+    n=max(2,int(np.ceil(total/step))+1); q=np.linspace(0,total,n)
+    return np.c_[np.interp(q,arc,a[:,0]),np.interp(q,arc,a[:,1])]
+
+def local_poly_smooth(points,radius=8,*,adaptive=False,min_radius=5,max_radius=13):
+    """Local quadratic smoothing that preserves broad curvature better than averaging."""
+    a=np.asarray(points,float);n=len(a)
+    if n<5:return a.copy()
+    broad=np.zeros(n);coarse=np.empty_like(a);rr=max_radius
+    for i in range(n):
+        lo=max(0,i-rr);hi=min(n,i+rr+1);x=np.arange(lo,hi)-i;deg=min(2,len(x)-1)
+        if deg<1:coarse[i]=a[i];continue
+        for axis in range(2):coarse[i,axis]=np.polyval(np.polyfit(x,a[lo:hi,axis],deg),0)
+    w=max(3,min_radius)
+    for i in range(w,n-w):
+        v0=coarse[i]-coarse[i-w];v1=coarse[i+w]-coarse[i];n0=np.linalg.norm(v0);n1=np.linalg.norm(v1)
+        if n0>1e-9 and n1>1e-9:
+            ang=np.arctan2(v0[0]*v1[1]-v0[1]*v1[0],np.dot(v0,v1));broad[i]=abs(float(ang))/(n0+n1)
+    nz=broad[broad>0];scale=max(float(np.percentile(nz,75)) if len(nz) else .01,1e-4)
+    out=np.empty_like(a)
+    for i in range(n):
+        if i in (0,n-1):out[i]=a[i];continue
+        if adaptive:
+            strength=min(1.0,broad[i]/(2.0*scale));r=int(round(max_radius-(max_radius-min_radius)*strength))
+        else:r=radius
+        r=min(r,i,n-1-i)
+        if r<2:out[i]=a[i];continue
+        lo=i-r;hi=i+r+1;x=np.arange(lo,hi)-i;deg=min(2,len(x)-1)
+        for axis in range(2):out[i,axis]=np.polyval(np.polyfit(x,a[lo:hi,axis],deg),0)
+    out[0]=a[0];out[-1]=a[-1];return out
+
+def signed_curvature(points,window=10):
+    p=np.asarray(points,float);k=np.zeros(len(p))
+    for i in range(window,len(p)-window):
+        a=p[i]-p[i-window];b=p[i+window]-p[i];la=np.linalg.norm(a);lb=np.linalg.norm(b)
+        if la>1e-9 and lb>1e-9:
+            k[i]=float(np.arctan2(a[0]*b[1]-a[1]*b[0],np.dot(a,b)))/(la+lb)
+    return k
+
+def rdp_indices(points,eps):
+    a=np.asarray(points,float)
+    def dist(p,x,y):
+        d=y-x;n=float(np.linalg.norm(d))
+        if n<=1e-9:return float(np.linalg.norm(p-x))
+        return abs(float(d[1]*p[0]-d[0]*p[1]+y[0]*x[1]-y[1]*x[0]))/n
+    def rec(lo,hi):
+        if hi<=lo+1:return [lo,hi]
+        ds=[dist(a[i],a[lo],a[hi]) for i in range(lo+1,hi)]
+        if not ds or max(ds)<=eps:return [lo,hi]
+        j=lo+1+int(np.argmax(ds));return rec(lo,j)[:-1]+rec(j,hi)
+    return rec(0,len(a)-1)
+
+def ensure_max_gap(indices,max_gap):
+    out=[indices[0]]
+    for a,b in zip(indices,indices[1:]):
+        gap=b-a
+        if gap>max_gap:
+            parts=int(np.ceil(gap/max_gap))
+            for q in range(1,parts):out.append(round(a+gap*q/parts))
+        out.append(b)
+    return sorted(set(out))
+
+def prune_spacing(indices,min_spacing,protected=None):
+    protected=set(protected or ());out=[indices[0]]
+    for i in indices[1:-1]:
+        if i-out[-1]<min_spacing:
+            if i in protected and out[-1] not in protected:out[-1]=i
+        else:out.append(i)
+    if indices[-1]-out[-1]<min_spacing and len(out)>1:out[-1]=indices[-1]
+    else:out.append(indices[-1])
+    return sorted(set(out))
+
+def hermite_from_reference(reference,knot_indices,tangent_window,tension):
+    ref=np.asarray(reference,float);ids=np.asarray(knot_indices,int);pts=ref[ids]
+    if len(pts)<2:return []
+    tang=[]
+    for i in ids:
+        lo=max(0,i-tangent_window);hi=min(len(ref)-1,i+tangent_window);v=ref[hi]-ref[lo]
+        if i==0:v=ref[hi]-ref[0]
+        elif i==len(ref)-1:v=ref[-1]-ref[lo]
+        tang.append(unit(v))
+    out=[]
+    for j in range(len(pts)-1):
+        p0,p3=pts[j],pts[j+1];ch=float(np.linalg.norm(p3-p0))
+        if ch<=1e-9:continue
+        prev=float(np.linalg.norm(pts[j]-pts[j-1])) if j>0 else ch
+        nxt=float(np.linalg.norm(pts[j+2]-pts[j+1])) if j+2<len(pts) else ch
+        h0=tang[j]*min(.36*ch*tension,.22*(prev+ch)*tension);h1=tang[j+1]*min(.36*ch*tension,.22*(ch+nxt)*tension)
+        n0,n1=float(np.linalg.norm(h0)),float(np.linalg.norm(h1));limit=.42*ch
+        if n0>limit:h0*=limit/n0
+        if n1>limit:h1*=limit/n1
+        out.append(Cubic(p0,p0+h0,p3-h1,p3))
+    return out
+
+def scale_aware_beziers(points,eps=1.05,min_radius=4,max_radius=10,min_spacing=9,max_gap=30,tangent_window=8,tension=.98):
+    """Adaptive local-polynomial smoothing; preserve gradual shape changes without micro-wave."""
+    ref=local_poly_smooth(resample_uniform(points,1.0),adaptive=True,min_radius=min_radius,max_radius=max_radius)
+    ids=ensure_max_gap(rdp_indices(ref,eps),max_gap);ids=prune_spacing(ids,min_spacing,{0,len(ref)-1})
+    return hermite_from_reference(ref,ids,tangent_window,tension)
+
+def curvature_aware_beziers(points,eps=1.15,radius=7,curvature_window=10,min_spacing=12,max_gap=34,quantile=.50,tangent_window=9,tension=.98):
+    """Retain low-frequency curvature transitions while rejecting short-period knot noise."""
+    ref=local_poly_smooth(resample_uniform(points,1.0),radius=radius,adaptive=False,min_radius=5,max_radius=max(13,radius))
+    n=len(ref);base=set(rdp_indices(ref,eps));k=signed_curvature(ref,curvature_window);mag=np.abs(k)
+    valid=mag[curvature_window:n-curvature_window];positive=valid[valid>1e-6];threshold=float(np.quantile(positive,quantile)) if len(positive) else 0.0
+    candidates=[]
+    for i in range(curvature_window+2,n-curvature_window-2):
+        if mag[i]>=threshold and mag[i]>=max(mag[i-2:i],default=0) and mag[i]>=max(mag[i+1:i+3],default=0):candidates.append((float(mag[i]),i))
+        if k[i-3]*k[i+3]<0 and max(abs(k[i-3]),abs(k[i+3]))>max(threshold*.5,2e-4):candidates.append((float(max(abs(k[i-3]),abs(k[i+3]))),i))
+    selected=[]
+    for _,i in sorted(candidates,reverse=True):
+        if all(abs(i-j)>=min_spacing for j in selected):selected.append(i)
+    ids=ensure_max_gap(sorted(base|set(selected)),max_gap);ids=prune_spacing(ids,min_spacing,set(selected)|{0,n-1})
+    return hermite_from_reference(ref,ids,tangent_window,tension)
+
 def sample_cubics(cs,steps=16):
     out=[]
     for i,c in enumerate(cs):
@@ -180,6 +301,8 @@ def svg_for(paths,width,height,*,viewbox=512,stroke_width=8,curve_mode="polyline
         else:
             if curve_mode=="bezier-fit":cs=fit_beziers(raw,bezier_error)
             elif curve_mode=="spline-bezier":cs=spline_beziers(raw,epsilon,smooth_passes,smooth_weight,spline_tension)
+            elif curve_mode=="scale-aware-spline":cs=scale_aware_beziers(raw)
+            elif curve_mode=="curvature-aware-spline":cs=curvature_aware_beziers(raw)
             else:raise ValueError(curve_mode)
             if not cs:continue
             p=mapped(cs[0].p0,s,ox,oy);d=f"M {fmt(p[0])} {fmt(p[1])}"
@@ -192,7 +315,7 @@ def svg_for(paths,width,height,*,viewbox=512,stroke_width=8,curve_mode="polyline
     return svg,m
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument("input",type=Path);p.add_argument("output",type=Path);p.add_argument("--curve-mode",choices=("polyline","bezier-fit","spline-bezier"),default="polyline");p.add_argument("--mask-mode",choices=("auto","green","dark"),default="auto");p.add_argument("--min-green",type=int,default=70);p.add_argument("--dominance",type=int,default=18);p.add_argument("--dark-threshold",type=int,default=180);p.add_argument("--epsilon",type=float,default=1.35);p.add_argument("--min-path",type=float,default=4.0);p.add_argument("--linear-short",type=float,default=12.0);p.add_argument("--bezier-error",type=float,default=1.35);p.add_argument("--smooth-passes",type=int,default=2);p.add_argument("--smooth-weight",type=float,default=.18);p.add_argument("--spline-tension",type=float,default=.7);p.add_argument("--stroke-width",type=int,default=8);p.add_argument("--metrics",type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument("input",type=Path);p.add_argument("output",type=Path);p.add_argument("--curve-mode",choices=("polyline","bezier-fit","spline-bezier","scale-aware-spline","curvature-aware-spline"),default="polyline");p.add_argument("--mask-mode",choices=("auto","green","dark"),default="auto");p.add_argument("--min-green",type=int,default=70);p.add_argument("--dominance",type=int,default=18);p.add_argument("--dark-threshold",type=int,default=180);p.add_argument("--epsilon",type=float,default=1.35);p.add_argument("--min-path",type=float,default=4.0);p.add_argument("--linear-short",type=float,default=12.0);p.add_argument("--bezier-error",type=float,default=1.35);p.add_argument("--smooth-passes",type=int,default=2);p.add_argument("--smooth-weight",type=float,default=.18);p.add_argument("--spline-tension",type=float,default=.7);p.add_argument("--stroke-width",type=int,default=8);p.add_argument("--metrics",type=Path);a=p.parse_args()
     im=Image.open(a.input);mask=semantic_stroke_mask(im,a.mask_mode,a.min_green,a.dominance,a.dark_threshold)
     if not mask.any():raise SystemExit("no semantic stroke pixels found")
     sk=skeletonize(mask);_,graph=build_graph(sk);paths=remove_short(trace_polylines(sk),a.min_path)
