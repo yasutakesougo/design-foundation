@@ -1,0 +1,46 @@
+{
+  "schema": "IMAGE-FIRST-SEMANTIC-REDRAW-V1/accepted-svg-materialization/new-source-v1/v1",
+  "lane": "EYE-SCALE-CORRECTION-V1 / new-source-v1",
+  "gate": {
+    "Accepted SVG Materialization Start": "GO / CONSUMED",
+    "HVA PASS": "DECLARED / CONSUMED",
+    "HVA authority": "0362b1720649288db8bb4072bb9fefdba48e5363",
+    "HVA evidence": "f0ed28024b8a08512e45dc1dcc2ceefbe1740ad5",
+    "HVA record": "b75f096ef1a6a293a7f315db25029f583c6eb2bf",
+    "HVA consumed record": "bffdfa92dabba5011e4d0d5d0cb4eed4c9583f07",
+    "ACTIVE archive source mutation": "NONE",
+    "Merge / Promotion": "HOLD",
+    "Deploy / Print / Publish": "HOLD"
+  },
+  "note": "Materializes HVA-passed mid-point new-source SVG identities into a separate accepted asset path. Does not mutate ACTIVE archive source PNG, does not overwrite historical assets/accepted root identities from Definition #114, and does not merge/promote.",
+  "scales": {
+    "THINK": "1.30x pre",
+    "LOOK": "1.30x pre",
+    "WRITE": "1.20x pre"
+  },
+  "backend": "SOURCE-GUIDED",
+  "assets": {
+    "THINK": {
+      "path": "assets/accepted/new-source-v1/person-thinking.svg",
+      "source_candidate_path": "candidates/new-source-v1/person-thinking.svg",
+      "sha256": "01f5d64396eb7c9569ad430f1b4ed0a96d03b0a428bf0531535e93bd2f3ad8cc",
+      "bytes": 9699,
+      "byte_identical_to_candidate_at_0362b17": true
+    },
+    "LOOK": {
+      "path": "assets/accepted/new-source-v1/person-looking.svg",
+      "source_candidate_path": "candidates/new-source-v1/person-looking.svg",
+      "sha256": "a96844e2bdf822a6e6b257c6c19b2424d7a55a92f8482d3902b32e87e4685e96",
+      "bytes": 8593,
+      "byte_identical_to_candidate_at_0362b17": true
+    },
+    "WRITE": {
+      "path": "assets/accepted/new-source-v1/person-note-taking.svg",
+      "source_candidate_path": "candidates/new-source-v1/person-note-taking.svg",
+      "sha256": "12fd790ec61f76e53811656a744f34522dff28515bc93648a6115bc60c1d86c7",
+      "bytes": 12836,
+      "byte_identical_to_candidate_at_0362b17": true
+    }
+  },
+  "historical_assets_accepted_root": "NOT MUTATED / separate from #114 locked identities"
+}

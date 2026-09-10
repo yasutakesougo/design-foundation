@@ -6,7 +6,7 @@
   "revision": "midpoint eye-scale reduction after HVA HOLD",
   "hold_reason": "Over-emphasis at @64 (WRITE severe, LOOK moderate); eye weight exceeds facial stroke hierarchy. Reduce scale toward mid-point between pre and current corrected.",
   "hva_declaration": "DECLARED / CONSUMED",
-  "accepted_svg_materialization": "HOLD",
+  "accepted_svg_materialization": "COMPLETE / CONSUMED (assets/accepted/new-source-v1)",
   "merge_promotion": "HOLD",
   "active_source_mutation": "NONE",
   "roles": {
@@ -44,6 +44,8 @@
     "WRITE": "1.20x pre"
   },
   "hva_authority": "0362b1720649288db8bb4072bb9fefdba48e5363",
-  "next_gate": "Accepted SVG Materialization (separate explicit approval)",
-  "active_adoption": "HOLD"
+  "next_gate": "Merge / Promotion or ACTIVE pin \u2014 separate explicit Human approval",
+  "active_adoption": "HOLD",
+  "materialization_authority": "0362b1720649288db8bb4072bb9fefdba48e5363",
+  "active_archive_source_mutation": "NONE"
 }

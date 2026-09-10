@@ -31,17 +31,20 @@ HVA PASS                           = DECLARED / CONSUMED
   scales                           = THINK/LOOK 1.30x · WRITE 1.20x
   Candidate SVG identities         = UNCHANGED
 
-Authorized by this gate            = HVA PASS determination only
-ACTIVE adoption                    = HOLD
-Accepted SVG Materialization       = HOLD
-Merge / Promotion                  = HOLD
-Deploy / Print / Publish           = HOLD
-ACTIVE source mutation             = NONE
-Agent visual substitution for HVA  = PROHIBITED
+Authorized by prior HVA gate           = HVA PASS determination only
+Accepted SVG Materialization Start     = GO / CONSUMED
+Accepted SVG Materialization           = COMPLETE (namespaced assets/accepted/new-source-v1)
+  authority                            = 0362b17
+  paths                                = assets/accepted/new-source-v1/person-*.svg
+ACTIVE archive source mutation         = NONE
+ACTIVE adoption / pin beyond SoT note  = HOLD
+Merge / Promotion                      = HOLD
+Deploy / Print / Publish               = HOLD
+Agent visual substitution for HVA      = PROHIBITED
 
-Next gate = Accepted SVG Materialization
+Next gate = Merge / Promotion or ACTIVE pin
   — requires separate explicit Human approval
-  — do not auto-advance from HVA PASS
+  — do not auto-advance from Materialization
 ```
 
 ## Prior Over-emphasis HOLD (cleared on mid)
