@@ -79,19 +79,76 @@ def path_tangent_metrics(segments: list[tuple[str, tuple[np.ndarray, ...]]]) -> 
     return angles
 
 
+def _cross2(a: np.ndarray, b: np.ndarray) -> float:
+    return float(a[0] * b[1] - a[1] * b[0])
+
+
+def _cubic_curvature_start(pts: tuple[np.ndarray, ...]) -> float:
+    p0, p1, p2, _ = pts
+    d = 3.0 * (p1 - p0)
+    dd = 6.0 * (p0 - 2.0 * p1 + p2)
+    den = float(np.linalg.norm(d)) ** 3
+    return _cross2(d, dd) / den if den > 1e-12 else 0.0
+
+
+def _cubic_curvature_end(pts: tuple[np.ndarray, ...]) -> float:
+    _, p1, p2, p3 = pts
+    d = 3.0 * (p3 - p2)
+    dd = 6.0 * (p3 - 2.0 * p2 + p1)
+    den = float(np.linalg.norm(d)) ** 3
+    return _cross2(d, dd) / den if den > 1e-12 else 0.0
+
+
+def _major_contour_join_metrics(segments: list[tuple[str, tuple[np.ndarray, ...]]], viewbox: float = 512.0) -> dict[str, list[float] | int]:
+    """Curvature-handoff evidence for locked long upper/head contours only.
+
+    Same-sign joins measure handoff between continuing bends. Opposite-sign joins are
+    counted separately because forcing equal curvature across a true SOURCE inflection
+    would be incorrect. Evidence only; Human Visual Acceptance remains authoritative.
+    """
+    sampled = _sample_path(segments)
+    if len(sampled) < 2:
+        return {"same_sign_abs": [], "same_sign_rel": [], "opposite_sign_count": 0}
+    arc = float(np.linalg.norm(np.diff(sampled, axis=0), axis=1).sum())
+    mean_y = float(np.mean(sampled[:, 1]))
+    xspan = float(np.ptp(sampled[:, 0])); yspan = float(np.ptp(sampled[:, 1]))
+    if arc < 56.0 or mean_y > .62 * viewbox or not (yspan >= .07 * viewbox or xspan >= .14 * viewbox):
+        return {"same_sign_abs": [], "same_sign_rel": [], "opposite_sign_count": 0}
+    same_abs: list[float] = []; same_rel: list[float] = []; opposite = 0
+    for left, right in zip(segments, segments[1:]):
+        if left[0] != "C" or right[0] != "C":
+            continue
+        kl = _cubic_curvature_end(left[1]); kr = _cubic_curvature_start(right[1])
+        if kl * kr <= 0:
+            opposite += 1
+            continue
+        same_abs.append(abs(kl - kr))
+        same_rel.append(abs(kl - kr) / (abs(kl) + abs(kr) + 1e-12))
+    return {"same_sign_abs": same_abs, "same_sign_rel": same_rel, "opposite_sign_count": opposite}
+
+
 def svg_metrics(path: Path) -> dict[str, object]:
     root = ET.parse(path).getroot()
     paths = [e for e in root.iter() if e.tag.rsplit("}", 1)[-1] == "path"]
     l_count = c_count = 0
     angles: list[float] = []
+    curvature_jumps: list[float] = []
+    relative_curvature_jumps: list[float] = []
+    opposite_sign_join_count = 0
     endpoints: list[list[list[float]]] = []
     for e in paths:
         segs, start, end = parse_segments(e.attrib.get("d", ""))
         l_count += sum(1 for kind, _ in segs if kind == "L")
         c_count += sum(1 for kind, _ in segs if kind == "C")
         angles.extend(path_tangent_metrics(segs))
+        jm = _major_contour_join_metrics(segs)
+        curvature_jumps.extend(jm["same_sign_abs"])
+        relative_curvature_jumps.extend(jm["same_sign_rel"])
+        opposite_sign_join_count += int(jm["opposite_sign_count"])
         endpoints.append([start.tolist(), end.tolist()])
     arr = np.asarray(angles, dtype=float)
+    cj = np.asarray(curvature_jumps, dtype=float)
+    rj = np.asarray(relative_curvature_jumps, dtype=float)
     return {
         "file": str(path),
         "path_count": len(paths),
@@ -105,6 +162,13 @@ def svg_metrics(path: Path) -> dict[str, object]:
         "join_angle_max_deg": round(float(arr.max()), 4) if len(arr) else 0.0,
         "joins_over_10deg": int(np.sum(arr > 10.0)) if len(arr) else 0,
         "joins_over_20deg": int(np.sum(arr > 20.0)) if len(arr) else 0,
+        "major_contour_curvature_join_count": int(len(cj)),
+        "major_contour_curvature_jump_mean": round(float(cj.mean()), 6) if len(cj) else 0.0,
+        "major_contour_curvature_jump_p95": round(float(np.percentile(cj, 95)), 6) if len(cj) else 0.0,
+        "major_contour_curvature_jump_max": round(float(cj.max()), 6) if len(cj) else 0.0,
+        "major_contour_relative_curvature_jump_mean": round(float(rj.mean()), 6) if len(rj) else 0.0,
+        "major_contour_relative_curvature_jump_p95": round(float(np.percentile(rj, 95)), 6) if len(rj) else 0.0,
+        "major_contour_opposite_sign_join_count": opposite_sign_join_count,
         "endpoints": endpoints,
     }
 
@@ -233,8 +297,6 @@ def curvature_character(svg: Path, source_raster: Path, minimum_long_path: float
             continue
         n = max(48, int(round(raw_len / 1.5)))
         source = _resample_n(source, n)
-        # About 12 SVG pixels of local quadratic support: low enough to preserve broad
-        # contour identity, high enough to reject pixel-grid skeleton noise.
         spacing = max(raw_len / max(n - 1, 1), 0.2)
         radius = min(16, max(5, int(round(12.0 / spacing))))
         reference = cv.local_poly_smooth(source, radius=radius, adaptive=False)
@@ -254,6 +316,7 @@ def curvature_character(svg: Path, source_raster: Path, minimum_long_path: float
             "source_high_frequency_curvature_rms": float(np.sqrt(np.mean(hi_ref[core] ** 2))),
             "low_frequency_curvature_std_ratio": float(np.std(low_cand[core])) / (ref_std + 1e-9),
             "geometry_rms_to_source_lowpass": float(np.sqrt(np.mean(np.linalg.norm(candidate - reference, axis=1) ** 2))),
+            "low_frequency_curvature_derivative_rmse": float(np.sqrt(np.mean((np.diff(low_cand[core]) - np.diff(low_ref[core])) ** 2))) if len(low_ref[core]) > 1 else 0.0,
         }
         weighted.append(item)
         source_sign_total += _sign_changes(low_ref[core])
@@ -274,6 +337,7 @@ def curvature_character(svg: Path, source_raster: Path, minimum_long_path: float
         "source_high_frequency_curvature_rms": round(avg("source_high_frequency_curvature_rms"), 6),
         "low_frequency_curvature_std_ratio": round(avg("low_frequency_curvature_std_ratio"), 4),
         "geometry_rms_to_source_lowpass": round(avg("geometry_rms_to_source_lowpass"), 4),
+        "low_frequency_curvature_derivative_rmse": round(avg("low_frequency_curvature_derivative_rmse"), 6),
         "source_broad_sign_changes": source_sign_total,
         "candidate_broad_sign_changes": candidate_sign_total,
         "broad_sign_change_delta": abs(candidate_sign_total - source_sign_total),
@@ -312,6 +376,8 @@ def main() -> int:
     args = p.parse_args()
 
     ref = svg_metrics(args.reference)
+    if args.source_raster:
+        ref["curvature_character"] = curvature_character(args.reference, args.source_raster)
     result: dict[str, object] = {"reference": ref, "candidates": []}
     for path in args.candidates:
         m = svg_metrics(path)
@@ -321,7 +387,6 @@ def main() -> int:
         if args.source_raster:
             m["curvature_character"] = curvature_character(path, args.source_raster)
         result["candidates"].append(m)
-    # endpoints are useful for comparison but too noisy for the persisted summary.
     ref.pop("endpoints", None)
     for m in result["candidates"]:
         if isinstance(m, dict):
