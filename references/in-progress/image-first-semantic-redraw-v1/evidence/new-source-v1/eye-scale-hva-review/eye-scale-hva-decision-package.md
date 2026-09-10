@@ -38,13 +38,13 @@ Accepted SVG Materialization           = COMPLETE (namespaced assets/accepted/ne
   paths                                = assets/accepted/new-source-v1/person-*.svg
 ACTIVE archive source mutation         = NONE
 ACTIVE adoption / pin beyond SoT note  = HOLD
-Merge / Promotion                      = HOLD
+Merge / Promotion                      = GO / CONSUMED (stacked base merge in progress)
 Deploy / Print / Publish               = HOLD
 Agent visual substitution for HVA      = PROHIBITED
 
-Next gate = Merge / Promotion or ACTIVE pin
-  — requires separate explicit Human approval
-  — do not auto-advance from Materialization
+Human Merge / Promotion GO = GO / CONSUMED
+Next after stacked merge = Deploy / Print / Publish and/or main promotion
+  — remain HOLD unless separately authorized
 ```
 
 ## Prior Over-emphasis HOLD (cleared on mid)
