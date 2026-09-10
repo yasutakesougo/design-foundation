@@ -15,14 +15,11 @@ pointerには次の2点を含めます。
 
 ## 常時見せる情報
 
-次の情報はReferenceの奥へ移しません。
+Human authorityとmutation boundaryの規範は `invocation-model.md` の `Always-visible guardrails` を正本とします。
 
-- Human Gateのauthority。
-- mutation boundary。
-- Skill / AgentがHuman GOを代理消費しない規則。
-- Model-invoked disciplineがHuman Gateを遷移させない規則。
+runtimeへ統合する場合は、この規範をbranch-specific Referenceの奥へ移しません。
 
-これらはpointerの発火失敗から影響を受けない位置に置きます。
+対象エージェントが常時読めるtop-level instruction layerへ露出し、pointerの発火成功に安全性を依存させません。
 
 ## Referenceへ分離できる情報
 
@@ -72,7 +69,7 @@ pointerには次の2点を含めます。
 
 一部のbranchだけで必要な情報はReferenceへ分離します。
 
-分離後もHuman authorityとmutation boundaryが常時見えることを確認します。
+分離後も `invocation-model.md` のmandatory guardrailsがruntimeのtop-level instruction layerで常時見える構造にします。
 
 ## Completion criteria
 
