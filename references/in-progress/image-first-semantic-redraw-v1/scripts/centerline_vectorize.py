@@ -286,7 +286,7 @@ def _replace_join_handles(left,right,left_length,right_length):
     p=left.p3;incoming=unit(p-left.p2);outgoing=unit(right.p1-p)
     return Cubic(left.p0,left.p1,p-left_length*incoming,p),Cubic(p,p+right_length*outgoing,right.p2,right.p3)
 
-def refine_join_curvature_continuity(cubics,*,max_scale=.18,min_curvature=2e-4):
+def refine_join_curvature_continuity(cubics,*,max_scale=.18,min_curvature=2e-4,min_relative_jump=.10):
     """Locally reduce curvature handoff while preserving knots and tangent directions.
 
     At a same-sign cubic join, curvature is inversely proportional to the square of
@@ -299,6 +299,8 @@ def refine_join_curvature_continuity(cubics,*,max_scale=.18,min_curvature=2e-4):
         left,right=out[j],out[j+1];p=left.p3
         kl,kr=cubic_curvature_end(left),cubic_curvature_start(right)
         if kl*kr<=0 or min(abs(kl),abs(kr))<min_curvature:continue
+        rel=abs(kl-kr)/(abs(kl)+abs(kr)+1e-12)
+        if rel<min_relative_jump:continue
         ratio=np.sqrt(abs(kr/kl));s_left=float(np.clip(1.0/np.sqrt(ratio),lo,hi));s_right=float(np.clip(np.sqrt(ratio),lo,hi))
         hl=float(np.linalg.norm(p-left.p2))*s_left;hr=float(np.linalg.norm(right.p1-p))*s_right
         out[j],out[j+1]=_replace_join_handles(left,right,hl,hr)
@@ -310,7 +312,7 @@ def _three_point_curvature(reference,index,window=9):
     ab=b-a;bc=c-b;ac=c-a;den=float(np.linalg.norm(ab)*np.linalg.norm(bc)*np.linalg.norm(ac))
     return 2.0*_cross2(ab,bc)/den if den>1e-12 else 0.0
 
-def refine_source_guided_handles(reference,knot_indices,cubics,*,max_scale=.18,blend=.85,target_window=9,min_curvature=2e-4):
+def refine_source_guided_handles(reference,knot_indices,cubics,*,max_scale=.18,blend=.85,target_window=9,min_curvature=2e-4,min_relative_error=.10):
     """Locally tune join handles toward SOURCE low-frequency curvature.
 
     Knot positions and tangent directions are fixed. Only the two handle magnitudes
@@ -326,18 +328,33 @@ def refine_source_guided_handles(reference,knot_indices,cubics,*,max_scale=.18,b
         hl0=float(np.linalg.norm(p-left.p2));hr0=float(np.linalg.norm(right.p1-p))
         def scale(current):
             if current*target<=0 or abs(current)<min_curvature:return 1.0
+            rel=abs(current-target)/(abs(current)+abs(target)+1e-12)
+            if rel<min_relative_error:return 1.0
             raw=np.sqrt(abs(current/target));return float(np.clip(1.0+blend*(raw-1.0),lo,hi))
         out[j],out[j+1]=_replace_join_handles(left,right,hl0*scale(kl),hr0*scale(kr))
     return out
 
-def curvature_aware_join_beziers(points,minimum_long_path=80.0):
+def correction3_primary_contour(points,width,height,minimum_long_path=80.0,max_centroid_y=.62,min_vertical_span=.07,min_horizontal_span=.14):
+    """Conservative geometry gate for the locked long upper/head contours.
+
+    Correction-3 is not a global smoother. The gate excludes lower shoulders, props,
+    and hand/notebook strokes in the portrait fixtures while retaining broad crown,
+    temple, cheek/jaw, face-side, and outer-hair spans. Ratios keep the rule scale-aware.
+    """
+    a=np.asarray(points,float)
+    if len(a)<2 or path_length(points)<minimum_long_path:return False
+    if float(np.mean(a[:,1]))>max_centroid_y*height:return False
+    yspan=float(np.ptp(a[:,1]))/max(float(height),1.0);xspan=float(np.ptp(a[:,0]))/max(float(width),1.0)
+    return yspan>=min_vertical_span or xspan>=min_horizontal_span
+
+def curvature_aware_join_beziers(points,enable_refinement=True):
     ref,ids,cubics=curvature_aware_geometry(points)
-    if path_length(points)<minimum_long_path:return cubics
+    if not enable_refinement:return cubics
     return refine_join_curvature_continuity(cubics)
 
-def curvature_aware_source_guided_beziers(points,minimum_long_path=80.0):
+def curvature_aware_source_guided_beziers(points,enable_refinement=True):
     ref,ids,cubics=curvature_aware_geometry(points)
-    if path_length(points)<minimum_long_path:return cubics
+    if not enable_refinement:return cubics
     return refine_source_guided_handles(ref,ids,cubics)
 
 def sample_cubics(cs,steps=16):
@@ -364,8 +381,8 @@ def mapped(p,s,ox,oy):
     p=np.asarray(p,float);return np.array([ox+p[0]*s,oy+p[1]*s])
 
 def svg_for(paths,width,height,*,viewbox=512,stroke_width=8,curve_mode="polyline",epsilon=1.35,bezier_error=1.35,linear_short=12,smooth_passes=2,smooth_weight=.18,spline_tension=.7):
-    s=min(viewbox/width,viewbox/height);ox=(viewbox-width*s)/2;oy=(viewbox-height*s)/2;elems=[];lc=cc=0;dev=[]
-    for raw in paths:
+    s=min(viewbox/width,viewbox/height);ox=(viewbox-width*s)/2;oy=(viewbox-height*s)/2;elems=[];lc=cc=0;dev=[];refined_indices=[]
+    for path_index,raw in enumerate(paths):
         if curve_mode=="polyline" or path_length(raw)<=linear_short:
             src=rdp(raw,epsilon) if curve_mode=="polyline" else [raw[0],raw[-1]];pts=[mapped(p,s,ox,oy) for p in src];d=f"M {fmt(pts[0][0])} {fmt(pts[0][1])}"
             for p in pts[1:]:d+=f" L {fmt(p[0])} {fmt(p[1])}";lc+=1
@@ -375,8 +392,12 @@ def svg_for(paths,width,height,*,viewbox=512,stroke_width=8,curve_mode="polyline
             elif curve_mode=="spline-bezier":cs=spline_beziers(raw,epsilon,smooth_passes,smooth_weight,spline_tension)
             elif curve_mode=="scale-aware-spline":cs=scale_aware_beziers(raw)
             elif curve_mode=="curvature-aware-spline":cs=curvature_aware_beziers(raw)
-            elif curve_mode=="curvature-aware-join":cs=curvature_aware_join_beziers(raw)
-            elif curve_mode=="curvature-aware-source-guided":cs=curvature_aware_source_guided_beziers(raw)
+            elif curve_mode=="curvature-aware-join":
+                eligible=correction3_primary_contour(raw,width,height);cs=curvature_aware_join_beziers(raw,eligible)
+                if eligible:refined_indices.append(path_index)
+            elif curve_mode=="curvature-aware-source-guided":
+                eligible=correction3_primary_contour(raw,width,height);cs=curvature_aware_source_guided_beziers(raw,eligible)
+                if eligible:refined_indices.append(path_index)
             else:raise ValueError(curve_mode)
             if not cs:continue
             p=mapped(cs[0].p0,s,ox,oy);d=f"M {fmt(p[0])} {fmt(p[1])}"
@@ -385,7 +406,7 @@ def svg_for(paths,width,height,*,viewbox=512,stroke_width=8,curve_mode="polyline
             dev+=deviation(raw,sample_cubics(cs))
         elems.append(f'    <path d="{d}"/>')
     body="\n".join(elems);svg=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {viewbox} {viewbox}">\n  <g fill="none" stroke="currentColor" stroke-width="{stroke_width}" stroke-linecap="round" stroke-linejoin="round">\n{body}\n  </g>\n</svg>\n'
-    m={"curve_mode":curve_mode,"path_count":len(elems),"L_count":lc,"C_count":cc,"segment_count":lc+cc,"control_point_count":cc*2,"bezier_error_bound_source_px":bezier_error if curve_mode=="bezier-fit" else 0.0,"centerline_deviation_mean_source_px":round(float(np.mean(dev)),4) if dev else 0.0,"centerline_deviation_max_source_px":round(float(np.max(dev)),4) if dev else 0.0}
+    m={"curve_mode":curve_mode,"path_count":len(elems),"L_count":lc,"C_count":cc,"segment_count":lc+cc,"control_point_count":cc*2,"bezier_error_bound_source_px":bezier_error if curve_mode=="bezier-fit" else 0.0,"centerline_deviation_mean_source_px":round(float(np.mean(dev)),4) if dev else 0.0,"centerline_deviation_max_source_px":round(float(np.max(dev)),4) if dev else 0.0,"correction3_refined_path_count":len(refined_indices),"correction3_refined_path_indices":refined_indices}
     return svg,m
 
 def main():
