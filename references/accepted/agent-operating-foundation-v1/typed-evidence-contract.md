@@ -42,6 +42,28 @@ Lifecycle-Issue: #<number>
 
 明示されたsupersessionを適用した後にCURRENT候補が0件または複数件残る場合は、状態をUNKNOWNとしてHOLDします。
 
+## V1 Evidence-Type enum
+
+compact-mode V1で有効な`Evidence-Type`は次に限定します。
+
+```text
+INDEPENDENT-DEFINITION-REVIEW
+DEFINITION-CORRECTION
+HUMAN-GATE
+IMPLEMENTATION-SCOPE
+IMPLEMENTATION-SCOPE-CORRECTION
+INDEPENDENT-IMPLEMENTATION-SCOPE-REVIEW
+IMPLEMENTATION-BINDING
+INDEPENDENT-IMPLEMENTATION-REVIEW
+MERGED-MAIN-READBACK
+```
+
+この一覧にない`Evidence-Type`は自動的に有効なEvidenceとして扱いません。
+
+新しいEvidence-Typeが必要な場合は、先にこのcontractを更新します。
+
+未知のEvidence-Typeを検出した場合は、そのnodeをcurrent authorityへ補完せずUNKNOWN / HOLDとして扱います。
+
 ## Evidence-Typeごとの最小field
 
 ### INDEPENDENT-DEFINITION-REVIEW
@@ -59,6 +81,17 @@ Reviewは対象Definitionを明示します。
 
 Correction後のRe-Reviewは新しいEvidence nodeとして記録します。
 
+### DEFINITION-CORRECTION
+
+```text
+Definition-Id: <new id>
+Definition-Revision: <n+1>
+Supersedes-Definition: <prior Definition-Id>
+Definition-State: PROPOSED | LOCKED | SUPERSEDED
+```
+
+comment本文には、変更後authorityを再構成できる完全なauthoritative deltaを含めます。
+
 ### HUMAN-GATE
 
 ```text
@@ -72,6 +105,8 @@ Human Gateは、人間の明示入力が確認できた場合だけ消費しま�
 
 Agent-created metadata、順序、周辺コメント、CI、Review PASSからHuman GOを生成・推定しません。
 
+Definition / Scope Lock Gateには、この節のfieldに加えて`Definition content anchor`節のfieldが必要です。
+
 ### IMPLEMENTATION-SCOPE
 
 ```text
@@ -80,6 +115,16 @@ Scope-State: PROPOSED | LOCKED | SUPERSEDED
 ```
 
 Scope Correctionは新しいscope Evidence nodeを作り、旧scopeを明示的にsupersedeします。
+
+### IMPLEMENTATION-SCOPE-CORRECTION
+
+```text
+Scope-Id: <new stable scope id>
+Scope-State: PROPOSED | LOCKED | SUPERSEDED
+Supersedes-Evidence: <prior scope Evidence-Id>
+```
+
+変更していないscope条件をcarry-forwardする場合は、その範囲をcomment本文で明示します。
 
 ### INDEPENDENT-IMPLEMENTATION-SCOPE-REVIEW
 
@@ -90,6 +135,18 @@ P0: <n>
 P1: <n>
 P2: <n>
 ```
+
+Re-Reviewは同じEvidence-Typeの新しいrevisionとして記録し、`Supersedes-Evidence`で旧Reviewを指します。
+
+### IMPLEMENTATION-BINDING
+
+```text
+Implementation-PR: #<n>
+Implementation-HEAD: <40-char exact commit SHA>
+Reviewed-Scope: <Scope-Id>
+```
+
+Lifecycle Issue側にこのEvidenceを記録し、Implementation PR bodyから同じWorkstreamとLifecycle Issueへ逆向きに到達できる必要があります。
 
 ### INDEPENDENT-IMPLEMENTATION-REVIEW
 
@@ -247,6 +304,7 @@ applicable CIが存在しない場合は、`NOT_APPLICABLE`または「存在し
 
 - current Evidence nodeを一意に選べない。
 - supersession chainが途切れる、循環する、または複数に分岐する。
+- Evidence-TypeがV1 enumに含まれない。
 - canonical Definitionを一意に再構成できない。
 - Definition content hashがlocked hashと一致しない。
 - Human GOの明示入力を確認できない。
