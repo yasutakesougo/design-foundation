@@ -35,19 +35,21 @@ Authorized by prior HVA gate           = HVA PASS determination only
 Accepted SVG Materialization Start     = GO / CONSUMED
 Accepted SVG Materialization           = COMPLETE (namespaced assets/accepted/new-source-v1)
   authority                            = 0362b17
+  materialized commit                  = 4c2ed6f
   paths                                = assets/accepted/new-source-v1/person-*.svg
 ACTIVE archive source mutation         = NONE
-ACTIVE adoption / pin beyond SoT note  = HOLD
-Merge / Promotion                      = GO / CONSUMED / COMPLETE
-  PR #142                              = MERGED
-  merge commit / stacked base tip      = 6c0070f83a40e5b7251f979c3fa29a3506077b51
-  authorized PR head at merge          = 32fc19e
+Human ACTIVE Pin GO                    = GO / CONSUMED
+ACTIVE SVG authority                   = assets/accepted/new-source-v1/person-*.svg
+  pointer                              = assets/accepted/new-source-v1/active-authority.json
+Historical accepted (#114) mutation    = HOLD / NOT MUTATED
+candidate SVG mutation                 = HOLD / NOT MUTATED
+Eye-scale stacked Merge (#142)         = GO / CONSUMED / COMPLETE @ 6c0070f
+ACTIVE pin Merge / Promotion           = GO / CONSUMED (PR #143)
 Deploy / Print / Publish               = HOLD
 Agent visual substitution for HVA      = PROHIBITED
 
-Human Merge / Promotion GO = GO / CONSUMED / COMPLETE
-Next = Deploy / Print / Publish and/or main promotion
-  — remain HOLD unless separately authorized
+Human Merge / Promotion GO for ACTIVE pin PR #143 = GO / CONSUMED
+Next = Deploy / Print / Publish — remain HOLD unless separately authorized
 ```
 
 ## Prior Over-emphasis HOLD (cleared on mid)
@@ -123,14 +125,15 @@ scales    = THINK/LOOK 1.30x pre · WRITE 1.20x pre
 
 Record: `eye-scale-hva-pass-declaration.json`.
 
-## Explicitly NOT authorized by HVA PASS alone
+## Explicitly NOT authorized by HVA PASS alone (historical note)
 
 ```text
-Accepted SVG Materialization  — HOLD until ACTIVE pins 0362b17
+Accepted SVG Materialization  — later authorized separately; COMPLETE
+ACTIVE SVG pin                — later authorized by Human ACTIVE Pin GO; CONSUMED
 existing HITOKOTO mutation
 historical HVA / SVG SHA inheritance
-ACTIVE archive mutation       — HOLD until explicit ACTIVE pin
+ACTIVE archive PNG mutation   — still HOLD / NONE
 backend selection change
-Merge / Promotion             — HOLD until ACTIVE pins 0362b17
-Deploy / Print / Publish
+ACTIVE pin Merge / Promotion  — HOLD (next separate GO)
+Deploy / Print / Publish      — HOLD
 ```

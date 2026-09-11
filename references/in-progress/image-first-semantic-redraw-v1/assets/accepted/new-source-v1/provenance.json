@@ -8,11 +8,17 @@
     "HVA evidence": "f0ed28024b8a08512e45dc1dcc2ceefbe1740ad5",
     "HVA record": "b75f096ef1a6a293a7f315db25029f583c6eb2bf",
     "HVA consumed record": "bffdfa92dabba5011e4d0d5d0cb4eed4c9583f07",
+    "Human ACTIVE Pin GO": "GO / CONSUMED",
+    "ACTIVE SVG authority": "assets/accepted/new-source-v1/person-*.svg",
+    "ACTIVE pin pointer": "assets/accepted/new-source-v1/active-authority.json",
     "ACTIVE archive source mutation": "NONE",
-    "Merge / Promotion": "HOLD",
-    "Deploy / Print / Publish": "HOLD"
+    "Historical accepted (#114) mutation": "HOLD / NOT MUTATED",
+    "candidate SVG mutation": "HOLD / NOT MUTATED",
+    "Merge / Promotion": "GO / CONSUMED",
+    "Deploy / Print / Publish": "HOLD",
+    "Human Merge / Promotion GO": "GO / CONSUMED"
   },
-  "note": "Materializes HVA-passed mid-point new-source SVG identities into a separate accepted asset path. Does not mutate ACTIVE archive source PNG, does not overwrite historical assets/accepted root identities from Definition #114, and does not merge/promote.",
+  "note": "Materializes HVA-passed mid-point new-source SVG identities into a separate accepted asset path and pins that path as ACTIVE SVG authority. Does not mutate ACTIVE archive source PNG, does not overwrite historical assets/accepted root identities from Definition #114, does not mutate candidates, and does not merge/promote/deploy.",
   "scales": {
     "THINK": "1.30x pre",
     "LOOK": "1.30x pre",
@@ -42,5 +48,6 @@
       "byte_identical_to_candidate_at_0362b17": true
     }
   },
-  "historical_assets_accepted_root": "NOT MUTATED / separate from #114 locked identities"
+  "historical_assets_accepted_root": "NOT MUTATED / separate from #114 locked identities",
+  "materialized_commit": "4c2ed6f37961c9b2b23dc61f9c103e7902988512"
 }
