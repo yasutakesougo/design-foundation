@@ -1,0 +1,17 @@
+{
+  "version": "IMAGE-FIRST-SEMANTIC-REDRAW-V1",
+  "gestures": {
+    "THINK": {
+      "required": ["hand-face contact", "visible forearm", "thinking pose"],
+      "small_scale_required": true
+    },
+    "LOOK": {
+      "required": ["modest head turn", "both eyes open", "lateral gaze", "face direction supports gaze"],
+      "small_scale_required": true
+    },
+    "WRITE": {
+      "required": ["paper or notepad", "long diagonal pen", "writing hand", "pen-paper contact"],
+      "small_scale_required": true
+    }
+  }
+}
