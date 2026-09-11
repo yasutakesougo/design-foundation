@@ -22,7 +22,7 @@ Canonical Definition = BSSEV1-DEF-002
 Definition Lock = GO / CONSUMED / COMPLETE
 Implementation Scope = BSSEV1-SCOPE-001
 Implementation Start = GO / CONSUMED / COMPLETE
-Candidate status = IN-PROGRESS / NOT PROMOTED
+Candidate status = IN-PROGRESS / NOT PROMOTED / NOT ACCEPTED
 ```
 
 This contract is project-level candidate guidance only.
@@ -36,11 +36,11 @@ Every visual reference used for generation or correction must have an explicit p
 Record at minimum:
 
 ```text
-Reference
-Permitted influence
-Prohibited influence
-Project / stage
-Status
+REFERENCE
+PERMITTED ROLE
+PROHIBITED ROLE
+PROJECT / STAGE
+STATUS
 ```
 
 A reference may not silently gain authority outside its declared role because it is newer, visually attractive, easier to use, or already present in the repository.
@@ -133,6 +133,8 @@ Do not blend a rejected foundational direction into the replacement merely becau
 
 Classification does not bypass any required Human review.
 
+No numeric or automated classifier may override required Human judgment.
+
 ## C4 — Rejected Reference Isolation
 
 An artifact explicitly rejected as a direction is excluded from later visual-generation inputs by default.
@@ -170,6 +172,10 @@ PRESERVE
 - ...
 ```
 
+`PRESERVE` is implementation guidance only.
+
+`PRESERVE` is not Human Visual Acceptance, Human Output GO, Accepted status, or any other acceptance authority.
+
 `PRESERVE` should contain only elements that are already successful and relevant to the correction.
 
 Do not preserve an element merely because it appeared in an earlier output.
@@ -185,9 +191,10 @@ The representative case should exercise the important locked rules for the plann
 Scaling remains HOLD until the representative case satisfies:
 
 ```text
-applicable consistency checks
-required project review
-required Human review where applicable
+one representative case
+→ applicable consistency review
+→ required Human review where applicable
+→ only then scale
 ```
 
 A representative-case PASS does not consume Human Visual Acceptance or Human Output GO for other assets.
@@ -227,3 +234,5 @@ Skill = NO
 Accepted authority = NO
 Runtime authority = NO
 ```
+
+No seventh reusable authority concept is introduced by this V1 candidate.
