@@ -1,58 +1,39 @@
 {
-  "schema": "IMAGE-FIRST-SEMANTIC-REDRAW-V1/accepted-svg-materialization/new-source-v1/v1",
-  "lane": "EYE-SCALE-CORRECTION-V1 / new-source-v1",
+  "schema": "IMAGE-FIRST-SEMANTIC-REDRAW-V1/active-provenance/candidate-b-v1/v1",
+  "lane": "CANDIDATE-B-ACCEPTED-SVG-ACTIVATION-V1",
   "gate": {
-    "Accepted SVG Materialization Start": "GO / CONSUMED",
-    "HVA PASS": "DECLARED / CONSUMED",
-    "HVA authority": "0362b1720649288db8bb4072bb9fefdba48e5363",
-    "HVA evidence": "f0ed28024b8a08512e45dc1dcc2ceefbe1740ad5",
-    "HVA record": "b75f096ef1a6a293a7f315db25029f583c6eb2bf",
-    "HVA consumed record": "bffdfa92dabba5011e4d0d5d0cb4eed4c9583f07",
     "Human ACTIVE Pin GO": "GO / CONSUMED",
-    "ACTIVE SVG authority": "assets/new-source-v1/person-*.svg",
-    "ACTIVE pin pointer": "active-authority.json",
-    "ACTIVE archive source mutation": "NONE",
-    "Historical accepted (#114) mutation": "HOLD / NOT MUTATED",
-    "candidate SVG mutation": "HOLD / NOT MUTATED",
-    "Merge / Promotion": "GO / CONSUMED / COMPLETE",
-    "Deploy / Print / Publish": "GO / CONSUMED / COMPLETE",
-    "Human Merge / Promotion GO": "GO / CONSUMED / COMPLETE",
-    "Human Main / Default-Branch Promotion GO": "GO / CONSUMED / COMPLETE",
-    "Main / default-branch promotion": "GO / CONSUMED / COMPLETE",
-    "promotion_source_stacked_tip": "e5bec30094aa5c3123315496ce9ef7d97ea8c355",
-    "Human Deploy / Print / Publish GO": "GO / CONSUMED / COMPLETE",
-    "HITOKOTO / consumer switching": "NOT AUTHORIZED / PRESERVE"
+    "ACTIVE SVG authority": "assets/candidate-b-v1/person-*.svg",
+    "Human Visual / Semantic PASS": "#218 / PASS / CONSUMED / COMPLETE",
+    "materialization_review": "#225 / PASS",
+    "materialization_reviewed_head": "1ceda385b8638db5893d1251668f36c7e52df1d6",
+    "implementation_pr": "#224",
+    "materialization_head": "1ceda385b8638db5893d1251668f36c7e52df1d6",
+    "human_active_pin_evidence": "#222 comment 5637765400 / GO / CONSUMED / COMPLETE",
+    "HITOKOTO / consumer switching": "NOT AUTHORIZED / PRESERVE",
+    "Deploy / Print / Publish": "HOLD / NOT CONSUMED"
   },
-  "note": "Materializes HVA-passed mid-point new-source SVG identities into a separate accepted asset path and pins that path as ACTIVE SVG authority. Does not mutate ACTIVE archive source PNG, does not overwrite historical assets/accepted root identities from Definition #114, does not mutate candidates, and does not merge/promote/deploy.",
-  "scales": {
-    "THINK": "1.30x pre",
-    "LOOK": "1.30x pre",
-    "WRITE": "1.20x pre"
-  },
-  "backend": "SOURCE-GUIDED",
+  "materialization_provenance": "assets/candidate-b-v1/provenance.json",
   "assets": {
     "THINK": {
-      "path": "assets/new-source-v1/person-thinking.svg",
-      "source_candidate_path": "candidates/new-source-v1/person-thinking.svg",
-      "sha256": "01f5d64396eb7c9569ad430f1b4ed0a96d03b0a428bf0531535e93bd2f3ad8cc",
-      "bytes": 9699,
-      "byte_identical_to_candidate_at_0362b17": true
+      "path": "assets/candidate-b-v1/person-thinking.svg",
+      "sha256": "259bb2b8c277e5b9e6995b60b31817e96038bae7c47e0553a50260c34d51f1ad",
+      "bytes": 9507
     },
     "LOOK": {
-      "path": "assets/new-source-v1/person-looking.svg",
-      "source_candidate_path": "candidates/new-source-v1/person-looking.svg",
-      "sha256": "a96844e2bdf822a6e6b257c6c19b2424d7a55a92f8482d3902b32e87e4685e96",
-      "bytes": 8593,
-      "byte_identical_to_candidate_at_0362b17": true
+      "path": "assets/candidate-b-v1/person-looking.svg",
+      "sha256": "5c7de6ef324113e09b3b642ecde03ec8e972fbc699f72b45c677230286325e2a",
+      "bytes": 9897
     },
     "WRITE": {
-      "path": "assets/new-source-v1/person-note-taking.svg",
-      "source_candidate_path": "candidates/new-source-v1/person-note-taking.svg",
-      "sha256": "12fd790ec61f76e53811656a744f34522dff28515bc93648a6115bc60c1d86c7",
-      "bytes": 12836,
-      "byte_identical_to_candidate_at_0362b17": true
+      "path": "assets/candidate-b-v1/person-note-taking.svg",
+      "sha256": "352b97d8ebf19b13322debca12b4135adea9231b930d7ff5cea677b850b8d7b7",
+      "bytes": 12978
     }
   },
-  "historical_assets_accepted_root": "NOT MUTATED / separate from #114 locked identities",
-  "materialized_commit": "4c2ed6f37961c9b2b23dc61f9c103e7902988512"
+  "previous_active_authority": {
+    "path_family": "assets/new-source-v1/person-*.svg",
+    "state": "HISTORICAL / PRESERVED"
+  },
+  "note": "current ACTIVE provenance for Candidate-B; old-family evidence remains in Git history and retained accepted bytes; no consumer switch or deploy/publish transfer"
 }

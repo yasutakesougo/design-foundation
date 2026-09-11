@@ -1,0 +1,50 @@
+{
+  "schema": "IMAGE-FIRST-SEMANTIC-REDRAW-V1/accepted-svg-materialization/candidate-b-v1/v1",
+  "lane": "CANDIDATE-B-ACCEPTED-SVG-ACTIVATION-V1",
+  "state": {
+    "accepted_materialization": "MATERIALIZED",
+    "active_pin": "NOT CONSUMED / HOLD",
+    "consumer_switch": "NOT AUTHORIZED",
+    "deploy_print_publish": "HOLD"
+  },
+  "evidence": {
+    "definition_issue": "#219",
+    "definition_correction_comment": "5636955016",
+    "definition_review": "#221 / PASS",
+    "human_definition_scope_lock": "#219 comment 5637061920 / GO / CONSUMED / COMPLETE",
+    "human_implementation_start": "#222 comment 5637123860 / GO / CONSUMED / COMPLETE; Independent Implementation Scope Review #223 / PASS"
+  },
+  "source_authority": {
+    "human_visual_semantic_review": "#218 / PASS / CONSUMED / COMPLETE",
+    "source_pr": "#216",
+    "reviewed_head": "6a0a4834884530e123b57e501141b965f0ac594d",
+    "merge_commit": "b8e3e5d655008de189bb09f9096962883107336e"
+  },
+  "assets": {
+    "THINK": {
+      "source_path": "references/in-progress/image-first-semantic-redraw-v1/archive/candidate-b-source-guided-vectorization-v1/candidates/person-thinking.svg",
+      "source_git_blob": "e178c1f33caef219129857590e2044b4b011e1fa",
+      "accepted_path": "assets/candidate-b-v1/person-thinking.svg",
+      "sha256": "259bb2b8c277e5b9e6995b60b31817e96038bae7c47e0553a50260c34d51f1ad",
+      "bytes": 9507,
+      "byte_identical_to_source": true
+    },
+    "LOOK": {
+      "source_path": "references/in-progress/image-first-semantic-redraw-v1/archive/candidate-b-source-guided-vectorization-v1/candidates/person-looking.svg",
+      "source_git_blob": "c27a29226c728e0b671b8a2f2dcc66236078d302",
+      "accepted_path": "assets/candidate-b-v1/person-looking.svg",
+      "sha256": "5c7de6ef324113e09b3b642ecde03ec8e972fbc699f72b45c677230286325e2a",
+      "bytes": 9897,
+      "byte_identical_to_source": true
+    },
+    "WRITE": {
+      "source_path": "references/in-progress/image-first-semantic-redraw-v1/archive/candidate-b-source-guided-vectorization-v1/candidates/person-note-taking.svg",
+      "source_git_blob": "69e8fcd327969e0dc939d97676f8f43b09b50c67",
+      "accepted_path": "assets/candidate-b-v1/person-note-taking.svg",
+      "sha256": "352b97d8ebf19b13322debca12b4135adea9231b930d7ff5cea677b850b8d7b7",
+      "bytes": 12978,
+      "byte_identical_to_source": true
+    }
+  },
+  "note": "materialization-only record; ACTIVE pin / consumer switch / Deploy / Print / Publish are not implied"
+}
