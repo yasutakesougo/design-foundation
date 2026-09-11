@@ -13,10 +13,35 @@ V1ではOpenTelemetry、trace backend、AI call inspector、session databaseを�
 - changed paths
 - Definition / Review内容
 - Human Gate comments
-- CI / review evidenceの存在と対象SHA
+- applicable CI / review evidenceの対象SHA
+- applicable CIのcurrent status / conclusion
 - next unconsumed gate
 
 確認不能な場合はUNKNOWNです。
+
+## CI evidence semantics
+
+applicable CIが存在する場合は、対象SHAだけでなくcurrent statusとconclusionを確認します。
+
+```text
+CI evidence
+= exact target SHA
++ current status
++ current conclusion
+```
+
+pending、queued、in_progress等の未完了状態はCI PASSではありません。
+
+failed、cancelled、timed_out、action_required等のnon-successful conclusionもCI PASSではありません。
+
+applicable CIが存在しない場合は、次のように区別します。
+
+```text
+Applicable CI = NONE
+CI PASS       = NOT DECLARED
+```
+
+CI evidenceの存在だけをsuccessful validationの代用にしません。
 
 ## Live runtime evidenceが必要な状態
 
@@ -95,4 +120,4 @@ observability導入時は必要最小限のevent、log、traceだけを対象に
 
 ## Completion criteria
 
-状態判定に使う証拠クラスが明示され、repository evidenceとlive runtime evidenceが混同されず、証拠不足時にPASSへ補完されないときに成立します。
+状態判定に使う証拠クラスが明示され、applicable CIが存在する場合は対象SHA・status・conclusionが確認され、repository evidenceとlive runtime evidenceが混同されず、証拠不足時にPASSへ補完されないときに成立します。
