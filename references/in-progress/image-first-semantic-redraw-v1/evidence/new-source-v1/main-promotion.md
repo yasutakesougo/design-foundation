@@ -34,7 +34,7 @@ full stacked-base merge into main = NOT DONE
 candidates/new-source-v1/* mutation/promotion = HOLD
 historical assets/accepted/person-*.svg (#114) = HOLD / ABSENT
 ACTIVE archive source PNG mutation = NONE (already on main via #127)
-Deploy / Print / Publish = HOLD
+Deploy / Print / Publish = GO / CONSUMED (see deploy-print-publish.md)
 consumer / HITOKOTO switching = NOT AUTHORIZED
 ```
 
@@ -47,5 +47,5 @@ merge commit / main tip = e821b68f558bf471977647ade55606289fd94a98
 accepted SVG SHA-256 = MATCH @ 0362b17 (3/3)
 historical #114 root = ABSENT
 ACTIVE archive PNG vs pre-promotion main = MATCH
-Deploy / Print / Publish = HOLD
+Deploy / Print / Publish = GO / CONSUMED (see deploy-print-publish.md)
 ```
