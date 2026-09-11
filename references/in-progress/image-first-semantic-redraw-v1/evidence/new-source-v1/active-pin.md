@@ -38,7 +38,7 @@ WRITE = 12fd790ec61f76e53811656a744f34522dff28515bc93648a6115bc60c1d86c7
 Historical accepted (#114) mutation = HOLD / NOT MUTATED
 candidate SVG mutation              = HOLD / NOT MUTATED
 ACTIVE archive source PNG mutation  = NONE
-Human Merge / Promotion GO          = GO / CONSUMED
+Human Merge / Promotion GO          = GO / CONSUMED / COMPLETE
 Deploy / Print / Publish            = HOLD
 ```
 
@@ -62,4 +62,15 @@ Authorized PR head = 3692b43be638ac243a2d8c5a6d04b6017cc88510
 Merge target / base = work/image-first-new-source-generation-revalidation-v1
 Deploy / Print / Publish = HOLD
 main / default-branch promotion = NOT IMPLIED
+```
+
+## Post-merge readback
+
+```text
+PR #143 = MERGED
+authorized PR head = 5c64593
+merge commit / stacked base tip = 733020f
+accepted SVG SHA-256 = MATCH @ 0362b17 (3/3)
+Deploy / Print / Publish = HOLD
+main promotion = NOT IMPLIED
 ```

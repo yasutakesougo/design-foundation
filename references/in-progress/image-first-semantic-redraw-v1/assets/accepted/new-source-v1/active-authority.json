@@ -8,13 +8,14 @@
     "materialized commit": "4c2ed6f37961c9b2b23dc61f9c103e7902988512",
     "Historical accepted (#114) mutation": "HOLD / NOT MUTATED",
     "candidate SVG mutation": "HOLD / NOT MUTATED",
-    "Merge / Promotion": "GO / CONSUMED",
+    "Merge / Promotion": "GO / CONSUMED / COMPLETE",
     "Deploy / Print / Publish": "HOLD",
     "ACTIVE archive source PNG mutation": "NONE",
-    "Human Merge / Promotion GO": "GO / CONSUMED",
+    "Human Merge / Promotion GO": "GO / CONSUMED / COMPLETE",
     "merge_pr": "#143",
     "authorized_pr_head": "3692b43be638ac243a2d8c5a6d04b6017cc88510",
-    "merge_target": "work/image-first-new-source-generation-revalidation-v1"
+    "merge_target": "work/image-first-new-source-generation-revalidation-v1",
+    "merge_commit": "733020f4358ef7d63aa5a7ff765db0bd28e58dd0"
   },
   "note": "Points assets/accepted/new-source-v1/person-*.svg as the ACTIVE SVG authority for this lane. Does not mutate historical #114 root accepted identities, candidate SVGs, ACTIVE archive source PNG, or authorize merge/deploy.",
   "active_assets": {
