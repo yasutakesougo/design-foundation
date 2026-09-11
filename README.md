@@ -23,6 +23,10 @@ Agent Skill Architectureの未昇格候補は `references/in-progress/agent-skil
 
 この候補はSkill runtimeへ自動適用せず、Human GateやPromotionを変更しません。
 
+Agent Operating Foundationのaccepted authorityは `references/accepted/agent-operating-foundation-v1/` に置きます。
+
+このauthorityはrepositoryのreadback・applicability・refinement・observability境界を示しますが、root `AGENTS.md`、runtime activation、CI enforcementを自動有効化しません。
+
 ## 共通Foundationと個別Style Guideの境界
 
 Design Foundationは、複数案件で再利用できる判断だけを扱います。
