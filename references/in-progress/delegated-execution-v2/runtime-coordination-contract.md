@@ -310,5 +310,14 @@ new Human Gate vocabulary
 
 ```text
 Promotion = HOLD
-Case 4 = separate operational evidence step after this correction is review-cleared
+Case 4 = HOLD
 ```
+
+Case 4 は、次の両方が直接観測されるまで開始しません。
+
+```text
+1. exact-HEAD Fresh Independent Implementation Review = PASS / REVIEW-CLEARED
+2. bounded correction PR merge = COMPLETE
+```
+
+Implementation Review clearance だけでは Case 4 を開始できません。merge 完了前の Case 4 は `HOLD` です。
