@@ -1,0 +1,175 @@
+{
+  "generation": {
+    "actual_backend": "SOURCE-GUIDED",
+    "curve_mode": "curvature-aware-source-guided",
+    "fallback_allowed": false,
+    "fallback_used": false,
+    "parameters": {
+      "bezier_error": 1.35,
+      "dark_threshold": 180,
+      "dominance": 18,
+      "epsilon": 1.35,
+      "linear_short": 12.0,
+      "mask_mode": "green",
+      "min_green": 70,
+      "min_path": 4.0,
+      "smooth_passes": 2,
+      "smooth_weight": 0.18,
+      "spline_tension": 0.7,
+      "stroke_width": 8
+    },
+    "same_runtime_repeat": "byte-identical SVG + metrics for all three panels",
+    "selected_backend": "SOURCE-GUIDED"
+  },
+  "lifecycle": {
+    "active_pin": "NOT AUTHORIZED",
+    "consumer_switch": "NOT AUTHORIZED",
+    "human_definition_scope_lock": "GO / CONSUMED / COMPLETE",
+    "human_implementation_start_go": "GO / CONSUMED / COMPLETE",
+    "human_visual_semantic_acceptance": "NOT CONSUMED",
+    "implementation_scope_comment": 5636225140,
+    "independent_implementation_scope_review_issue": 215,
+    "merge": "HOLD",
+    "root_issue": 211
+  },
+  "mutation_ceiling": {
+    "accepted_svg_mutation": false,
+    "active_authority_mutation": false,
+    "authorized": "exactly 4 ADD-only files under candidate-b-source-guided-vectorization-v1",
+    "consumer_mutation": false,
+    "files": [
+      "references/in-progress/image-first-semantic-redraw-v1/archive/candidate-b-source-guided-vectorization-v1/candidates/person-thinking.svg",
+      "references/in-progress/image-first-semantic-redraw-v1/archive/candidate-b-source-guided-vectorization-v1/candidates/person-looking.svg",
+      "references/in-progress/image-first-semantic-redraw-v1/archive/candidate-b-source-guided-vectorization-v1/candidates/person-note-taking.svg",
+      "references/in-progress/image-first-semantic-redraw-v1/archive/candidate-b-source-guided-vectorization-v1/provenance.json"
+    ],
+    "script_mutation": false,
+    "source_png_mutation": false
+  },
+  "panels": {
+    "LOOK": {
+      "candidate_svg": {
+        "git_blob_sha1_local": "c27a29226c728e0b671b8a2f2dcc66236078d302",
+        "repository_path": "references/in-progress/image-first-semantic-redraw-v1/archive/candidate-b-source-guided-vectorization-v1/candidates/person-looking.svg",
+        "review_512_sha256": "2d86747776771567a42af2e09e382d37def1f5237f04f988329a402761ee63c1",
+        "review_64_sha256": "3175c32de7876fb4598d88f72790a2d09b8f9a01f7ee1796b3ba1107bf139f7b",
+        "sha256": "5c7de6ef324113e09b3b642ecde03ec8e972fbc699f72b45c677230286325e2a"
+      },
+      "metrics": {
+        "C_count": 181,
+        "L_count": 10,
+        "bezier_error_bound_source_px": 0.0,
+        "centerline_deviation_max_source_px": 3.976,
+        "centerline_deviation_mean_source_px": 0.4539,
+        "control_point_count": 362,
+        "correction3_refined_path_count": 5,
+        "correction3_refined_path_indices": [9,16,27,37,42],
+        "curve_mode": "curvature-aware-source-guided",
+        "endpoint_node_count": 57,
+        "junction_node_count": 70,
+        "path_count": 56,
+        "segment_count": 191,
+        "source_height": 724,
+        "source_path_count": 56,
+        "source_width": 724
+      },
+      "metrics_sha256": "013c897ef39c4ae3212d06b13ef0a628e4d28a018b2a5ae8f2ffdab669bd76d4",
+      "same_runtime_repeat_byte_identical": true,
+      "source_panel": {
+        "review_512_sha256": "e12fd88cfdf165da1c180da21cede922f7d0af2051b8137ccfad74b1799326d1",
+        "review_64_sha256": "e8bf7e90faa35c3351f276f75f258890c6216899ee6db2cd513d8af8a563d4bf",
+        "sha256": "fdb3f6fe5c06f70d2f403347de7558828f0353d9657be573829dc7ca1d266f2b",
+        "temporary_path": "panels/looking.png"
+      },
+      "supplemental_bbox_centroid_evidence": {
+        "512": {"source_bbox":[82,56,421,431],"source_centroid_norm":[0.4627,0.4704],"source_ink_fraction":0.090714,"svg_bbox":[85,59,417,429],"svg_centroid_norm":[0.4589,0.469],"svg_ink_fraction":0.077805},
+        "64": {"source_bbox":[10,7,53,54],"source_centroid_norm":[0.4591,0.4603],"source_ink_fraction":0.150146,"svg_bbox":[10,7,53,54],"svg_centroid_norm":[0.4553,0.4581],"svg_ink_fraction":0.148193},
+        "static": {"contains_nan_or_inf":false,"forbidden_tags":[],"transform_present":false}
+      },
+      "validator": {"errors":[],"file":"/mnt/data/candidate-b-source-guided-vectorization-v1/candidates/person-looking.svg","human_semantic_review":"REQUIRED","path_count":56,"style_valid":true,"transform_count":0}
+    },
+    "THINK": {
+      "candidate_svg": {
+        "git_blob_sha1_local": "e178c1f33caef219129857590e2044b4b011e1fa",
+        "repository_path": "references/in-progress/image-first-semantic-redraw-v1/archive/candidate-b-source-guided-vectorization-v1/candidates/person-thinking.svg",
+        "review_512_sha256": "15c7ff8fd0683d3f7e0d1ad128d575caeae9bec8530a60c93c9e1f9b6508f40b",
+        "review_64_sha256": "41570d8b1d8258d732d771897ee022bb8bdb0be48404839f98f6fbcca63e54f9",
+        "sha256": "259bb2b8c277e5b9e6995b60b31817e96038bae7c47e0553a50260c34d51f1ad"
+      },
+      "metrics": {
+        "C_count":168,"L_count":12,"bezier_error_bound_source_px":0.0,"centerline_deviation_max_source_px":2.4787,"centerline_deviation_mean_source_px":0.4781,"control_point_count":336,
+        "correction3_refined_path_count":8,"correction3_refined_path_indices":[4,8,18,24,44,46,47,54],"curve_mode":"curvature-aware-source-guided","endpoint_node_count":41,"junction_node_count":92,"path_count":60,"segment_count":180,"source_height":724,"source_path_count":60,"source_width":724
+      },
+      "metrics_sha256": "57309b365998b1c035056acf79f9f314e43d409a3c6119813352ca7791879cd7",
+      "same_runtime_repeat_byte_identical": true,
+      "source_panel": {"review_512_sha256":"88b676ad99d9d6702240d0440c8328f895e3e1b037b19f221d5f0cc2ff16a1c4","review_64_sha256":"3cd28844d8cec90e5c5a330e7a274490f7f7143140fa9ff2cd11ce2104ebf4e8","sha256":"63e7ea65121a2a6afff036dfa27df03cd3217cccf34fa5aef35687e5a4ba7eb0","temporary_path":"panels/thinking.png"},
+      "supplemental_bbox_centroid_evidence": {
+        "512": {"source_bbox":[164,74,467,448],"source_centroid_norm":[0.5915,0.5078],"source_ink_fraction":0.085659,"svg_bbox":[164,74,464,445],"svg_centroid_norm":[0.5908,0.5053],"svg_ink_fraction":0.074661},
+        "64": {"source_bbox":[20,9,59,56],"source_centroid_norm":[0.5825,0.4944],"source_ink_fraction":0.14209,"svg_bbox":[20,9,58,56],"svg_centroid_norm":[0.5837,0.4927],"svg_ink_fraction":0.143311},
+        "static": {"contains_nan_or_inf":false,"forbidden_tags":[],"transform_present":false}
+      },
+      "validator": {"errors":[],"file":"/mnt/data/candidate-b-source-guided-vectorization-v1/candidates/person-thinking.svg","human_semantic_review":"REQUIRED","path_count":60,"style_valid":true,"transform_count":0}
+    },
+    "WRITE": {
+      "candidate_svg": {
+        "git_blob_sha1_local": "69e8fcd327969e0dc939d97676f8f43b09b50c67",
+        "repository_path": "references/in-progress/image-first-semantic-redraw-v1/archive/candidate-b-source-guided-vectorization-v1/candidates/person-note-taking.svg",
+        "review_512_sha256": "a132fea7d890724285dbde80aecbe8b1d5bb4db05267f02b8be0699e431c62e0",
+        "review_64_sha256": "aeb5cc67d87583f4a663aec9c6f6fc9e688e93fa5ff738ee9d67d2230977f26d",
+        "sha256": "352b97d8ebf19b13322debca12b4135adea9231b930d7ff5cea677b850b8d7b7"
+      },
+      "metrics": {
+        "C_count":246,"L_count":8,"bezier_error_bound_source_px":0.0,"centerline_deviation_max_source_px":2.2494,"centerline_deviation_mean_source_px":0.455,"control_point_count":492,
+        "correction3_refined_path_count":6,"correction3_refined_path_indices":[6,12,13,14,51,59],"curve_mode":"curvature-aware-source-guided","endpoint_node_count":47,"junction_node_count":100,"path_count":69,"segment_count":254,"source_height":724,"source_path_count":69,"source_width":724
+      },
+      "metrics_sha256": "e62b9b7e2c0d6059a3637aa560cd8df2591a0bd5df8ffe9df713ea9ae12675b5",
+      "same_runtime_repeat_byte_identical": true,
+      "source_panel": {"review_512_sha256":"dda689832095f19bfebbceb64dcf0236967982fa8b8a440fa01e40407d78a4fe","review_64_sha256":"1f913afc7799b7a79385b7f98d10e8199df56eeec5015f957ed70b2e4255ec5a","sha256":"4e10857690e8f5ae4d45265494ecda63deed3187954295f1f8451f1d597428e6","temporary_path":"panels/note-taking.png"},
+      "supplemental_bbox_centroid_evidence": {
+        "512": {"source_bbox":[32,69,353,482],"source_centroid_norm":[0.3702,0.5657],"source_ink_fraction":0.116096,"svg_bbox":[35,70,351,482],"svg_centroid_norm":[0.3685,0.5648],"svg_ink_fraction":0.104832},
+        "64": {"source_bbox":[4,8,44,61],"source_centroid_norm":[0.3632,0.5537],"source_ink_fraction":0.192139,"svg_bbox":[4,8,44,61],"svg_centroid_norm":[0.362,0.5515],"svg_ink_fraction":0.197021},
+        "static": {"contains_nan_or_inf":false,"forbidden_tags":[],"transform_present":false}
+      },
+      "validator": {"errors":[],"file":"/mnt/data/candidate-b-source-guided-vectorization-v1/candidates/person-note-taking.svg","human_semantic_review":"REQUIRED","path_count":69,"style_valid":true,"transform_count":0}
+    }
+  },
+  "preflight": {
+    "human_visual_semantic_acceptance": "NOT CONSUMED",
+    "overall": "PASS / REVIEW-CLEARED",
+    "render_note": "Inkscape renders currentColor as black by default. Color difference from green raster source is expected under the locked currentColor SVG contract and is not treated as source-geometry drift.",
+    "semantic": {
+      "LOOK": {"observation":"Upward gaze/head orientation plus separated attention marks remain readable at 512px and 64px; does not collapse into THINK or READ.","result":"PASS"},
+      "THINK": {"observation":"Hand-to-chin relation remains readable at 512px and survives at 64px as thinking/considering.","result":"PASS"},
+      "WRITE": {"observation":"Notebook plane, writing hand, elongated pen, pen-to-page contact and local action cue remain readable at 512px and survive at 64px as active note-taking.","result":"PASS"}
+    },
+    "source_fidelity": {
+      "LOOK": {"observation":"Hair/head silhouette, facial placement, upward pose, attention cue spacing, torso scale and whitespace remain materially faithful to Candidate B.","result":"PASS"},
+      "THINK": {"observation":"Head/hair silhouette, face placement, shoulder proportion, arm/hand routing, figure scale and whitespace remain materially faithful to Candidate B.","result":"PASS"},
+      "WRITE": {"observation":"Hair/head silhouette, face placement, notebook size/placement, writing-arm routing, stabilizing hand, pen relation, figure scale and whitespace remain materially faithful to Candidate B.","result":"PASS"}
+    },
+    "static_contract": "PASS — no transform, embedded image, filter, mask, clipPath, gradient, pattern, NaN or Inf detected; exact validator PASS x3.",
+    "topology": {
+      "LOOK_gaze_face_attention":"PASS — facial orientation and attention marks remain separate and readable.",
+      "THINK_chin_hand_face":"PASS — hand-to-chin relation remains connected/readable without invented replacement geometry.",
+      "WRITE_action_marks_pen_trajectory":"PASS — local action marks remain separated from body and support the writing action without geometry invention.",
+      "WRITE_hand_pen":"PASS — writing hand remains visibly associated with the pen.",
+      "WRITE_pen_tip_notebook":"PASS — pen tip meets/approaches notebook writing plane as in source.",
+      "WRITE_stabilizing_hand_notebook":"PASS — stabilizing hand remains visibly tied to notebook."
+    }
+  },
+  "repository": {"base_main":"061365708ef9eab7517ac238282159922a86252e","branch":"work/candidate-b-source-guided-vectorization-v1","repo":"yasutakesougo/design-foundation"},
+  "review_rendering": {"sizes":[512,64],"source_renderer":"Pillow 12.3.0 LANCZOS direct 724→512/64; no crop/sharpen/threshold/contrast/retouch","svg_renderer":"Inkscape 1.4 via exact render_review.py blob"},
+  "runtime": {"Inkscape":"Inkscape 1.4 (e7c3feb100, 2024-10-09)","Pillow":"12.3.0","cross_runtime_byte_determinism":"NOT PROVEN","exact_reviewed_runtime_match":true,"numpy":"2.3.5","platform":"Linux x86_64","python":"3.13.5","scikit_image":"0.26.0"},
+  "schema": "CANDIDATE-B-SOURCE-GUIDED-VECTORIZATION-V1/provenance/v1",
+  "source_authority": {
+    "format":"PNG","git_blob_sha1":"26960783f79506d2556c633c759d26659387765f","mode":"RGB",
+    "panel_sha256":{"LOOK":"fdb3f6fe5c06f70d2f403347de7558828f0353d9657be573829dc7ca1d266f2b","THINK":"63e7ea65121a2a6afff036dfa27df03cd3217cccf34fa5aef35687e5a4ba7eb0","WRITE":"4e10857690e8f5ae4d45265494ecda63deed3187954295f1f8451f1d597428e6"},
+    "path":"references/in-progress/image-first-semantic-redraw-v1/archive/write-new-source-construction-v1/source/redraw-sheet-think-look-write.png","sha256":"880372c667632ff35eafd059ce93652293a359abf1bf3799f7c4638e7e8a07b1","size":[2172,724],
+    "split":{"LOOK":[724,0,1448,724],"THINK":[0,0,724,724],"WRITE":[1448,0,2172,724]}
+  },
+  "state": {"P0":0,"P1":0,"P2":0,"active_pin":"HOLD","agent_implementation_preflight":"PASS / REVIEW-CLEARED","human_ready_go":"HOLD / NOT CONSUMED","human_visual_semantic_review":"HOLD / NOT CONSUMED","merge":"HOLD"},
+  "technical_authority": {
+    "backend_evidence_commit":"33b1de0949cfe434e6ee8d3424a5b0ba068aedd5","execution_target_head":"3a856d94450bcf413afb67063b375c85a161afc0","local_exact_blob_replay":true,
+    "script_git_blob_sha1":{"centerline_vectorize.py":"43aadc02c72356af4e526713e85799e44e230f95","render_review.py":"b6ecbe85bfb32642c9c16cb66eccd494076f90e3","validate_svg.py":"2bc99a8e093f6395feb6a102c28f55d88ef92477"}
+  }
+}
