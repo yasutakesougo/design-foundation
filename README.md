@@ -27,6 +27,23 @@ Agent Operating Foundationのaccepted authorityは `references/accepted/agent-op
 
 このauthorityはrepositoryのreadback・applicability・refinement・observability境界を示しますが、root `AGENTS.md`、runtime activation、CI enforcementを自動有効化しません。
 
+## 目的から探す
+
+必要な正本へ直接移動するための入口です。
+
+- 共通原則を確認する: [`foundations/`](foundations/)
+- 文字のルールを確認する: [`foundations/typography.md`](foundations/typography.md)
+- 媒体別の再利用パターンを確認する: [`patterns/`](patterns/)
+- 制作時の再利用Promptを確認する: [`prompts/`](prompts/)
+- レビュー基準を確認する: [`review/`](review/)
+- 公開・印刷前の確認をする: [`review/output-preflight.md`](review/output-preflight.md)
+- Accepted Referenceを探す: [`references/accepted/README.md`](references/accepted/README.md)
+- Reference領域の役割を確認する: [`references/README.md`](references/README.md)
+
+この一覧は入口であり、各項目の意味や状態はリンク先の正本と明示されたevidenceで確認します。
+
+Acceptedであることをruntime activationや現在のworkstream stateへ読み替えません。
+
 ## 共通Foundationと個別Style Guideの境界
 
 Design Foundationは、複数案件で再利用できる判断だけを扱います。

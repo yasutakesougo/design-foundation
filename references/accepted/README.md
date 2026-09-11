@@ -20,6 +20,21 @@ Human Visual Acceptanceを通過した制作物のうち、今後の判断に再
 
 ただしHuman Promotionをruntime activation、Deploy、root `AGENTS.md`導入、CI enforcementへ読み替えません。
 
+## Accepted Referenceを探す
+
+この一覧は既存のAccepted Referenceへの入口です。
+
+Accepted配置だけからruntime activation、current lifecycle state、Deploy、Print、Publish、Promotion、consumer activationを推定しません。
+
+### Visual / production reference
+
+- [`hitokoto-poster-canva-output-pilot-v1.md`](hitokoto-poster-canva-output-pilot-v1.md) — ポスター出力pilotから再利用できる制作・出力判断。
+- [`image-first-semantic-redraw-v1/`](image-first-semantic-redraw-v1/) — semantic redrawのaccepted assets、provenance、authority記録。
+
+### Governance / architecture reference
+
+- [`agent-operating-foundation-v1/`](agent-operating-foundation-v1/) — repository operating foundationのaccepted authority。
+
 ## Visual reference 記録テンプレート
 
 ```markdown
