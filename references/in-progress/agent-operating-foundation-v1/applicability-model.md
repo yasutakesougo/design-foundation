@@ -6,7 +6,7 @@ V1では実装方式を固定しません。
 
 ## 目的
 
-変更するファイルやartifactに対して、関連するFoundation、Pattern、Review、Skill、Referenceを漏れなく確認できる状態を目指します。
+変更するファイルやartifactに対して、関連するFoundation、Pattern、Review、Skill、Prompt、Referenceを漏れなく確認できる状態を目指します。
 
 単なるファイル一覧ではなく、どの変更にどの正本が適用されるかを示します。
 
