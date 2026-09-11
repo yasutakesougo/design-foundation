@@ -16,11 +16,13 @@
     "authorized_pr_head": "3692b43be638ac243a2d8c5a6d04b6017cc88510",
     "merge_target": "work/image-first-new-source-generation-revalidation-v1",
     "merge_commit": "733020f4358ef7d63aa5a7ff765db0bd28e58dd0",
-    "Human Main / Default-Branch Promotion GO": "GO / CONSUMED",
-    "Main / default-branch promotion": "GO / CONSUMED",
+    "Human Main / Default-Branch Promotion GO": "GO / CONSUMED / COMPLETE",
+    "Main / default-branch promotion": "GO / CONSUMED / COMPLETE",
     "promotion_source_stacked_tip": "e5bec30094aa5c3123315496ce9ef7d97ea8c355",
     "promotion_base": "main",
-    "promotion_pattern": "ADD-only retained-ref style (analog #127); not full stacked-base merge"
+    "promotion_pattern": "ADD-only retained-ref style (analog #127); not full stacked-base merge",
+    "merge_pr_main": "#144",
+    "main_merge_commit": "e821b68f558bf471977647ade55606289fd94a98"
   },
   "note": "Points assets/accepted/new-source-v1/person-*.svg as the ACTIVE SVG authority for this lane. Does not mutate historical #114 root accepted identities, candidate SVGs, ACTIVE archive source PNG, or authorize merge/deploy.",
   "active_assets": {

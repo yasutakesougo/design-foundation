@@ -17,8 +17,8 @@
     "Merge / Promotion": "GO / CONSUMED / COMPLETE",
     "Deploy / Print / Publish": "HOLD",
     "Human Merge / Promotion GO": "GO / CONSUMED / COMPLETE",
-    "Human Main / Default-Branch Promotion GO": "GO / CONSUMED",
-    "Main / default-branch promotion": "GO / CONSUMED",
+    "Human Main / Default-Branch Promotion GO": "GO / CONSUMED / COMPLETE",
+    "Main / default-branch promotion": "GO / CONSUMED / COMPLETE",
     "promotion_source_stacked_tip": "e5bec30094aa5c3123315496ce9ef7d97ea8c355"
   },
   "note": "Materializes HVA-passed mid-point new-source SVG identities into a separate accepted asset path and pins that path as ACTIVE SVG authority. Does not mutate ACTIVE archive source PNG, does not overwrite historical assets/accepted root identities from Definition #114, does not mutate candidates, and does not merge/promote/deploy.",

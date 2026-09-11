@@ -3,7 +3,7 @@
 ## Gate
 
 ```text
-Human Main / Default-Branch Promotion GO = GO / CONSUMED
+Human Main / Default-Branch Promotion GO = GO / CONSUMED / COMPLETE
 pattern = ADD-only onto main (analog #127 retained-ref activation)
 source stacked tip = e5bec30094aa5c3123315496ce9ef7d97ea8c355
 promotion base = main
@@ -36,4 +36,16 @@ historical assets/accepted/person-*.svg (#114) = HOLD / ABSENT
 ACTIVE archive source PNG mutation = NONE (already on main via #127)
 Deploy / Print / Publish = HOLD
 consumer / HITOKOTO switching = NOT AUTHORIZED
+```
+
+## Post-merge readback
+
+```text
+PR #144 = MERGED
+authorized PR head = c960de46b41850d8447357624008a972dd83dad9
+merge commit / main tip = e821b68f558bf471977647ade55606289fd94a98
+accepted SVG SHA-256 = MATCH @ 0362b17 (3/3)
+historical #114 root = ABSENT
+ACTIVE archive PNG vs pre-promotion main = MATCH
+Deploy / Print / Publish = HOLD
 ```
