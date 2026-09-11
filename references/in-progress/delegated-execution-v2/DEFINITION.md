@@ -105,12 +105,45 @@ Within an active Human Delegation Activation boundary, stage transitions do not 
 P0 = 0
 P1 = 0
 Independent Review = PASS
+Reviewed-HEAD == current exact HEAD
+Prior Independent Review PASS is not inherited across HEAD moves
 Authority boundary = unchanged
 Scope boundary = unchanged
 Required evidence = observable
 No production mutation
 No secret / credential mutation
 No irreversible external action
+```
+
+When applicable CI exists for the Implementation PR / HEAD:
+
+```text
+CI target SHA == current exact HEAD
+CI status / conclusion = successful
+```
+
+When applicable CI does not exist:
+
+```text
+Applicable CI = NONE
+CI PASS       = NOT DECLARED
+```
+
+Absence of applicable CI must not be narrated as CI PASS.
+
+### Required evidence minimum
+
+`Required evidence = observable` means at least the following are reconstructible without inference, aligned with accepted `readback-contract.md` (no full republish):
+
+```text
+canonical Definition identity
+latest Independent Review identity + verdict bound to Reviewed-HEAD
+consumed Human Delegation Activation GO
+Implementation PR identity when mutation exists
+current exact HEAD
+applicable CI target SHA / status / conclusion when CI exists
+unresolved findings / UNKNOWN items
+authority boundary IN / OUT for the Activation
 ```
 
 P2 findings may be recorded and carried forward.
@@ -167,7 +200,26 @@ Human Ready GO
 Human Merge GO
 ```
 
-Their assurance is provided by the consumed Delegation Activation contract plus Independent Review PASS.
+### Authority source for Ready / Merge
+
+Human Delegation Activation GO is the sole Human authority for Ready / Merge of the activated in-progress candidate, and only when the Activation IN explicitly includes that merge.
+
+Independent Review PASS and auto-continue predicates are non-substitutable conditions of that Human-granted authority.
+
+They are not Human GO equivalents, not Human GO proxies, and must not be narrated as Agent-minted Ready / Merge GO.
+
+```text
+Human authority for Ready / Merge
+= consumed Human Delegation Activation GO
+  whose IN explicitly authorizes Ready / Merge of the activated candidate
+
+Independent Review PASS
+= required condition of that grant
+≠ Human GO
+≠ proxy / inferred Human GO
+```
+
+Agent / Skill must not generate, infer, or proxy-consume Human Ready GO or Human Merge GO.
 
 Outside an active Delegation Activation, existing Operating Foundation / workstream gate vocabulary remains unchanged.
 
@@ -251,12 +303,17 @@ P0 >= 1 and not safely correctable inside boundary
 P1 >= 1 and not safely correctable inside boundary
 Review = HOLD / FAIL
 Required evidence = UNKNOWN
+Reviewed-HEAD != current exact HEAD
+Prior Independent Review PASS would need inheritance across a HEAD move
+Applicable CI exists and target SHA != current exact HEAD
+Applicable CI exists and status / conclusion is not successful
 Authority interpretation required
 Authority boundary change required
 Scope expansion required
 Human judgment explicitly required
 Production / external mutation required
 Correction loop limit exceeded
+Attempt to treat Independent Review PASS as Human Ready / Merge GO
 ```
 
 UNKNOWN must not be treated as PASS.
@@ -279,6 +336,23 @@ Added by this candidate
 - automatic correction loop with hard limit
 - visual evidence completion before Human Visual Acceptance
 ```
+
+### Pre-Promotion vocabulary rule
+
+The reduced ordinary-gate set is operative only as interpretation of an explicit Human Delegation Activation IN for that workstream.
+
+It does not amend accepted Operating Foundation vocabulary until Promotion.
+
+```text
+This candidate alone
+≠ accepted merge authority
+≠ repository-wide gate-law rewrite
+≠ accepted Operating Foundation amendment
+```
+
+Outside an active Delegation Activation, accepted Operating Foundation / existing workstream gates remain unchanged.
+
+This candidate must not be cited as accepted merge authority for unrelated workstreams.
 
 This candidate does not mutate `references/accepted/agent-operating-foundation-v1/*` in V2 Implementation.
 
@@ -305,7 +379,27 @@ references/README.md
 and/or root README.md
 ```
 
-Exact optional pointer text is fixed in Implementation Scope after Independent Definition Review PASS.
+### Optional pointer bound (locked here; exact sentence in Scope)
+
+If a discovery pointer is added, it MUST:
+
+```text
+- be a single short link / one-sentence discovery pointer to
+  references/in-progress/delegated-execution-v2/
+- state that the path is an in-progress candidate, not accepted authority
+- leave existing basic-flow / gate vocabulary sections unchanged
+```
+
+It MUST NOT:
+
+```text
+- replace root README or references/README basic-flow blocks
+- rewrite gate vocabulary lists in those files
+- weaken accepted Human Gate / mutation semantics
+- imply Promotion, runtime activation, or accepted Operating Foundation amendment
+```
+
+Exact optional pointer sentence is fixed in Implementation Scope after Independent Definition Review PASS, within this bound.
 
 ## Explicit non-goals
 
@@ -345,12 +439,25 @@ rewriting unrelated workstream Issues to V2 gates
 7. Are auto-continue conditions missing required evidence bindings (exact HEAD / CI)?
 8. Does merge-without-Human-Merge-GO conflict with still-accepted Operating Foundation vocabulary in a way that must HOLD until Promotion?
 
+## Definition Correction-1
+
+Addresses Independent Definition Review-1 findings:
+
+```text
+DEF-IR1-P0-01 → Auto-continue / forced-stop HEAD + applicable-CI binding; required evidence minimum
+DEF-IR1-P0-02 → Activation GO is sole Human Ready/Merge authority; Review PASS is condition only
+DEF-IR1-P1-01 → Optional README pointer bound locked
+DEF-IR1-P1-02 → Pre-Promotion vocabulary rule
+DEF-IR1-P2-01 → Required evidence minimum (with P0-01)
+```
+
 ## Current gate state
 
 ```text
 Human Delegation Activation GO = GO / CONSUMED
-Definition                     = DEFINED
-Independent Definition Review  = REQUIRED
+Definition                     = DEFINED + Correction-1
+Independent Definition Review-1 = HOLD (evidence/definition-ir1.md)
+Independent Definition Re-Review-2 = REQUIRED
 Implementation Scope           = NOT YET LOCKED
 Implementation                 = HOLD until Definition Review PASS + Scope Review PASS
 Human Visual Acceptance        = NOT APPLICABLE (non-visual candidate)
@@ -361,5 +468,5 @@ Promotion                      = HOLD
 ## Permitted next action
 
 ```text
-Independent Definition Review on this DEFINITION.md
+Fresh Independent Definition Re-Review-2 on this corrected DEFINITION.md
 ```
