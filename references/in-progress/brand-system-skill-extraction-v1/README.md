@@ -3,11 +3,14 @@
 ## Status
 
 ```text
+status = IN-PROGRESS CANDIDATE / NOT ACCEPTED
+workstream = BRAND-SYSTEM-SKILL-EXTRACTION-V1
 Lifecycle Issue = #232
 Canonical Definition = BSSEV1-DEF-002
 Human Definition / Scope Lock = GO / CONSUMED / COMPLETE
 Implementation Scope = BSSEV1-SCOPE-001
 Human Implementation Start = GO / CONSUMED / COMPLETE
+runtime activation = NONE
 Promotion = HOLD
 ```
 
@@ -51,7 +54,7 @@ If this candidate conflicts with an existing Foundation, Pattern, Review, access
 
 ## External provenance
 
-This candidate is materially derived from reusable process ideas in:
+This candidate is an extraction / adaptation materially derived from reusable process ideas in:
 
 ```text
 Repository = amirmushichge/brand-system-skill
