@@ -3,7 +3,7 @@
 ## Gate
 
 ```text
-Human Deploy / Print / Publish GO = GO / CONSUMED
+Human Deploy / Print / Publish GO = GO / CONSUMED / COMPLETE
 ACTIVE SVG authority = assets/accepted/new-source-v1/person-*.svg
 HVA authority = 0362b1720649288db8bb4072bb9fefdba48e5363
 materialized commit = 4c2ed6f37961c9b2b23dc61f9c103e7902988512
@@ -45,3 +45,16 @@ full stacked-base merge into main = NOT DONE
 This gate flips Deploy / Print / Publish from HOLD to authorized for the
 already-ACTIVE IMAGE-FIRST SVG authority on main. It does not change SVG
 bytes and does not switch HITOKOTO or other consumers.
+
+## Post-merge readback
+
+```text
+PR #145 = MERGED
+authorized PR head = dfbc3caad25d6bbebda0410d6f44a86767ae0fd8
+merge commit / main tip = 426bf9481c26dbf83086c4146ba212d3d4a14c8b
+accepted SVG SHA-256 = MATCH @ 0362b17 (3/3)
+SVG bytes mutated by this gate = NONE
+HITOKOTO / consumer switching = NOT AUTHORIZED / PRESERVE
+historical #114 root = ABSENT
+ACTIVE archive PNG = UNCHANGED
+```
