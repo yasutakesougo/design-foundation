@@ -1,10 +1,26 @@
 # Accepted References
 
+`references/accepted/` は、再利用可能性を人が明示的に受け入れた参照・運用知識を置く場所です。
+
+Acceptedはruntime activationや自動適用を意味しません。
+
+## Accepted authorityの種類
+
+### Visual / production reference
+
 Human Visual Acceptanceを通過した制作物のうち、今後の判断に再利用できるものを記録します。
 
 画像を置くだけではなく、採用理由を残します。
 
-## 記録テンプレート
+### Governance / architecture reference
+
+運用規約やarchitectureなど非視覚のreferenceは、Definition、Independent Review、実装検証を経たうえで、明示的なHuman Promotion GOによってaccepted authorityへ昇格できます。
+
+この経路はHuman Visual Acceptanceを要求しません。
+
+ただしHuman Promotionをruntime activation、Deploy、root `AGENTS.md`導入、CI enforcementへ読み替えません。
+
+## Visual reference 記録テンプレート
 
 ```markdown
 ## <Reference name>

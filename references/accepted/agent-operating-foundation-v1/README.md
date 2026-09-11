@@ -1,14 +1,22 @@
 # AGENT-OPERATING-FOUNDATION-V1
 
-このディレクトリは、`design-foundation` を担当エージェントが交代しても同じ正本・同じHuman Gate・同じ証拠列から再開できるようにするための未昇格候補です。
+このディレクトリは、`design-foundation` を担当エージェントが交代しても同じ正本・同じHuman Gate・同じ証拠列から再開できるようにするためのRepository Operating Foundationです。
 
 このV1はrepository runtimeを変更しません。
 
 Magnitudeの実装をコピーせず、Repository Operating Contract、Applicability、Readback / Reconstruction、Refinement Routing、Observability Boundaryの設計原則だけをローカル向けに縮約します。
 
-## この候補が扱う対象
+## Authority
 
-本候補は次の5概念を分離します。
+このパスは、Promotion Definition #162、Independent Promotion Definition Review #163、明示的Human Promotion GOを経てmainへmergeされた時点でaccepted authorityとして扱います。
+
+Promotion候補branchに存在するだけではaccepted authorityになりません。
+
+root `AGENTS.md`、runtime activation、applicability automation、telemetryは別Definition / Human Gateです。
+
+## このauthorityが扱う対象
+
+このauthorityは次の5概念を分離します。
 
 ```text
 Operating Contract
@@ -39,7 +47,7 @@ Refinement Route
 
 `AGENT-SKILL-ARCHITECTURE-V1` がSkill分類、invocation ownership、progressive disclosure、handoff disciplineを扱います。
 
-本候補はそれらを再定義しません。
+このauthorityはそれらを再定義しません。
 
 Human Gate authorityとmutation boundaryは先行Architectureで定義された規範を優先します。
 
@@ -49,18 +57,25 @@ Human Gate authorityとmutation boundaryは先行Architectureで定義された�
 
 Magnitude runtime、ローカルモデル、session event store、OpenTelemetry、CLI、外部Skillは導入しません。
 
-## 現在の状態
+## Validation evidence
 
 ```text
-Definition / Scope Lock = GO / CONSUMED
-Implementation Start    = GO / CONSUMED
-First slice             = ADD-ONLY CANDIDATE
-README                   = UNCHANGED
-Root AGENTS.md           = HOLD
-Runtime activation      = HOLD
-Human Ready             = HOLD
-Human Merge             = HOLD
-Promotion               = HOLD
+Implementation PR          = #137 / MERGED
+Actual Handover Pilot      = COMPLETED
+Pilot Evidence Re-Review   = #161 / PASS
+Human Issue Close          = GO / CONSUMED / COMPLETE
+Promotion Definition       = #162
+Promotion Definition Review= #163 / PASS
 ```
 
-この候補をmergeしても、root `AGENTS.md`、applicability automation、telemetry、runtime変更、Promotionは自動では行いません。
+## Boundary after Promotion
+
+```text
+Authority class        = references/accepted/
+Root AGENTS.md         = HOLD
+Runtime activation     = HOLD
+Applicability automation = HOLD
+Telemetry / tracing    = HOLD
+```
+
+accepted authorityへの昇格は、runtime実行やroot `AGENTS.md`導入を自動承認しません。
