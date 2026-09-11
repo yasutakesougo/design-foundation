@@ -1,5 +1,9 @@
 # Fresh Independent Implementation / Scope Review
 
+- Evidence role: **HISTORICAL REVIEW EVIDENCE / NOT CURRENT-STATE AUTHORITY**
+- Current state authority: `README.md`
+- Lifecycle note: 下記の `Human Ready GO → Merge` は当時のnext-step記録であり、現在のHuman Ready状態を単独で確定しない
+
 - PR: #7
 - HEAD: `adc7dce055c1841c914195e390da351a60e56635`
 - Date: 2026-09-08

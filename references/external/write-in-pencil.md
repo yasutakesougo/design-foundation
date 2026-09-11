@@ -3,6 +3,7 @@
 ## 参照情報
 
 - Repository: `momotarabitch2/write-in-pencil`
+- URL: https://github.com/momotarabitch2/write-in-pencil
 - Reviewed commit: `3f0e4e62e0dcc86308567dad2dd8e07ae002b651`
 - License: MIT
 - Reviewed date: `2026-09-08`

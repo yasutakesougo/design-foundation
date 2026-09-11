@@ -4,7 +4,7 @@
 
 ```text
 Human Deploy / Print / Publish GO = GO / CONSUMED / COMPLETE
-ACTIVE SVG authority = assets/accepted/new-source-v1/person-*.svg
+ACTIVE SVG authority = references/accepted/image-first-semantic-redraw-v1/assets/new-source-v1/person-*.svg
 HVA authority = 0362b1720649288db8bb4072bb9fefdba48e5363
 materialized commit = 4c2ed6f37961c9b2b23dc61f9c103e7902988512
 Main promotion = GO / CONSUMED / COMPLETE (PR #144)
@@ -14,10 +14,13 @@ Main promotion = GO / CONSUMED / COMPLETE (PR #144)
 
 ```text
 Print / publish use of the ACTIVE IMAGE-FIRST new-source-v1 SVG identities
-already retained on main under assets/accepted/new-source-v1/
+at references/accepted/image-first-semantic-redraw-v1/assets/new-source-v1/
 ```
 
-Pointer: `assets/accepted/new-source-v1/active-authority.json`
+Current pointer: `references/accepted/image-first-semantic-redraw-v1/active-authority.json`
+
+Historical location at the original gate was `references/in-progress/image-first-semantic-redraw-v1/assets/accepted/new-source-v1/`.
+That historical path is not current authority.
 
 ## Identities (unchanged; must remain MATCH @ 0362b17)
 
@@ -42,9 +45,9 @@ full stacked-base merge into main = NOT DONE
 
 ## Scope note
 
-This gate flips Deploy / Print / Publish from HOLD to authorized for the
-already-ACTIVE IMAGE-FIRST SVG authority on main. It does not change SVG
-bytes and does not switch HITOKOTO or other consumers.
+This gate authorizes Deploy / Print / Publish for the already-ACTIVE IMAGE-FIRST SVG authority.
+The later consistency correction changes only the repository authority location and path-bearing metadata.
+It does not change SVG bytes and does not switch HITOKOTO or other consumers.
 
 ## Post-merge readback
 
