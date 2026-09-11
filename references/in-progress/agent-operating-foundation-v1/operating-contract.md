@@ -23,6 +23,7 @@ Operating Contractは、エージェントがrepository作業を始めるとき�
 - `patterns/*`
 - `review/*`
 - `skills/*`
+- `prompts/*`
 - `references/accepted/*`
 - locked Definition / Review / Human Gate evidence
 
