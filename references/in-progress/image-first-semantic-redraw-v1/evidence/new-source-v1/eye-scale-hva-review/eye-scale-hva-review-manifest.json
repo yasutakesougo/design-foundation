@@ -1,0 +1,57 @@
+{
+  "schema": "IMAGE-FIRST-SEMANTIC-REDRAW-V1/eye-scale-hva-review/v1",
+  "implementation_pr": 142,
+  "pre_correction_head": "fe037894ffad4eeb1e79dd6442214923afe8f3d5",
+  "previous_1_60_candidate_head": "2eba5b1d4258e342e3c0f4547cda9d602291a1ea",
+  "revision": "midpoint eye-scale reduction after HVA HOLD",
+  "hold_reason": "Over-emphasis at @64 (WRITE severe, LOOK moderate); eye weight exceeds facial stroke hierarchy. Reduce scale toward mid-point between pre and current corrected.",
+  "hva_declaration": "DECLARED / CONSUMED",
+  "accepted_svg_materialization": "COMPLETE / CONSUMED (assets/accepted/new-source-v1)",
+  "merge_promotion": "HOLD",
+  "active_source_mutation": "NONE",
+  "human_active_pin_go": "GO / CONSUMED",
+  "active_svg_authority": "assets/accepted/new-source-v1/person-*.svg",
+  "active_pin_pointer": "assets/accepted/new-source-v1/active-authority.json",
+  "materialized_commit": "4c2ed6f37961c9b2b23dc61f9c103e7902988512",
+  "historical_accepted_114_mutation": "HOLD / NOT MUTATED",
+  "candidate_svg_mutation": "HOLD / NOT MUTATED",
+  "roles": {
+    "THINK": {
+      "file": "candidates/new-source-v1/person-thinking.svg",
+      "pre_sha256": "01b5efbcdf7c4ba723074d87ed6ac9a15918f1ed9663c0774c88cec30d5f3de7",
+      "corrected_sha256": "01f5d64396eb7c9569ad430f1b4ed0a96d03b0a428bf0531535e93bd2f3ad8cc",
+      "revision": "midpoint-from-pre (THINK/LOOK 1.30x, WRITE 1.20x)"
+    },
+    "LOOK": {
+      "file": "candidates/new-source-v1/person-looking.svg",
+      "pre_sha256": "e3e68536b2122dbe35f18d15a93ad46f2c45150969ebca6a4d6522b0a5f7a5bb",
+      "corrected_sha256": "a96844e2bdf822a6e6b257c6c19b2424d7a55a92f8482d3902b32e87e4685e96",
+      "revision": "midpoint-from-pre (THINK/LOOK 1.30x, WRITE 1.20x)"
+    },
+    "WRITE": {
+      "file": "candidates/new-source-v1/person-note-taking.svg",
+      "pre_sha256": "1a14ae867e2861f4684b85456f282246a68520c2c4834479cfdfe8cbe49e4e0c",
+      "corrected_sha256": "12fd790ec61f76e53811656a744f34522dff28515bc93648a6115bc60c1d86c7",
+      "revision": "midpoint-from-pre (THINK/LOOK 1.30x, WRITE 1.20x)"
+    }
+  },
+  "over_emphasis_hold": "CLEARED",
+  "remaining_evidence": {
+    "mid_vs_old_corrected_proof": true,
+    "think_pre_mid_diff_512": true,
+    "source_of_truth_note": true
+  },
+  "remaining_gates_at_f0ed280": "CLOSED",
+  "hva_pass_candidate_commit": "0362b1720649288db8bb4072bb9fefdba48e5363",
+  "hva_pass_evidence_commit": "f0ed28024b8a08512e45dc1dcc2ceefbe1740ad5",
+  "scales": {
+    "THINK": "1.30x pre",
+    "LOOK": "1.30x pre",
+    "WRITE": "1.20x pre"
+  },
+  "hva_authority": "0362b1720649288db8bb4072bb9fefdba48e5363",
+  "next_gate": "Human Merge / Promotion GO for ACTIVE pin PR",
+  "active_adoption": "GO / CONSUMED",
+  "materialization_authority": "0362b1720649288db8bb4072bb9fefdba48e5363",
+  "active_archive_source_mutation": "NONE"
+}

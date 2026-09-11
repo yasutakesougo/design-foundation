@@ -1,0 +1,26 @@
+{
+  "C_count": 166,
+  "L_count": 17,
+  "bezier_error_bound_source_px": 0.0,
+  "centerline_deviation_max_source_px": 2.2258,
+  "centerline_deviation_mean_source_px": 0.4625,
+  "control_point_count": 332,
+  "correction3_refined_path_count": 7,
+  "correction3_refined_path_indices": [
+    13,
+    23,
+    29,
+    48,
+    51,
+    52,
+    59
+  ],
+  "curve_mode": "curvature-aware-source-guided",
+  "endpoint_node_count": 43,
+  "junction_node_count": 121,
+  "path_count": 66,
+  "segment_count": 183,
+  "source_height": 724,
+  "source_path_count": 66,
+  "source_width": 724
+}

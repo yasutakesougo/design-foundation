@@ -1,0 +1,24 @@
+{
+  "revision": "midpoint",
+  "roles": {
+    "person-thinking.svg": {
+      "a": 1.300273,
+      "b": 1.29921,
+      "rel_diff": 0.000818,
+      "pass": true
+    },
+    "person-looking.svg": {
+      "a": 1.29986,
+      "b": 1.300343,
+      "rel_diff": 0.000372,
+      "pass": true
+    },
+    "person-note-taking.svg": {
+      "a": 1.200849,
+      "b": 1.199894,
+      "rel_diff": 0.000796,
+      "pass": true
+    }
+  },
+  "overall_pass": true
+}

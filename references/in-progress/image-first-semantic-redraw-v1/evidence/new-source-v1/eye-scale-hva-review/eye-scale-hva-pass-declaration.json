@@ -1,0 +1,39 @@
+{
+  "schema": "IMAGE-FIRST-SEMANTIC-REDRAW-V1/eye-scale-hva-pass/v1",
+  "hva_pass": "DECLARED / CONSUMED",
+  "candidate_commit": "0362b1720649288db8bb4072bb9fefdba48e5363",
+  "evidence_commit": "f0ed28024b8a08512e45dc1dcc2ceefbe1740ad5",
+  "declaration_record_commit_parent": "869e8d8445e084bcadb3743f1eb19a35317805e7",
+  "scales": {
+    "THINK": 1.3,
+    "LOOK": 1.3,
+    "WRITE": 1.2
+  },
+  "remaining_gates": {
+    "mid_vs_old_160_pullback": "PASS",
+    "think_pre_mid_diff_512": "PASS",
+    "svg_source_of_truth_note": "PASS"
+  },
+  "active_materialize_merge": "ACTIVE pin CONSUMED; ACTIVE pin Merge / Promotion HOLD",
+  "candidate_sha256": {
+    "THINK": "01f5d64396eb7c9569ad430f1b4ed0a96d03b0a428bf0531535e93bd2f3ad8cc",
+    "LOOK": "a96844e2bdf822a6e6b257c6c19b2424d7a55a92f8482d3902b32e87e4685e96",
+    "WRITE": "12fd790ec61f76e53811656a744f34522dff28515bc93648a6115bc60c1d86c7"
+  },
+  "hva_authority_candidate_commit": "0362b1720649288db8bb4072bb9fefdba48e5363",
+  "hva_record_commit": "b75f096ef1a6a293a7f315db25029f583c6eb2bf",
+  "candidate_svg_identities": "UNCHANGED vs HVA authority 0362b17",
+  "authorized_by_this_gate": "HVA PASS determination only",
+  "next_gate": "Human Merge / Promotion GO for ACTIVE pin PR",
+  "active_adoption": "GO / CONSUMED",
+  "active_svg_authority": "assets/accepted/new-source-v1/person-*.svg",
+  "active_pin_pointer": "assets/accepted/new-source-v1/active-authority.json",
+  "accepted_svg_materialization": "COMPLETE / CONSUMED (assets/accepted/new-source-v1)",
+  "merge_promotion": "HOLD",
+  "deploy_print_publish": "HOLD",
+  "materialization_authority": "0362b1720649288db8bb4072bb9fefdba48e5363",
+  "materialized_commit": "4c2ed6f37961c9b2b23dc61f9c103e7902988512",
+  "active_archive_source_mutation": "NONE",
+  "historical_accepted_114_mutation": "HOLD / NOT MUTATED",
+  "candidate_svg_mutation": "HOLD / NOT MUTATED"
+}

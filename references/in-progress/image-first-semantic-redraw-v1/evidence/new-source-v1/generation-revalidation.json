@@ -1,0 +1,170 @@
+{
+  "acceptance": {
+    "accepted_svg_materialization": "HOLD / NOT AUTHORIZED",
+    "historical_hva_inherited": false,
+    "historical_svg_sha_inherited": false,
+    "human_visual_acceptance": "NOT STARTED",
+    "new_outputs_status": "CANDIDATE ONLY"
+  },
+  "authority": {
+    "backend_technical_authority": "33b1de0949cfe434e6ee8d3424a5b0ba068aedd5",
+    "definition_issue": 121,
+    "implementation_base": "9c89366cb13d0643567308c962fbacce9967031f",
+    "implementation_base_note": "backend technical authority plus reviewed archive-only merge; not treated as historical Fresh Review authority",
+    "implementation_issue": 128,
+    "main_retained_ref": "1abc391be2f526065b7e537901772481fe0595a2",
+    "new_source_archival_authority": "ACTIVE",
+    "vectorizer_blob_sha1": "43aadc02c72356af4e526713e85799e44e230f95"
+  },
+  "generation": {
+    "cross_runtime_byte_determinism": "NOT PROVEN",
+    "parameters": {
+      "bezier_error": 1.35,
+      "curve_mode": "curvature-aware-source-guided",
+      "dark_threshold": 180,
+      "dominance": 18,
+      "epsilon": 1.35,
+      "linear_short": 12.0,
+      "mask_mode": "auto",
+      "min_green": 70,
+      "min_path": 4.0,
+      "smooth_passes": 2,
+      "smooth_weight": 0.18,
+      "spline_tension": 0.7,
+      "stroke_width": 8,
+      "viewBox": "0 0 512 512"
+    },
+    "runs": {
+      "LOOK": {
+        "actual_backend": "SOURCE-GUIDED",
+        "fallback_allowed": false,
+        "fallback_used": false,
+        "metrics": {
+          "C_count": 163,
+          "L_count": 4,
+          "bezier_error_bound_source_px": 0.0,
+          "centerline_deviation_max_source_px": 2.8293,
+          "centerline_deviation_mean_source_px": 0.474,
+          "control_point_count": 326,
+          "correction3_refined_path_count": 6,
+          "correction3_refined_path_indices": [1, 5, 12, 21, 28, 33],
+          "curve_mode": "curvature-aware-source-guided",
+          "endpoint_node_count": 46,
+          "junction_node_count": 49,
+          "path_count": 43,
+          "segment_count": 167,
+          "source_height": 724,
+          "source_path_count": 43,
+          "source_width": 724
+        },
+        "metrics_byte_identical_5_of_5": true,
+        "metrics_sha256": "38d9cc9549e1a2bb9c8ad18ebd1279d99817fc0c965dfa11d33a62aa4e36029d",
+        "panel_sha256": "1b304876815aa091ac5063bbd1693621fc53bab7643463d5f4b89aa314098cea",
+        "primary_failure_reason": null,
+        "same_runtime_repeat_count": 5,
+        "selected_backend": "SOURCE-GUIDED",
+        "svg_byte_identical_5_of_5": true,
+        "svg_sha256": "e3e68536b2122dbe35f18d15a93ad46f2c45150969ebca6a4d6522b0a5f7a5bb",
+        "validator": "PASS",
+        "validator_errors": []
+      },
+      "THINK": {
+        "actual_backend": "SOURCE-GUIDED",
+        "fallback_allowed": false,
+        "fallback_used": false,
+        "metrics": {
+          "C_count": 166,
+          "L_count": 17,
+          "bezier_error_bound_source_px": 0.0,
+          "centerline_deviation_max_source_px": 2.2258,
+          "centerline_deviation_mean_source_px": 0.4625,
+          "control_point_count": 332,
+          "correction3_refined_path_count": 7,
+          "correction3_refined_path_indices": [13, 23, 29, 48, 51, 52, 59],
+          "curve_mode": "curvature-aware-source-guided",
+          "endpoint_node_count": 43,
+          "junction_node_count": 121,
+          "path_count": 66,
+          "segment_count": 183,
+          "source_height": 724,
+          "source_path_count": 66,
+          "source_width": 724
+        },
+        "metrics_byte_identical_5_of_5": true,
+        "metrics_sha256": "adcb9e9e66c05bc011501c29aaf685dd71bdc7f2ff13c3d6f07146afcf76123f",
+        "panel_sha256": "4feaf887cc138ff69e7063de26e64de81cce906505063e6772f3c6c17af41782",
+        "primary_failure_reason": null,
+        "same_runtime_repeat_count": 5,
+        "selected_backend": "SOURCE-GUIDED",
+        "svg_byte_identical_5_of_5": true,
+        "svg_sha256": "01b5efbcdf7c4ba723074d87ed6ac9a15918f1ed9663c0774c88cec30d5f3de7",
+        "validator": "PASS",
+        "validator_errors": []
+      },
+      "WRITE": {
+        "actual_backend": "SOURCE-GUIDED",
+        "fallback_allowed": false,
+        "fallback_used": false,
+        "metrics": {
+          "C_count": 245,
+          "L_count": 8,
+          "bezier_error_bound_source_px": 0.0,
+          "centerline_deviation_max_source_px": 2.2107,
+          "centerline_deviation_mean_source_px": 0.4553,
+          "control_point_count": 490,
+          "correction3_refined_path_count": 6,
+          "correction3_refined_path_indices": [4, 6, 8, 9, 48, 56],
+          "curve_mode": "curvature-aware-source-guided",
+          "endpoint_node_count": 43,
+          "junction_node_count": 109,
+          "path_count": 66,
+          "segment_count": 253,
+          "source_height": 724,
+          "source_path_count": 66,
+          "source_width": 724
+        },
+        "metrics_byte_identical_5_of_5": true,
+        "metrics_sha256": "ae9351530b15c154555fccb2cc0bcbe3ed0702b695f5233a24cc46e82a298801",
+        "panel_sha256": "70b8b3a71526e81bf3d5202d848bfd1ff9832942ed03fc96eead6cfc54cc557c",
+        "primary_failure_reason": null,
+        "same_runtime_repeat_count": 5,
+        "selected_backend": "SOURCE-GUIDED",
+        "svg_byte_identical_5_of_5": true,
+        "svg_sha256": "1a14ae867e2861f4684b85456f282246a68520c2c4834479cfdfe8cbe49e4e0c",
+        "validator": "PASS",
+        "validator_errors": []
+      }
+    },
+    "runtime": {
+      "Pillow": "12.3.0",
+      "inkscape": "Inkscape 1.4 (e7c3feb100, 2024-10-09)",
+      "numpy": "2.3.5",
+      "platform": "Linux x86_64",
+      "platform_full": "Linux-6.18.35-x86_64-with-glibc2.41",
+      "python": "3.13.5",
+      "scikit-image": "0.26.0"
+    }
+  },
+  "schema": "IMAGE-FIRST-SEMANTIC-REDRAW-V1/new-source-generation-revalidation/v1",
+  "source": {
+    "archival_path": "references/in-progress/image-first-semantic-redraw-v1/archive/new-source-v1/source/redraw-sheet-think-look-write.png",
+    "byte_length": 1019570,
+    "dimensions": [2172, 724],
+    "format": "PNG",
+    "git_blob_sha1": "c823556c5b4d6a8ce19ccf9c42c2c8480c2b24ad",
+    "identity_match_to_ACTIVE_archive": true,
+    "mode": "RGB",
+    "sha256": "e6ffa84ca72eb3ed3d6f27a69a53dcf4f4049a56cbc428b5a05b9d4afb5e7fcd"
+  },
+  "splitter": {
+    "authority_blob_sha1": "3f9ecdd9f2dcdc6ced24db5eea6170d666b1dbeb",
+    "bounds": [0, 724, 1448, 2172],
+    "order": ["THINK", "LOOK", "WRITE"],
+    "panel_hashes": {
+      "LOOK": "1b304876815aa091ac5063bbd1693621fc53bab7643463d5f4b89aa314098cea",
+      "THINK": "4feaf887cc138ff69e7063de26e64de81cce906505063e6772f3c6c17af41782",
+      "WRITE": "70b8b3a71526e81bf3d5202d848bfd1ff9832942ed03fc96eead6cfc54cc557c"
+    },
+    "rgb_conversion_before_crop": true
+  }
+}
