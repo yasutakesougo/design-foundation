@@ -9,7 +9,7 @@
     "Historical accepted (#114) mutation": "HOLD / NOT MUTATED",
     "candidate SVG mutation": "HOLD / NOT MUTATED",
     "Merge / Promotion": "GO / CONSUMED / COMPLETE",
-    "Deploy / Print / Publish": "HOLD",
+    "Deploy / Print / Publish": "GO / CONSUMED",
     "ACTIVE archive source PNG mutation": "NONE",
     "Human Merge / Promotion GO": "GO / CONSUMED / COMPLETE",
     "merge_pr": "#143",
@@ -22,9 +22,12 @@
     "promotion_base": "main",
     "promotion_pattern": "ADD-only retained-ref style (analog #127); not full stacked-base merge",
     "merge_pr_main": "#144",
-    "main_merge_commit": "e821b68f558bf471977647ade55606289fd94a98"
+    "main_merge_commit": "e821b68f558bf471977647ade55606289fd94a98",
+    "Human Deploy / Print / Publish GO": "GO / CONSUMED",
+    "HITOKOTO / consumer switching": "NOT AUTHORIZED / PRESERVE",
+    "main_promotion_pr": "#144"
   },
-  "note": "Points assets/accepted/new-source-v1/person-*.svg as the ACTIVE SVG authority for this lane. Does not mutate historical #114 root accepted identities, candidate SVGs, ACTIVE archive source PNG, or authorize merge/deploy.",
+  "note": "ACTIVE IMAGE-FIRST new-source-v1 SVGs on main are authorized for print/publish use under Human Deploy / Print / Publish GO. Does not switch HITOKOTO examples, UI/poster consumers, mutate candidates, #114 root, or archive PNG.",
   "active_assets": {
     "THINK": {
       "path": "assets/accepted/new-source-v1/person-thinking.svg",
@@ -45,5 +48,5 @@
   "byte_identical_to_hva_authority_0362b17": true,
   "materialization_provenance": "assets/accepted/new-source-v1/provenance.json",
   "historical_assets_accepted_root": "NOT MUTATED / separate from #114 locked identities",
-  "next_gate": "Deploy / Print / Publish — HOLD unless separately authorized"
+  "next_gate": "HITOKOTO / consumer switching — NOT AUTHORIZED unless separately defined and approved"
 }
