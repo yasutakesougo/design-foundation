@@ -1,5 +1,9 @@
 # Visual Review（ドラフト）
 
+- Evidence role: **HISTORICAL REVIEW EVIDENCE / NOT CURRENT-STATE AUTHORITY**
+- Current state authority: `README.md`
+- Human Gate note: 下記の `PR #7 Human Ready: GO` は当時のreview textであり、単独の明示Human GO evidenceとしてcurrent stateを確定しない
+
 判定: PASS WITH CORRECTION（Human Visual Acceptance前）
 
 PR #7 Human Ready: GO。チラシの Human Visual Acceptance とは別ゲート。Scope Review PASS 後に GO する。
