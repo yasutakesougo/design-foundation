@@ -70,6 +70,59 @@ AIの返答を手書き化したり、書体だけで強いキャラクターを
 
 補足情報を極端に小さくして情報量を押し込めません。
 
+## AI・エージェント生成時の組版契約
+
+AIやエージェントへ文字組みを指示するときは、`premium` や `friendly` のような雰囲気語だけに任せず、必要に応じて次を明示します。
+
+- 文字の役割。
+- font familyまたはfallback class。
+- weight。
+- 相対的なサイズと階層。
+- tracking / letter spacing。
+- leading / line-height。
+- alignment。
+- 最大行数や折り返し条件。
+- 参照画像やフォントサンプルを使う場合の役割。
+- 禁止する置換や装飾方向。
+
+これらは生成意図とレビュー基準を定めるものであり、特定書体の完全再現を保証するものではありません。
+
+正確な書体を利用できない場合は、同一書体であると推定せず、利用不可または代替を明示してレビュー対象にします。
+
+### 日本語とLatinのspacingを分ける
+
+強いnegative trackingを全体の既定値にしません。
+
+Latinのdisplay typographyで成立するspacing例を、そのまま日本語の既定値にしません。
+
+日本語では文字の分離と可読性を優先し、行数を合わせるためだけに文字間を圧縮しません。
+
+日本語とLatinが混在する場合は、文字種と役割ごとにtrackingを確認します。
+
+非常に詰めたleadingを全体の既定値にしません。
+
+本文、説明、注意書き、CTA、安全情報では、コンパクトさより可読性を優先します。
+
+日本語とLatinが混在する場合は、文字種、役割、サイズに応じてleadingを確認します。
+
+### 生成用Referenceの境界
+
+フォントサンプル、参考画像、その他の生成入力は、生成用Referenceとして利用できます。
+
+ただし、生成用Referenceは次を意味しません。
+
+```text
+generation reference
+!= repository font authority
+!= runtime dependency
+!= license authority
+!= accepted output
+```
+
+Referenceに近い外観が得られても、それだけで正確な書体identityを証明したことにはなりません。
+
+生成Prompt、provider固有のrecipe、案件固有の要求がこのFoundationの役割・可読性ルールと衝突する場合は、このFoundationを優先します。
+
 ## 文体との整合
 
 短い見出しと短い段落を優先します。
