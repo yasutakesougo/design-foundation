@@ -12,6 +12,12 @@
 - `accepted/`: Human Visual Acceptance後に、今後の比較対象として残す参照を置きます。
 - `rejected/`: 採用しなかった事例と、その理由を残します。
 
+## Delegated execution candidate
+
+委任実行の候補契約は `in-progress/delegated-execution-v2/` にあります。
+
+このパスは in-progress candidate であり、accepted authority ではありません。
+
 ## 外部参考を使うとき
 
 外部参考は、作品全体をそのまま再現するために使いません。
