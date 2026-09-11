@@ -14,12 +14,16 @@ Issue Definition
 → Human Gate comment
 → implementation PR
 → exact HEAD
-→ CI / review evidence
+→ applicable CI status / conclusion and review evidence
 → merge state
 → next unconsumed gate
 ```
 
 各段階は、存在が確認できた証拠だけを採用します。
+
+applicable CIが存在する場合は、対象SHA、status、conclusionを同じ証拠列で確認します。
+
+applicable CIが存在しない状態は、CI PASSとは表現しません。
 
 ## 再構成する状態
 
@@ -32,9 +36,10 @@ Issue Definition
 5. implementation PRとexact HEAD
 6. merge / draft / open state
 7. applicable canonical contracts
-8. unresolved findings
-9. evidence gaps
-10. permitted next action
+8. applicable CIの対象SHA・status・conclusion（存在する場合）
+9. unresolved findings
+10. evidence gaps
+11. permitted next action
 
 ## Authority order
 
@@ -77,6 +82,8 @@ PRに新しいcommitがある場合、以前のreview PASSは新HEADへ自動継
 
 exact HEADに対する証拠かを確認します。
 
+applicable CIについても、別SHAのstatusやconclusionをcurrent validationとして扱いません。
+
 ## Live stateの境界
 
 repository readbackだけで次を断定しません。
@@ -107,9 +114,12 @@ repository readbackだけで次を断定しません。
 - stale HEADをcurrent扱いする。
 - UNKNOWNをPASS扱いする。
 - reference candidateをaccepted authority扱いする。
+- applicable CIの存在だけを成功したvalidationとして扱う。
+- pending、failed、cancelled等のnon-successful CIをPASS扱いする。
+- applicable CIが存在しない状態をCI PASSと表現する。
 - live runtime stateをrepository evidenceだけで断定する。
 - next unconsumed gateを飛ばす。
 
 ## Completion criteria
 
-Readbackは、再構成した各状態に確認可能なEvidence Chainがあり、未確認項目がUNKNOWNとして明示され、次の許可操作がHuman Gateを迂回していないときに完了します。
+Readbackは、再構成した各状態に確認可能なEvidence Chainがあり、applicable CIが存在する場合は対象SHA・status・conclusionが明示され、未確認項目がUNKNOWNとして示され、次の許可操作がHuman Gateを迂回していないときに完了します。
