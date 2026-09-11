@@ -4,6 +4,8 @@
 
 ```text
 Human ACTIVE Pin GO = GO / CONSUMED
+PR = #143
+Authorized HEAD = 9271cb3d09f719c3529eef5eaacd6f4cef2860fa
 authority (HVA) = 0362b1720649288db8bb4072bb9fefdba48e5363
 materialized commit = 4c2ed6f37961c9b2b23dc61f9c103e7902988512
 ACTIVE SVG authority = assets/accepted/new-source-v1/person-*.svg
