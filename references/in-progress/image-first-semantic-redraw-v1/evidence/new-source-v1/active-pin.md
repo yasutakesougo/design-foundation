@@ -5,7 +5,8 @@
 ```text
 Human ACTIVE Pin GO = GO / CONSUMED
 PR = #143
-Authorized HEAD = 9271cb3d09f719c3529eef5eaacd6f4cef2860fa
+Authorized pin-content HEAD = 9271cb3d09f719c3529eef5eaacd6f4cef2860fa
+Current PR tip (pre-this-commit) = 87becc7b96f399e913fa0a6c711c4b6f49fc1883
 authority (HVA) = 0362b1720649288db8bb4072bb9fefdba48e5363
 materialized commit = 4c2ed6f37961c9b2b23dc61f9c103e7902988512
 ACTIVE SVG authority = assets/accepted/new-source-v1/person-*.svg
@@ -39,6 +40,17 @@ candidate SVG mutation              = HOLD / NOT MUTATED
 ACTIVE archive source PNG mutation  = NONE
 Merge / Promotion                   = HOLD
 Deploy / Print / Publish            = HOLD
+```
+
+## Readback
+
+```text
+PR #143 = OPEN / Draft
+base = work/image-first-new-source-generation-revalidation-v1
+diff = pointer + evidence only (no SVG/PNG byte mutations)
+accepted SVG SHA-256 = MATCH @ 0362b17 (3/3)
+ACTIVE archive PNG blob vs main = MATCH
+historical assets/accepted/person-*.svg = ABSENT (not mutated)
 ```
 
 ## Next
