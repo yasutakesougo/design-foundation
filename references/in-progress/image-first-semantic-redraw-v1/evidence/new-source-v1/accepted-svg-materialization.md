@@ -38,6 +38,16 @@ WRITE = 12fd790ec61f76e53811656a744f34522dff28515bc93648a6115bc60c1d86c7
 ```text
 - Does NOT mutate ACTIVE archive source PNG
 - Does NOT overwrite references/.../assets/accepted/person-*.svg (#114 historical identities)
-- Does NOT merge / promote / deploy
+- Does NOT mutate candidate SVGs
+- Does NOT merge / promote / deploy (ACTIVE pin Merge remains HOLD)
 - Materialization path is namespaced under assets/accepted/new-source-v1/
+```
+
+## ACTIVE pin (subsequent gate)
+
+```text
+Human ACTIVE Pin GO = GO / CONSUMED
+ACTIVE SVG authority = assets/accepted/new-source-v1/person-*.svg
+pointer = assets/accepted/new-source-v1/active-authority.json
+See evidence/new-source-v1/active-pin.md
 ```

@@ -9,6 +9,12 @@
   "accepted_svg_materialization": "COMPLETE / CONSUMED (assets/accepted/new-source-v1)",
   "merge_promotion": "HOLD",
   "active_source_mutation": "NONE",
+  "human_active_pin_go": "GO / CONSUMED",
+  "active_svg_authority": "assets/accepted/new-source-v1/person-*.svg",
+  "active_pin_pointer": "assets/accepted/new-source-v1/active-authority.json",
+  "materialized_commit": "4c2ed6f37961c9b2b23dc61f9c103e7902988512",
+  "historical_accepted_114_mutation": "HOLD / NOT MUTATED",
+  "candidate_svg_mutation": "HOLD / NOT MUTATED",
   "roles": {
     "THINK": {
       "file": "candidates/new-source-v1/person-thinking.svg",
@@ -44,8 +50,8 @@
     "WRITE": "1.20x pre"
   },
   "hva_authority": "0362b1720649288db8bb4072bb9fefdba48e5363",
-  "next_gate": "Merge / Promotion or ACTIVE pin \u2014 separate explicit Human approval",
-  "active_adoption": "HOLD",
+  "next_gate": "Human Merge / Promotion GO for ACTIVE pin PR",
+  "active_adoption": "GO / CONSUMED",
   "materialization_authority": "0362b1720649288db8bb4072bb9fefdba48e5363",
   "active_archive_source_mutation": "NONE"
 }
