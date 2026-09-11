@@ -7,8 +7,9 @@ Repository = amirmushichge/brand-system-skill
 Pinned source commit = 30f6084ddf6adf4173cf882fce266015f8872c17
 Source author = Amir Mushich
 Source license = CC-BY-4.0
-Source version = 0.2.0-alpha
-Local status = EXTERNAL REFERENCE / EXTRACTION SOURCE
+Source Skill version = 0.2.0-alpha
+Optimized-for context = Lovart Agent Thinking Mode
+Local status = EXTERNAL REFERENCE / NOT RUNTIME AUTHORITY
 Runtime authority = NONE
 ```
 
@@ -24,7 +25,7 @@ This file is reference evidence only.
 
 It does not create Foundation, Pattern, Prompt, Skill, Accepted, runtime, Deploy, Print, Publish, or Promotion authority.
 
-## Borrow
+## Borrow / Extract
 
 The following ideas are useful as candidate process concepts when adapted to existing `design-foundation` authority:
 
