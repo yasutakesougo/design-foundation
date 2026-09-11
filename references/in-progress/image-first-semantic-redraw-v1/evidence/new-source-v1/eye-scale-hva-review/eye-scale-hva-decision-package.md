@@ -44,12 +44,12 @@ ACTIVE SVG authority                   = assets/accepted/new-source-v1/person-*.
 Historical accepted (#114) mutation    = HOLD / NOT MUTATED
 candidate SVG mutation                 = HOLD / NOT MUTATED
 Eye-scale stacked Merge (#142)         = GO / CONSUMED / COMPLETE @ 6c0070f
-ACTIVE pin Merge / Promotion           = HOLD
+ACTIVE pin Merge / Promotion           = GO / CONSUMED (PR #143)
 Deploy / Print / Publish               = HOLD
 Agent visual substitution for HVA      = PROHIBITED
 
-Next = Human Merge / Promotion GO for ACTIVE pin PR
-  — remain HOLD until separately authorized
+Human Merge / Promotion GO for ACTIVE pin PR #143 = GO / CONSUMED
+Next = Deploy / Print / Publish — remain HOLD unless separately authorized
 ```
 
 ## Prior Over-emphasis HOLD (cleared on mid)

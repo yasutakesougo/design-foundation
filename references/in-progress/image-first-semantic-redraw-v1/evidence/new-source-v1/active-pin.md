@@ -6,7 +6,7 @@
 Human ACTIVE Pin GO = GO / CONSUMED
 PR = #143
 Authorized pin-content HEAD = 9271cb3d09f719c3529eef5eaacd6f4cef2860fa
-Current PR tip (pre-this-commit) = 87becc7b96f399e913fa0a6c711c4b6f49fc1883
+Current PR tip = 3692b43be638ac243a2d8c5a6d04b6017cc88510
 authority (HVA) = 0362b1720649288db8bb4072bb9fefdba48e5363
 materialized commit = 4c2ed6f37961c9b2b23dc61f9c103e7902988512
 ACTIVE SVG authority = assets/accepted/new-source-v1/person-*.svg
@@ -32,13 +32,13 @@ LOOK  = a96844e2bdf822a6e6b257c6c19b2424d7a55a92f8482d3902b32e87e4685e96
 WRITE = 12fd790ec61f76e53811656a744f34522dff28515bc93648a6115bc60c1d86c7
 ```
 
-## Scope boundary (this GO only)
+## Scope boundary
 
 ```text
 Historical accepted (#114) mutation = HOLD / NOT MUTATED
 candidate SVG mutation              = HOLD / NOT MUTATED
 ACTIVE archive source PNG mutation  = NONE
-Merge / Promotion                   = HOLD
+Human Merge / Promotion GO          = GO / CONSUMED
 Deploy / Print / Publish            = HOLD
 ```
 
@@ -53,9 +53,13 @@ ACTIVE archive PNG blob vs main = MATCH
 historical assets/accepted/person-*.svg = ABSENT (not mutated)
 ```
 
-## Next
+## Merge / Promotion
 
 ```text
-After ACTIVE pin readback PASS → Human Merge / Promotion GO
-(for this ACTIVE pin PR into the stacked base) — separate explicit approval
+Human Merge / Promotion GO = GO / CONSUMED
+PR = #143
+Authorized PR head = 3692b43be638ac243a2d8c5a6d04b6017cc88510
+Merge target / base = work/image-first-new-source-generation-revalidation-v1
+Deploy / Print / Publish = HOLD
+main / default-branch promotion = NOT IMPLIED
 ```

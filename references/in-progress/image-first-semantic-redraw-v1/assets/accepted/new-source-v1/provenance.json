@@ -14,8 +14,9 @@
     "ACTIVE archive source mutation": "NONE",
     "Historical accepted (#114) mutation": "HOLD / NOT MUTATED",
     "candidate SVG mutation": "HOLD / NOT MUTATED",
-    "Merge / Promotion": "HOLD",
-    "Deploy / Print / Publish": "HOLD"
+    "Merge / Promotion": "GO / CONSUMED",
+    "Deploy / Print / Publish": "HOLD",
+    "Human Merge / Promotion GO": "GO / CONSUMED"
   },
   "note": "Materializes HVA-passed mid-point new-source SVG identities into a separate accepted asset path and pins that path as ACTIVE SVG authority. Does not mutate ACTIVE archive source PNG, does not overwrite historical assets/accepted root identities from Definition #114, does not mutate candidates, and does not merge/promote/deploy.",
   "scales": {
