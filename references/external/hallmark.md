@@ -3,6 +3,7 @@
 ## Reference
 
 - Repository: `Nutlope/hallmark`
+- URL: https://github.com/Nutlope/hallmark
 - Reviewed commit: `13ac0ec7e148655948100b6396439e481361d690`
 - Reviewed date: `2026-09-08`
 - License: MIT

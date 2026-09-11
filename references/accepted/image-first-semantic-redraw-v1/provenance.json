@@ -9,8 +9,8 @@
     "HVA record": "b75f096ef1a6a293a7f315db25029f583c6eb2bf",
     "HVA consumed record": "bffdfa92dabba5011e4d0d5d0cb4eed4c9583f07",
     "Human ACTIVE Pin GO": "GO / CONSUMED",
-    "ACTIVE SVG authority": "assets/accepted/new-source-v1/person-*.svg",
-    "ACTIVE pin pointer": "assets/accepted/new-source-v1/active-authority.json",
+    "ACTIVE SVG authority": "assets/new-source-v1/person-*.svg",
+    "ACTIVE pin pointer": "active-authority.json",
     "ACTIVE archive source mutation": "NONE",
     "Historical accepted (#114) mutation": "HOLD / NOT MUTATED",
     "candidate SVG mutation": "HOLD / NOT MUTATED",
@@ -32,21 +32,21 @@
   "backend": "SOURCE-GUIDED",
   "assets": {
     "THINK": {
-      "path": "assets/accepted/new-source-v1/person-thinking.svg",
+      "path": "assets/new-source-v1/person-thinking.svg",
       "source_candidate_path": "candidates/new-source-v1/person-thinking.svg",
       "sha256": "01f5d64396eb7c9569ad430f1b4ed0a96d03b0a428bf0531535e93bd2f3ad8cc",
       "bytes": 9699,
       "byte_identical_to_candidate_at_0362b17": true
     },
     "LOOK": {
-      "path": "assets/accepted/new-source-v1/person-looking.svg",
+      "path": "assets/new-source-v1/person-looking.svg",
       "source_candidate_path": "candidates/new-source-v1/person-looking.svg",
       "sha256": "a96844e2bdf822a6e6b257c6c19b2424d7a55a92f8482d3902b32e87e4685e96",
       "bytes": 8593,
       "byte_identical_to_candidate_at_0362b17": true
     },
     "WRITE": {
-      "path": "assets/accepted/new-source-v1/person-note-taking.svg",
+      "path": "assets/new-source-v1/person-note-taking.svg",
       "source_candidate_path": "candidates/new-source-v1/person-note-taking.svg",
       "sha256": "12fd790ec61f76e53811656a744f34522dff28515bc93648a6115bc60c1d86c7",
       "bytes": 12836,

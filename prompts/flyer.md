@@ -31,4 +31,6 @@ Design DNAはこのRepositoryのFoundationを上書きしません。
 
 最後にvisual-review.mdとaccessibility.mdを使って確認してください。
 Human Visual Acceptanceの前に自動で最終採用を決めないでください。
+Human Visual Acceptance後も印刷・公開へ直行しないでください。
+出力時はroot `README.md` の基本フローと `review/output-preflight.md` に接続し、Output Route Selection → Preflight → Human Output GO → Print / Publish の順を守ってください。
 ```

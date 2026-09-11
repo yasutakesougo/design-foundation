@@ -9,15 +9,20 @@ source stacked tip = e5bec30094aa5c3123315496ce9ef7d97ea8c355
 promotion base = main
 ```
 
-## Promoted ACTIVE SVG authority (ADD-only)
+## Current canonical ACTIVE SVG authority
+
+After `DESIGN-FOUNDATION-CONSISTENCY-CORRECTION-V1`, current authority resolves only to:
 
 ```text
-assets/accepted/new-source-v1/person-thinking.svg
-assets/accepted/new-source-v1/person-looking.svg
-assets/accepted/new-source-v1/person-note-taking.svg
-assets/accepted/new-source-v1/active-authority.json
-assets/accepted/new-source-v1/provenance.json
+references/accepted/image-first-semantic-redraw-v1/assets/new-source-v1/person-thinking.svg
+references/accepted/image-first-semantic-redraw-v1/assets/new-source-v1/person-looking.svg
+references/accepted/image-first-semantic-redraw-v1/assets/new-source-v1/person-note-taking.svg
+references/accepted/image-first-semantic-redraw-v1/active-authority.json
+references/accepted/image-first-semantic-redraw-v1/provenance.json
 ```
+
+Historical promotion location at PR #144 was under `references/in-progress/image-first-semantic-redraw-v1/assets/accepted/new-source-v1/`.
+That historical path is not current authority.
 
 ## Identities (must match HVA PASS @ 0362b17)
 

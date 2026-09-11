@@ -84,7 +84,16 @@ Correction
 ↓
 Human Visual Acceptance
 ↓
-Print / Post（運用上の開始条件を満たしてから）
+Canonical Output Flow（root README.md の「基本フロー」）
+↓
+Output Route Selection
+↓
+review/output-preflight.md
+↓
+Human Output GO
+↓
+Print / Publish（運用上の開始条件を満たしてから）
 ```
 
-本印刷・正式掲示の可否はデザイン採否と別に判断します。
+本印刷・正式掲示は、Human Visual Acceptanceだけでは許可されません。
+出力時はroot `README.md` と `review/output-preflight.md` を正本として参照します。

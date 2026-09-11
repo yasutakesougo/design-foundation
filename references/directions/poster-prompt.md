@@ -33,5 +33,6 @@ QRコードの周囲に十分な余白を確保してください。
 
 最後にvisual-review.mdとaccessibility.mdを使って確認してください。
 Human Visual Acceptanceの前に自動で最終採用を決めないでください。
-本印刷・正式掲示の可否は、デザイン案の完成とは別に確認してください。
+Human Visual Acceptance後も本印刷・正式掲示へ直行しないでください。
+出力時はroot README.mdの基本フローとreview/output-preflight.mdに接続し、Output Route Selection → Preflight → Human Output GO → Print / Publish の順を守ってください。
 ```
