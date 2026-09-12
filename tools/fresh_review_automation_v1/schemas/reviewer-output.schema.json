@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/fresh-review-automation-v1/reviewer-output.schema.json",
+  "title": "FRESH-REVIEW-AUTOMATION-V1 Reviewer Output",
+  "type": "object",
+  "required": [
+    "ReviewId", "PacketSHA256", "ReviewedArtifactIdentity", "ReviewedBaselineOrHEAD",
+    "ObservedAmbientContext", "EvidenceUsed", "Findings", "P0", "P1", "P2",
+    "UnsupportedOrUnverifiedItems", "Verdict", "Contamination",
+    "ExcludedItemIntentionallyRetrieved", "ExcludedItemObserved", "MutationAttempted",
+    "HumanGateInferredOrConsumed"
+  ],
+  "properties": {
+    "ReviewId": {"type": "string"},
+    "PacketSHA256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "ReviewedArtifactIdentity": {"type": "string"},
+    "ReviewedBaselineOrHEAD": {"type": "string"},
+    "ObservedAmbientContext": {},
+    "EvidenceUsed": {"type": "array"},
+    "Findings": {"type": "array"},
+    "P0": {"type": "integer", "minimum": 0},
+    "P1": {"type": "integer", "minimum": 0},
+    "P2": {"type": "integer", "minimum": 0},
+    "UnsupportedOrUnverifiedItems": {"type": "array"},
+    "Verdict": {"enum": ["PASS", "CORRECTION", "HOLD", "FAIL"]},
+    "Contamination": {"enum": ["NONE", "POSSIBLE", "PRESENT", "UNKNOWN"]},
+    "ExcludedItemIntentionallyRetrieved": {"enum": ["YES", "NO", "UNKNOWN"]},
+    "ExcludedItemObserved": {"enum": ["YES", "NO", "UNKNOWN"]},
+    "MutationAttempted": {"enum": ["YES", "NO"]},
+    "HumanGateInferredOrConsumed": {"enum": ["YES", "NO"]}
+  }
+}

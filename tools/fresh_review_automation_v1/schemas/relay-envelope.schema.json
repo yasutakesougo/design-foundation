@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/fresh-review-automation-v1/relay-envelope.schema.json",
+  "title": "FRESH-REVIEW-AUTOMATION-V1 Relay Envelope",
+  "type": "object",
+  "required": [
+    "ReviewId", "PacketSHA256", "ReviewerOutputSHA256", "TargetEvidenceLocation",
+    "ReviewedBaselineOrHEAD", "ReviewerOutputEncoding", "ReviewerOutputBytes",
+    "RelayCreatedAt", "RelayMutationAuthority"
+  ],
+  "properties": {
+    "ReviewId": {"type": "string"},
+    "PacketSHA256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "ReviewerOutputSHA256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "TargetEvidenceLocation": {"type": "string"},
+    "ReviewedBaselineOrHEAD": {"type": "string"},
+    "ReviewerOutputEncoding": {"const": "base64"},
+    "ReviewerOutputBytes": {"type": "string", "contentEncoding": "base64"},
+    "RelayCreatedAt": {"type": "string"},
+    "RelayMutationAuthority": {"const": "NONE"}
+  }
+}
