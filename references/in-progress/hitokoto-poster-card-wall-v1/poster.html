@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日常を、言葉に。｜CARD-WALL-V1 V3</title>
+<style>
+:root{
+  --green:#164a42;
+  --green-soft:#5e8c78;
+  --ink:#203a34;
+  --muted:#566b64;
+  --bg:#f6f2e8;
+  --paper:#fffdf7;
+  --mint:#ddeee4;
+  --cream:#f4ebdd;
+  --yellow:#f2c94c;
+  --peach:#d7a38c;
+  --line:rgba(22,74,66,.18);
+  --skin:#f1d2b6;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#e9eeeb;color:var(--ink);font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif}
+.review-banner{width:210mm;margin:10px auto;padding:9px 13px;background:#fff;border:1px solid #d7dfdb;color:var(--muted);font-size:11px;line-height:1.5}
+.review-banner strong{color:var(--green)}
+.sheet{width:210mm;height:297mm;margin:0 auto 24px;background:var(--paper);box-shadow:0 14px 42px rgba(27,47,40,.14);overflow:hidden}
+.poster{position:relative;width:100%;height:100%;overflow:hidden;padding:12mm 13mm 9mm;background:linear-gradient(180deg,#fffdf8 0%,#f8f4ea 100%)}
+.poster:before{content:"";position:absolute;z-index:0;width:66mm;height:32mm;right:-18mm;top:23mm;border-radius:55% 45% 50% 50%;background:rgba(221,238,228,.72);transform:rotate(-7deg)}
+.poster:after{content:"";position:absolute;z-index:0;width:54mm;height:24mm;left:-17mm;bottom:48mm;border-radius:48% 52% 45% 55%;background:rgba(242,201,76,.16);transform:rotate(8deg)}
+.content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column}
+.kicker{margin:0 0 3mm;color:var(--green);font-size:10.5px;font-weight:800;letter-spacing:.08em}
+.hero{position:relative;padding-right:32mm}
+h1{margin:0;color:var(--green);font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;font-size:49px;line-height:1.03;font-weight:900;letter-spacing:.01em}
+.mark{position:relative;display:inline-block;z-index:0}
+.mark:after{content:"";position:absolute;z-index:-1;left:-1mm;right:-3mm;bottom:1.2mm;height:4mm;border-radius:5mm;background:rgba(242,201,76,.9);transform:rotate(-1.2deg)}
+.lead{margin:4mm 0 0 2mm;color:var(--ink);font-size:18px;line-height:1.35;font-weight:800}
+.explain{max-width:145mm;margin:4mm 0 0 2mm;color:var(--muted);font-size:11.6px;line-height:1.75}
+.scribble{position:absolute;right:3mm;top:3mm;width:23mm;height:14mm;border-top:1.3mm solid rgba(22,74,66,.3);border-radius:50%;transform:rotate(-9deg)}
+.scribble:after{content:"";position:absolute;right:1mm;top:5mm;width:13mm;border-top:1mm solid rgba(242,201,76,.76);transform:rotate(18deg)}
+.examples{position:relative;margin-top:7mm;min-height:91mm;padding:2mm 2mm 0}
+.examples-label{margin:0 0 3mm 2mm;color:var(--green-soft);font-size:10.5px;font-weight:800;letter-spacing:.06em}
+.note{position:relative;width:83%;min-height:23mm;padding:7mm 9mm 5mm;background:var(--paper);border:.2mm solid rgba(22,74,66,.08);box-shadow:0 1.8mm 4mm rgba(35,60,52,.11)}
+.note p{margin:0;color:var(--ink);font-size:15.3px;line-height:1.5;font-weight:700;word-break:keep-all}
+.note:before{content:"";position:absolute;top:-2mm;width:18mm;height:4mm;opacity:.8}
+.note.one{margin-left:5mm;background:#fff8eb;transform:rotate(-1.8deg)}
+.note.one:before{left:22mm;background:var(--peach);transform:rotate(5deg)}
+.note.two{margin:-1mm 0 0 25mm;background:#eef7f3;transform:rotate(1.4deg)}
+.note.two:before{right:20mm;background:#a7cdbd;transform:rotate(-4deg)}
+.note.three{margin:-1mm 0 0 10mm;background:#fffdf5;transform:rotate(-.8deg)}
+.note.three:before{left:48%;background:rgba(242,201,76,.95);transform:translateX(-50%) rotate(3deg)}
+.action{position:relative;margin:7mm 1mm 0;padding:5mm 5mm 4.5mm;border-top:.3mm solid var(--line);border-bottom:.3mm solid var(--line);background:linear-gradient(90deg,rgba(255,251,236,.96),rgba(221,238,228,.7));border-radius:4mm 8mm 5mm 7mm}
+.action-title{margin:0 0 3mm;color:var(--green);font-size:22px;font-weight:900;line-height:1.2}
+.action-title span{position:relative;display:inline-block;z-index:0}
+.action-title span:after{content:"";position:absolute;z-index:-1;left:-1mm;right:-2mm;bottom:-.4mm;height:2.6mm;border-radius:3mm;background:rgba(242,201,76,.9);transform:rotate(-1deg)}
+.action-grid{display:grid;grid-template-columns:minmax(0,1fr) 48mm 39mm;gap:6mm;align-items:center}
+.action-copy{min-width:0;padding-left:1mm}
+.flow{margin:0;color:var(--ink);font-size:14.1px;font-weight:800;line-height:1.45}
+.micro{margin:2.2mm 0 0;color:var(--muted);font-size:11.1px;line-height:1.65}
+.qr-wrap{display:flex;align-items:center;justify-content:center;width:48mm;height:48mm;padding:3.5mm;background:#fff;box-shadow:0 1.2mm 3mm rgba(35,60,52,.12);transform:rotate(.5deg)}
+.qr-wrap img{display:block;width:41mm;height:41mm;image-rendering:auto}
+.scene{width:39mm;align-self:end;color:var(--green)}
+.scene svg{display:block;width:100%;height:auto;overflow:visible}
+.footer{margin-top:auto;padding:4mm 5mm 3.5mm;background:rgba(221,238,228,.68);border-radius:5mm;color:#3d514a;font-size:9.8px;line-height:1.55}
+.footer p{margin:0 0 1mm}
+.footer .reassurance{color:var(--ink);font-weight:800}
+.footer-bottom{display:flex;justify-content:space-between;gap:5mm;align-items:flex-end;margin-top:1.5mm}
+.footer .closing{color:var(--green);font-size:11px;font-weight:900}
+.footer .department{color:var(--green);font-size:10px;font-weight:800;white-space:nowrap}
+@media print{
+  body{background:#fff}
+  .review-banner{display:none}
+  .sheet{margin:0;box-shadow:none}
+  @page{size:A4;margin:0}
+}
+</style>
+</head>
+<body>
+<p class="review-banner"><strong>CARD-WALL-V1 V3 implementation candidate。</strong> Human Implementation Start GO後のGitHub production candidateです。Human Visual Acceptance / Print / Post / Real Trialは未承認です。</p>
+<main class="sheet" aria-label="日常を、言葉に。 CARD-WALL-V1 V3">
+<section class="poster">
+<div class="content">
+<p class="kicker">広報部会（仮）の小さな試行</p>
+<header class="hero">
+  <h1><span class="mark">日常を、言葉に。</span></h1>
+  <p class="lead">気になったことを、ひとことだけ。</p>
+  <p class="explain">そのときは流れてしまう小さな気づきを、いったん置いておく場所です。</p>
+  <div class="scribble" aria-hidden="true"></div>
+</header>
+
+<section class="examples" aria-label="書いてよいひとことの例">
+  <p class="examples-label">こんなひとこと</p>
+  <article class="note one"><p>今日は、いつもの声かけに<br>少し間があった</p></article>
+  <article class="note two"><p>言葉はなかったけど、<br>何度もこちらを見ていた</p></article>
+  <article class="note three"><p>声をかける順番を変えたら、<br>少し表情が違った</p></article>
+</section>
+
+<section class="action" aria-label="ひとことを書く入口">
+  <h2 class="action-title"><span>QRからどうぞ</span></h2>
+  <div class="action-grid">
+    <div class="action-copy">
+      <p class="flow">ひとことを書く →<br>ひとこと返しを見る</p>
+      <p class="micro">30秒くらい。<br>文章にしなくても大丈夫です。</p>
+    </div>
+    <div class="qr-wrap">
+      <img src="../hitokoto-poster-v3/assets/qr.png" alt="ひとことの固定入口QRコード">
+    </div>
+    <div class="scene" aria-hidden="true">
+      <svg viewBox="0 0 150 180">
+        <path d="M52 36c2-18 30-23 41-8 5 7 5 16 1 24H56c-4-4-6-10-4-16z" fill="#355b51" stroke="#164a42" stroke-width="2"/>
+        <circle cx="75" cy="52" r="19" fill="#f1d2b6" stroke="#164a42" stroke-width="2"/>
+        <circle cx="69" cy="52" r="1.8" fill="#164a42"/>
+        <circle cx="82" cy="51" r="1.8" fill="#164a42"/>
+        <path d="M72 61c3 1.7 6 1.7 9 0" fill="none" stroke="#164a42" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M45 84c7-14 18-21 31-21 16 0 29 10 34 28l7 54H35z" fill="#cfe4da" stroke="#164a42" stroke-width="2"/>
+        <path d="M48 91c-10 7-18 17-23 30l10 5c6-10 13-17 22-22z" fill="#f1d2b6" stroke="#164a42" stroke-width="2"/>
+        <path d="M100 91c10 3 18 10 24 20l-8 8c-7-7-14-11-23-13z" fill="#f1d2b6" stroke="#164a42" stroke-width="2"/>
+        <rect x="88" y="104" width="35" height="27" rx="2" fill="#fffdf7" stroke="#164a42" stroke-width="1.8" transform="rotate(6 105 117)"/>
+        <path d="M94 111h22m-22 6h18m-18 6h14" fill="none" stroke="#164a42" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M55 145l-6 27m46-27 7 27" fill="none" stroke="#164a42" stroke-width="2" stroke-linecap="round"/>
+        <path d="M19 84c8-7 16-10 25-11" fill="none" stroke="#f2c94c" stroke-width="4" stroke-linecap="round" opacity=".72"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p class="reassurance">書いたひとことが、そのまま広報に使われることはありません。</p>
+  <p>必要なものだけ、広報部会で少し先を考えます。</p>
+  <p>氏名など、個人がわかる情報は書かないでください。<br>事故・虐待・苦情・職場の相談などは、いつもの相談・報告ルートへ。</p>
+  <div class="footer-bottom">
+    <span class="closing">思いついたときだけでOK。</span>
+    <span class="department">広報部会（仮）</span>
+  </div>
+</footer>
+</div>
+</section>
+</main>
+</body>
+</html>
