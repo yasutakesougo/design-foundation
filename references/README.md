@@ -8,9 +8,11 @@
 
 - `external/`: 外部サイト、デザインシステム、記事、事例などの参照記録を置きます。
 - `directions/`: 案件や制作物の方向性候補を置きます。
-- `in-progress/`: Human Visual Acceptance前の制作物や検討中の参照を置きます。
+- `in-progress/`: Human Visual Acceptance前の制作物に加え、評価中・運用Evidence収集中の未昇格candidateを置きます。visual / non-visualの双方を含み得ます。
 - `accepted/`: Human Visual Acceptance後に、今後の比較対象として残す参照を置きます。
 - `rejected/`: 採用しなかった事例と、その理由を残します。
+
+`in-progress/` のlocator indexは [`in-progress/README.md`](in-progress/README.md) です。これはdiscoverability用の入口であり、current lifecycle stateやHuman Gate、Review verdict、exact HEAD、merge eligibility、Deploy / Print / Publish、Promotionのauthorityではありません。現在地はcanonical Issue / PR / exact evidenceから確認します。
 
 ## Delegated execution candidate
 
