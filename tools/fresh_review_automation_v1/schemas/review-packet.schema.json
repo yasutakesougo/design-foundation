@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/fresh-review-automation-v1/review-packet.schema.json",
+  "title": "FRESH-REVIEW-AUTOMATION-V1 Review Packet",
+  "type": "object",
+  "required": [
+    "ReviewId", "Workstream", "LifecycleIssue", "ReviewType", "ReviewedRepository",
+    "ReviewedArtifactIdentity", "ReviewedBaselineOrHEAD", "DefinitionIdentity",
+    "LockedScopeIdentity", "AcceptanceCriteriaIdentity", "AllowedInputs", "ExcludedInputs",
+    "DeclaredAmbientContext", "ExpectedFindingsVisibility", "MutationAuthority",
+    "CreatedFromReadback", "IdempotencyKey", "PacketSHA256"
+  ],
+  "properties": {
+    "ReviewId": {"type": "string", "minLength": 1},
+    "Workstream": {"type": "string", "minLength": 1},
+    "LifecycleIssue": {"type": ["string", "integer"]},
+    "ReviewType": {"type": "string", "minLength": 1},
+    "ReviewedRepository": {"const": "yasutakesougo/design-foundation"},
+    "ReviewedArtifactIdentity": {"type": "string", "minLength": 1},
+    "ReviewedBaselineOrHEAD": {"type": "string", "minLength": 1},
+    "DefinitionIdentity": {"type": "string", "minLength": 1},
+    "LockedScopeIdentity": {"type": "string", "minLength": 1},
+    "AcceptanceCriteriaIdentity": {"type": "string", "minLength": 1},
+    "AllowedInputs": {"type": "array"},
+    "ExcludedInputs": {"type": "array"},
+    "DeclaredAmbientContext": {},
+    "ExpectedFindingsVisibility": {"const": "HIDDEN"},
+    "MutationAuthority": {"const": "NONE"},
+    "CreatedFromReadback": {"type": "object"},
+    "IdempotencyKey": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "PacketSHA256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}
