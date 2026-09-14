@@ -7,18 +7,14 @@
 ## Status
 
 ```text
-Authority class                 = references/in-progress/ candidate
-Workstream                      = PERSONAL-DECISION-PRINCIPLES-V1
-Lifecycle-Issue                 = #262
-Human Definition Lock           = CLAIMED in #262 / GitHub HUMAN-GATE comment NOT reconstructed here
-Independent Definition Review   = SEPARATED
-Human Implementation Start      = GO / CONSUMED (this Implementation)
-Human Ready                     = HOLD
-Human Merge                     = HOLD
-Runtime activation              = HOLD
-Always Loaded integration       = OUT of this V1
-Promotion                       = HOLD
-Accepted authority              = NO
+Authority class                         = references/in-progress/ candidate
+Workstream                              = PERSONAL-DECISION-PRINCIPLES-V1
+Lifecycle authority / Human Gate evidence = Issue #262 / PR #263
+Correction lifecycle                    = Issue #265
+Runtime activation                      = NOT IMPLIED by repository presence
+Always Loaded integration               = OUT of this V1
+Promotion                               = NOT IMPLIED by merge
+Accepted authority                      = NO
 ```
 
 このパスは accepted authority ではありません。
