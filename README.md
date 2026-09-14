@@ -13,7 +13,7 @@
 - `review/`: Human Reviewと出力前確認を補助する確認基準。
 - `references/`: 外部参照や制作結果から、再利用できる判断を抽出して記録する場所。
 
-方向性案は `references/directions/`、Human Visual Acceptance前のドラフトは `references/in-progress/` に置きます。
+方向性案は `references/directions/` に置きます。`references/in-progress/` はHuman Visual Acceptance前のドラフトに加え、評価中・運用Evidence収集中の未昇格candidateを置く領域で、visual / non-visualの双方を含み得ます。
 
 外部参考を使う場合は `references/reference-intake-template.md` で、再利用する原則とコピーしない固有表現を分離します。
 
@@ -38,9 +38,12 @@ Agent Operating Foundationのaccepted authorityは `references/accepted/agent-op
 - レビュー基準を確認する: [`review/`](review/)
 - 公開・印刷前の確認をする: [`review/output-preflight.md`](review/output-preflight.md)
 - Accepted Referenceを探す: [`references/accepted/README.md`](references/accepted/README.md)
+- In-Progress candidateを探す: [`references/in-progress/README.md`](references/in-progress/README.md)
 - Reference領域の役割を確認する: [`references/README.md`](references/README.md)
 
 この一覧は入口であり、各項目の意味や状態はリンク先の正本と明示されたevidenceで確認します。
+
+In-Progressへの配置や一覧掲載を、current lifecycle state、Human Gate、Review PASS、runtime activation、Ready / Merge eligibility、Promotionへ読み替えません。
 
 Acceptedであることをruntime activationや現在のworkstream stateへ読み替えません。
 
