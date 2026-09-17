@@ -11,10 +11,13 @@ Authority class                          = references/in-progress/ candidate
 Workstream                               = DESIGN-SYSTEMS-FOUNDATION-CANDIDATE-V1
 Lifecycle authority / Human Gate evidence = Issue #268
 Implementation Baseline                  = main @ 09b3190adc46504f831443c2533ce8f096668cea
-Repository Mutation                      = controlled implementation (S1–S13) only
-Merge                                    = NOT AUTHORIZED
-Foundation Promotion                     = NOT AUTHORIZED
-Human Ready                              = NOT CONSUMED
+Implementation PR                        = #273
+Merge Commit                             = aa4befeff8d8a810705209687fdf1ced08a7234a
+Merge                                    = MERGED
+Human Ready                              = GO / CONSUMED
+Merge GO                                 = GO / CONSUMED
+Foundation Promotion                     = NOT AUTHORIZED / NOT CONSUMED
+Candidate Location                       = references/in-progress/ (PRESERVED)
 Accepted authority                       = NO
 ```
 
