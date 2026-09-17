@@ -18,6 +18,12 @@
 
 このパスは in-progress candidate であり、accepted authority ではありません。
 
+## Design Systems Foundation candidate
+
+Design Systems Foundationの候補原則は `in-progress/design-systems-foundation-candidate-v1/` にあります。
+
+このパスは in-progress candidate であり、accepted authority ではありません。
+
 ## 外部参考を使うとき
 
 外部参考は、作品全体をそのまま再現するために使いません。
