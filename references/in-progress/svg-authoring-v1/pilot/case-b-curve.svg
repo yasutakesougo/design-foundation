@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300">
+  <style>
+    .p{fill:none;stroke:#222;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+    .t{font:22px sans-serif;fill:#222}
+    .s{font:16px sans-serif;fill:#555}
+    .a{fill:#ddd}
+  </style>
+  <text class="t" x="85" y="30">BEFORE</text>
+  <text class="t" x="380" y="30">NAIVE</text>
+  <text class="t" x="690" y="30">SKILL</text>
+
+  <g transform="translate(20,50)">
+    <path class="p" d="M25 180 C70 70 115 70 150 135 C172 105 195 95 245 80"/>
+    <circle class="a" cx="150" cy="135" r="5"/>
+    <text class="s" x="45" y="225">visible tangent handoff</text>
+  </g>
+
+  <g transform="translate(315,50)">
+    <path class="p" d="M25 180 C85 45 180 45 245 80"/>
+    <text class="s" x="20" y="225">smooth but over-regularized</text>
+  </g>
+
+  <g transform="translate(620,50)">
+    <path class="p" d="M25 180 C70 70 118 72 150 135 C162 159 198 96 245 80"/>
+    <circle class="a" cx="150" cy="135" r="5"/>
+    <text class="s" x="30" y="225">join adjusted, endpoints kept</text>
+  </g>
+</svg>

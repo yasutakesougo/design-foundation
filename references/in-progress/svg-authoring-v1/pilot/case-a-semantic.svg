@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300">
+  <style>
+    .p{fill:none;stroke:#222;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+    .t{font:22px sans-serif;fill:#222}
+    .s{font:16px sans-serif;fill:#555}
+  </style>
+  <text class="t" x="85" y="30">BEFORE</text>
+  <text class="t" x="380" y="30">NAIVE</text>
+  <text class="t" x="690" y="30">SKILL</text>
+
+  <g transform="translate(20,40)">
+    <circle class="p" cx="95" cy="55" r="30"/>
+    <path class="p" d="M95 88 L95 175 M95 115 L165 145"/>
+    <rect class="p" x="145" y="165" width="105" height="62" rx="4"/>
+    <path class="p" d="M165 145 L205 138"/>
+    <path class="p" d="M195 125 L225 125"/>
+    <text class="s" x="35" y="250">pen floats above paper</text>
+  </g>
+
+  <g transform="translate(315,40)">
+    <circle class="p" cx="105" cy="55" r="30"/>
+    <path class="p" d="M105 88 L105 175 M105 115 L180 160"/>
+    <rect class="p" x="165" y="185" width="105" height="55" rx="4"/>
+    <path class="p" d="M180 160 L220 185"/>
+    <path class="p" d="M210 175 L245 195"/>
+    <text class="s" x="20" y="250">meaning improves, silhouette drifts</text>
+  </g>
+
+  <g transform="translate(620,40)">
+    <circle class="p" cx="95" cy="55" r="30"/>
+    <path class="p" d="M95 88 L95 175 M95 115 L165 145"/>
+    <rect class="p" x="145" y="165" width="105" height="62" rx="4"/>
+    <path class="p" d="M165 145 L205 162"/>
+    <path class="p" d="M202 160 L232 176"/>
+    <text class="s" x="22" y="250">only hand + pen relation changes</text>
+  </g>
+</svg>
